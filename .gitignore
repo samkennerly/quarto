@@ -1,17 +1,9 @@
-# Variable data
-/var/
-!/var/cake.txt
-
 # Apple debris
 .DS_Store*
 .Spotlight-*
 .Trashes
 .fseventsd
 Thumbs.db
-
-# Jupyter secrets
-.ipynb_checkpoints/
-jupyter_notebook_config.*
 
 # Python caches
 *.egg
@@ -23,6 +15,3 @@ jupyter_notebook_config.*
 .tox/
 .venv/
 __pycache__/
-
-# Sublime Text history
-*.sublime-workspace
