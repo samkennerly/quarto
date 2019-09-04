@@ -22,7 +22,7 @@ kw = {
     "long_description": read("README.md"),
     "long_description_content_type": "text/markdown",
     "name": "quarto",
-    "package_data": {"": ["ready/*.html","ready/*.json","style.css"]},
+    "package_data": {"": ["ready/*.html","ready/*.json","style/*.css"]},
     "package_dir": {"": ""},
     "packages": find_packages(),
     "python_requires": ">=3, <4",
