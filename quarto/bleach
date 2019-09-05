@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+find -L 'output' -name '*.html' -exec \
+  tidy -config tidy/options.txt -modify \
+  '{}' \;

@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+tidy -config tidy/options.txt \
+  --markup no \
+  --show-info no \
+  --show-warnings yes \
+  "$@"
