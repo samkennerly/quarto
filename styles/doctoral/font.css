@@ -1,0 +1,19 @@
+/* font */
+a {
+  text-decoration: none;
+}
+body {
+  font: 400 medium/1.2 "Helvetica Neue", Helvetica, sans-serif;
+}
+main blockquote {
+  font: 400 100%/1.1 "Times", serif;
+}
+main code, main kbd, main samp, main pre, main var {
+  font: 400 90%/1 "Courier New", monospace;
+}
+nav #home {
+  font-size: 1.5em;
+}
+#outro, #updog {
+  font-size: 69%;
+}

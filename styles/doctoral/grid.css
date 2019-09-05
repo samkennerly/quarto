@@ -1,0 +1,28 @@
+/* grid */
+body {
+  grid-column-gap: 1vw;
+  grid-row-gap: 0;
+  grid-template-areas:
+    'nav linkbox'
+    'nav main'
+    'nav outro'
+    'nav updog';
+  grid-template-columns: 20vw 75vw;
+  grid-template-rows: auto 1fr auto auto;
+  height: 98vh;
+}
+main {
+  grid-area: main;
+}
+nav {
+  grid-area: nav;
+}
+#linkbox {
+  grid-area: linkbox;
+}
+#outro {
+  grid-area: outro;
+}
+#updog {
+  grid-area: updog;
+}

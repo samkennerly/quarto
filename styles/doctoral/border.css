@@ -1,0 +1,29 @@
+/* border */
+:root {
+  --radius: .25rem;
+}
+main blockquote, main pre, main table {
+  border: thin inset;
+  border-radius: var(--radius);
+}
+main h2 {
+  border-bottom: thin groove;
+}
+nav {
+  border-radius: var(--radius);
+}
+nav summary {
+  border: thin solid;
+  border-radius: var(--radius);
+}
+#linkbox {
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+#linkbox img {
+  border: 2px solid;
+  border-radius: var(--radius);
+}
+#updog {
+  border: thin solid;
+  border-radius: 0 0 var(--radius) var(--radius);
+}

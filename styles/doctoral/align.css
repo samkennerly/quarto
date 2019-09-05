@@ -1,0 +1,25 @@
+/* align */
+body {
+  text-align: center;
+}
+main {
+  text-align: left;
+}
+main h1 {
+  text-align: center;
+}
+nav {
+  text-align: left;
+}
+nav #home {
+  text-align: center;
+}
+#linkbox {
+  text-align: center;
+}
+#linkbox img {
+  vertical-align: middle;
+}
+#outro {
+  text-align: center;
+}

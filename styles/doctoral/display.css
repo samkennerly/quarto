@@ -1,0 +1,12 @@
+/* display */
+body {
+  display: grid;
+}
+main cite {
+  display: block;
+}
+nav a,
+nav details,
+nav summary {
+  display: block;
+}

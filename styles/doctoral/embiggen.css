@@ -1,0 +1,58 @@
+/* embiggen */
+:root {
+  --marge: 1em 0 .5em 0;
+  --padme: .25em .75em;
+  --puffy: .5rem 1rem;
+}
+main {
+  padding: var(--puffy);
+}
+main blockquote, main pre {
+  margin: var(--marge);
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em;
+}
+main cite {
+  margin: .5em 0 0 0;
+}
+main table {
+  margin: var(--marge);
+  max-width: 100%;
+  overflow: auto;
+  padding: 0;
+}
+main table td {
+  padding: var(--padme);
+}
+main h1 {
+  margin: .5rem 0 1rem 0;
+}
+main h2, main h3, main h4, main h5, main h6 {
+  margin: var(--marge);
+}
+nav, nav a, nav summary {
+  padding: var(--padme);
+}
+nav details {
+  margin: .25rem 0;
+}
+nav details > details, nav summary ~ a {
+  margin-left: 1em;
+}
+#linkbox {
+  padding: var(--puffy);
+}
+#linkbox a {
+  margin: 0 .5rem;
+}
+#linkbox img {
+  height: 1em;
+  width: 2em;
+}
+#outro {
+  padding: var(--puffy);
+}
+#updog {
+  padding: var(--puffy);
+}
