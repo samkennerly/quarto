@@ -1,0 +1,46 @@
+{
+  "author": "Sam Kennerly",
+  "baseurl": "https://samkennerly.github.io/quarto",
+  "copyright": "Sam Kennerly",
+  "description": "Build static websites with Python and Tidy.",
+  "email": "samkennerly@gmail.com",
+  "favicon": "favicon.png",
+  "generator": "https://github.com/samkennerly/quarto",
+  "homename": "quarto",
+  "iconlinks":
+  [
+    [
+      "Applish",
+      "icons/applish.svg",
+      "#"
+    ],
+    [
+      "Bloglike",
+      "icons/bloglike.svg",
+      "#"
+    ],
+        [
+      "Cinematic",
+      "icons/cinematic.svg",
+      "#"
+    ],
+    [
+      "Doctoral",
+      "icons/doctoral.svg",
+      "#"
+    ],
+    [
+      "GitHub",
+      "icons/github.svg",
+      "https://github.com/samkennerly/quarto"
+    ],
+  ],
+  "keywords": "html,css,static website,python,tidy",
+  "license":
+  {
+    "text": "CC-BY-4.0 International",
+    "url": "https://creativecommons.org/licenses/by/4.0"
+  },
+  "title": "Quarto builds static websites.",
+  "updog": "⇪"
+}
