@@ -1,18 +1,11 @@
 ASAP:
-  - clean folders. examples/ folder?
-  - scratch.py -> quarto/ folder
-  - style/ subfolders
-  - collapse <nav> into one <details> box?
-  - read pages with Tidy body-only?
-  - clear stale files from output/ folder?
-  - Quarto docstring
+  - scratch.py -> /quarto folder
+  - quarto/__main__.py or separate quarto/build scripts?
+  - black autoformat
+  - class Quarto docstring
 
 COMMANDS:
-  - quarto/build [style] [output]
-  - quarto/clean [suffix] [output]
-  - quarto/export [output] [host]
-  - tidy/assimilate [folder]
-  - tidy/decapitate [folder]
+  - quarto [ready] [style/applish] [target]
 
 README:
   - 1 download repo, 2 edit files, 3 build site
@@ -23,8 +16,15 @@ STYLES:
   - cinematic: (purple,silver) nav / main / linkbox / outro
   - doctoral: (green,black) nav linkbox / nav main / nav outro
 
+TESTING:
+  - build all pages with all 4 styles
+  - old Python versions
+  - what happens if old tidy is called?
+
 FUTURE:
-  - README
-  - black autoformat
+  - collapse <nav> into one <details> box?
+  - use Tidy to decapitate full-page inputs. subprocess.run() ?
+  - gallerize script to build image galleries?
   - nav: arrow keys, disability access OK?
   - multithreading: one page per core?
+  - non-HTML files: copy, rsync, filecmp.cmpfiles(), os.link() ?
