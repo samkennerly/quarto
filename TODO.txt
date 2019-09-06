@@ -1,10 +1,11 @@
 ASAP:
-  - does `python3 quarto` work?
-  - read params/site.json
-  - read styles/doctoral
-  - example pages and page params
+  - simplify styles/doctoral
+  - CSS: "you are here" marker
+  - does GitHub Pages work with docs/ -> target/ symlink?
+  - move favicon -> icons/ folder. does it use urlpath?
+  - clear debris from target folder
+  - rename self.htmls?
   - black autoformat
-  - class Quarto docstring
 
 HTML:
   - collapse <nav> into one <details> box?
@@ -14,14 +15,18 @@ PARAMS:
   - remove tidy.txt when agreeing with defaults
 
 QUARTO:
-  - select style when building
-  - restyle without rebuilding
-  - clean debris from [target] ?
+  - readers.py: file readers
+  - stanzas.py: line generators
+  - docstrings (class and modules)
+  - cat script: restyle without rebuilding
   - use Tidy to decapitate full-page inputs. subprocess.run() ?
+  - nav: 'expand' button. javascript?
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
 
 README:
+  - from repo: `python3 quarto` (or `python3 -m quarto`)
+  - use Docker kitchen, or install tidy?
   - 1 download repo, 2 edit files, 3 build site
 
 STYLES:
@@ -34,3 +39,4 @@ TESTING:
   - old Python versions
   - what happens if old tidy is called?
   - nav: arrow keys, disability access OK?
+
