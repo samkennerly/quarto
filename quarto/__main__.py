@@ -1,3 +1,9 @@
 from quarto import Quarto
 
-Quarto().write()
+TARGET = 'target'
+
+site = Quarto()
+print(site)
+
+print('Write to',TARGET)
+site.write(TARGET)
