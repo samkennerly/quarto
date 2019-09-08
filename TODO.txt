@@ -1,10 +1,10 @@
 ASAP:
-  - simplify styles/doctoral
+  - quarto trials after refactor
+  - __main__.py or scripts ?
   - CSS: "you are here" marker
-  - does GitHub Pages work with docs/ -> target/ symlink?
+  - simplify styles/doctoral
+  - try GitHub Pages work with docs/ -> target/ symlink
   - move favicon -> icons/ folder. does it use urlpath?
-  - clear debris from target folder
-  - rename self.htmls?
   - black autoformat
 
 HTML:
@@ -15,10 +15,7 @@ PARAMS:
   - remove tidy.txt when agreeing with defaults
 
 QUARTO:
-  - readers.py: file readers
-  - stanzas.py: line generators
   - docstrings (class and modules)
-  - cat script: restyle without rebuilding
   - use Tidy to decapitate full-page inputs. subprocess.run() ?
   - nav: 'expand' button. javascript?
   - `gallerize` builds image galleries?
