@@ -6,8 +6,8 @@
   "email": "samkennerly@gmail.com",
   "favicon": "favicon.png",
   "generator": "https://github.com/samkennerly/quarto",
-  "homename": "quarto",
-  "iconlinks":
+  "homename": "Quarto",
+  "iconbox":
   [
     [
       "Applish",
@@ -35,12 +35,9 @@
       "https://github.com/samkennerly/quarto"
     ]
   ],
-  "keywords": "html,css,static website,python,tidy",
-  "license":
-  {
-    "text": "CC-BY-4.0 International",
-    "url": "https://creativecommons.org/licenses/by/4.0"
-  },
+  "jumptext": "⇪",
+  "keywords": "html, css, static website, python, tidy",
+  "license": "Licensed under a CC-BY-4.0 International license.",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
   "title": "Quarto builds static websites.",
-  "updog": "⇪"
 }

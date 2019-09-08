@@ -1,230 +1,119 @@
-from collections.abc import Sequence
-from datetime import datetime
-from json import load as jload
-from os.path import relpath
 from pathlib import Path
-from urllib.parse import quote, urljoin
+from sys import stderr as STDERR
 
-CSSPATH = 'style.css'
+from .readers import querypage, readlines, stylesheet, tidybody
+from .stanzas import CSSPATH, icons, jump, klf, links, meta, nav
 
-def readjson(path):
-    """ dict or list: Read JSON file. """
-    with open(path,'r') as file:
-        return jload(file)
+class Quarto:
 
-def readlines(*paths):
-    """ Iterator[str]: Read lines from text file(s). """
-    for path in paths:
-        print('Read',path)
-        with open(path,'r') as file:
-            yield from file
-
-def savetext(path,text):
-    """ None: Save a string to a text file. """
-    print('Save',path)
-    with open(path,'w') as file:
-        file.write(text)
-
-class Quarto(Sequence):
-
-    def __init__(self,folder=''):
+    def __init__(self,folder='.'):
         folder = Path(folder).resolve()
-        htmls = folder.glob('ready/**/*.html')
+        pages = folder.glob('ready/**/*.html')
         home = folder/'ready/index.html'
 
-        self.defaults = readjson(home.with_suffix('.json'))
+        self.defaults = querypage(home)
         self.folder = folder
-        self.htmls = (home,*sorted( x for x in htmls if x != home ))
+        self.pages = (home,*sorted(set(paths) - {home}))
 
-    home = property(lambda self: self.htmls[0])
-
-    def __getitem__(self,i): return '\n'.join(self.page(i))
-    def __len__(self): return len(self.htmls)
+    def __call__(self,i): return self.generate(i,**self.options(i))
+    def __getitem__(self,i): return '\n'.join(self(i))
+    def __iter__(self): return map(self,range(len(self)))
+    def __len__(self): return len(self.pages)
     def __repr__(self): return f"Quarto({self.folder})"
 
-    # Writers
+    def apply(self,style='doctoral',target='target'):
+        """ None: Clean target folder. Build pages and stylesheet. """
 
-    def write(self,outdir='output'):
-        """ None: Build and save website. """
-        folder,htmls,style = self.folder, self.htmls, self.style
+        self.vacuum('.html')
+        self.build(target)
 
-        outdir = folder/outdir
-        homedir = htmls[0].parent
+        self.vacuum('.css')
+        self.catstyle(style,target)
 
-        savetext(outdir/CSSPATH,style())
-        for path,text in zip(htmls,self):
-            path = outdir/path.relative_to(homedir)
-            path.parent.mkdir(exist_ok=True,parents=True)
-            savetext(path,text)
+        print(*self.errors,file=STDERR,sep='\n')
+        print("What's done is done.")
 
-    # Readers
+    def build(self,target='target'):
+        """ None: Generate and save all pages to target folder. """
+        folder,pages,texts = self.folder, self.pages, iter(self)
 
-    def style(self,name='doctoral'):
-        """ str: Concatenated stylesheets. """
-        folder = self.folder
+        base = pages[0].parent
+        target = folder/target
 
-        style = folder/'styles'/name
-        paths = sorted(style.glob('*.css'))
-        if not paths:
-            raise FileNotFoundError('No *.css files in',style)
+        print('Build',len(pages),'pages')
+        for page,text in zip(pages,texts):
+            write(target / page.relative_to(base), text)
 
-        return ''.join(readlines(*paths))
+    def catstyle(self,style,target='target'):
+        """ None: Concatenate stylesheets and save to target folder. """
+        folder,write = self.folder, self.write
 
-    def tidy(self,cmd):
+        csspath = folder/target/CSSPATH
+        styledir = folder/'styles'/style
+
+        print('Cat CSS files in',styledir)
+        write(csspath,stylesheet(styledir))
+
+    def errors(self,target='target'):
+        """ Tuple[str]: Check output for HTML errors. """
         raise NotImplementedError
 
-    def urlpath(self,i,path):
-        """ str: URL-encoded relative path from page to local file. """
-        htmls = self.htmls
+    def generate(self,i,title='',**kwargs):
+        """ Iterator[str]: Generate lines in page. """
+        pages = self.pages
 
-        here,home = htmls[i], htmls[0]
-        heredir,homedir = here.parent, home.parent
+        page = pages[i]
 
-        return quote(relpath(homedir/path,start=heredir))
-
-    def variables(self,i):
-        """ dict: Page variables. Fill missing values with defaults. """
-        defaults,htmls = self.defaults, self.htmls
-
-        path = htmls[i].with_suffix('.json')
-        pagevars = readjson(path) if path.is_file() else dict()
-
-        return {**defaults,**pagevars}
-
-    # Generators
-
-    def body(self,i,**kwargs):
-        linkbox,main,nav,outro = self.linkbox,self.main,self.nav,self.outro
-
-        updog = kwargs.get('updog') or 'top of page'
-        yield '<body>'
-        yield from linkbox(i,**kwargs)
-        yield from main(i,**kwargs)
-        yield from nav(i,**kwargs)
-        yield from outro(i,**kwargs)
-        yield f'<a href="#" id="updog">{updog}</a>'
-        yield '</body>'
-
-    def head(self,i,**kwargs):
-        """ Iterator[str]: Lines in HTML <head> element. """
-        htmls,urlpath = self.htmls, self.urlpath
-
-        get = kwargs.get
-        here = htmls[i]
-        title = get('title',here.stem)
-        baseurl = get('baseurl')
-        favicon = get('favicon')
-        metakeys = 'author description generator keywords'.split()
-        metadata = zip(metakeys,map(get,metakeys))
-
-        link = '<link rel="{}" href="{}">'.format
-        meta = '<meta name="{}" content="{}">'.format
+        yield '<!doctype html>'
+        yield '<html>'
 
         yield '<head>'
-        yield f'<title>{title}</title>'
-        yield link('stylesheet',urlpath(i,CSSPATH))
-        if baseurl:
-            yield link('canonical',urljoin(baseurl,urlpath(0,here)))
-            yield link('home',baseurl)
-        if favicon:
-            yield link('icon',urlpath(i,favicon))
-        yield '<meta charset="utf-8">'
-        yield from ( meta(k,v) for k,v in metadata if v )
-        yield meta('viewport','width=device-width, initial-scale=1.0')
+        yield f'<title>{title or page.stem}</title>'
+        yield from links(pages,i,**kwargs)
+        yield from meta(pages,i,**kwargs)
         yield '</head>'
 
-    def linkbox(self,i,**kwargs):
-        """ Iterator[str]: Link buttons. """
-        htmls,urlpath = self.htmls, self.urlpath
-
-        iconlinks = kwargs.get('iconlinks',[ ])
-        prevpage = htmls[(i-1) % len(htmls)]
-        nextpage = htmls[(i+1) % len(htmls)]
-
-        atag = '<a href="{}">{}</a>'.format
-        itag = '<img alt="{}" src="{}" height="16" width="32">'.format
-        # Use CSS to change hard-coded default icon size
-
-        yield '<section id="linkbox">'
-        yield atag(urlpath(i,prevpage),'←prev')
-
-        for alt,src,href in iconlinks:
-            yield atag(href, itag(alt,urlpath(i,src)) if src else alt )
-
-        yield atag(urlpath(i,nextpage),'next→')
-        yield '</section>'
-
-    def main(self,i,**kwargs):
-        """ Iterator[str]: Main element. """
-        htmls = self.htmls
-
+        yield '<body>'
+        yield from nav(pages,i,**kwargs)
         yield '<main>'
-        yield from map(str.rstrip,readlines(htmls[i]))
+        yield from map(str.rstrip,readlines(page))
         yield '</main>'
+        yield from iconbox(pages,i,**kwargs)
+        yield from jump(pages,i,**kwargs)
+        yield from klf(pages,i,**kwargs)
+        yield '</body>'
 
-    def nav(self,i,**kwargs):
-        """ Iterator[str]: Navigation within site. """
-        htmls,urlpath = self.htmls, self.urlpath
-
-        get = kwargs.get
-        homename = get('homename')
-        here,home,targets = htmls[i], htmls[0], htmls[1:]
-
-        atag = '<a href="{}">{}</a>'.format
-        boxtag = '<details><summary>{}</summary>'.format
-        oboxtag = '<details open><summary>{}</summary>'.format
-
-        yield '<nav>'
-        yield f'<a href="{urlpath(i,home)}" id="home">{homename}</a>'
-
-        newdirs = frozenset(home.parents)
-        heredirs = frozenset(here.parents)
-        for t in targets:
-            boxdirs = newdirs
-            newdirs = frozenset(t.parents)
-
-            # Stop old <details> boxes and start new ones
-            yield from ( '</details>' for _ in (boxdirs - newdirs) )
-            for d in sorted(newdirs - boxdirs):
-                yield oboxtag(d.stem) if (d in heredirs) else boxtag(d.stem)
-
-            # Link to target OR mark "you are here"
-            yield atag('#' if (t == here) else urlpath(i,t), t.stem)
-
-        # Stop any leftover <details> boxes
-        yield from ( '</details>' for _ in (newdirs - set(home.parents)) )
-
-        yield '</nav>'
-
-    def outro(self,i,**kwargs):
-        """ Iterator[str]: Fine print. """
-
-        get = kwargs.get
-        now = datetime.now
-        email = get('email')
-        license = get('license')
-        copyright = get('copyright')
-
-        yield '<section id="outro">'
-        if copyright:
-            yield '<span id="copyright">'
-            yield "© {} {}.".format(copyright,now().year)
-            yield '</span>'
-        if license:
-            yield from ('<span id="license">','Licensed under a')
-            yield '<a href="{url}" rel="license">{text}</a>'.format(**license)
-            yield from ('license.','</span>')
-        if email:
-            yield from ('<address>',email,'</address>')
-        yield '</section>'
-
-    def page(self,i):
-        """ Iterator[str]: All lines in page. """
-        body,head,variables = self.body, self.head, self.variables
-
-        pagevars = variables(i)
-        yield '<!DOCTYPE html>'
-        yield '<html>'
-        yield from head(i,**pagevars)
-        yield from body(i,**pagevars)
         yield '</html>'
+
+    def options(self,i):
+        """ dict: Page options with home options as defaults. """
+        defaults,page = self.defaults, self.pages[i]
+
+        return { **defaults, **(querypage(page) or dict()) }
+
+    def vacuum(self,suffix='.html',target='target'):
+        """ None: Delete target files with selected suffix. """
+        folder = self.folder
+
+        target = folder/target
+        pattern = f'**/*.{suffix.lstrip(".")}'
+        if folder not in target.parents:
+            raise ValueError(f'{target} not in {folder}')
+
+        print('Vacuum',pattern,'files from',target)
+        for path in target.glob(pattern):
+            print('Delete',path)
+            path.unlink()
+
+    def write(self,path,text):
+        """ None: Save text to file. """
+        folder = self.folder
+
+        path = folder/path
+        if folder not in path.parents:
+            raise ValueError(f'{path} not in {folder}')
+
+        print('Save',path)
+        path.parent.mkdir(exist_ok=True,parents=True)
+        with open(path,'w') as file:
+            print(text,file=file)
