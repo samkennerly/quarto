@@ -1,4 +1,7 @@
-/* border */
+/*
+Border type, thickness, radius, etc.
+https://www.w3schools.com/css/css_border.asp
+*/
 :root {
   --radius: .25rem;
 }

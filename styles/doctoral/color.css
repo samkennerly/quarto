@@ -1,4 +1,7 @@
-/* color */
+/*
+Color coordination for all elements.
+https://www.w3schools.com/css/css_colors.asp
+*/
 :root {
   --color-achtung: #b00;
   --color-blank: #e0e0e0;

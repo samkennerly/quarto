@@ -1,4 +1,7 @@
-/* display */
+/*
+Display behavior: block, inline, none, etc.
+https://www.w3schools.com/css/css_display_visibility.asp
+*/
 body {
   display: grid;
 }

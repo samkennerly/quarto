@@ -1,8 +1,14 @@
-/* embiggen */
+/*
+Margin, padding, and size in relative units: em, rem, vh, etc.
+https://www.w3schools.com/css/css_units.asp
+*/
 :root {
   --marge: 1em 0 .5em 0;
   --padme: .25em .75em;
   --puffy: .5rem 1rem;
+}
+body {
+  height: 98vh;
 }
 main {
   padding: var(--puffy);
@@ -11,10 +17,10 @@ main blockquote, main pre {
   margin: var(--marge);
   max-width: 100%;
   overflow: auto;
-  padding: 1em;
+  padding: 1rem;
 }
 main cite {
-  margin: .5em 0 0 0;
+  margin: .5rem 0 0 0;
 }
 main table {
   margin: var(--marge);
@@ -38,7 +44,7 @@ nav details {
   margin: .25rem 0;
 }
 nav details > details, nav summary ~ a {
-  margin-left: 1em;
+  margin-left: 1rem;
 }
 #linkbox {
   padding: var(--puffy);
@@ -47,8 +53,8 @@ nav details > details, nav summary ~ a {
   margin: 0 .5rem;
 }
 #linkbox img {
-  height: 1em;
-  width: 2em;
+  height: 1rem;
+  width: 2rem;
 }
 #outro {
   padding: var(--puffy);
