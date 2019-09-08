@@ -1,0 +1,285 @@
+/*
+Alignment, text indentation, etc.
+https://www.w3schools.com/css/css_text.asp
+*/
+body {
+  text-align: center;
+}
+main {
+  text-align: left;
+}
+main h1 {
+  text-align: center;
+}
+nav {
+  text-align: left;
+}
+nav #home {
+  text-align: center;
+}
+#linkbox {
+  text-align: center;
+}
+#linkbox img {
+  vertical-align: middle;
+}
+#outro {
+  text-align: center;
+}
+/*
+Border type, thickness, radius, etc.
+https://www.w3schools.com/css/css_border.asp
+*/
+:root {
+  --radius: .25rem;
+}
+main blockquote, main pre, main table {
+  border: thin inset;
+  border-radius: var(--radius);
+}
+main h2 {
+  border-bottom: thin groove;
+}
+nav {
+  border-radius: var(--radius);
+}
+nav summary {
+  border: thin solid;
+  border-radius: var(--radius);
+}
+#linkbox {
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+#linkbox img {
+  border: 2px solid;
+  border-radius: var(--radius);
+}
+#updog {
+  border: thin solid;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+/*
+Color coordination for all elements.
+https://www.w3schools.com/css/css_colors.asp
+*/
+:root {
+  --color-achtung: #b00;
+  --color-blank: #e0e0e0;
+  --color-cool: #0cd;
+  --color-dark: #013;
+  --color-leet: #ada;
+  --color-main: #000;
+  --color-nice: #069;
+}
+body {
+  background: linear-gradient(
+    var(--color-dark),
+    var(--color-cool),
+    var(--color-main)
+    );
+  background-attachment: fixed;
+  color: var(--color-blank);
+}
+body a:link, body a:visited {
+  color: var(--color-cool);
+}
+body a:focus, body a:hover, body a:active {
+  color: var(--color-achtung);
+}
+main {
+  background-color: var(--color-blank);
+  color: var(--color-main);
+}
+main a:link, main a:visited {
+  color: var(--color-nice);
+}
+main a:focus, main a:hover, main a:active {
+  color: var(--color-achtung);
+}
+main blockquote {
+  background-color: #fff;
+  border-color: var(--color-blank);
+  color: #000;
+}
+main pre {
+  background-color: #000;
+  border-color: var(--color-blank);
+  color: var(--color-leet);
+}
+main table {
+  background-color: var(--color-leet);
+  border-color: var(--color-blank);
+  color: #000;
+}
+main table tr:nth-child(even){
+  background-color: #fff;
+}
+nav {
+  background-color: var(--color-main);
+}
+nav summary {
+  border-color: var(--color-dark);
+  border-top-color: var(--color-blank);
+}
+nav summary:focus,
+nav summary:hover {
+  background-color: var(--color-blank);
+  color: var(--color-main);
+}
+#linkbox {
+  background-color: var(--color-main);
+}
+#linkbox a img {
+  background-color: #fff;
+  border-color: var(--color-cool);
+}
+#linkbox a img:focus,
+#linkbox a img:hover,
+#linkbox a img:active {
+  border-color: var(--color-achtung);
+}
+#outro {
+  background-color: var(--color-main);
+}
+#updog {
+  border-color: var(--color-main);
+  border-top-color: var(--color-cool);
+}
+#updog:focus,
+#updog:hover,
+#updog:active {
+  background-color: var(--color-achtung);
+  color: white;
+}
+/*
+Display behavior: block, inline, none, etc.
+https://www.w3schools.com/css/css_display_visibility.asp
+*/
+body {
+  display: grid;
+}
+main cite {
+  display: block;
+}
+nav a,
+nav details,
+nav summary {
+  display: block;
+}
+/*
+Margin, padding, and size in relative units: em, rem, vh, etc.
+https://www.w3schools.com/css/css_units.asp
+*/
+:root {
+  --marge: 1em 0 .5em 0;
+  --padme: .25em .75em;
+  --puffy: .5rem 1rem;
+}
+body {
+  height: 98vh;
+}
+main {
+  padding: var(--puffy);
+}
+main blockquote, main pre {
+  margin: var(--marge);
+  max-width: 100%;
+  overflow: auto;
+  padding: 1rem;
+}
+main cite {
+  margin: .5rem 0 0 0;
+}
+main table {
+  margin: var(--marge);
+  max-width: 100%;
+  overflow: auto;
+  padding: 0;
+}
+main table td {
+  padding: var(--padme);
+}
+main h1 {
+  margin: .5rem 0 1rem 0;
+}
+main h2, main h3, main h4, main h5, main h6 {
+  margin: var(--marge);
+}
+nav, nav a, nav summary {
+  padding: var(--padme);
+}
+nav details {
+  margin: .25rem 0;
+}
+nav details > details, nav summary ~ a {
+  margin-left: 1rem;
+}
+#linkbox {
+  padding: var(--puffy);
+}
+#linkbox a {
+  margin: 0 .5rem;
+}
+#linkbox img {
+  height: 1rem;
+  width: 2rem;
+}
+#outro {
+  padding: var(--puffy);
+}
+#updog {
+  padding: var(--puffy);
+}
+/*
+Font family, size, weight, etc.
+https://www.w3schools.com/css/css_font.asp
+*/
+a {
+  text-decoration: none;
+}
+body {
+  font: 400 medium/1.2 "Helvetica Neue", Helvetica, sans-serif;
+}
+main blockquote {
+  font: 400 100%/1.1 "Times", serif;
+}
+main code, main kbd, main samp, main pre, main var {
+  font: 400 90%/1 "Courier New", monospace;
+}
+nav #home {
+  font-size: 1.5em;
+}
+#outro, #updog {
+  font-size: 69%;
+}
+/*
+Grid layout for each page.
+https://www.w3schools.com/css/css_grid.asp
+*/
+body {
+  grid-column-gap: 1vw;
+  grid-row-gap: 0;
+  grid-template-areas:
+    'nav linkbox'
+    'nav main'
+    'nav outro'
+    'nav updog';
+  grid-template-columns: 25vw 70vw;
+  grid-template-rows: auto 1fr auto auto;
+}
+main {
+  grid-area: main;
+}
+nav {
+  grid-area: nav;
+}
+#linkbox {
+  grid-area: linkbox;
+}
+#outro {
+  grid-area: outro;
+}
+#updog {
+  grid-area: updog;
+}
+
