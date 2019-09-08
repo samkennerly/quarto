@@ -7,7 +7,7 @@
   "favicon": "favicon.png",
   "generator": "https://github.com/samkennerly/quarto",
   "homename": "Quarto",
-  "iconbox":
+  "iconlinks":
   [
     [
       "Applish",
@@ -39,5 +39,5 @@
   "keywords": "html, css, static website, python, tidy",
   "license": "Licensed under a CC-BY-4.0 International license.",
   "license_url": "https://creativecommons.org/licenses/by/4.0",
-  "title": "Quarto builds static websites.",
+  "title": "Quarto builds static websites."
 }
