@@ -1,5 +1,5 @@
 FROM python:3.7.4
-LABEL description="Python development sandbox"
+LABEL description="Static website builder"
 LABEL maintainer="samkennerly@gmail.com"
 
 # Create project folder
@@ -17,13 +17,5 @@ RUN pip install --upgrade pip && \
 
 # Copy project files (use .dockerignore to exclude)
 COPY [".","."]
-
-# Use setup.py to install project packages
-#COPY ["setup.py","."]
-#RUN pip install --editable .
-
-# Find src/ code and bin/ scripts
-ENV PYTHONPATH="${WORKDIR}/src" \
-    PATH="${WORKDIR}/bin:${PATH}"
 
 CMD ["/bin/bash"]
