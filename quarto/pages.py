@@ -2,7 +2,6 @@
 Pages class.
 """
 from pathlib import Path
-from sys import stderr as STDERR
 
 from .reader import querypage, readlines, stylesheet, tidybody, urlpath
 from .stanza import CSSPATH, icons, jump, klf, links, meta, nav
@@ -49,14 +48,14 @@ class Pages:
         folder,vacuum,write = self.folder, self.vacuum, self.write
 
         target = folder/target
-        style = folder/'styles'/style
-        path = folder/target/CSSPATH
-        print(f"Cat {style}/*.css >",path)
+        source = folder/'styles'/style
+        csspath = target/CSSPATH
+        print(f"Cat styles/{style}/*.css >",csspath.relative_to(folder))
 
         vacuum('.css',target)
-        write(path,stylesheet(style))
+        write(csspath,stylesheet(source))
 
-        print(f"The style of this website is {style.name}.")
+        print(f"The style of this website is {style}.")
 
     def errors(self,target='target'):
         """ Tuple[str]: Check output for HTML errors. """
@@ -102,7 +101,7 @@ class Pages:
             raise ValueError(f'{target} not in {folder}')
 
         for path in target.glob(pattern):
-            print('Remove',path)
+            print('Delete',path)
             path.unlink()
 
     def write(self,path,text):
