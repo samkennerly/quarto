@@ -1,5 +1,5 @@
 """
-File readers and path finders.
+Functions for reading files and finding paths.
 """
 from json import load as jsonload
 from os.path import relpath
@@ -21,7 +21,7 @@ def readlines(*paths):
 
 def stylesheet(folder):
     """ str: Concatenated stylesheets from sorted CSS files in a folder. """
-    return ''.join(readlines(*sorted(Path(folder).glob('**/*.css'))))
+    return ''.join(readlines(*sorted(Path(folder).glob('*.css'))))
 
 def tidybody(page):
     """ str: Cleaned elements of page <body>. """
