@@ -1,11 +1,13 @@
 ASAP:
-  - quarto trials after refactor
-  - __main__.py or scripts ?
+  - CSS: #linkbox -> #iconbox, #outro -> #klf, #updog -> #jump
   - CSS: "you are here" marker
   - simplify styles/doctoral
-  - try GitHub Pages work with docs/ -> target/ symlink
-  - move favicon -> icons/ folder. does it use urlpath?
+  - CSSPATH should be an option?
+  - update master branch
   - black autoformat
+  - try GitHub Pages with docs/ -> target/ symlink
+  - move favicon -> icons/ folder. does it use urlpath?
+  - __main__.py or scripts ?
 
 HTML:
   - collapse <nav> into one <details> box?
@@ -15,9 +17,11 @@ PARAMS:
   - remove tidy.txt when agreeing with defaults
 
 QUARTO:
-  - docstrings (class and modules)
-  - use Tidy to decapitate full-page inputs. subprocess.run() ?
+  - Quarto docstring
+  - stanza docstrings
   - nav: 'expand' button. javascript?
+  - use Tidy to decapitate full-page inputs. subprocess.run() ?
+  - use Tidy for Quarto.errors()
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
 
