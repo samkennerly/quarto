@@ -36,10 +36,10 @@ README:
   - edit target/ to include other files
 
 STYLES:
-  - applish: (red,white) linkbox / main / nav / outro
-  - bloglike: (yellow,blue) nav nav / main linkbox / outro outro
-  - cinematic: (purple,silver) nav / main / linkbox / outro
-  - doctoral: (green,black) nav linkbox / nav main / nav outro
+  - alarming: (yellow,red,white) linkbox / main / nav / outro
+  - bloggish: (magenta,blue,dark gray) nav nav / main linkbox / outro outro
+  - cinematic: (white,silver,black) nav / main / linkbox / outro
+  - doctoral: (cyan,green,light gray) nav linkbox / nav main / nav outro
 
 TESTING:
   - old Python versions
