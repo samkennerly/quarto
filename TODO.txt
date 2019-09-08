@@ -1,34 +1,39 @@
 ASAP:
   - CSS: #linkbox -> #iconbox, #outro -> #klf, #updog -> #jump
   - CSS: "you are here" marker
-  - simplify styles/doctoral
-  - CSSPATH should be an option?
   - update master branch
-  - black autoformat
   - try GitHub Pages with docs/ -> target/ symlink
+  - black autoformat
+  - simplify styles/doctoral
   - move favicon -> icons/ folder. does it use urlpath?
-  - __main__.py or scripts ?
 
 HTML:
   - collapse <nav> into one <details> box?
-  - javascript to restyle site? separate pages?
+  - how to show 4 styles? javascript buttons? separate pages?
 
-PARAMS:
+OPTIONS:
+  - CSSPATH should be an option?
   - remove tidy.txt when agreeing with defaults
 
+PACKAGING:
+  - upload to PyPA? need to finish setup.py
+  - beware of setup.py data files
+
 QUARTO:
-  - Quarto docstring
-  - stanza docstrings
-  - nav: 'expand' button. javascript?
-  - use Tidy to decapitate full-page inputs. subprocess.run() ?
-  - use Tidy for Quarto.errors()
+  - pages: finish Pages docstring
+  - readers: tidybody() should decapitate pages
+  - pages: self.echo() logs to STDOUT and/or STDERR. verbose option?
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
 
 README:
-  - from repo: `python3 quarto` (or `python3 -m quarto`)
-  - use Docker kitchen, or install tidy?
-  - 1 download repo, 2 edit files, 3 build site
+  - no install required
+  - explain Docker kitchen, or delete it?
+  - `python3 -m quarto build` from project folder
+  - edit quarto/ to customize generation
+  - edit ready/ to customize content
+  - edit styles/ to customize styles
+  - edit target/ to include other files
 
 STYLES:
   - applish: (red,white) linkbox / main / nav / outro
