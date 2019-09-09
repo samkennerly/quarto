@@ -23,26 +23,23 @@ def icons(paths,i,iconlinks=(),**kwargs):
     atag = '<a href="{}">{}</a>'.format
     npaths = len(paths)
     prevpath = paths[(i-1) % npaths]
-    nextpath = paths[(i-1) % npaths]
+    nextpath = paths[(i+1) % npaths]
     home,here = paths[0], paths[i]
 
     yield '<section id="icons">'
-    yield atag(urlpath(here,prevpath),'←prev')
+    yield atag(urlpath(here,prevpath),'« prev')
 
     for alt,src,href in iconlinks:
         src = urlpath(here,home.parent/src)
-        alt = f'<img alt="{alt}" src="{src}" height=16 width=32>'
+        alt = f'<img alt="{alt}" src="{src}" height=32 width=32 title="{alt}">'
         yield atag(href,alt)
 
-    yield atag(urlpath(here,nextpath),'next→')
+    yield atag(urlpath(here,nextpath),'next »')
     yield '</section>'
 
 def jump(paths,i,jumptext='top of page',**kwargs):
-    """ Iterator[str]: <section id="jump"> lines. """
-
-    yield '<section id="jump">'
-    yield f'<a href="#">{jumptext}</a>'
-    yield '</section>'
+    """ Iterator[str]: Link to top of page. """
+    yield f'<a href="#" id="jump">{jumptext}</a>'
 
 def klf(paths,i,copyright='',license='',license_url='',email='',**kwargs):
     """ Iterator[str]: <section id="klf"> lines. """
@@ -51,7 +48,7 @@ def klf(paths,i,copyright='',license='',license_url='',email='',**kwargs):
 
     yield '<section id="klf">'
     if copyright:
-        yield spantag('copyright',f'© {copyright} {datetime.now().year}')
+        yield spantag('copyright',f'© {copyright} {datetime.now().year}.')
     if license_url:
         license = license or 'LICENSE'
         license = f'<a href="{license_url}" rel="license">{license}</a>'
