@@ -1,10 +1,7 @@
 ASAP:
-  - remove 'target' option. 'folder' is only input. default is '.'
-  - update master branch
   - try GitHub Pages with docs/ -> target/ symlink
   - black autoformat
-  - move favicon -> icons/ folder. does it use urlpath?
-  - is `python3 -m` necessary? try `from pages import Pages` in __main__.py
+  - more CSS files
   - test with older Python versions
 
 HTML:
