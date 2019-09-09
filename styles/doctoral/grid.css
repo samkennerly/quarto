@@ -6,10 +6,10 @@ body {
   grid-column-gap: 1vw;
   grid-row-gap: 0;
   grid-template-areas:
-    'nav linkbox'
+    'nav icons'
     'nav main'
-    'nav outro'
-    'nav updog';
+    'nav klf'
+    'nav jump';
   grid-template-columns: 25vw 70vw;
   grid-template-rows: auto 1fr auto auto;
 }
@@ -19,12 +19,12 @@ main {
 nav {
   grid-area: nav;
 }
-#linkbox {
-  grid-area: linkbox;
+#icons {
+  grid-area: icons;
 }
-#outro {
-  grid-area: outro;
+#jump {
+  grid-area: jump;
 }
-#updog {
-  grid-area: updog;
+#klf {
+  grid-area: klf;
 }

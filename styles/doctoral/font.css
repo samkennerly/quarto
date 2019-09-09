@@ -2,21 +2,43 @@
 Font family, size, weight, etc.
 https://www.w3schools.com/css/css_font.asp
 */
-a {
-  text-decoration: none;
-}
+
+/* font body */
 body {
   font: 400 medium/1.2 "Helvetica Neue", Helvetica, sans-serif;
 }
+body a {
+  text-decoration: none;
+}
+
+/* font main */
 main blockquote {
-  font: 400 100%/1.1 "Times", serif;
+  font-family: "Times", serif;
 }
 main code, main kbd, main samp, main pre, main var {
-  font: 400 90%/1 "Courier New", monospace;
+  font-family: "Courier", monospace;
+  font-size: small;
 }
+
+/* font nav */
 nav #home {
   font-size: 1.5em;
 }
-#outro, #updog {
-  font-size: 69%;
+
+/* font icons */
+#icons {
+  font-size: small;
+}
+#icons img {
+  font-size: x-small;
+}
+
+/* font jump */
+#jump {
+  font-size: x-small;
+}
+
+/* font klf */
+#klf {
+  font-size: small;
 }
