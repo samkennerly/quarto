@@ -1,11 +1,12 @@
-#!/usr/bin/env python3
-
-from sys import argv as ARGV
+"""
+Run Quarto commands with `python3 -m quarto [COMMAND]`.
+If no COMMAND is input, then show a help menu.
+"""
+import sys
 
 from quarto import CSSPATH, Pages
 
-HELP = f"""
-Quarto usage:
+HELP = f"""Quarto usage:
 
 build [TARGET]
     Delete all HTML files in TARGET folder.
@@ -18,12 +19,17 @@ catstyle STYLE [TARGET]
     Save concatenated CSS file to TARGET/{CSSPATH}.
 """
 
-script,*args = ARGV
-action,*args = args or ('help')
+script,*args = sys.argv
+command,*args = args or ['help']
+command = command.lower()
 
-if action == 'build':
+if command == 'build':
     Pages('.').build(*args)
-elif action == 'catstyle':
+elif command == 'catstyle':
     Pages('.').catstyle(*args)
-else:
+elif command == 'help':
     print(HELP)
+else:
+    print('Unknown command:',command)
+    print(HELP)
+    sys.exit(2)
