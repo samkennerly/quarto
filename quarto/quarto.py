@@ -1,12 +1,9 @@
-"""
-Pages class.
-"""
 from pathlib import Path
 
 from .reader import querypage, readlines, stylesheet, tidybody, urlpath
 from .stanza import CSSPATH, icons, jump, klf, links, meta, nav
 
-class Pages:
+class Quarto:
     """
     Find, read, and finish raw HTML files.
     """
@@ -53,7 +50,7 @@ class Pages:
         for path,text in zip(paths,self):
             write(path.relative_to(homedir),text)
 
-        print("What's done is done.")
+        print("What's done is done. Exeunt",self)
 
     def catstyle(self,style='doctoral'):
         """ None: Concatenate stylesheets and save to target folder. """
@@ -65,7 +62,7 @@ class Pages:
         vacuum('.css')
         write(CSSPATH,stylesheet(styledir))
 
-        print('The',CSSPATH,'of',folder,'is',style)
+        print('The',CSSPATH,'of',self,'is',style)
 
     def errors(self):
         """ Tuple[str]: Check output for HTML errors. """
