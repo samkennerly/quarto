@@ -1,11 +1,11 @@
 ASAP:
-  - CSS: #linkbox -> #iconbox, #outro -> #klf, #updog -> #jump
-  - CSS: "you are here" marker
+  - remove 'target' option. 'folder' is only input. default is '.'
   - update master branch
   - try GitHub Pages with docs/ -> target/ symlink
   - black autoformat
-  - simplify styles/doctoral
   - move favicon -> icons/ folder. does it use urlpath?
+  - is `python3 -m` necessary? try `from pages import Pages` in __main__.py
+  - test with older Python versions
 
 HTML:
   - collapse <nav> into one <details> box?
@@ -20,6 +20,7 @@ PACKAGING:
   - beware of setup.py data files
 
 QUARTO:
+  - hard-code target folder?
   - pages: finish Pages docstring
   - readers: tidybody() should decapitate pages
   - pages: self.echo() logs to STDOUT and/or STDERR. verbose option?
@@ -28,12 +29,12 @@ QUARTO:
 
 README:
   - no install required
-  - explain Docker kitchen, or delete it?
+  - delete Dockerfile, kitchen if you want
   - `python3 -m quarto build` from project folder
-  - edit quarto/ to customize generation
-  - edit ready/ to customize content
-  - edit styles/ to customize styles
   - edit target/ to include other files
+  - edit styles/ to customize styles
+  - edit ready/ to customize content
+  - edit quarto/ to customize generation
 
 STYLES:
   - alarming: (yellow,red,white) linkbox / main / nav / outro
@@ -42,7 +43,6 @@ STYLES:
   - doctoral: (cyan,green,light gray) nav linkbox / nav main / nav outro
 
 TESTING:
-  - old Python versions
   - what happens if old tidy is called?
   - nav: arrow keys, disability access OK?
 
