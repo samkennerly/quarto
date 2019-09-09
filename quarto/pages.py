@@ -28,36 +28,46 @@ class Pages:
     def __len__(self): return len(self.paths)
     def __repr__(self): return f"Quarto({self.folder})"
 
-    def build(self,target='target'):
+    # Safety methods
+
+    def abspath(self,*parts):
+        """ Path: Ensure path is an absolute Path object in project folder. """
+        folder = self.folder
+
+        path = folder.joinpath(*parts)
+        if folder not in path.parents:
+            raise ValueError(f"{path} is outside {folder}")
+
+        return path
+
+    # Main methods
+
+    def build(self):
         """ None: Generate and save all pages to target folder. """
-        folder,home,paths = self.folder, self.home, self.paths
-        texts,vacuum,write = iter(self), self.vacuum, self.write
+        paths,vacuum,write = self.paths, self.vacuum, self.write
 
-        homedir = home.parent
-        target = folder/target
-        print('Build',len(paths),'pages in',target)
+        homedir = paths[0].parent
+        print('Build',len(paths),'pages in',homedir)
 
-        vacuum('.html',target)
-        for path,text in zip(paths,texts):
-            write(target / path.relative_to(homedir), text)
+        vacuum('.html')
+        for path,text in zip(paths,self):
+            write(path.relative_to(homedir),text)
 
-        print("What's done is done. Exeunt, quarto.")
+        print("What's done is done.")
 
-    def catstyle(self,style,target='target'):
+    def catstyle(self,style='doctoral'):
         """ None: Concatenate stylesheets and save to target folder. """
         folder,vacuum,write = self.folder, self.vacuum, self.write
 
-        target = folder/target
-        source = folder/'styles'/style
-        csspath = target/CSSPATH
-        print(f"Cat styles/{style}/*.css >",csspath.relative_to(folder))
+        styledir = folder/'styles'/style
+        print('Concatenate styles from',styledir)
 
-        vacuum('.css',target)
-        write(csspath,stylesheet(source))
+        vacuum('.css')
+        write(CSSPATH,stylesheet(styledir))
 
-        print(f"The style of this website is {style}.")
+        print('The',CSSPATH,'of',folder,'is',style)
 
-    def errors(self,target='target'):
+    def errors(self):
         """ Tuple[str]: Check output for HTML errors. """
         raise NotImplementedError
 
@@ -91,26 +101,21 @@ class Pages:
 
         return { **defaults, **(querypage(paths[i]) or dict()) }
 
-    def vacuum(self,suffix='.html',target='target'):
+    # Dangerous methods
+
+    def vacuum(self,suffix='.html'):
         """ None: Delete all files in target folder with selected suffix. """
-        folder = self.folder
+        target = self.abspath('target')
 
-        target = folder/target
-        pattern = f'**/*.{suffix.lstrip(".")}'
-        if folder not in target.parents:
-            raise ValueError(f'{target} not in {folder}')
-
-        for path in target.glob(pattern):
-            print('Delete',path)
-            path.unlink()
+        suffix = '.' + suffix.lstrip('.')
+        for path in target.rglob('*'):
+            if path.suffix == suffix:
+                print('Delete',path)
+                path.unlink()
 
     def write(self,path,text):
-        """ None: Save text to file. """
-        folder = self.folder
-
-        path = folder/path
-        if folder not in path.parents:
-            raise ValueError(f'{path} not in {folder}')
+        """ None: Save text to file in target folder. """
+        path = self.abspath('target',path)
 
         print('Write',path)
         path.parent.mkdir(exist_ok=True,parents=True)
