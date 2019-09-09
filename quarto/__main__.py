@@ -1,35 +1,56 @@
-"""
-Run Quarto commands with `python3 -m quarto [COMMAND]`.
-If no COMMAND is input, then show a help menu.
-"""
 import sys
 
 from quarto import CSSPATH, Pages
 
-HELP = f"""Quarto usage:
+HELP = """
+Quarto builds static websites.
 
-build [TARGET]
-    Delete all HTML files in TARGET folder.
-    Read main elements from ./ready folder.
-    Build pages and save to TARGET folder.
+Commands:
 
-catstyle STYLE [TARGET]
-    Delete all CSS files in TARGET folder.
-    Concatenate all CSS files in ./styles/STYLE folder.
-    Save concatenated CSS file to TARGET/{CSSPATH}.
-"""
+    build [PROJECT]
+        1. Find raw HTML files in ./ready folder.
+        2. Delete all HTML files in ./target folder.
+        3. Rebuild new HTML files in ./target folder.
+        Input PROJECT path to use a different base folder.
 
-script,*args = sys.argv
-command,*args = args or ['help']
-command = command.lower()
+    catstyle STYLE [PROJECT]
+        1. Concatenate CSS files in ./styles/STYLE
+        2. Delete all CSS files in ./target
+        3. Rebuild new ./target/{}
+        Input PROJECT path to use a different base folder.
+
+Examples:
+
+    quarto build
+    quarto catstyle doctoral
+
+    quarto build ~/sites/kittens
+    quarto catstyle cinematic ~/sites/kittens
+""".format(CSSPATH)
+
+def build(folder='.'):
+    Pages(folder).build()
+
+def catstyle(style,folder='.'):
+    Pages(folder).catstyle(style)
+
+def fail(*args):
+    print('Then fail, Quarto!')
+    sys.exit(2)
+
+args = iter(sys.argv)
+script = next(args)
+command = next(args,'help').lower()
 
 if command == 'build':
-    Pages('.').build(*args)
+    build(*args)
 elif command == 'catstyle':
-    Pages('.').catstyle(*args)
+    catstyle(*args)
 elif command == 'help':
     print(HELP)
 else:
-    print('Unknown command:',command)
-    print(HELP)
-    sys.exit(2)
+    print('*** Unknown command:',command,*args)
+    print("Run 'quarto help' to see all commands.")
+    fail()
+
+print('Exeunt',script)
