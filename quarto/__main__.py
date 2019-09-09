@@ -1,6 +1,6 @@
 import sys
 
-from quarto import CSSPATH, Pages
+from quarto import CSSPATH, Quarto
 
 HELP = """
 Quarto builds static websites.
@@ -29,10 +29,10 @@ Examples:
 """.format(CSSPATH)
 
 def build(folder='.'):
-    Pages(folder).build()
+    Quarto(folder).build()
 
 def catstyle(style,folder='.'):
-    Pages(folder).catstyle(style)
+    Quarto(folder).catstyle(style)
 
 def fail(*args):
     print('Then fail, Quarto!')
@@ -52,5 +52,3 @@ else:
     print('*** Unknown command:',command,*args)
     print("Run 'quarto help' to see all commands.")
     fail()
-
-print('Exeunt',script)
