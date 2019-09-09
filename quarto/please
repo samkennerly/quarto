@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+# Run this script to launch quarto, or
+# customize this script to run a specific task, or
+# delete this script and type `python3 -m quarto` yourself.
+
+python3 -m quarto "$@"
