@@ -1,13 +1,13 @@
 ASAP:
-  - do relative paths need leading . ?
   - is GitHub forcing paths to lowercase?
+  - do relative paths need leading . ?
   - find static host. update index.json
-  - try capitalized paths, spaces in paths
   - more CSS files
   - remove .nojekyll?
   - test with older Python versions
 
 HTML:
+  - try paths with caps and spaces
   - collapse <nav> into one <details> box?
   - how to show 4 styles? javascript buttons? separate pages?
 
