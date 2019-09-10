@@ -13,9 +13,33 @@ OUTPUTS
 from datetime import datetime
 from urllib.parse import urljoin
 
-from .reader import urlpath
+from .reader import readlines, urlpath
 
 CSSPATH = "style.css"
+
+
+def generate(paths, i, title="", **kwargs):
+    """ Iterator[str]: Generate lines in page. """
+
+    path = paths[i]
+    main = map(str.rstrip, readlines(path))
+    title = str(title or page.stem)
+
+    yield "<!doctype html>"
+    yield "<html>"
+    yield "<head>"
+    yield from ("<title>", title, "</title>")
+    yield from links(paths, i, **kwargs)
+    yield from meta(paths, i, **kwargs)
+    yield "</head>"
+    yield "<body>"
+    yield from nav(paths, i, **kwargs)
+    yield from ("<main>", *main, "</main>")
+    yield from icons(paths, i, **kwargs)
+    yield from jump(paths, i, **kwargs)
+    yield from klf(paths, i, **kwargs)
+    yield "</body>"
+    yield "</html>"
 
 
 def icons(paths, i, iconlinks=(), **kwargs):
