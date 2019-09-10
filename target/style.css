@@ -5,24 +5,42 @@ https://www.w3schools.com/css/css_text.asp
 body {
   text-align: center;
 }
+
+/* align main */
 main {
   text-align: left;
 }
-main h1 {
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
   text-align: center;
 }
+
+/* align nav */
 nav {
-  text-align: left;
-}
-nav #home {
   text-align: center;
 }
+nav details {
+  text-align: left;
+  vertical-align: top;
+}
+
+/* align icons */
+#icons,
 #icons img {
+  text-align: center;
   vertical-align: middle;
 }
+
+/* align jump */
 #jump {
   text-align: center;
 }
+
+/* align klf */
 #klf {
   text-align: center;
 }
@@ -31,11 +49,12 @@ Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
-  --border: thin solid;
-  --radius: .5rem;
+  --border: 2px double;
+  --radius: 4px;
 }
 
 /* border main */
+main,
 main blockquote,
 main pre,
 main table {
@@ -46,22 +65,19 @@ main h2 {
 }
 
 /* border nav */
-nav {
-  border-radius: var(--radius);
-}
+nav,
 nav a,
 nav summary {
-  border: var(--border);
   border-radius: var(--radius);
 }
 
 /* border icons */
 #icons {
-  border-radius: var(--radius) var(--radius) 0 0;
+  border-radius: var(--radius);
 }
 #icons img {
-  border: 2px solid;
-  border-radius: 6px;
+  border: var(--border);
+  border-radius: var(--radius);
 }
 
 /* border jump */
@@ -72,27 +88,26 @@ nav summary {
 
 /* border klf */
 #klf {
-  border-radius: 0 0 var(--radius) var(--radius);
+  border-radius: var(--radius);
 }
 /*
 Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: crimson;
-  --color-bright: azure;
-  --color-dark: #042;
-  --color-link: forestgreen;
+  --color-active: firebrick;
+  --color-bright: whitesmoke;
+  --color-dark: #300;
+  --color-link: darkorange;
   --color-main: black;
-  --color-navlink: aquamarine;
+  --color-navlink: gold;
 }
 
 /* color body */
 body {
   background: linear-gradient(
     var(--color-dark),
-    var(--color-navlink),
-    var(--color-main)
+    var(--color-active)
     );
   background-attachment: fixed;
   color: var(--color-bright);
@@ -202,14 +217,23 @@ body {
 }
 
 /* display main */
+main {
+  display: block;
+}
 main cite {
   display: block;
 }
 
 /* display nav */
-nav a,
-nav details,
-nav summary {
+nav,
+nav #home {
+  display: block;
+}
+nav details {
+  display: inline;
+}
+nav details > details,
+nav summary ~ a {
   display: block;
 }
 
@@ -245,7 +269,8 @@ https://www.w3schools.com/css/css_units.asp
 
 /* embiggen body */
 body {
-  height: 98vh;
+  height: 94vh;
+  width: 94vw;
 }
 
 /* embiggen main */
@@ -331,11 +356,7 @@ https://www.w3schools.com/css/css_font.asp
 
 /* font body */
 body {
-  font-size: medium/1.2;
-  font-style: normal;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  font-variant: normal;
-  font-weight: 400;
+  font: 400 medium/1.2 "Helvetica Neue", Helvetica, sans-serif;
 }
 body a {
   text-decoration: none;
@@ -377,15 +398,14 @@ Grid layout for each page.
 https://www.w3schools.com/css/css_grid.asp
 */
 body {
-  grid-column-gap: 1vw;
-  grid-row-gap: 0;
+  grid-row-gap: 1vh;
   grid-template-areas:
-    'nav icons'
-    'nav main'
-    'nav klf'
-    'nav jump';
-  grid-template-columns: 25vw 70vw;
-  grid-template-rows: auto 1fr auto auto;
+    'icons'
+    'nav'
+    'main'
+    'klf'
+    'jump';
+  grid-template-rows: auto 1fr auto auto auto;
 }
 main {
   grid-area: main;

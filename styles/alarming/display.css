@@ -1,0 +1,51 @@
+/*
+Display behavior: block, inline, none, etc.
+https://www.w3schools.com/css/css_display_visibility.asp
+*/
+
+/* display body */
+body {
+  display: grid;
+}
+
+/* display main */
+main {
+  display: block;
+}
+main cite {
+  display: block;
+}
+
+/* display nav */
+nav,
+nav #home {
+  display: block;
+}
+nav details {
+  display: inline;
+}
+nav details > details,
+nav summary ~ a {
+  display: block;
+}
+
+/* display icons */
+#icons {
+  display: block;
+}
+#icons img {
+  display: inline-block;
+}
+
+/* display jump */
+#jump {
+  display: block;
+}
+
+/* display klf */
+#klf {
+  display: block;
+}
+#klf address {
+  display: block;
+}

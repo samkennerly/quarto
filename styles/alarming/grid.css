@@ -1,0 +1,29 @@
+/*
+Grid layout for each page.
+https://www.w3schools.com/css/css_grid.asp
+*/
+body {
+  grid-row-gap: 1vh;
+  grid-template-areas:
+    'icons'
+    'nav'
+    'main'
+    'klf'
+    'jump';
+  grid-template-rows: auto 1fr auto auto auto;
+}
+main {
+  grid-area: main;
+}
+nav {
+  grid-area: nav;
+}
+#icons {
+  grid-area: icons;
+}
+#jump {
+  grid-area: jump;
+}
+#klf {
+  grid-area: klf;
+}

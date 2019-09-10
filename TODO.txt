@@ -34,9 +34,9 @@ README:
   - delete Dockerfile, kitchen if you want
 
 STYLES:
-  - applish: (red,yellow): icons, nav, main, jump, klf
+  - applish: (red,yellow): icons, nav, main, klf, jump
   - bloglike: (blue,magenta): icons, main nav, main jump, klf
-  - cinematic: (silver,black): nav, main, icons, klf, jump
+  - cinematic: (silver,black): nav, main, icons, jump, klf
   - doctoral: (green,cyan): nav icons, nav main, nav klf, nav jump
 
 TESTING:

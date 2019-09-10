@@ -1,0 +1,116 @@
+/*
+Color coordination for all elements.
+https://www.w3schools.com/css/css_colors.asp
+*/
+:root {
+  --color-active: firebrick;
+  --color-bright: whitesmoke;
+  --color-dark: #300;
+  --color-link: darkorange;
+  --color-main: black;
+  --color-navlink: gold;
+}
+
+/* color body */
+body {
+  background: linear-gradient(
+    var(--color-dark),
+    var(--color-active)
+    );
+  background-attachment: fixed;
+  color: var(--color-bright);
+}
+
+body a:link,
+body a:visited {
+  color: var(--color-navlink);
+}
+body a:focus,
+body a:hover,
+body a:active {
+  color: var(--color-active);
+}
+
+/* color main */
+main {
+  background-color: var(--color-bright);
+  color: var(--color-main);
+}
+main a:link,
+main a:visited {
+  color: var(--color-link);
+}
+main a:focus,
+main a:hover,
+main a:active {
+  color: var(--color-active);
+}
+main blockquote {
+  background-color: white;
+  border-color: black;
+  color: black;
+}
+main pre {
+  background-color: black;
+  color: #dadada;
+}
+main table {
+  background-color: #dadada;
+  color: black;
+}
+main table tr:nth-child(even){
+  background-color: white;
+}
+
+/* color nav */
+nav {
+  background-color: var(--color-main);
+  color: var(--color-bright);
+}
+nav a {
+  border-color: var(--color-main);
+}
+nav summary {
+  border-color: var(--color-navlink) var(--color-link) var(--color-dark);
+}
+nav summary:focus,
+nav summary:hover {
+  background-color: var(--color-bright);
+  color: var(--color-main);
+}
+nav #here {
+  background-color: var(--color-navlink);
+  color: var(--color-main);
+}
+
+/* color icons */
+#icons {
+  background-color: var(--color-main);
+  color: var(--color-back);
+}
+#icons a img {
+  background-color: white;
+  border-color: var(--color-navlink);
+  color: var(--color-main);
+}
+#icons a img:focus,
+#icons a img:hover,
+#icons a img:active {
+  border-color: var(--color-active);
+}
+
+/* color jump */
+#jump {
+  border-color: var(--color-navlink);
+}
+#jump:focus,
+#jump:hover,
+#jump:active {
+  border-color: var(--color-active);
+}
+
+/* color klf */
+#klf {
+  background-color: var(--color-main);
+  color: var(--color-back);
+}
