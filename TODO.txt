@@ -1,4 +1,5 @@
 ASAP:
+  - posixpath.join is forcing paths to lowercase?
   - GitHub Pages can't find any files in folders
   - more CSS files
   - test with older Python versions
