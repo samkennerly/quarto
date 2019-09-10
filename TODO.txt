@@ -1,5 +1,5 @@
 ASAP:
-  - try GitHub Pages with .nojekyll in docs/
+  - GitHub Pages can't find any files in folders
   - more CSS files
   - test with older Python versions
 

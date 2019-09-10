@@ -11,7 +11,7 @@ OUTPUTS
     Iterable[str]: Lines of HTML. (Newline characters will be added later.)
 """
 from datetime import datetime
-from urllib.parse import urljoin
+from posixpath import join as urljoin
 
 from .reader import readlines, urlpath
 
