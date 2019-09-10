@@ -5,8 +5,8 @@ https://www.w3schools.com/css/css_colors.asp
 :root {
   --color-active: crimson;
   --color-bright: azure;
-  --color-dark: #032;
-  --color-link: seagreen;
+  --color-dark: #042;
+  --color-link: forestgreen;
   --color-main: black;
   --color-navlink: aquamarine;
 }
@@ -16,7 +16,7 @@ body {
   background: linear-gradient(
     var(--color-dark),
     var(--color-navlink),
-    var(--color-dark)
+    var(--color-main)
     );
   background-attachment: fixed;
   color: var(--color-bright);

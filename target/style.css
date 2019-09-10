@@ -81,8 +81,8 @@ https://www.w3schools.com/css/css_colors.asp
 :root {
   --color-active: crimson;
   --color-bright: azure;
-  --color-dark: #032;
-  --color-link: seagreen;
+  --color-dark: #042;
+  --color-link: forestgreen;
   --color-main: black;
   --color-navlink: aquamarine;
 }
@@ -92,7 +92,7 @@ body {
   background: linear-gradient(
     var(--color-dark),
     var(--color-navlink),
-    var(--color-dark)
+    var(--color-main)
     );
   background-attachment: fixed;
   color: var(--color-bright);
@@ -331,7 +331,11 @@ https://www.w3schools.com/css/css_font.asp
 
 /* font body */
 body {
-  font: 400 medium/1.2 "Helvetica Neue", Helvetica, sans-serif;
+  font-size: medium/1.2;
+  font-style: normal;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-variant: normal;
+  font-weight: 400;
 }
 body a {
   text-decoration: none;
