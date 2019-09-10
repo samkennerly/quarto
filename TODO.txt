@@ -1,6 +1,5 @@
 ASAP:
   - try GitHub Pages with docs/ -> target/ symlink
-  - black autoformat
   - more CSS files
   - test with older Python versions
 
@@ -17,10 +16,9 @@ PACKAGING:
   - beware of setup.py data files
 
 QUARTO:
-  - hard-code target folder?
-  - pages: finish Pages docstring
-  - readers: tidybody() should decapitate pages
-  - pages: self.echo() logs to STDOUT and/or STDERR. verbose option?
+  - finish docstrings
+  - tidybody() should decapitate pages
+  - vacuum() should delete emtpy folders?
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
 
