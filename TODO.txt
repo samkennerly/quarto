@@ -1,6 +1,7 @@
 ASAP:
   - posixpath.join is forcing paths to lowercase?
-  - GitHub Pages can't find any files in folders
+  - try capitalized paths
+  - try spaces in paths
   - more CSS files
   - test with older Python versions
 
