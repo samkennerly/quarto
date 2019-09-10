@@ -1,45 +1,43 @@
 ASAP:
-  - is GitHub forcing paths to lowercase?
-  - do relative paths need leading . ?
-  - find static host. update index.json
-  - more CSS files
-  - remove .nojekyll?
+  - STYLES rough drafts
+  - find static host. update index.json.
+  - try paths with caps and spaces
   - test with older Python versions
 
 HTML:
-  - try paths with caps and spaces
   - collapse <nav> into one <details> box?
-  - how to show 4 styles? javascript buttons? separate pages?
 
 OPTIONS:
-  - CSSPATH should be an option?
   - remove tidy.txt when agreeing with defaults
+  - CSSPATH should be an option?
 
 PACKAGING:
   - upload to PyPA? need to finish setup.py
   - beware of setup.py data files
+  - remove .nojekyll
 
 QUARTO:
   - finish docstrings
   - tidybody() should decapitate pages
-  - vacuum() should delete emtpy folders?
+  - vacuum() should delete empty folders?
+  - read markdown IF requirements installed
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
 
 README:
   - no install required
-  - delete Dockerfile, kitchen if you want
-  - `python3 -m quarto build` from project folder
+  - `python3 -m quarto build` or `quarto/please build`
   - edit target/ to include other files
   - edit styles/ to customize styles
   - edit ready/ to customize content
   - edit quarto/ to customize generation
+  - delete Dockerfile, kitchen if you want
 
 STYLES:
-  - alarming: (yellow,red,white) linkbox / main / nav / outro
-  - bloggish: (magenta,blue,dark gray) nav nav / main linkbox / outro outro
-  - cinematic: (white,silver,black) nav / main / linkbox / outro
-  - doctoral: (cyan,green,light gray) nav linkbox / nav main / nav outro
+  - applish: (red,yellow): icons, nav, main, jump, klf
+  - bloglike: (blue,magenta): icons, main nav, main jump, klf
+  - cinematic: (silver,black): nav, main, icons, klf, jump
+  - doctoral: (green,cyan): nav icons, nav main, nav klf, nav jump
 
 TESTING:
   - what happens if old tidy is called?
