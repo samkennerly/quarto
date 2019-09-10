@@ -1,8 +1,16 @@
 ASAP:
+  - rename repo?
+  - COMMANDS rewrite
   - STYLES rough drafts
   - find static host. update index.json.
   - try paths with caps and spaces
   - test with older Python versions
+
+COMMANDS:
+  - apply STYLE [PROJECT]   # Update target CSS
+  - build [PROJECT]         # Update target HTML
+  - clean [PROJECT]         # Tidy target
+  - decapitate [PROJECT]    # Tidy ready --show-body-only
 
 HTML:
   - collapse <nav> into one <details> box?
