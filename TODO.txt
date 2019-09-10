@@ -1,8 +1,10 @@
 ASAP:
+  - do relative paths need leading . ?
   - is GitHub forcing paths to lowercase?
-  - find static host
+  - find static host. update index.json
   - try capitalized paths, spaces in paths
   - more CSS files
+  - remove .nojekyll?
   - test with older Python versions
 
 HTML:
