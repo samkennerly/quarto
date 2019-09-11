@@ -3,6 +3,7 @@ from pathlib import Path
 from .readers import querypage, stylesheet
 from .stanzas import CSSPATH, generate
 
+
 class Quarto:
     """
     Find, read, and finish raw HTML files.
@@ -32,7 +33,7 @@ class Quarto:
         return len(self.paths)
 
     def __repr__(self):
-        return "{}({})".format(type(self).__name__,self.folder)
+        return "{}({})".format(type(self).__name__, self.folder)
 
     # User methods
 
@@ -62,7 +63,7 @@ class Quarto:
         for path, text in zip(paths, self):
             write(path.relative_to(homedir), text)
 
-        print("What's done is done. Exeunt", repr(self), '.')
+        print("What's done is done. Exeunt", repr(self))
 
     def clean(self):
         """ None: Replace target pages with standardized HTML5. """

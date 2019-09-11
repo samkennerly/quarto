@@ -93,13 +93,9 @@ def icons(paths, i, icon_links=(), **kwargs):
     yield "</section>"
 
 
-def jump(paths, i, updog="", **kwargs):
+def jump(paths, i, updog="top of page", **kwargs):
     """ Iterator[str]: #jump section. Traditionally used for intrusive ads. """
-
-    yield '<section id="jump">'
-    if updog:
-        yield '<a href="#" id="updog">{}</a>'.format(updog)
-    yield "</section>"
+    yield '<a href="#" id="jump">{}</a>'.format(updog)
 
 
 def klf(paths, i, copyright="", email="", license="", license_url="", **kwargs):
@@ -119,9 +115,14 @@ def klf(paths, i, copyright="", email="", license="", license_url="", **kwargs):
     yield "</section>"
 
 
-def last(paths, i, js_sources=(), **kwargs):
-    """ Iterator[str]: Last elements in <body>. """
+def last(paths, i, generator="", js_sources=(), **kwargs):
+    """ Iterator[str]: #last section. External JavaScripts go here. """
+
+    yield '<section id="last">'
     yield from map('<script src="{}" async></script>'.format, js_sources)
+    if generator:
+        yield 'built by a <a href="{}">quartocat</a>'.format(generator)
+    yield "</section>"
 
 
 def main(paths, i, **kwargs):

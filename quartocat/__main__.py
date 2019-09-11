@@ -27,24 +27,23 @@ More information:
     https://github.com/samkennerly/quartocat
 """
 
+
 def fail(*args):
-    print('***',*args,file=sys.stderr)
+    print("***", *args, file=sys.stderr)
     print("Run 'quartocat help' to see all commands.")
     sys.exit(2)
+
 
 args = iter(sys.argv)
 script = next(args)
 command = next(args, "help").lower()
 
 if command == "apply":
-    style = next(args, '') or fail('style name is required')
+    style = next(args, "") or fail("style name is required")
     Quarto(*args).apply(style)
-
 elif command == "build":
     Quarto(*args).build()
-
 elif command == "help":
     print(HELP)
-
 else:
     fail("Unknown command:", script, command, *args)
