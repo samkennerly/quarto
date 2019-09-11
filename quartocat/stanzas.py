@@ -55,8 +55,8 @@ def head(
     link = '<link rel="{}" href="{}">'.format
     yield link("stylesheet", urlpath(page, home.parent / CSSPATH))
     if base_url:
-        yield link("home", baseurl)
-        yield link("canonical", urljoin(baseurl, urlpath(home, page)))
+        yield link("home", base_url)
+        yield link("canonical", urljoin(base_url, urlpath(home, page)))
     if favicon:
         yield link("icon", urlpath(page, home.parent / favicon))
 
@@ -85,7 +85,7 @@ def icons(paths, i, icon_links=(), **kwargs):
     yield '<section id="icons">'
     yield atag(urlpath(page, paths[(i - 1) % len(paths)]), "prev", "«")
 
-    for alt, src, href in iconlinks:
+    for alt, src, href in icon_links:
         src = urlpath(page, home.parent / src)
         yield atag(href, "external", image(alt, src, alt))
 
@@ -93,11 +93,12 @@ def icons(paths, i, icon_links=(), **kwargs):
     yield "</section>"
 
 
-def jump(paths, i, updog="top of page", **kwargs):
+def jump(paths, i, updog="", **kwargs):
     """ Iterator[str]: #jump section. Traditionally used for intrusive ads. """
 
     yield '<section id="jump">'
-    yield '<a href="#" id="updog">{}</a>'.format(updog)
+    if updog:
+        yield '<a href="#" id="updog">{}</a>'.format(updog)
     yield "</section>"
 
 
@@ -128,7 +129,7 @@ def main(paths, i, **kwargs):
     yield from ("<main>", *map(str.rstrip, readlines(paths[i])), "</main>")
 
 
-def nav(paths, i, homename="home", **kwargs):
+def nav(paths, i, home_name="home", **kwargs):
     """ Iterator[str]: <nav> element with links to all pages in site. """
     home, page, targets = paths[0], paths[i], paths[1:]
 
@@ -139,7 +140,7 @@ def nav(paths, i, homename="home", **kwargs):
     shutbox = "<details><summary>{}</summary>".format
 
     yield "<nav>"
-    yield hometag(urlpath(page, home), homename)
+    yield hometag(urlpath(page, home), home_name)
 
     newdirs = frozenset(home.parents)
     pagedirs = frozenset(page.parents)

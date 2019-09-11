@@ -40,7 +40,6 @@ class Quarto:
         """ None: Concatenate stylesheets and save to target folder. """
         folder, vacuum, write = self.folder, self.vacuum, self.write
 
-        csspath = folder / "target" / CSSPATH
         styledir = folder / "styles" / style
         print("Apply style from", styledir)
 
@@ -48,9 +47,9 @@ class Quarto:
             raise NotADirectoryError(styledir)
 
         vacuum(".css")
-        write(csspath, stylesheet(styledir))
+        write(CSSPATH, stylesheet(styledir))
 
-        print("The", csspath, "of", repr(self), "is", style)
+        print("The", CSSPATH, "of", repr(self), "is", style)
 
     def build(self):
         """ None: Generate and save all pages to target folder. """

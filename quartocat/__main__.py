@@ -28,8 +28,8 @@ More information:
 """
 
 def fail(*args):
-    print(*args,file=sys.stderr)
-    print(HELP)
+    print('***',*args,file=sys.stderr)
+    print("Run 'quartocat help' to see all commands.")
     sys.exit(2)
 
 args = iter(sys.argv)
@@ -37,7 +37,7 @@ script = next(args)
 command = next(args, "help").lower()
 
 if command == "apply":
-    style = next(args, '') or fail(script, command, 'requires a style name')
+    style = next(args, '') or fail('style name is required')
     Quarto(*args).apply(style)
 
 elif command == "build":
