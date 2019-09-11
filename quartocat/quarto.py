@@ -3,7 +3,6 @@ from pathlib import Path
 from .readers import querypage, stylesheet
 from .stanzas import CSSPATH, generate
 
-
 class Quarto:
     """
     Find, read, and finish raw HTML files.
@@ -33,14 +32,15 @@ class Quarto:
         return len(self.paths)
 
     def __repr__(self):
-        return f"Quarto({self.folder})"
+        return "{}({})".format(type(self).__name__,self.folder)
 
     # User methods
 
-    def apply(self, style="doctoral"):
+    def apply(self, style):
         """ None: Concatenate stylesheets and save to target folder. """
         folder, vacuum, write = self.folder, self.vacuum, self.write
 
+        csspath = folder / "target" / CSSPATH
         styledir = folder / "styles" / style
         print("Apply style from", styledir)
 
@@ -48,9 +48,9 @@ class Quarto:
             raise NotADirectoryError(styledir)
 
         vacuum(".css")
-        write(CSSPATH, stylesheet(styledir))
+        write(csspath, stylesheet(styledir))
 
-        print("The", CSSPATH, "of", self, "is", style)
+        print("The", csspath, "of", repr(self), "is", style)
 
     def build(self):
         """ None: Generate and save all pages to target folder. """
@@ -63,7 +63,7 @@ class Quarto:
         for path, text in zip(paths, self):
             write(path.relative_to(homedir), text)
 
-        print("What's done is done. Exeunt", self)
+        print("What's done is done. Exeunt", repr(self), '.')
 
     def clean(self):
         """ None: Replace target pages with standardized HTML5. """
