@@ -1,8 +1,6 @@
 ASAP:
-  - update __main__ commands
-  - update CSS and test new names.
-  - STYLES rough drafts
   - collapse <nav> into one <details> box?
+  - STYLES rough drafts
   - test caps, spaces, underscores in page paths
   - find static host. update index.json.
 

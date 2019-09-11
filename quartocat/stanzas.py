@@ -83,13 +83,13 @@ def icons(paths, i, icon_links=(), **kwargs):
     image = '<img alt="{}" src="{}" height=32 width=32 title="{}">'.format
 
     yield '<section id="icons">'
-    yield atag(urlpath(page, paths[(i - 1) % len(paths)]), "prev", "«")
+    yield atag(urlpath(page, paths[(i - 1) % len(paths)]), "prev", "« prev")
 
     for alt, src, href in icon_links:
         src = urlpath(page, home.parent / src)
         yield atag(href, "external", image(alt, src, alt))
 
-    yield atag(urlpath(page, paths[(i + 1) % len(paths)]), "next", "»")
+    yield atag(urlpath(page, paths[(i + 1) % len(paths)]), "next", "next »")
     yield "</section>"
 
 
