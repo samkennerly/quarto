@@ -6,9 +6,9 @@ body {
   grid-column-gap: 1vw;
   grid-row-gap: 0;
   grid-template-areas:
-    'nav icons'
-    'nav main'
-    'nav klf'
+    'nav  icons'
+    'nav  main'
+    'nav  klf'
     'last jump';
   grid-template-columns: 25vw 70vw;
   grid-template-rows: auto 1fr auto auto;

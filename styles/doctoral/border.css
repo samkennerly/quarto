@@ -34,7 +34,7 @@ nav summary {
   border-radius: 6px;
 }
 /* border jump */
-#jump {
+#jump a {
   border: var(--border);
   border-radius: var(--radius);
 }

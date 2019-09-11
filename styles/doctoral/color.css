@@ -4,20 +4,20 @@ https://www.w3schools.com/css/css_colors.asp
 */
 :root {
   --color-active: crimson;
-  --color-bright: azure;
-  --color-dark: #042;
-  --color-link: forestgreen;
+  --color-edges: #042;
   --color-main: black;
+  --color-mainback: azure;
+  --color-mainlink: forestgreen;
   --color-navlink: aquamarine;
 }
 body {
   background: linear-gradient(
-    var(--color-dark),
+    var(--color-edges),
     var(--color-navlink),
     var(--color-main)
     );
   background-attachment: fixed;
-  color: var(--color-bright);
+  color: var(--color-mainback);
 }
 
 body a:link,
@@ -31,12 +31,12 @@ body a:active {
 }
 /* color main */
 main {
-  background-color: var(--color-bright);
+  background-color: var(--color-mainback);
   color: var(--color-main);
 }
 main a:link,
 main a:visited {
-  color: var(--color-link);
+  color: var(--color-mainlink);
 }
 main a:focus,
 main a:hover,
@@ -62,17 +62,17 @@ main table tr:nth-child(even){
 /* color nav */
 nav {
   background-color: var(--color-main);
-  color: var(--color-bright);
+  color: var(--color-mainback);
 }
 nav a {
   border-color: var(--color-main);
 }
 nav summary {
-  border-color: var(--color-navlink) var(--color-link) var(--color-dark);
+  border-color: var(--color-navlink) var(--color-mainlink) var(--color-edges);
 }
 nav summary:focus,
 nav summary:hover {
-  background-color: var(--color-bright);
+  background-color: var(--color-mainback);
   color: var(--color-main);
 }
 nav #here {
@@ -82,7 +82,7 @@ nav #here {
 /* color icons */
 #icons {
   background-color: var(--color-main);
-  color: var(--color-back);
+  color: var(--color-mainback);
 }
 #icons a img {
   background-color: white;
@@ -107,7 +107,7 @@ nav #here {
 /* color klf */
 #klf {
   background-color: var(--color-main);
-  color: var(--color-back);
+  color: var(--color-mainback);
 }
 /* color last */
 #last {

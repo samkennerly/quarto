@@ -16,7 +16,11 @@ body a {
 main blockquote {
   font-family: "Times", serif;
 }
-main code, main kbd, main samp, main pre, main var {
+main code,
+main kbd,
+main samp,
+main pre,
+main var {
   font-family: "Courier", monospace;
   font-size: small;
 }
@@ -31,15 +35,9 @@ nav #home {
 #icons img {
   font-size: x-small;
 }
-/* font jump */
-#jump {
-  font-size: x-small;
-}
-/* font klf */
-#klf {
-  font-size: small;
-}
-/* font last */
+/* font jump, klf, last */
+#jump,
+#klf,
 #last {
   font-size: small;
 }

@@ -16,21 +16,10 @@ nav summary {
   display: block;
 }
 /* display icons */
-#icons {
-  display: block;
-}
 #icons img {
   display: inline-block;
 }
 /* display jump */
-#jump {
-  display: block;
-}
-/* display klf */
-#klf {
-  display: block;
-}
-/* display last */
-#last {
-  display: block;
+#jump a {
+  display: inline-block;
 }

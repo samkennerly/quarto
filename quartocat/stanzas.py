@@ -95,7 +95,10 @@ def icons(paths, i, icon_links=(), **kwargs):
 
 def jump(paths, i, updog="top of page", **kwargs):
     """ Iterator[str]: #jump section. Traditionally used for intrusive ads. """
-    yield '<a href="#" id="jump">{}</a>'.format(updog)
+
+    yield '<section id="jump">'
+    yield '<a href="#">{}</a>'.format(updog)
+    yield '</section>'
 
 
 def klf(paths, i, copyright="", email="", license="", license_url="", **kwargs):
