@@ -7,12 +7,9 @@ https://www.w3schools.com/css/css_units.asp
   --padme: .25em .5em;
   --puffy: .5rem 1rem;
 }
-
-/* embiggen body */
 body {
   height: 98vh;
 }
-
 /* embiggen main */
 main {
   padding: var(--puffy);
@@ -46,7 +43,6 @@ main h5,
 main h6 {
   margin: var(--marge);
 }
-
 /* embiggen nav */
 nav {
   padding: var(--puffy);
@@ -63,7 +59,6 @@ nav summary ~ a {
 nav #home {
   margin-bottom: 1rem;
 }
-
 /* embiggen icons */
 #icons {
   margin: 0;
@@ -77,15 +72,18 @@ nav #home {
   padding: 2px;
   width: 2rem;
 }
-
 /* embiggen jump */
 #jump {
-  margin-top: .25rem;
+  margin-top: .5rem;
   padding: var(--padme);
 }
-
 /* embiggen klf */
 #klf {
   margin: 0;
   padding: var(--puffy);
+}
+/* embiggen last */
+#last {
+  margin-top: .5rem;
+  padding: var(--padme);
 }

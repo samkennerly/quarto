@@ -6,7 +6,6 @@ https://www.w3schools.com/css/css_border.asp
   --border: thin solid;
   --radius: .5rem;
 }
-
 /* border main */
 main blockquote,
 main pre,
@@ -16,7 +15,6 @@ main table {
 main h2 {
   border-bottom: var(--border);
 }
-
 /* border nav */
 nav {
   border-radius: var(--radius);
@@ -26,23 +24,27 @@ nav summary {
   border: var(--border);
   border-radius: var(--radius);
 }
-
 /* border icons */
 #icons {
+  border: none;
   border-radius: var(--radius) var(--radius) 0 0;
 }
 #icons img {
   border: 2px solid;
   border-radius: 6px;
 }
-
 /* border jump */
 #jump {
   border: var(--border);
   border-radius: var(--radius);
 }
-
 /* border klf */
 #klf {
+  border: none;
   border-radius: 0 0 var(--radius) var(--radius);
+}
+/* border last */
+#last {
+  border: none;
+  border-radius: var(--radius);
 }

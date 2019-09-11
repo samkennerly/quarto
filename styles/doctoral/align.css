@@ -5,24 +5,36 @@ https://www.w3schools.com/css/css_text.asp
 body {
   text-align: center;
 }
+/* align main */
 main {
   text-align: left;
 }
 main h1 {
   text-align: center;
 }
+/* align nav */
 nav {
   text-align: left;
 }
 nav #home {
   text-align: center;
 }
+/* align icons */
+#icons {
+  text-align: center;
+}
 #icons img {
   vertical-align: middle;
 }
+/* align jump */
 #jump {
   text-align: center;
 }
+/* align klf */
 #klf {
+  text-align: center;
+}
+/* align last */
+#last {
   text-align: center;
 }
