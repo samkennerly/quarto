@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from .reader import querypage, stylesheet
+from .reader import options, pagepaths, stylesheet
 from .stanza import CSSPATH, generate
 
 
@@ -11,14 +11,11 @@ class Quarto:
 
     def __init__(self, folder="."):
         folder = Path(folder).resolve()
-        paths = folder.glob("ready/**/*.html")
         home = folder / "ready/index.html"
 
-        self.defaults = querypage(home)
         self.folder = folder
-        self.paths = (home, *sorted(set(paths) - {home}))
-
-    home = property(lambda self: self.paths[0])
+        self.options = options(home)
+        self.paths = pagepaths(home)
 
     def __call__(self, i):
         return generate(self.paths, i, **self.options(i))

@@ -1,12 +1,12 @@
 {
   "author": "Sam Kennerly",
-  "baseurl": "https://samkennerly.github.io/quarto",
+  "baseurl": "https://samkennerly.github.io/quartocat",
   "copyright": "Sam Kennerly",
   "description": "Build static websites with Python and Tidy.",
   "email": "samkennerly@gmail.com",
   "favicon": "favicon.png",
-  "generator": "https://github.com/samkennerly/quarto",
-  "homename": "Quarto",
+  "generator": "https://github.com/samkennerly/quartocat",
+  "homename": "Quartocat",
   "iconlinks":
   [
     [
@@ -35,9 +35,10 @@
       "https://github.com/samkennerly/quarto"
     ]
   ],
-  "jumptext": "⇪",
-  "keywords": "html, css, static website, python, tidy",
+  "javascripts": [ ],
+  "keywords": ["html", "css", "static website", "python", "quartocat", "tidy"],
   "license": "Licensed under a CC-BY-4.0 International license.",
   "license_url": "https://creativecommons.org/licenses/by/4.0",
-  "title": "Quarto builds static websites."
+  "title": "Quartocat builds static websites.",
+  "updog": "⇪"
 }

@@ -1,8 +1,10 @@
 ASAP:
-  - COMMANDS rewrite
+  - finish renaming quarto methods
+  - test new names
+  - black autoformat
   - STYLES rough drafts
   - find static host. update index.json.
-  - try paths with caps and spaces
+  - replace '_' -> ' ' in <nav> buttons?
   - test with older Python versions
 
 COMMANDS:

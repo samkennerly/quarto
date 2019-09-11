@@ -1,6 +1,5 @@
 """
-Quarto builds each page in groups of lines called "stanzas."
-Each function in this module generates one stanza.
+Each function in this module generates a group of lines.
 
 INPUTS
     paths   Tuple[Path]: Absolute paths to raw pages, home first.
@@ -16,135 +15,144 @@ from posixpath import join as urljoin
 from .reader import readlines, urlpath
 
 CSSPATH = "style.css"
-
+YEAR = datetime.now().year
 
 def generate(paths, i, title="", **kwargs):
-    """ Iterator[str]: Generate lines in page. """
+    """ Iterator[str]: All lines in page. """
 
-    path = paths[i]
-    main = map(str.rstrip, readlines(path))
-    title = str(title or page.stem)
-
-    yield "<!doctype html>"
+    yield "<!DOCTYPE html>"
     yield "<html>"
-    yield "<head>"
-    yield from ("<title>", title, "</title>")
-    yield from links(paths, i, **kwargs)
-    yield from meta(paths, i, **kwargs)
-    yield "</head>"
+    yield from head(paths, i, **kwargs)
     yield "<body>"
     yield from nav(paths, i, **kwargs)
-    yield from ("<main>", *main, "</main>")
+    yield from main(paths, i, **kwargs)
     yield from icons(paths, i, **kwargs)
-    yield from jump(paths, i, **kwargs)
     yield from klf(paths, i, **kwargs)
+    yield from last(paths, i, **kwargs)
+    yield from js(paths, i, **kwargs)
     yield "</body>"
     yield "</html>"
 
+def head(paths,
+    i,
+    author='',
+    baseurl="",
+    description='',
+    favicon='',
+    generator='',
+    keywords='',
+    title='',
+    **kwargs):
+    """
+    Iterator[str]: <head> element.
+    """
+    home, page = paths[0], paths[i]
 
-def icons(paths, i, iconlinks=(), **kwargs):
-    """ Iterator[str]: <section id="icons"> lines. """
-
-    atag = '<a href="{}">{}</a>'.format
-    npaths = len(paths)
-    prevpath = paths[(i - 1) % npaths]
-    nextpath = paths[(i + 1) % npaths]
-    home, here = paths[0], paths[i]
-
-    yield '<section id="icons">'
-    yield atag(urlpath(here, prevpath), "« prev")
-
-    for alt, src, href in iconlinks:
-        src = urlpath(here, home.parent / src)
-        alt = f'<img alt="{alt}" src="{src}" height=32 width=32 title="{alt}">'
-        yield atag(href, alt)
-
-    yield atag(urlpath(here, nextpath), "next »")
-    yield "</section>"
-
-
-def jump(paths, i, jumptext="top of page", **kwargs):
-    """ Iterator[str]: Link to top of page. """
-    yield f'<a href="#" id="jump">{jumptext}</a>'
-
-
-def klf(paths, i, copyright="", license="", license_url="", email="", **kwargs):
-    """ Iterator[str]: <section id="klf"> lines. """
-
-    spantag = '<span id="{}">\n{}\n</span>'.format
-
-    yield '<section id="klf">'
-    if copyright:
-        yield spantag("copyright", f"© {copyright} {datetime.now().year}.")
-    if license_url:
-        license = license or "LICENSE"
-        license = f'<a href="{license_url}" rel="license">{license}</a>'
-    if license:
-        yield spantag("license", license)
-    if email:
-        yield f"<address>{email}</address>"
-    yield "</section>"
-
-
-def links(paths, i, baseurl="", favicon="", **kwargs):
-    """ Iterator[str]: <link> tags for page <head>. """
-
-    home, here = paths[0], paths[i]
-    homedir = home.parent
     link = '<link rel="{}" href="{}">'.format
+    meta = '<meta name="{}" content="{}">'.format
 
-    yield link("stylesheet", urlpath(here, homedir / CSSPATH))
+    yield '<head>'
+
+    yield '<title>'
+    yield title or page.stem.replace('_',' ')
+    yield '</title>'
+
+    yield link("stylesheet", urlpath(page, home.parent / CSSPATH))
     if baseurl:
         yield link("home", baseurl)
-        yield link("canonical", urljoin(baseurl, urlpath(home, here)))
+        yield link("canonical", urljoin(baseurl, urlpath(home, page)))
     if favicon:
-        yield link("icon", urlpath(here, homedir / favicon))
-
-
-def meta(paths, i, author="", description="", generator="", keywords="", **kwargs):
-    """ Iterator[str]: <meta> tags for page <head>. """
-
-    meta = '<meta name="{}" content="{}">'.format
+        yield link("icon", urlpath(page, home.parent / favicon))
 
     yield '<meta charset="utf-8">'
     yield meta("viewport", "width=device-width, initial-scale=1.0")
-    if author:
-        yield meta("author", author)
-    if description:
-        yield meta("description", description)
-    if generator:
-        yield meta("generator", generator)
-    if keywords:
-        yield meta("keywords", keywords)
+    yield meta("author", author)
+    yield meta("description", description)
+    yield meta("generator", generator)
+    yield meta("keywords", keywords)
+
+    yield '</head>'
+
+def icons(paths, i, iconlinks=(), **kwargs):
+    """ Iterator[str]: <section id="icons"> lines. """
+    home, page = paths[0], paths[i]
+
+    atag = '<a href="{}" rel="{}">{}</a>'.format
+    image = '<img alt="{}" src="{}" height=32 width=32 title="{}">'.format
+
+    yield '<section id="icons">'
+    yield atag(urlpath(page, paths[(i - 1) % len(paths)]), "prev", "«")
+
+    for alt, src, href in iconlinks:
+        src = urlpath(page, home.parent / src)
+        yield atag(href, "external", image(alt, src, alt))
+
+    yield atag(urlpath(page, paths[(i + 1) % len(paths)]), "next", "»")
+    yield "</section>"
+
+def js(paths, i, javascripts=(), **kwargs):
+    """ Iterator[str]: Client-side JavaScript goes here. """
+    yield from javascripts
+
+def klf(paths, i, copyright="", email="", license="", license_url="", **kwargs):
+    """ Iterator[str]: <section id="klf"> lines. """
+
+    liclink = '<a href="{}" rel="license">{}</a>'.format
+    spantag = '<span id="{}">{}</span>'.format
+
+    yield '<section id="klf">'
+    if copyright:
+        yield spantag('copyright', "© {} {}.".format(copyright,YEAR))
+    if license_url:
+        license = liclink(license_url, license or "LICENSE")
+    if license:
+        yield spantag(license)
+    if email:
+        yield from ('<address>', email, '</address>')
+    yield "</section>"
+
+
+def last(paths, i, updog="", **kwargs):
+    """ Iterator[str]: Any last words? """
+    yield f'<a href="#" id="last">{updog}</a>'
+
+
+def main(paths, i, **kwargs):
+    """ Iterator[str]: Main element. """
+    page = paths[i]
+
+    yield '<main>'
+    yield from map(str.rstrip, readlines(page))
+    yield '</main>'
 
 
 def nav(paths, i, homename="home", **kwargs):
     """ Iterator[str]: <nav> element lines. """
-    home, here, targets = paths[0], paths[i], paths[1:]
+    home, page, targets = paths[0], paths[i], paths[1:]
 
-    yield "<nav>"
-    yield f'<a href="{urlpath(here,home)}" id="home">{homename}</a>'
-
-    endbox = "</details>"
+    atag = '<a href="{}">{}</a>'.format
+    heretag = '<a href="#" id="here">{}</a>'.format
+    hometag = '<a href="{}" id="home">{}</a>'.format
     openbox = "<details open><summary>{}</summary>".format
     shutbox = "<details><summary>{}</summary>".format
-    newdirs = frozenset(home.parents)
-    heredirs = frozenset(here.parents)
 
+    yield "<nav>"
+    yield hometag(urlpath(page,home), homename)
+
+    newdirs = frozenset(home.parents)
+    pagedirs = frozenset(page.parents)
     for t in targets:
         context = newdirs
         newdirs = frozenset(t.parents)
 
         # End old <details> boxes and start new ones
-        yield from (endbox for _ in (context - newdirs))
+        yield from ('</details>' for _ in (context - newdirs))
         for d in sorted(newdirs - context):
-            yield openbox(d.stem) if (d in heredirs) else shutbox(d.stem)
+            yield openbox(d.stem) if (d in pagedirs) else shutbox(d.stem)
 
         # Current page gets a special "you are here" link
-        if t == here:
-            yield f'<a href="#" id="here">{here.stem}</a>'
-        else:
-            yield f'<a href="{urlpath(here,t)}">{t.stem}</a>'
+        name = t.stem.replace('_',' ')
+        yield heretag(name) if (t == page) else atag(urlpath(page,t),name)
 
-    yield from (endbox for _ in (newdirs - frozenset(home.parents)))
+    yield from ('</details>' for _ in (newdirs - frozenset(home.parents)))
     yield "</nav>"
