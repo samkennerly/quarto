@@ -1,5 +1,4 @@
 ASAP:
-  - rename repo?
   - COMMANDS rewrite
   - STYLES rough drafts
   - find static host. update index.json.
