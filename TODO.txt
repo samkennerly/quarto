@@ -1,37 +1,28 @@
 ASAP:
-  - finish renaming quarto methods
-  - test new names
-  - black autoformat
+  - update __main__ commands
+  - update CSS and test new names.
   - STYLES rough drafts
-  - find static host. update index.json.
-  - replace '_' -> ' ' in <nav> buttons?
-  - test with older Python versions
-
-COMMANDS:
-  - apply STYLE [PROJECT]   # Update target CSS
-  - build [PROJECT]         # Update target HTML
-  - clean [PROJECT]         # Tidy target
-  - decapitate [PROJECT]    # Tidy ready --show-body-only
-
-HTML:
   - collapse <nav> into one <details> box?
+  - test caps, spaces, underscores in page paths
+  - find static host. update index.json.
 
-OPTIONS:
-  - remove tidy.txt when agreeing with defaults
+CODE:
+  - finish class Quarto docstring
+  - clean(), decapitate(), and/or tidybody()
   - CSSPATH should be an option?
+  - vacuum() should delete empty folders?
+  - read markdown IF requirements installed
+  - `gallerize` builds image galleries?
+  - multithreading: one page per core?
+
+TIDY:
+  - repair or remove all tidy scripts
+  - remove defaults from tidy.txt
 
 PACKAGING:
   - upload to PyPA? need to finish setup.py
   - beware of setup.py data files
   - remove .nojekyll
-
-QUARTO:
-  - finish docstrings
-  - tidybody() should decapitate pages
-  - vacuum() should delete empty folders?
-  - read markdown IF requirements installed
-  - `gallerize` builds image galleries?
-  - multithreading: one page per core?
 
 README:
   - no install required
@@ -49,6 +40,7 @@ STYLES:
   - doctoral: (green,cyan): nav icons, nav main, nav klf, nav jump
 
 TESTING:
+  - test with older Python versions
   - what happens if old tidy is called?
   - nav: arrow keys, disability access OK?
 

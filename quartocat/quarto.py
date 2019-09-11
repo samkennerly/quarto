@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from .reader import options, pagepaths, stylesheet
-from .stanza import CSSPATH, generate
+from .readers import querypage, stylesheet
+from .stanzas import CSSPATH, generate
 
 
 class Quarto:
@@ -11,11 +11,14 @@ class Quarto:
 
     def __init__(self, folder="."):
         folder = Path(folder).resolve()
+        paths = folder.glob("ready/**/*.html")
         home = folder / "ready/index.html"
 
+        self._options = querypage(home)
         self.folder = folder
-        self.options = options(home)
-        self.paths = pagepaths(home)
+        self.paths = (home, *sorted(set(paths) - {home}))
+
+    # Magic methods
 
     def __call__(self, i):
         return generate(self.paths, i, **self.options(i))
@@ -32,15 +35,22 @@ class Quarto:
     def __repr__(self):
         return f"Quarto({self.folder})"
 
-    def abspath(self, *parts):
-        """ Path: Ensure path is an absolute Path object in project folder. """
-        folder = self.folder
+    # User methods
 
-        path = folder.joinpath(*parts)
-        if folder not in path.parents:
-            raise ValueError(f"{path} is outside {folder}")
+    def apply(self, style="doctoral"):
+        """ None: Concatenate stylesheets and save to target folder. """
+        folder, vacuum, write = self.folder, self.vacuum, self.write
 
-        return path
+        styledir = folder / "styles" / style
+        print("Apply style from", styledir)
+
+        if not styledir.is_dir():
+            raise NotADirectoryError(styledir)
+
+        vacuum(".css")
+        write(CSSPATH, stylesheet(styledir))
+
+        print("The", CSSPATH, "of", self, "is", style)
 
     def build(self):
         """ None: Generate and save all pages to target folder. """
@@ -55,43 +65,45 @@ class Quarto:
 
         print("What's done is done. Exeunt", self)
 
-    def catstyle(self, style="doctoral"):
-        """ None: Concatenate stylesheets and save to target folder. """
-        folder, vacuum, write = self.folder, self.vacuum, self.write
+    def clean(self):
+        """ None: Replace target pages with standardized HTML5. """
+        raise NotImplementedError
 
-        styledir = folder / "styles" / style
-        print("Concatenate styles from", styledir)
-
-        vacuum(".css")
-        write(CSSPATH, stylesheet(styledir))
-
-        print("The", CSSPATH, "of", self, "is", style)
+    def decapitate(self):
+        """ None: Remove <head> and non-<body> elements from raw pages. """
+        raise NotImplementedError
 
     def errors(self):
-        """ Tuple[str]: Check output for HTML errors. """
+        """ Tuple[str]: HTML5 errors detected in output pages. """
         raise NotImplementedError
+
+    # File methods
 
     def options(self, i):
         """ dict: Page options with home options as defaults. """
-        defaults, paths = self.defaults, self.paths
-
-        return {**defaults, **(querypage(paths[i]) or dict())}
+        return {**self._options, **querypage(self.paths[i])}
 
     def vacuum(self, suffix=".html"):
         """ None: Delete all files in target folder with selected suffix. """
-        target = self.abspath("target")
+        target = self.folder / "target"
 
-        suffix = "." + suffix.lstrip(".")
-        for path in target.rglob("*"):
-            if path.suffix == suffix:
-                print("Delete", path)
-                path.unlink()
+        pattern = "**/*." + suffix.lstrip(".")
+        print("Vacuum {}/{}".format(target, pattern))
+
+        for path in target.glob(pattern):
+            print("Delete", path)
+            path.unlink()
 
     def write(self, path, text):
         """ None: Save text to file in target folder. """
-        path = self.abspath("target", path)
+        target = self.folder / "target"
 
+        path = target / path
         print("Write", path)
+
+        if target not in path.parents:
+            raise ValueError("{} is outside {}".format(path, target))
+
         path.parent.mkdir(exist_ok=True, parents=True)
         with open(path, "w") as file:
             print(text, file=file)

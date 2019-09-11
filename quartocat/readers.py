@@ -7,13 +7,13 @@ from pathlib import Path
 from urllib.parse import quote
 
 
-def querypage(page):
-    """ dict or None: Page options if they exist. """
-    path = page.with_suffix(".json")
-
-    if path.is_file():
-        with open(path) as file:
-            return jsonload(file)
+def querypage(path):
+    """ dict: Page options if they exist. """
+    path = path.with_suffix(".json")
+    if not path.is_file():
+        return dict()
+    with open(path) as file:
+        return jsonload(file)
 
 
 def readlines(*paths):
