@@ -5,25 +5,37 @@ https://www.w3schools.com/css/css_text.asp
 body {
   text-align: center;
 }
+/* align main */
 main {
   text-align: left;
 }
 main h1 {
   text-align: center;
 }
+/* align nav */
 nav {
   text-align: left;
 }
 nav #home {
   text-align: center;
 }
+/* align icons */
+#icons {
+  text-align: center;
+}
 #icons img {
   vertical-align: middle;
 }
+/* align jump */
 #jump {
   text-align: center;
 }
+/* align klf */
 #klf {
+  text-align: center;
+}
+/* align last */
+#last {
   text-align: center;
 }
 /*
@@ -34,7 +46,6 @@ https://www.w3schools.com/css/css_border.asp
   --border: thin solid;
   --radius: .5rem;
 }
-
 /* border main */
 main blockquote,
 main pre,
@@ -44,7 +55,6 @@ main table {
 main h2 {
   border-bottom: var(--border);
 }
-
 /* border nav */
 nav {
   border-radius: var(--radius);
@@ -54,25 +64,29 @@ nav summary {
   border: var(--border);
   border-radius: var(--radius);
 }
-
 /* border icons */
 #icons {
+  border: none;
   border-radius: var(--radius) var(--radius) 0 0;
 }
 #icons img {
   border: 2px solid;
   border-radius: 6px;
 }
-
 /* border jump */
 #jump {
   border: var(--border);
   border-radius: var(--radius);
 }
-
 /* border klf */
 #klf {
+  border: none;
   border-radius: 0 0 var(--radius) var(--radius);
+}
+/* border last */
+#last {
+  border: none;
+  border-radius: var(--radius);
 }
 /*
 Color coordination for all elements.
@@ -86,8 +100,6 @@ https://www.w3schools.com/css/css_colors.asp
   --color-main: black;
   --color-navlink: aquamarine;
 }
-
-/* color body */
 body {
   background: linear-gradient(
     var(--color-dark),
@@ -107,7 +119,6 @@ body a:hover,
 body a:active {
   color: var(--color-active);
 }
-
 /* color main */
 main {
   background-color: var(--color-bright);
@@ -138,7 +149,6 @@ main table {
 main table tr:nth-child(even){
   background-color: white;
 }
-
 /* color nav */
 nav {
   background-color: var(--color-main);
@@ -159,7 +169,6 @@ nav #here {
   background-color: var(--color-navlink);
   color: var(--color-main);
 }
-
 /* color icons */
 #icons {
   background-color: var(--color-main);
@@ -175,9 +184,9 @@ nav #here {
 #icons a img:active {
   border-color: var(--color-active);
 }
-
 /* color jump */
 #jump {
+  background-color: none;
   border-color: var(--color-navlink);
 }
 #jump:focus,
@@ -185,34 +194,32 @@ nav #here {
 #jump:active {
   border-color: var(--color-active);
 }
-
 /* color klf */
 #klf {
   background-color: var(--color-main);
   color: var(--color-back);
 }
+/* color last */
+#last {
+  background-color: none;
+}
 /*
 Display behavior: block, inline, none, etc.
 https://www.w3schools.com/css/css_display_visibility.asp
 */
-
-/* display body */
 body {
   display: grid;
 }
-
 /* display main */
 main cite {
   display: block;
 }
-
 /* display nav */
 nav a,
 nav details,
 nav summary {
   display: block;
 }
-
 /* display icons */
 #icons {
   display: block;
@@ -220,17 +227,16 @@ nav summary {
 #icons img {
   display: inline-block;
 }
-
 /* display jump */
 #jump {
   display: block;
 }
-
 /* display klf */
 #klf {
   display: block;
 }
-#klf address {
+/* display last */
+#last {
   display: block;
 }
 /*
@@ -242,12 +248,9 @@ https://www.w3schools.com/css/css_units.asp
   --padme: .25em .5em;
   --puffy: .5rem 1rem;
 }
-
-/* embiggen body */
 body {
   height: 98vh;
 }
-
 /* embiggen main */
 main {
   padding: var(--puffy);
@@ -281,7 +284,6 @@ main h5,
 main h6 {
   margin: var(--marge);
 }
-
 /* embiggen nav */
 nav {
   padding: var(--puffy);
@@ -298,7 +300,6 @@ nav summary ~ a {
 nav #home {
   margin-bottom: 1rem;
 }
-
 /* embiggen icons */
 #icons {
   margin: 0;
@@ -312,24 +313,25 @@ nav #home {
   padding: 2px;
   width: 2rem;
 }
-
 /* embiggen jump */
 #jump {
-  margin-top: .25rem;
+  margin-top: .5rem;
   padding: var(--padme);
 }
-
 /* embiggen klf */
 #klf {
   margin: 0;
   padding: var(--puffy);
 }
+/* embiggen last */
+#last {
+  margin-top: .5rem;
+  padding: var(--padme);
+}
 /*
 Font family, size, weight, etc.
 https://www.w3schools.com/css/css_font.asp
 */
-
-/* font body */
 body {
   font-size: medium/1.2;
   font-style: normal;
@@ -340,7 +342,6 @@ body {
 body a {
   text-decoration: none;
 }
-
 /* font main */
 main blockquote {
   font-family: "Times", serif;
@@ -349,12 +350,10 @@ main code, main kbd, main samp, main pre, main var {
   font-family: "Courier", monospace;
   font-size: small;
 }
-
 /* font nav */
 nav #home {
   font-size: 1.5em;
 }
-
 /* font icons */
 #icons {
   font-size: small;
@@ -362,14 +361,16 @@ nav #home {
 #icons img {
   font-size: x-small;
 }
-
 /* font jump */
 #jump {
   font-size: x-small;
 }
-
 /* font klf */
 #klf {
+  font-size: small;
+}
+/* font last */
+#last {
   font-size: small;
 }
 /*
@@ -383,7 +384,7 @@ body {
     'nav icons'
     'nav main'
     'nav klf'
-    'nav jump';
+    'last jump';
   grid-template-columns: 25vw 70vw;
   grid-template-rows: auto 1fr auto auto;
 }
@@ -401,5 +402,8 @@ nav {
 }
 #klf {
   grid-area: klf;
+}
+#last {
+  grid-area: last;
 }
 
