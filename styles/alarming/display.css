@@ -2,50 +2,36 @@
 Display behavior: block, inline, none, etc.
 https://www.w3schools.com/css/css_display_visibility.asp
 */
-
-/* display body */
 body {
   display: grid;
 }
-
 /* display main */
-main {
-  display: block;
-}
 main cite {
   display: block;
 }
-
 /* display nav */
-nav,
 nav #home {
   display: block;
 }
 nav details {
   display: inline;
 }
-nav details > details,
-nav summary ~ a {
+nav details summary {
   display: block;
 }
-
+nav details > details,
+nav details summary ~ a {
+  display: block;
+}
 /* display icons */
 #icons {
-  display: block;
+  position: sticky;
+  top: 0;
 }
 #icons img {
   display: inline-block;
 }
-
 /* display jump */
-#jump {
-  display: block;
-}
-
-/* display klf */
-#klf {
-  display: block;
-}
-#klf address {
-  display: block;
+#jump a {
+  display: inline-block;
 }

@@ -2,43 +2,35 @@
 Font family, size, weight, etc.
 https://www.w3schools.com/css/css_font.asp
 */
-
-/* font body */
 body {
-  font: 400 medium/1.2 "Helvetica Neue", Helvetica, sans-serif;
+  font: 451 medium/1.5 Charcoal, sans-serif
 }
 body a {
   text-decoration: none;
 }
-
 /* font main */
 main blockquote {
-  font-family: "Times", serif;
+  font-family: Georgia, serif;
 }
-main code, main kbd, main samp, main pre, main var {
-  font-family: "Courier", monospace;
+main code,
+main kbd,
+main samp,
+main pre,
+main var {
+  font-family: "Lucida Console", Monaco, monospace;
   font-size: small;
 }
-
 /* font nav */
 nav #home {
-  font-size: 1.5em;
+  font-size: 2rem;
 }
-
 /* font icons */
-#icons {
-  font-size: small;
-}
 #icons img {
   font-size: x-small;
 }
-
-/* font jump */
-#jump {
-  font-size: x-small;
-}
-
-/* font klf */
-#klf {
+/* font jump, klf, last */
+#jump,
+#klf,
+#last {
   font-size: small;
 }

@@ -3,24 +3,24 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge: 1em 0 .5em 0;
+  --large-marge: 1em auto;
+  --marge: .5em;
   --padme: .25em .5em;
-  --puffy: .5rem 1rem;
+  --puffy: 1rem;
 }
-
-/* embiggen body */
 body {
-  height: 94vh;
-  width: 94vw;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 50vh;
+  max-width: 42rem;
 }
-
 /* embiggen main */
 main {
   padding: var(--puffy);
 }
 main blockquote,
 main pre {
-  margin: var(--marge);
+  margin: var(--large-marge);
   max-width: 100%;
   overflow: auto;
   padding: var(--puffy);
@@ -29,42 +29,29 @@ main cite {
   margin: .5em 0 0 0;
 }
 main table {
-  margin: var(--marge);
+  margin: var(--large-marge);
   overflow: auto;
   padding: 0;
-  width: 100%;
 }
 main table td {
   padding: var(--padme);
 }
-main h1 {
-  margin: 1rem 0 2rem 0;
-}
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
-  margin: var(--marge);
-}
-
 /* embiggen nav */
 nav {
   padding: var(--puffy);
 }
-nav a,
-nav summary {
-  margin: .25rem;
+nav a {
+  margin: 0;
   padding: var(--padme);
 }
-nav details > details,
-nav summary ~ a {
-  margin-left: 1rem;
+nav details {
+  margin: 0;
+  padding: 0;
 }
-nav #home {
-  margin-bottom: 1rem;
+nav details summary {
+  margin: 0;
+  padding: 0;
 }
-
 /* embiggen icons */
 #icons {
   margin: 0;
@@ -78,15 +65,23 @@ nav #home {
   padding: 2px;
   width: 2rem;
 }
-
 /* embiggen jump */
 #jump {
-  margin-top: .25rem;
-  padding: var(--padme);
+  margin: 0;
+  padding: 0;
 }
-
+#jump a {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
 /* embiggen klf */
 #klf {
   margin: 0;
   padding: var(--puffy);
+}
+/* embiggen last */
+#last {
+  margin: 0;
+  padding: var(--padme);
 }

@@ -4,23 +4,24 @@ https://www.w3schools.com/css/css_colors.asp
 */
 :root {
   --color-active: firebrick;
-  --color-bright: whitesmoke;
-  --color-dark: #300;
-  --color-link: darkorange;
-  --color-main: black;
+  --color-main: #100;
+  --color-mainlink: darkorange;
+  --color-nav: whitesmoke;
   --color-navlink: gold;
+  --color-partial: rgba(0,0,0,.7);
+  --time-color: 451ms;
 }
-
-/* color body */
 body {
-  background: linear-gradient(
-    var(--color-dark),
-    var(--color-active)
+  background: radial-gradient(
+    at bottom,
+    var(--color-nav),
+    var(--color-mainlink),
+    var(--color-active),
+    var(--color-main)
     );
   background-attachment: fixed;
-  color: var(--color-bright);
+  color: var(--color-main);
 }
-
 body a:link,
 body a:visited {
   color: var(--color-navlink);
@@ -29,88 +30,84 @@ body a:focus,
 body a:hover,
 body a:active {
   color: var(--color-active);
+  transition: var(--time-color);
 }
-
 /* color main */
 main {
-  background-color: var(--color-bright);
+  background: var(--color-nav);
   color: var(--color-main);
 }
 main a:link,
 main a:visited {
-  color: var(--color-link);
+  color: var(--color-mainlink);
 }
 main a:focus,
 main a:hover,
 main a:active {
   color: var(--color-active);
+  transition: var(--time-color);
 }
 main blockquote {
-  background-color: white;
+  background: white;
   border-color: black;
   color: black;
 }
 main pre {
-  background-color: black;
+  background: black;
   color: #dadada;
 }
 main table {
-  background-color: #dadada;
+  background: #dadada;
   color: black;
 }
 main table tr:nth-child(even){
-  background-color: white;
+  background: white;
 }
-
 /* color nav */
 nav {
-  background-color: var(--color-main);
-  color: var(--color-bright);
-}
-nav a {
-  border-color: var(--color-main);
-}
-nav summary {
-  border-color: var(--color-navlink) var(--color-link) var(--color-dark);
+  background: var(--color-main);
+  color: var(--color-nav);
 }
 nav summary:focus,
-nav summary:hover {
-  background-color: var(--color-bright);
-  color: var(--color-main);
-}
+nav summary:hover,
 nav #here {
-  background-color: var(--color-navlink);
-  color: var(--color-main);
+  background: radial-gradient(#666, rgba(0,0,0,0));
+  transition: var(--time-color);
 }
-
 /* color icons */
 #icons {
-  background-color: var(--color-main);
-  color: var(--color-back);
+  background: var(--color-partial);
+  color: var(--color-nav);
 }
 #icons a img {
-  background-color: white;
+  background: white;
   border-color: var(--color-navlink);
-  color: var(--color-main);
+  color: black;
 }
 #icons a img:focus,
 #icons a img:hover,
 #icons a img:active {
   border-color: var(--color-active);
+  transition: var(--time-color);
 }
-
 /* color jump */
 #jump {
-  border-color: var(--color-navlink);
+  background: var(--color-partial);
+  color: var(--color-nav);
 }
-#jump:focus,
-#jump:hover,
-#jump:active {
-  border-color: var(--color-active);
+#jump a:focus,
+#jump a:hover,
+#jump a:active {
+  background: var(--color-active);
+  color: var(--color-nav);
 }
-
 /* color klf */
 #klf {
-  background-color: var(--color-main);
-  color: var(--color-back);
+  background: var(--color-main);
+  color: var(--color-nav);
+}
+/* color last */
+#last {
+  background: var(--color-main);
+  color: var(--color-nav);
 }
