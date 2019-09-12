@@ -42,7 +42,7 @@ class Quarto:
         folder, vacuum, write = self.folder, self.vacuum, self.write
 
         styledir = folder / "styles" / style
-        print("Apply style from", styledir)
+        print("Apply style(s) from", styledir)
 
         if not styledir.is_dir():
             raise NotADirectoryError(styledir)
@@ -85,10 +85,14 @@ class Quarto:
 
     def vacuum(self, suffix=".html"):
         """ None: Delete all files in target folder with selected suffix. """
-        target = self.folder / "target"
+        folder = self.folder
 
+        target = folder / "target"
         pattern = "**/*." + suffix.lstrip(".")
         print("Vacuum {}/{}".format(target, pattern))
+
+        if folder not in target.parents:
+            raise ValueError("{} is not in {}".format(target, folder))
 
         for path in target.glob(pattern):
             print("Delete", path)
@@ -96,13 +100,13 @@ class Quarto:
 
     def write(self, path, text):
         """ None: Save text to file in target folder. """
-        target = self.folder / "target"
+        folder = self.folder
 
-        path = target / path
+        path = folder / "target" / path
         print("Write", path)
 
-        if target not in path.parents:
-            raise ValueError("{} is outside {}".format(path, target))
+        if folder not in path.parents:
+            raise ValueError("{} is not in {}".format(path, folder))
 
         path.parent.mkdir(exist_ok=True, parents=True)
         with open(path, "w") as file:

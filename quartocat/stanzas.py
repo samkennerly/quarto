@@ -47,7 +47,6 @@ def head(
     home, page = paths[0], paths[i]
 
     yield "<head>"
-
     yield "<title>"
     yield title or page.stem.replace("_", " ")
     yield "</title>"
@@ -95,15 +94,13 @@ def icons(paths, i, icon_links=(), **kwargs):
 
 def jump(paths, i, updog="top of page", **kwargs):
     """ Iterator[str]: #jump section. Traditionally used for intrusive ads. """
-
     yield '<section id="jump">'
     yield '<a href="#">{}</a>'.format(updog)
-    yield '</section>'
+    yield "</section>"
 
 
 def klf(paths, i, copyright="", email="", license="", license_url="", **kwargs):
     """ Iterator[str]: #klf section with copyright, license, and email. """
-
     yield '<section id="klf">'
     if copyright:
         copyright = "© {} {}.".format(copyright, YEAR)
@@ -120,7 +117,6 @@ def klf(paths, i, copyright="", email="", license="", license_url="", **kwargs):
 
 def last(paths, i, generator="", js_sources=(), **kwargs):
     """ Iterator[str]: #last section. External JavaScripts go here. """
-
     yield '<section id="last">'
     yield from map('<script src="{}" async></script>'.format, js_sources)
     if generator:

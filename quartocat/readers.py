@@ -19,6 +19,7 @@ def querypage(path):
 def readlines(*paths):
     """ Iterator[str]: Read lines from text file(s). """
     for path in paths:
+        print("Read", path)
         with open(path) as lines:
             yield from lines
 
