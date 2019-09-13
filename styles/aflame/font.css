@@ -4,10 +4,11 @@ https://www.w3schools.com/css/css_font.asp
 */
 body {
   font-family: Charcoal, sans-serif;
-  font-size: large/1.5;
+  font-size: large;
   font-style: normal;
   font-variant: normal;
   font-weight: 451;
+  line-height: 1.2;
 }
 body a {
   text-decoration: none;
