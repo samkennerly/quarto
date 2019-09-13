@@ -1,0 +1,53 @@
+/*
+Border type, thickness, radius, etc.
+https://www.w3schools.com/css/css_border.asp
+*/
+:root {
+  --border: thin solid;
+  --radius: 0;
+}
+/* border main */
+main {
+  border-radius: var(--radius);
+}
+main blockquote,
+main pre {
+  border: var(--border);
+  border-radius: var(--radius);
+}
+main h2 {
+  border-bottom: var(--border);
+}
+main table {
+  border: var(--border);
+  border-collapse: collapse;
+}
+main table td {
+  border: var(--border);
+}
+/* border nav */
+nav {
+  border-radius: var(--radius);
+}
+nav a {
+  border: var(--border);
+  border-radius: var(--radius);
+}
+nav details {
+  border: var(--border);
+  border-radius: var(--radius);
+}
+nav summary {
+  border-bottom: var(--border);
+}
+/* border others */
+#icons,
+#jump,
+#klf,
+#last {
+  border-radius: var(--radius);
+}
+#icons img {
+  border: .1rem solid;
+  border-radius: var(--radius);
+}

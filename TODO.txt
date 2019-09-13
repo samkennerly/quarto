@@ -1,14 +1,18 @@
 ASAP:
-  - fix styles/alarming/embiggen.css
+  - elemental: finish margins, padding. gray background, navy menus?
+  - doctoral: color transitions, details margins, jump size
+  - bloglike: (blue,magenta): icons, main nav, main jump, klf
+  - cinematic: (silver,black): nav, main, icons, jump, klf
   - test caps, spaces, underscores in page paths
   - find static host. update index.json.
+  - finish class Quarto docstring
 
 CODE:
-  - finish class Quarto docstring
-  - clean(), decapitate(), and/or tidybody()
-  - CSSPATH should be an option?
-  - vacuum() should delete empty folders?
-  - read markdown IF requirements installed
+  - standard args: quartocat COMMAND [INDIR] [OUTDIR] ?
+  - delete CSS and HTML with clean() instead of apply() and build() ?
+  - decapitate() and/or tidybody()
+  - can vacuum() delete empty folders with .unlink() ?
+  - markdown support? need parser, requirements, etc
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
 
@@ -22,6 +26,7 @@ PACKAGING:
   - remove .nojekyll
 
 README:
+  - tutorial (see yellow notes)
   - no install required
   - `python3 -m quarto build` or `quarto/please build`
   - edit target/ to include other files
@@ -29,10 +34,6 @@ README:
   - edit ready/ to customize content
   - edit quarto/ to customize generation
   - delete Dockerfile, kitchen if you want
-
-STYLES:
-  - bloglike: (blue,magenta): icons, main nav, main jump, klf
-  - cinematic: (silver,black): nav, main, icons, jump, klf
 
 TESTING:
   - test with older Python versions

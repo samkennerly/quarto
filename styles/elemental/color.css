@@ -1,0 +1,100 @@
+/*
+Color coordination for all elements.
+https://www.w3schools.com/css/css_colors.asp
+*/
+:root {
+  --color-active: firebrick;
+  --color-back: navy;
+  --color-body: silver;
+  --color-link: springgreen;
+  --color-main: black;
+  --color-mainback: white;
+  --color-mainlink: #777;
+  --color-menu: rgba(0,0,0,.5);
+  --color-time: 100ms;
+}
+body {
+  background: var(--color-back);
+  color: var(--color-body);
+}
+body a:link,
+body a:visited {
+  color: var(--color-link);
+}
+body a:focus,
+body a:hover,
+body a:active {
+  color: var(--color-active);
+  transition: var(--color-time);
+}
+/* color main */
+main {
+  background: var(--color-mainback);
+  color: var(--color-main);
+}
+main a:link,
+main a:visited {
+  color: var(--color-mainlink);
+}
+main a:focus,
+main a:hover,
+main a:active {
+  color: var(--color-active);
+  transition: var(--color-time);
+}
+main blockquote {
+  background: white;
+  color: black;
+}
+main pre {
+  background: black;
+  color: silver;
+}
+main table {
+  background: #dadada;
+  color: black;
+}
+main table tr:nth-child(even){
+  background: white;
+}
+/* color nav */
+nav {
+  background: var(--color-menu);
+}
+nav a,
+nav details {
+  border-color: var(--color-back);
+}
+nav summary:focus,
+nav summary:hover {
+  border-color: var(--color-active);
+  transition: var(--color-time);
+}
+nav #here {
+  color: var(--color-active);
+}
+/* color others */
+#icons,
+#jump,
+#klf,
+#last {
+  background: var(--color-menu);
+}
+#icons a img {
+  background: white;
+  border-color: var(--color-link);
+  color: black;
+}
+#icons a img:focus,
+#icons a img:hover,
+#icons a img:active {
+  border-color: var(--color-active);
+  transition: var(--color-time);
+}
+#jump a:focus,
+#jump a:hover,
+#jump a:active {
+  background: var(--color-active);
+  color: white;
+  transition: var(--color-time);
+}
