@@ -11,6 +11,40 @@ https://www.w3schools.com/css/css_units.asp
 body {
   height: 98vh;
 }
+/* embiggen icons */
+#icons {
+  margin: 0;
+  padding: var(--puffy);
+}
+#icons a {
+  margin: 0 .5rem;
+}
+#icons img {
+  height: 1rem;
+  padding: 2px;
+  width: 2rem;
+}
+/* embiggen jump */
+#jump {
+  margin: var(--marge);
+  padding: 0;
+}
+#jump a {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+/* embiggen klf */
+#klf {
+  margin: 0;
+  padding: var(--puffy);
+}
+/* embiggen last */
+#last {
+  margin: var(--marge);
+  padding: 0;
+}
 /* embiggen main */
 main {
   padding: var(--puffy);
@@ -59,38 +93,4 @@ nav summary ~ a {
 }
 nav #home {
   margin-bottom: 1em;
-}
-/* embiggen icons */
-#icons {
-  margin: 0;
-  padding: var(--puffy);
-}
-#icons a {
-  margin: 0 .5rem;
-}
-#icons img {
-  height: 1rem;
-  padding: 2px;
-  width: 2rem;
-}
-/* embiggen jump */
-#jump {
-  margin: var(--marge);
-  padding: 0;
-}
-#jump a {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-}
-/* embiggen klf */
-#klf {
-  margin: 0;
-  padding: var(--puffy);
-}
-/* embiggen last */
-#last {
-  margin: var(--marge);
-  padding: 0;
 }

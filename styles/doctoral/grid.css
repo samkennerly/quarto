@@ -13,12 +13,6 @@ body {
   grid-template-columns: 25vw 70vw;
   grid-template-rows: auto 1fr auto auto;
 }
-main {
-  grid-area: main;
-}
-nav {
-  grid-area: nav;
-}
 #icons {
   grid-area: icons;
 }
@@ -30,4 +24,10 @@ nav {
 }
 #last {
   grid-area: last;
+}
+main {
+  grid-area: main;
+}
+nav {
+  grid-area: nav;
 }

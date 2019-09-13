@@ -19,7 +19,6 @@ body {
   background-attachment: fixed;
   color: var(--color-mainback);
 }
-
 body a:link,
 body a:visited {
   color: var(--color-navlink);
@@ -29,9 +28,44 @@ body a:hover,
 body a:active {
   color: var(--color-active);
 }
+/* color icons */
+#icons {
+  background: var(--color-main);
+  color: var(--color-mainback);
+}
+#icons a img {
+  background: white;
+  border-color: var(--color-navlink);
+  color: var(--color-main);
+}
+#icons a img:focus,
+#icons a img:hover,
+#icons a img:active {
+  border-color: var(--color-active);
+}
+/* color jump */
+#jump {
+  background: none;
+  border-color: var(--color-navlink);
+}
+#jump:focus,
+#jump:hover,
+#jump:active {
+  border-color: var(--color-active);
+}
+/* color klf */
+#klf {
+  background: var(--color-main);
+  color: var(--color-mainback);
+}
+/* color last */
+#last {
+  background: none;
+}
+
 /* color main */
 main {
-  background-color: var(--color-mainback);
+  background: var(--color-mainback);
   color: var(--color-main);
 }
 main a:link,
@@ -44,24 +78,24 @@ main a:active {
   color: var(--color-active);
 }
 main blockquote {
-  background-color: white;
+  background: white;
   border-color: black;
   color: black;
 }
 main pre {
-  background-color: black;
+  background: black;
   color: #dadada;
 }
 main table {
-  background-color: #dadada;
+  background: #dadada;
   color: black;
 }
 main table tr:nth-child(even){
-  background-color: white;
+  background: white;
 }
 /* color nav */
 nav {
-  background-color: var(--color-main);
+  background: var(--color-main);
   color: var(--color-mainback);
 }
 nav a {
@@ -72,44 +106,11 @@ nav summary {
 }
 nav summary:focus,
 nav summary:hover {
-  background-color: var(--color-mainback);
+  background: var(--color-mainback);
   color: var(--color-main);
 }
 nav #here {
-  background-color: var(--color-navlink);
+  background: var(--color-navlink);
   color: var(--color-main);
 }
-/* color icons */
-#icons {
-  background-color: var(--color-main);
-  color: var(--color-mainback);
-}
-#icons a img {
-  background-color: white;
-  border-color: var(--color-navlink);
-  color: var(--color-main);
-}
-#icons a img:focus,
-#icons a img:hover,
-#icons a img:active {
-  border-color: var(--color-active);
-}
-/* color jump */
-#jump {
-  background-color: none;
-  border-color: var(--color-navlink);
-}
-#jump:focus,
-#jump:hover,
-#jump:active {
-  border-color: var(--color-active);
-}
-/* color klf */
-#klf {
-  background-color: var(--color-main);
-  color: var(--color-mainback);
-}
-/* color last */
-#last {
-  background-color: none;
-}
+

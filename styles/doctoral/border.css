@@ -6,24 +6,6 @@ https://www.w3schools.com/css/css_border.asp
   --border: thin solid;
   --radius: .5rem;
 }
-/* border main */
-main blockquote,
-main pre,
-main table {
-  border-radius: var(--radius);
-}
-main h2 {
-  border-bottom: var(--border);
-}
-/* border nav */
-nav {
-  border-radius: var(--radius);
-}
-nav a,
-nav summary {
-  border: var(--border);
-  border-radius: var(--radius);
-}
 /* border icons */
 #icons {
   border: none;
@@ -46,5 +28,23 @@ nav summary {
 /* border last */
 #last {
   border: none;
+  border-radius: var(--radius);
+}
+/* border main */
+main blockquote,
+main pre,
+main table {
+  border-radius: var(--radius);
+}
+main h2 {
+  border-bottom: var(--border);
+}
+/* border nav */
+nav {
+  border-radius: var(--radius);
+}
+nav a,
+nav summary {
+  border: var(--border);
   border-radius: var(--radius);
 }

@@ -5,6 +5,13 @@ https://www.w3schools.com/css/css_text.asp
 body {
   text-align: center;
 }
+/* align icons */
+#icons {
+  text-align: center;
+}
+#icons img {
+  vertical-align: middle;
+}
 /* align main */
 main {
   text-align: left;
@@ -19,11 +26,3 @@ nav {
 nav #home {
   text-align: center;
 }
-/* align icons */
-#icons {
-  text-align: center;
-}
-#icons img {
-  vertical-align: middle;
-}
-

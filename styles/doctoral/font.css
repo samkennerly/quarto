@@ -3,14 +3,24 @@ Font family, size, weight, etc.
 https://www.w3schools.com/css/css_font.asp
 */
 body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-size: medium/1.2;
   font-style: normal;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-variant: normal;
   font-weight: 400;
 }
 body a {
   text-decoration: none;
+}
+/* font icons, jump, klf, last */
+#icons
+#jump,
+#klf,
+#last {
+  font-size: small;
+}
+#icons img {
+  font-size: x-small;
 }
 /* font main */
 main blockquote {
@@ -28,16 +38,4 @@ main var {
 nav #home {
   font-size: 1.5em;
 }
-/* font icons */
-#icons {
-  font-size: small;
-}
-#icons img {
-  font-size: x-small;
-}
-/* font jump, klf, last */
-#jump,
-#klf,
-#last {
-  font-size: small;
-}
+
