@@ -3,7 +3,7 @@ Grid layout for each page.
 https://www.w3schools.com/css/css_grid.asp
 */
 body {
-  grid-row-gap: 1vh;
+  grid-row-gap: .5rem;
   grid-template-areas:
     'icons'
     'nav'

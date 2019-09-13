@@ -3,10 +3,23 @@ Font family, size, weight, etc.
 https://www.w3schools.com/css/css_font.asp
 */
 body {
-  font: 451 medium/1.5 Charcoal, sans-serif
+  font: 451 large/1.5 Charcoal, sans-serif
 }
 body a {
   text-decoration: none;
+}
+/* font icons */
+#icons {
+  font-size: medium;
+}
+#icons img {
+  font-size: x-small;
+}
+/* font jump, klf, last */
+#jump,
+#klf,
+#last {
+  font-size: small;
 }
 /* font main */
 main blockquote {
@@ -23,14 +36,4 @@ main var {
 /* font nav */
 nav #home {
   font-size: 2rem;
-}
-/* font icons */
-#icons img {
-  font-size: x-small;
-}
-/* font jump, klf, last */
-#jump,
-#klf,
-#last {
-  font-size: small;
 }

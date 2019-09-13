@@ -9,48 +9,9 @@ https://www.w3schools.com/css/css_units.asp
   --puffy: 1rem;
 }
 body {
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 50vh;
-  max-width: 42rem;
-}
-/* embiggen main */
-main {
-  padding: var(--puffy);
-}
-main blockquote,
-main pre {
   margin: var(--large-marge);
-  max-width: 100%;
-  overflow: auto;
-  padding: var(--puffy);
-}
-main cite {
-  margin: .5em 0 0 0;
-}
-main table {
-  margin: var(--large-marge);
-  overflow: auto;
-  padding: 0;
-}
-main table td {
-  padding: var(--padme);
-}
-/* embiggen nav */
-nav {
-  padding: var(--puffy);
-}
-nav a {
-  margin: 0;
-  padding: var(--padme);
-}
-nav details {
-  margin: 0;
-  padding: 0;
-}
-nav details summary {
-  margin: 0;
-  padding: 0;
+  min-height: 69vh;
+  width: 42rem;
 }
 /* embiggen icons */
 #icons {
@@ -58,7 +19,7 @@ nav details summary {
   padding: var(--puffy);
 }
 #icons a {
-  margin: 0 .5rem;
+  margin: var(--marge);
 }
 #icons img {
   height: 1rem;
@@ -83,5 +44,44 @@ nav details summary {
 /* embiggen last */
 #last {
   margin: 0;
+  padding: var(--puffy);
+}
+/* embiggen main */
+main {
+  padding: var(--puffy);
+}
+main blockquote,
+main pre {
+  margin: var(--large-marge);
+  max-width: 100%;
+  overflow: auto;
+  padding: var(--puffy);
+}
+main cite {
+  margin: var(--marge);
+}
+main table {
+  margin: var(--large-marge);
+  overflow: auto;
+  padding: 0;
+}
+main table td {
   padding: var(--padme);
+}
+/* embiggen nav */
+nav {
+  padding: var(--puffy);
+}
+nav a {
+  margin: 0;
+  padding: var(--padme);
+}
+nav details {
+  margin: 0;
+  padding: var(--padme);
+}
+nav summary {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }

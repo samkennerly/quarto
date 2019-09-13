@@ -5,6 +5,10 @@ https://www.w3schools.com/css/css_border.asp
 :root {
   --border: 2px ridge;
 }
+/* border icons */
+#icons img {
+  border: var(--border);
+}
 /* border main */
 main,
 main blockquote,
@@ -15,7 +19,7 @@ main table {
 main h2 {
   border-bottom: var(--border);
 }
-/* border icons */
-#icons img {
-  border: var(--border);
+/* border nav */
+nav summary {
+  border-bottom: var(--border);
 }

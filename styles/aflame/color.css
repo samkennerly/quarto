@@ -3,20 +3,23 @@ Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: firebrick;
+  --color-active: red;
+  --color-border: #666;
   --color-main: #100;
-  --color-mainlink: darkorange;
+  --color-mainback: whitesmoke;
+  --color-mainlink: firebrick;
   --color-nav: whitesmoke;
+  --color-navback: rgba(0,0,0,.7);
   --color-navlink: gold;
-  --color-partial: rgba(0,0,0,.7);
+  --color-shadow: 0 .1em 0 black;
   --time-color: 451ms;
 }
 body {
   background: radial-gradient(
     at bottom,
-    var(--color-nav),
-    var(--color-mainlink),
-    var(--color-active),
+    var(--color-nav) 5%,
+    var(--color-navlink) 25%,
+    var(--color-mainlink) 50%,
     var(--color-main)
     );
   background-attachment: fixed;
@@ -32,9 +35,50 @@ body a:active {
   color: var(--color-active);
   transition: var(--time-color);
 }
+/* color icons */
+#icons {
+  background: var(--color-navback);
+  color: var(--color-nav);
+  text-shadow: var(--color-shadow);
+}
+#icons a img {
+  background: white;
+  border-color: var(--color-navlink);
+  color: black;
+  text-shadow: none;
+}
+#icons a img:focus,
+#icons a img:hover,
+#icons a img:active {
+  border-color: var(--color-active);
+  transition: var(--time-color);
+}
+/* color jump */
+#jump {
+  background: var(--color-main);
+  color: var(--color-mainback);
+}
+#jump :focus,
+#jump :hover,
+#jump :active {
+  background: var(--color-navlink);
+}
+/* color klf */
+#klf {
+  background: var(--color-navback);
+  color: var(--color-nav);
+  text-shadow: var(--color-shadow);
+}
+/* color last */
+#last {
+  background: var(--color-navback);
+  color: var(--color-nav);
+  text-shadow: var(--color-shadow);
+}
 /* color main */
 main {
-  background: var(--color-nav);
+  background: var(--color-mainback);
+  border-color: var(--color-border);
   color: var(--color-main);
 }
 main a:link,
@@ -45,11 +89,9 @@ main a:focus,
 main a:hover,
 main a:active {
   color: var(--color-active);
-  transition: var(--time-color);
 }
 main blockquote {
   background: white;
-  border-color: black;
   color: black;
 }
 main pre {
@@ -65,49 +107,15 @@ main table tr:nth-child(even){
 }
 /* color nav */
 nav {
-  background: var(--color-main);
+  background: var(--color-navback);
   color: var(--color-nav);
+  text-shadow: var(--color-shadow);
 }
 nav summary:focus,
-nav summary:hover,
-nav #here {
-  background: radial-gradient(#666, rgba(0,0,0,0));
-  transition: var(--time-color);
-}
-/* color icons */
-#icons {
-  background: var(--color-partial);
-  color: var(--color-nav);
-}
-#icons a img {
-  background: white;
-  border-color: var(--color-navlink);
-  color: black;
-}
-#icons a img:focus,
-#icons a img:hover,
-#icons a img:active {
+nav summary:hover {
   border-color: var(--color-active);
   transition: var(--time-color);
 }
-/* color jump */
-#jump {
-  background: var(--color-partial);
-  color: var(--color-nav);
-}
-#jump a:focus,
-#jump a:hover,
-#jump a:active {
-  background: var(--color-active);
-  color: var(--color-nav);
-}
-/* color klf */
-#klf {
-  background: var(--color-main);
-  color: var(--color-nav);
-}
-/* color last */
-#last {
-  background: var(--color-main);
-  color: var(--color-nav);
+nav #here {
+  color: var(--color-active);
 }

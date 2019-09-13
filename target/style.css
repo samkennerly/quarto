@@ -5,14 +5,14 @@ https://www.w3schools.com/css/css_text.asp
 body {
   text-align: center;
 }
-/* align nav */
-nav details {
-  vertical-align: top;
-}
 /* align icons */
 #icons,
 #icons img {
   vertical-align: middle;
+}
+/* align nav */
+nav details {
+  vertical-align: top;
 }
 /*
 Border type, thickness, radius, etc.
@@ -20,6 +20,10 @@ https://www.w3schools.com/css/css_border.asp
 */
 :root {
   --border: 2px ridge;
+}
+/* border icons */
+#icons img {
+  border: var(--border);
 }
 /* border main */
 main,
@@ -31,29 +35,32 @@ main table {
 main h2 {
   border-bottom: var(--border);
 }
-/* border icons */
-#icons img {
-  border: var(--border);
+/* border nav */
+nav summary {
+  border-bottom: var(--border);
 }
 /*
 Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: firebrick;
+  --color-active: red;
+  --color-border: #666;
   --color-main: #100;
-  --color-mainlink: darkorange;
+  --color-mainback: whitesmoke;
+  --color-mainlink: firebrick;
   --color-nav: whitesmoke;
+  --color-navback: rgba(0,0,0,.7);
   --color-navlink: gold;
-  --color-partial: rgba(0,0,0,.7);
+  --color-shadow: 0 .1em 0 black;
   --time-color: 451ms;
 }
 body {
   background: radial-gradient(
     at bottom,
-    var(--color-nav),
-    var(--color-mainlink),
-    var(--color-active),
+    var(--color-nav) 5%,
+    var(--color-navlink) 25%,
+    var(--color-mainlink) 50%,
     var(--color-main)
     );
   background-attachment: fixed;
@@ -69,9 +76,50 @@ body a:active {
   color: var(--color-active);
   transition: var(--time-color);
 }
+/* color icons */
+#icons {
+  background: var(--color-navback);
+  color: var(--color-nav);
+  text-shadow: var(--color-shadow);
+}
+#icons a img {
+  background: white;
+  border-color: var(--color-navlink);
+  color: black;
+  text-shadow: none;
+}
+#icons a img:focus,
+#icons a img:hover,
+#icons a img:active {
+  border-color: var(--color-active);
+  transition: var(--time-color);
+}
+/* color jump */
+#jump {
+  background: var(--color-main);
+  color: var(--color-mainback);
+}
+#jump :focus,
+#jump :hover,
+#jump :active {
+  background: var(--color-navlink);
+}
+/* color klf */
+#klf {
+  background: var(--color-navback);
+  color: var(--color-nav);
+  text-shadow: var(--color-shadow);
+}
+/* color last */
+#last {
+  background: var(--color-navback);
+  color: var(--color-nav);
+  text-shadow: var(--color-shadow);
+}
 /* color main */
 main {
-  background: var(--color-nav);
+  background: var(--color-mainback);
+  border-color: var(--color-border);
   color: var(--color-main);
 }
 main a:link,
@@ -82,11 +130,9 @@ main a:focus,
 main a:hover,
 main a:active {
   color: var(--color-active);
-  transition: var(--time-color);
 }
 main blockquote {
   background: white;
-  border-color: black;
   color: black;
 }
 main pre {
@@ -102,51 +148,17 @@ main table tr:nth-child(even){
 }
 /* color nav */
 nav {
-  background: var(--color-main);
+  background: var(--color-navback);
   color: var(--color-nav);
+  text-shadow: var(--color-shadow);
 }
 nav summary:focus,
-nav summary:hover,
-nav #here {
-  background: radial-gradient(#666, rgba(0,0,0,0));
-  transition: var(--time-color);
-}
-/* color icons */
-#icons {
-  background: var(--color-partial);
-  color: var(--color-nav);
-}
-#icons a img {
-  background: white;
-  border-color: var(--color-navlink);
-  color: black;
-}
-#icons a img:focus,
-#icons a img:hover,
-#icons a img:active {
+nav summary:hover {
   border-color: var(--color-active);
   transition: var(--time-color);
 }
-/* color jump */
-#jump {
-  background: var(--color-partial);
-  color: var(--color-nav);
-}
-#jump a:focus,
-#jump a:hover,
-#jump a:active {
-  background: var(--color-active);
-  color: var(--color-nav);
-}
-/* color klf */
-#klf {
-  background: var(--color-main);
-  color: var(--color-nav);
-}
-/* color last */
-#last {
-  background: var(--color-main);
-  color: var(--color-nav);
+nav #here {
+  color: var(--color-active);
 }
 /*
 Display behavior: block, inline, none, etc.
@@ -154,24 +166,6 @@ https://www.w3schools.com/css/css_display_visibility.asp
 */
 body {
   display: grid;
-}
-/* display main */
-main cite {
-  display: block;
-}
-/* display nav */
-nav #home {
-  display: block;
-}
-nav details {
-  display: inline;
-}
-nav details summary {
-  display: block;
-}
-nav details > details,
-nav details summary ~ a {
-  display: block;
 }
 /* display icons */
 #icons {
@@ -185,7 +179,27 @@ nav details summary ~ a {
 #jump a {
   display: inline-block;
 }
-/*
+/* display main */
+main cite {
+  display: block;
+}
+/* display nav */
+nav a {
+  display: inline-block;
+}
+nav details {
+  display: inline;
+}
+nav summary {
+  display: inline-block;
+}
+nav details > details,
+nav details summary ~ a {
+  display: block;
+}
+nav #home {
+  display: block;
+}/*
 Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
@@ -196,48 +210,9 @@ https://www.w3schools.com/css/css_units.asp
   --puffy: 1rem;
 }
 body {
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 50vh;
-  max-width: 42rem;
-}
-/* embiggen main */
-main {
-  padding: var(--puffy);
-}
-main blockquote,
-main pre {
   margin: var(--large-marge);
-  max-width: 100%;
-  overflow: auto;
-  padding: var(--puffy);
-}
-main cite {
-  margin: .5em 0 0 0;
-}
-main table {
-  margin: var(--large-marge);
-  overflow: auto;
-  padding: 0;
-}
-main table td {
-  padding: var(--padme);
-}
-/* embiggen nav */
-nav {
-  padding: var(--puffy);
-}
-nav a {
-  margin: 0;
-  padding: var(--padme);
-}
-nav details {
-  margin: 0;
-  padding: 0;
-}
-nav details summary {
-  margin: 0;
-  padding: 0;
+  min-height: 69vh;
+  width: 42rem;
 }
 /* embiggen icons */
 #icons {
@@ -245,7 +220,7 @@ nav details summary {
   padding: var(--puffy);
 }
 #icons a {
-  margin: 0 .5rem;
+  margin: var(--marge);
 }
 #icons img {
   height: 1rem;
@@ -270,17 +245,69 @@ nav details summary {
 /* embiggen last */
 #last {
   margin: 0;
+  padding: var(--puffy);
+}
+/* embiggen main */
+main {
+  padding: var(--puffy);
+}
+main blockquote,
+main pre {
+  margin: var(--large-marge);
+  max-width: 100%;
+  overflow: auto;
+  padding: var(--puffy);
+}
+main cite {
+  margin: var(--marge);
+}
+main table {
+  margin: var(--large-marge);
+  overflow: auto;
+  padding: 0;
+}
+main table td {
   padding: var(--padme);
+}
+/* embiggen nav */
+nav {
+  padding: var(--puffy);
+}
+nav a {
+  margin: 0;
+  padding: var(--padme);
+}
+nav details {
+  margin: 0;
+  padding: var(--padme);
+}
+nav summary {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 /*
 Font family, size, weight, etc.
 https://www.w3schools.com/css/css_font.asp
 */
 body {
-  font: 451 medium/1.5 Charcoal, sans-serif
+  font: 451 large/1.5 Charcoal, sans-serif
 }
 body a {
   text-decoration: none;
+}
+/* font icons */
+#icons {
+  font-size: medium;
+}
+#icons img {
+  font-size: x-small;
+}
+/* font jump, klf, last */
+#jump,
+#klf,
+#last {
+  font-size: small;
 }
 /* font main */
 main blockquote {
@@ -298,22 +325,12 @@ main var {
 nav #home {
   font-size: 2rem;
 }
-/* font icons */
-#icons img {
-  font-size: x-small;
-}
-/* font jump, klf, last */
-#jump,
-#klf,
-#last {
-  font-size: small;
-}
 /*
 Grid layout for each page.
 https://www.w3schools.com/css/css_grid.asp
 */
 body {
-  grid-row-gap: 1vh;
+  grid-row-gap: .5rem;
   grid-template-areas:
     'icons'
     'nav'
