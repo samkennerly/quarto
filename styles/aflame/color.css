@@ -16,7 +16,7 @@ https://www.w3schools.com/css/css_colors.asp
 }
 body {
   background: radial-gradient(
-    at bottom,
+    farthest-side at bottom,
     var(--color-nav) 5%,
     var(--color-navlink) 25%,
     var(--color-mainlink) 50%,
