@@ -4,7 +4,7 @@ https://www.w3schools.com/css/css_border.asp
 */
 :root {
   --border: thin solid;
-  --radius: 2px;
+  --radius: 4px;
 }
 /* border main */
 main {

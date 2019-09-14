@@ -3,18 +3,22 @@ Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: firebrick;
-  --color-boxes: rgba(0,0,80,.5);
-  --color-link: springgreen;
-  --color-text: ghostwhite;
+  --color-active: red;
+  --color-boxes: rgba(0,0,0,.25);
+
+  --color-back: dimgray;
+  --color-link: lightblue;
+  --color-text: lightgreen;
+
   --color-main-back: white;
   --color-main-link: #555;
   --color-main-text: black;
+
   --color-shadow: 0 .1em 0 black;
-  --color-time: 500ms;
+  --color-time: 250ms;
 }
 body {
-  background: var(--color-main-text);
+  background: var(--color-back);
   color: var(--color-text);
   text-shadow: var(--color-shadow);
 }
@@ -64,6 +68,9 @@ nav,
 nav details {
   background: var(--color-boxes);
 }
+nav summary {
+  border-color: var(--color-back);
+}
 nav summary:focus,
 nav summary:hover {
   border-color: var(--color-active);
@@ -81,11 +88,4 @@ nav #here {
 }
 #icons img {
   background: white;
-}
-#jump a:focus,
-#jump a:hover,
-#jump a:active {
-  background: var(--color-active);
-  color: white;
-  transition: var(--color-time);
 }

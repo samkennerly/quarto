@@ -38,7 +38,7 @@ https://www.w3schools.com/css/css_border.asp
 */
 :root {
   --border: thin solid;
-  --radius: 2px;
+  --radius: 4px;
 }
 /* border main */
 main {
@@ -89,18 +89,22 @@ Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: firebrick;
-  --color-boxes: rgba(0,0,80,.5);
-  --color-link: springgreen;
-  --color-text: ghostwhite;
+  --color-active: red;
+  --color-boxes: rgba(0,0,0,.25);
+
+  --color-back: dimgray;
+  --color-link: lightblue;
+  --color-text: lightgreen;
+
   --color-main-back: white;
   --color-main-link: #555;
   --color-main-text: black;
+
   --color-shadow: 0 .1em 0 black;
-  --color-time: 500ms;
+  --color-time: 250ms;
 }
 body {
-  background: var(--color-main-text);
+  background: var(--color-back);
   color: var(--color-text);
   text-shadow: var(--color-shadow);
 }
@@ -150,6 +154,9 @@ nav,
 nav details {
   background: var(--color-boxes);
 }
+nav summary {
+  border-color: var(--color-back);
+}
 nav summary:focus,
 nav summary:hover {
   border-color: var(--color-active);
@@ -167,13 +174,6 @@ nav #here {
 }
 #icons img {
   background: white;
-}
-#jump a:focus,
-#jump a:hover,
-#jump a:active {
-  background: var(--color-active);
-  color: white;
-  transition: var(--color-time);
 }
 /*
 Display behavior: block, inline, none, etc.
@@ -222,15 +222,15 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --large-marge: 1rem auto 1rem;
-  --marge: 1em 0 .5em;
-  --padme: .25em .5em;
+  --marge-large: .5rem auto 1rem;
+  --marge-small: .2em 0;
+  --padme: .2em .5em;
   --puffy: .5rem 1rem;
 }
 body {
-  margin: var(--large-marge);
+  margin: var(--marge-large);
   max-width: 50rem;
-  min-height: 50vh;
+  min-height: 80vh;
 }
 /* embiggen main */
 main {
@@ -238,16 +238,19 @@ main {
 }
 main blockquote,
 main pre {
-  margin: var(--marge);
+  margin: var(--marge-large);
   max-width: 100%;
   overflow: auto;
   padding: var(--puffy);
 }
-main cite {
-  margin: var(--marge);
+main cite,
+main div,
+main li,
+main p {
+  margin: var(--marge-small);
 }
 main table {
-  margin: var(--large-marge);
+  margin: var(--marge-large);
   overflow: auto;
   padding: 0;
   width: 100%;
@@ -259,9 +262,7 @@ main table td {
 nav {
   padding: var(--puffy);
 }
-nav a {
-  padding: var(--padme);
-}
+nav a,
 nav details {
   padding: var(--padme);
 }
@@ -274,23 +275,22 @@ nav summary ~ a {
 }
 /* embiggen others */
 #icons {
+  margin: 0;
   padding: var(--puffy);
 }
-#icons img {
-  height: 1rem;
-  margin: 0 1rem;
-  padding: 2px;
-  width: 2rem;
-}
-#jump a {
-  margin: 0;
-  height: 100%;
-  width: 100%;
-}
+#jump,
 #klf,
 #last {
   margin: 0;
   padding: var(--padme);
+}
+#icons img {
+  height: 1rem;
+  margin: 0 1rem;
+  width: 2rem;
+}
+#jump a {
+  width: 100%;
 }
 /*
 Font family, size, weight, etc.
@@ -329,9 +329,6 @@ nav #home {
 #klf,
 #last {
   font-size: small;
-}
-#icons img {
-  font-size: x-small;
 }
 /*
 Grid layout for each page.
