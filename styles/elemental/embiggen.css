@@ -3,13 +3,14 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --large-marge: 1em auto 1em auto;
-  --marge: 1em 0 .5em 0;
+  --large-marge: 1rem auto 1rem;
+  --marge: 1em 0 .5em;
   --padme: .25em .5em;
   --puffy: .5rem 1rem;
 }
 body {
   margin: var(--large-marge);
+  max-width: 50rem;
   min-height: 50vh;
 }
 /* embiggen main */
@@ -33,57 +34,42 @@ main table {
   width: 100%;
 }
 main table td {
-
-}
-main h1 {
-
-}
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
-
+  padding: var(--padme);
 }
 /* embiggen nav */
 nav {
   padding: var(--puffy);
 }
-nav a,
-nav details {
-
+nav a {
+  padding: var(--padme);
 }
-nav a,
-nav details,
+nav details {
+  padding: var(--padme);
+}
 nav summary {
-
+  width: 100%;
 }
 nav details > details,
 nav summary ~ a {
   margin-left: 1em;
 }
-nav #home {
-
-}
 /* embiggen others */
-#icons,
-#jump,
-#klf,
-#last {
-  margin: 0;
+#icons {
   padding: var(--puffy);
-}
-#icons a {
-
 }
 #icons img {
   height: 1rem;
+  margin: 0 1rem;
   padding: 2px;
   width: 2rem;
 }
 #jump a {
   margin: 0;
-  padding: 0;
   height: 100%;
   width: 100%;
+}
+#klf,
+#last {
+  margin: 0;
+  padding: var(--padme);
 }

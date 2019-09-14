@@ -4,7 +4,7 @@ https://www.w3schools.com/css/css_border.asp
 */
 :root {
   --border: thin solid;
-  --radius: 0;
+  --radius: 2px;
 }
 /* border main */
 main {
@@ -26,28 +26,27 @@ main table td {
   border: var(--border);
 }
 /* border nav */
-nav {
-  border-radius: var(--radius);
-}
-nav a {
-  border: var(--border);
-  border-radius: var(--radius);
-}
+nav,
+nav a,
 nav details {
-  border: var(--border);
   border-radius: var(--radius);
 }
 nav summary {
   border-bottom: var(--border);
 }
 /* border others */
-#icons,
-#jump,
-#klf,
-#last {
+#icons {
   border-radius: var(--radius);
 }
 #icons img {
-  border: .1rem solid;
+  border: 2px solid;
+  border-radius: var(--radius);
+}
+#jump,
+#jump a {
+  border-radius: var(--radius);
+}
+#klf,
+#last {
   border-radius: var(--radius);
 }

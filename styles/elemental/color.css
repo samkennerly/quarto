@@ -4,18 +4,19 @@ https://www.w3schools.com/css/css_colors.asp
 */
 :root {
   --color-active: firebrick;
-  --color-back: navy;
-  --color-body: silver;
+  --color-boxes: rgba(0,0,80,.5);
   --color-link: springgreen;
-  --color-main: black;
-  --color-mainback: white;
-  --color-mainlink: #777;
-  --color-menu: rgba(0,0,0,.5);
-  --color-time: 100ms;
+  --color-text: ghostwhite;
+  --color-main-back: white;
+  --color-main-link: #555;
+  --color-main-text: black;
+  --color-shadow: 0 .1em 0 black;
+  --color-time: 500ms;
 }
 body {
-  background: var(--color-back);
-  color: var(--color-body);
+  background: var(--color-main-text);
+  color: var(--color-text);
+  text-shadow: var(--color-shadow);
 }
 body a:link,
 body a:visited {
@@ -29,12 +30,13 @@ body a:active {
 }
 /* color main */
 main {
-  background: var(--color-mainback);
-  color: var(--color-main);
+  background: var(--color-main-back);
+  color: var(--color-main-text);
+  text-shadow: none;
 }
 main a:link,
 main a:visited {
-  color: var(--color-mainlink);
+  color: var(--color-main-link);
 }
 main a:focus,
 main a:hover,
@@ -58,12 +60,9 @@ main table tr:nth-child(even){
   background: white;
 }
 /* color nav */
-nav {
-  background: var(--color-menu);
-}
-nav a,
+nav,
 nav details {
-  border-color: var(--color-back);
+  background: var(--color-boxes);
 }
 nav summary:focus,
 nav summary:hover {
@@ -78,18 +77,10 @@ nav #here {
 #jump,
 #klf,
 #last {
-  background: var(--color-menu);
+  background: var(--color-boxes);
 }
-#icons a img {
+#icons img {
   background: white;
-  border-color: var(--color-link);
-  color: black;
-}
-#icons a img:focus,
-#icons a img:hover,
-#icons a img:active {
-  border-color: var(--color-active);
-  transition: var(--color-time);
 }
 #jump a:focus,
 #jump a:hover,
