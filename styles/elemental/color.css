@@ -69,7 +69,8 @@ nav summary {
   border-color: var(--color-back);
 }
 nav summary:focus,
-nav summary:hover {
+nav summary:hover,
+nav summary:active {
   border-color: var(--color-active);
   transition: var(--color-time);
 }

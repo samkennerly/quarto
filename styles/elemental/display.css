@@ -11,9 +11,8 @@ main cite {
   display: block;
 }
 /* display nav */
-nav a {
-  display: block;
-}
+nav,
+nav a,
 nav details {
   display: block;
 }
@@ -27,7 +26,7 @@ nav summary ~ a {
 nav #home {
   display: block;
 }
-/* display other */
+/* display others */
 #icons,
 #jump,
 #klf,
