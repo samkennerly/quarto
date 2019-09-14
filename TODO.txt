@@ -1,8 +1,8 @@
 ASAP:
-  - elemental: finish margins, padding. gray background, navy menus?
-  - doctoral: color transitions, details margins, jump size
-  - bloglike: (blue,magenta): icons, main nav, main jump, klf
+  - bloggy names: bluesy, bluish, beyond, blasted, boosted, bigblue
   - cinematic: (silver,black): nav, main, icons, jump, klf
+  - aflame: match template
+  - doctoral: match template, color transitions, details margins, jump size
   - test caps, spaces, underscores in page paths
   - find static host. update index.json.
   - finish class Quarto docstring

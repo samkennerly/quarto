@@ -16,9 +16,6 @@ main h1 {
 nav {
   text-align: left;
 }
-nav details {
-  vertical-align: top;
-}
 nav #home {
   text-align: center;
 }
@@ -29,16 +26,13 @@ nav #home {
 #last {
   text-align: center;
 }
-#icons img {
-  vertical-align: middle;
-}
 /*
 Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
   --border: thin solid;
-  --radius: 4px;
+  --radius: 1rem;
 }
 /* border main */
 main {
@@ -55,33 +49,25 @@ main h2 {
 main table {
   border: var(--border);
   border-collapse: collapse;
+  border-radius: var(--radius);
 }
 main table td {
   border: var(--border);
 }
 /* border nav */
-nav,
-nav a,
 nav details {
+  border: var(--border);
   border-radius: var(--radius);
 }
 nav summary {
   border-bottom: var(--border);
 }
 /* border others */
-#icons {
-  border-radius: var(--radius);
-}
 #icons img {
   border: 2px solid;
   border-radius: var(--radius);
 }
-#jump,
 #jump a {
-  border-radius: var(--radius);
-}
-#klf,
-#last {
   border-radius: var(--radius);
 }
 /*
@@ -89,22 +75,24 @@ Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: red;
-  --color-boxes: rgba(0,0,0,.25);
-
-  --color-back: dimgray;
+  --color-active: deeppink;
+  --color-back: black;
   --color-link: lightblue;
-  --color-text: lightgreen;
-
-  --color-main-back: white;
-  --color-main-link: #555;
-  --color-main-text: black;
-
-  --color-shadow: 0 .1em 0 black;
+  --color-text: ghostwhite;
+  --color-header: slategray;
+  --color-navbox: rgba(0,0,86,.5);
+  --color-shadow: 1px 1px black;
   --color-time: 250ms;
 }
 body {
-  background: var(--color-back);
+  background-attachment: fixed;
+  background-image: radial-gradient(
+    circle farthest-corner at 0% 0%,
+    black 42%,
+    navy,
+    steelblue 84%,
+    black 86%
+    );
   color: var(--color-text);
   text-shadow: var(--color-shadow);
 }
@@ -120,13 +108,12 @@ body a:active {
 }
 /* color main */
 main {
-  background: var(--color-main-back);
-  color: var(--color-main-text);
+  background: var(--color-back);
   text-shadow: none;
 }
 main a:link,
 main a:visited {
-  color: var(--color-main-link);
+  color: var(--color-link);
 }
 main a:focus,
 main a:hover,
@@ -137,6 +124,13 @@ main a:active {
 main blockquote {
   background: white;
   color: black;
+}
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  color: var(--color-header);
 }
 main pre {
   background: black;
@@ -150,12 +144,12 @@ main table tr:nth-child(even){
   background: white;
 }
 /* color nav */
-nav,
 nav details {
-  background: var(--color-boxes);
+  background: var(--color-navbox);
+  border-color: var(--color-back);
 }
 nav summary {
-  border-color: var(--color-back);
+  border-color: var(--color-navbox);
 }
 nav summary:focus,
 nav summary:hover {
@@ -166,12 +160,6 @@ nav #here {
   color: var(--color-active);
 }
 /* color others */
-#icons,
-#jump,
-#klf,
-#last {
-  background: var(--color-boxes);
-}
 #icons img {
   background: white;
 }
@@ -212,7 +200,7 @@ nav #home {
   display: block;
 }
 #icons img {
-  display: inline-block;
+  display: block;
 }
 #jump a {
   display: inline-block;
@@ -222,15 +210,15 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge-large: .5rem auto 1rem;
-  --marge-small: .2em 0;
-  --padme: .2em .5em;
-  --puffy: .5rem 1rem;
+  --marge-large: 1rem auto;
+  --marge-small: .25em 0;
+  --padme: .25em .75em;
+  --puffy: 1rem;
 }
 body {
   margin: var(--marge-large);
-  max-width: 50rem;
-  min-height: 80vh;
+  max-width: 64rem;
+  min-height: 86vh;
 }
 /* embiggen main */
 main {
@@ -264,20 +252,14 @@ nav {
 }
 nav a,
 nav details {
+  margin: var(--marge-small);
   padding: var(--padme);
 }
 nav summary {
   width: 100%;
 }
-nav details > details,
-nav summary ~ a {
-  margin-left: 1em;
-}
 /* embiggen others */
-#icons {
-  margin: 0;
-  padding: var(--puffy);
-}
+#icons,
 #jump,
 #klf,
 #last {
@@ -286,8 +268,9 @@ nav summary ~ a {
 }
 #icons img {
   height: 1rem;
-  margin: 0 1rem;
-  width: 2rem;
+  margin: 1rem 0;
+  width: 1rem;
+  padding: .25rem;
 }
 #jump a {
   width: 100%;
@@ -297,7 +280,7 @@ Font family, size, weight, etc.
 https://www.w3schools.com/css/css_font.asp
 */
 body {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: Geneva, Verdana, sans-serif;
   font-size: medium;
   font-style: normal;
   font-variant: normal;
@@ -309,7 +292,7 @@ body a {
 }
 /* font main */
 main blockquote {
-  font-family: "Times New Roman", Times, serif;
+  font-family: Palatino, serif;
 }
 main code,
 main kbd,
@@ -335,17 +318,13 @@ Grid layout for each page.
 https://www.w3schools.com/css/css_grid.asp
 */
 body {
-  grid-column-gap: 1vw;
+  grid-column-gap: 0;
   grid-row-gap: 1vh;
   grid-template-areas:
-    'nav'
-    'main'
-    'icons'
-    'jump'
-    'klf'
-    'last';
-  grid-template-columns: auto;
-  grid-template-rows: auto 1fr auto auto auto auto;
+    'nav   main icons'
+    'last  klf jump ';
+  grid-template-columns: 25% 1fr auto;
+  grid-template-rows: 1fr auto;
 }
 #icons {
   grid-area: icons;

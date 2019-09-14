@@ -3,19 +3,24 @@ Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: red;
-  --color-back: dimgray;
+  --color-active: deeppink;
+  --color-back: black;
   --color-link: lightblue;
-  --color-text: lightgreen;
-  --color-main-back: white;
-  --color-main-link: #555;
-  --color-main-text: black;
-  --color-navbox: rgba(0,0,0,.25);
-  --color-shadow: 0 .1em 0 black;
+  --color-text: ghostwhite;
+  --color-header: slategray;
+  --color-navbox: rgba(0,0,86,.5);
+  --color-shadow: 1px 1px black;
   --color-time: 250ms;
 }
 body {
-  background: var(--color-back);
+  background-attachment: fixed;
+  background-image: radial-gradient(
+    circle farthest-corner at 0% 0%,
+    black 42%,
+    navy,
+    steelblue 84%,
+    black 86%
+    );
   color: var(--color-text);
   text-shadow: var(--color-shadow);
 }
@@ -31,13 +36,12 @@ body a:active {
 }
 /* color main */
 main {
-  background: var(--color-main-back);
-  color: var(--color-main-text);
+  background: var(--color-back);
   text-shadow: none;
 }
 main a:link,
 main a:visited {
-  color: var(--color-main-link);
+  color: var(--color-link);
 }
 main a:focus,
 main a:hover,
@@ -48,6 +52,13 @@ main a:active {
 main blockquote {
   background: white;
   color: black;
+}
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  color: var(--color-header);
 }
 main pre {
   background: black;
@@ -61,12 +72,12 @@ main table tr:nth-child(even){
   background: white;
 }
 /* color nav */
-nav,
 nav details {
   background: var(--color-navbox);
+  border-color: var(--color-back);
 }
 nav summary {
-  border-color: var(--color-back);
+  border-color: var(--color-navbox);
 }
 nav summary:focus,
 nav summary:hover {
@@ -77,12 +88,6 @@ nav #here {
   color: var(--color-active);
 }
 /* color others */
-#icons,
-#jump,
-#klf,
-#last {
-  background: var(--color-navbox);
-}
 #icons img {
   background: white;
 }
