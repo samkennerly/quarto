@@ -4,73 +4,41 @@ https://www.w3schools.com/css/css_colors.asp
 */
 :root {
   --color-active: crimson;
-  --color-edges: #042;
-  --color-main: black;
-  --color-mainback: azure;
-  --color-mainlink: forestgreen;
-  --color-navlink: aquamarine;
+  --color-back: black;
+  --color-link: #ada;
+  --color-text: mintcream;
+  --color-main-back: white;
+  --color-main-link: forestgreen;
+  --color-main-text: black;
+  --color-heading: #032;
+  --color-time: 125ms;
 }
 body {
-  background: linear-gradient(
-    var(--color-edges),
-    var(--color-navlink),
-    var(--color-main)
-    );
   background-attachment: fixed;
-  color: var(--color-mainback);
+  background-image: linear-gradient(
+    var(--color-link),
+    var(--color-heading),
+    var(--color-back)
+    );
+  color: var(--color-text);
 }
 body a:link,
 body a:visited {
-  color: var(--color-navlink);
+  color: var(--color-link);
 }
 body a:focus,
 body a:hover,
 body a:active {
   color: var(--color-active);
 }
-/* color icons */
-#icons {
-  background: var(--color-main);
-  color: var(--color-mainback);
-}
-#icons a img {
-  background: white;
-  border-color: var(--color-navlink);
-  color: var(--color-main);
-}
-#icons a img:focus,
-#icons a img:hover,
-#icons a img:active {
-  border-color: var(--color-active);
-}
-/* color jump */
-#jump {
-  background: none;
-  border-color: var(--color-navlink);
-}
-#jump:focus,
-#jump:hover,
-#jump:active {
-  border-color: var(--color-active);
-}
-/* color klf */
-#klf {
-  background: var(--color-main);
-  color: var(--color-mainback);
-}
-/* color last */
-#last {
-  background: none;
-}
-
 /* color main */
 main {
-  background: var(--color-mainback);
-  color: var(--color-main);
+  background: var(--color-main-back);
+  color: var(--color-main-text);
 }
 main a:link,
 main a:visited {
-  color: var(--color-mainlink);
+  color: var(--color-main-link);
 }
 main a:focus,
 main a:hover,
@@ -79,8 +47,16 @@ main a:active {
 }
 main blockquote {
   background: white;
-  border-color: black;
+  border-color: var(--color-heading);
   color: black;
+}
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  color: var(--color-heading);
 }
 main pre {
   background: black;
@@ -95,22 +71,34 @@ main table tr:nth-child(even){
 }
 /* color nav */
 nav {
-  background: var(--color-main);
-  color: var(--color-mainback);
-}
-nav a {
-  border-color: var(--color-main);
+  background: var(--color-back);
 }
 nav summary {
-  border-color: var(--color-navlink) var(--color-mainlink) var(--color-edges);
+  border-color:
+    var(--color-link)
+    var(--color-main-link)
+    var(--color-heading);
 }
 nav summary:focus,
 nav summary:hover {
-  background: var(--color-mainback);
-  color: var(--color-main);
+  background: var(--color-text);
+  color: var(--color-back);
 }
 nav #here {
-  background: var(--color-navlink);
-  color: var(--color-main);
+  background: var(--color-heading);
+  color: var(--color-text);
 }
-
+/* color others */
+#icons,
+#klf {
+  background: var(--color-back);
+}
+#icons img {
+  background: white;
+  border-color: var(--color-link);
+}
+#jump,
+#last {
+  background: none;
+  border-color: var(--color-link);
+}

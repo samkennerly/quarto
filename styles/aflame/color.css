@@ -19,7 +19,7 @@ body {
     farthest-side at bottom,
     var(--color-nav) 5%,
     var(--color-navlink) 25%,
-    var(--color-mainlink) 50%,
+    var(--color-mainlink) 75%,
     var(--color-main)
     );
   background-attachment: fixed;

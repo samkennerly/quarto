@@ -4,23 +4,14 @@ https://www.w3schools.com/css/css_font.asp
 */
 body {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
-  font-size: medium/1.2;
+  font-size: medium;
   font-style: normal;
   font-variant: normal;
   font-weight: 400;
+  line-height: 1;
 }
 body a {
   text-decoration: none;
-}
-/* font icons, jump, klf, last */
-#icons
-#jump,
-#klf,
-#last {
-  font-size: small;
-}
-#icons img {
-  font-size: x-small;
 }
 /* font main */
 main blockquote {
@@ -36,6 +27,15 @@ main var {
 }
 /* font nav */
 nav #home {
-  font-size: 1.5em;
+  font-size: 2em;
 }
-
+/* font others */
+#icons,
+#jump,
+#klf,
+#last {
+  font-size: small;
+}
+#icons img {
+  font-size: x-small;
+}

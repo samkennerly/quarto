@@ -1,20 +1,26 @@
 ASAP:
-  - bloggy names: bluesy, bluish, beyond, blasted, boosted, bigblue
-  - cinematic: (silver,black): nav, main, icons, jump, klf
+  - cinematic: use elemental (see index card)
+  - elemental: default values only
   - aflame: match template
-  - doctoral: match template, color transitions, details margins, jump size
+  - bloggy names: bluesy, bluish, beyond, blasted, boosted, bigblue
   - test caps, spaces, underscores in page paths
   - find static host. update index.json.
-  - finish class Quarto docstring
+  - repo name: quarto or quartocat?
 
 CODE:
-  - standard args: quartocat COMMAND [INDIR] [OUTDIR] ?
-  - delete CSS and HTML with clean() instead of apply() and build() ?
-  - decapitate() and/or tidybody()
+  - finish class Quarto docstring
   - can vacuum() delete empty folders with .unlink() ?
+  - decapitate() and/or tidybody()
   - markdown support? need parser, requirements, etc
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
+  - Bottle or Flask demo app?
+
+COMMANDS:
+  - apply [STYLE] [TARGET]
+  - build [READY] [TARGET]
+  - clean [TARGET]
+  - decap [READY]
 
 TIDY:
   - repair or remove all tidy scripts
@@ -29,10 +35,12 @@ README:
   - tutorial (see yellow notes)
   - no install required
   - `python3 -m quarto build` or `quarto/please build`
-  - edit target/ to include other files
-  - edit styles/ to customize styles
-  - edit ready/ to customize content
   - edit quarto/ to customize generation
+  - edit ready/ to customize content
+  - edit styles/ to customize styles
+  - edit target/ to include other files
+
+
   - delete Dockerfile, kitchen if you want
 
 TESTING:

@@ -10,7 +10,7 @@ body {
     'nav  main'
     'nav  klf'
     'last jump';
-  grid-template-columns: 25vw 70vw;
+  grid-template-columns: 24vw 1fr;
   grid-template-rows: auto 1fr auto auto;
 }
 #icons {

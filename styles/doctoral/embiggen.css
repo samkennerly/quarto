@@ -3,47 +3,15 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --large-marge: 1em 0 .5em 0;
-  --marge: .5em 0 .5em 0;
+  --marge-large: 1rem 0;
+  --marge-small: .25em 0;
   --padme: .25em .5em;
   --puffy: .5rem 1rem;
 }
 body {
-  height: 98vh;
-}
-/* embiggen icons */
-#icons {
-  margin: 0;
-  padding: var(--puffy);
-}
-#icons a {
-  margin: 0 .5rem;
-}
-#icons img {
-  height: 1rem;
-  padding: 2px;
-  width: 2rem;
-}
-/* embiggen jump */
-#jump {
-  margin: var(--marge);
-  padding: 0;
-}
-#jump a {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-}
-/* embiggen klf */
-#klf {
-  margin: 0;
-  padding: var(--puffy);
-}
-/* embiggen last */
-#last {
-  margin: var(--marge);
-  padding: 0;
+  margin: 1vh 1vw;
+  max-width: 96vw;
+  min-height: 98vh;
 }
 /* embiggen main */
 main {
@@ -51,16 +19,19 @@ main {
 }
 main blockquote,
 main pre {
-  margin: var(--large-marge);
+  margin: var(--marge-large);
   max-width: 100%;
   overflow: auto;
   padding: var(--puffy);
 }
 main cite {
-  margin: var(--marge);
+  margin: var(--marge-small);
+}
+main h1 {
+  margin: var(--marge-large);
 }
 main table {
-  margin: var(--large-marge);
+  margin: var(--marge-large);
   overflow: auto;
   padding: 0;
   width: 100%;
@@ -68,23 +39,13 @@ main table {
 main table td {
   padding: var(--padme);
 }
-main h1 {
-  margin: 1rem 0 2rem 0;
-}
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
-  margin: var(--large-marge);
-}
 /* embiggen nav */
 nav {
   padding: var(--puffy);
 }
 nav a,
 nav summary {
-  margin: .25em;
+  margin: var(--marge-small);
   padding: var(--padme);
 }
 nav details > details,
@@ -92,5 +53,24 @@ nav summary ~ a {
   margin-left: 1em;
 }
 nav #home {
-  margin-bottom: 1em;
+  margin: var(--marge-large);
+}
+/* embiggen others */
+#icons,
+#klf {
+  padding: var(--puffy);
+}
+#icons img {
+  height: 1rem;
+  margin: 0 .5rem;
+  padding: .2rem;
+  width: 1.25rem;
+}
+#jump,
+#last {
+  line-height: 1.2rem;
+  margin: .5rem 0;
+}
+#jump a {
+  width: 100%;
 }

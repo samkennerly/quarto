@@ -6,45 +6,44 @@ https://www.w3schools.com/css/css_border.asp
   --border: thin solid;
   --radius: .5rem;
 }
-/* border icons */
-#icons {
-  border: none;
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-#icons img {
-  border: 2px solid;
-  border-radius: 6px;
-}
-/* border jump */
-#jump a {
-  border: var(--border);
-  border-radius: var(--radius);
-}
-/* border klf */
-#klf {
-  border: none;
-  border-radius: 0 0 var(--radius) var(--radius);
-}
-/* border last */
-#last {
-  border: none;
-  border-radius: var(--radius);
-}
 /* border main */
+main {
+  border: none;
+  border-radius: 0;
+}
 main blockquote,
 main pre,
 main table {
+  border: var(--border);
   border-radius: var(--radius);
 }
 main h2 {
   border-bottom: var(--border);
 }
 /* border nav */
-nav {
+nav,
+nav a {
   border-radius: var(--radius);
 }
-nav a,
 nav summary {
   border: var(--border);
+  border-radius: var(--radius);
+}
+/* border others */
+#icons {
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+#icons img {
+  border: 2px solid;
+  border-radius: var(--radius);
+}
+#jump a {
+  border: var(--border);
+  border-radius: var(--radius);
+}
+#klf {
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+#last {
   border-radius: var(--radius);
 }
