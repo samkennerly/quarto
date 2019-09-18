@@ -3,14 +3,14 @@ Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: red;
-  --color-back: dimgray;
-  --color-link: lightblue;
-  --color-text: lightgreen;
-  --color-main-back: white;
-  --color-main-link: #555;
-  --color-main-text: black;
-  --color-navbox: rgba(0,0,0,.25);
+  --color-active: paleturquoise;
+  --color-back: silver;
+  --color-link: skyblue;
+  --color-text: ghostwhite;
+  --color-main-back: #111;
+  --color-main-link: skyblue;
+  --color-main-text: silver;
+  --color-navbox: dimgray;
   --color-shadow: 0 .1em 0 black;
   --color-time: 250ms;
 }

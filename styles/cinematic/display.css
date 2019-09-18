@@ -6,15 +6,12 @@ body {
   display: grid;
 }
 /* display main */
-main,
 main cite {
   display: block;
 }
 /* display nav */
-nav,
-nav a,
 nav details {
-  display: block;
+  display: inline-block;
 }
 nav summary {
   display: inline-block;
@@ -23,19 +20,13 @@ nav details > details,
 nav summary ~ a {
   display: block;
 }
-nav #home {
-  display: block;
-}
 /* display others */
-#icons,
-#jump,
-#klf,
-#last {
-  display: block;
-}
 #icons img {
   display: inline-block;
 }
 #jump a {
   display: inline-block;
+}
+#klf address {
+  display: inline;
 }

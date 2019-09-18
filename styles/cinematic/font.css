@@ -3,17 +3,20 @@ Font family, size, weight, etc.
 https://www.w3schools.com/css/css_font.asp
 */
 body {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: Courier, monospace;
   font-size: medium;
   font-style: normal;
   font-variant: normal;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1;
 }
 body a {
   text-decoration: none;
 }
 /* font main */
+main {
+  font-family: Gadget, sans-serif;
+}
 main blockquote {
   font-family: "Times New Roman", Times, serif;
 }
@@ -24,18 +27,19 @@ main pre,
 main var {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: small;
+  font-variant: normal;
 }
 /* font nav */
-nav #home {
-  font-size: 2rem;
+nav {
+  font-size: large;
+  font-variant: small-caps;
 }
 /* font others */
 #icons,
-#jump,
-#klf,
-#last {
+#jump {
   font-size: small;
 }
-#icons img {
+#klf,
+#last {
   font-size: x-small;
 }

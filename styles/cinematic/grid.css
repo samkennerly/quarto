@@ -5,13 +5,12 @@ https://www.w3schools.com/css/css_grid.asp
 body {
   grid-row-gap: 0;
   grid-template-areas:
-    'nav'
-    'main'
-    'jump'
-    'icons'
-    'klf'
-    'last';
-  grid-template-rows: auto 1fr auto auto auto auto;
+    'nav nav'
+    'main main'
+    'icons jump'
+    'klf last';
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr auto auto;
 }
 #icons {
   grid-area: icons;
