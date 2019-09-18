@@ -1,13 +1,15 @@
 ASAP:
-  - cinematic: use elemental (see index card)
+  - finish styles/cinematic
   - elemental: default values only
   - aflame: match template
-  - bloggy names: bluesy, bluish, beyond, blasted, boosted, bigblue
-  - test caps, spaces, underscores in page paths
+  - bloggy names: biglog, bluelog, beyond, blasted, bigblue
+  - GitHub Pages: test caps, spaces, underscores in page paths
   - find static host. update index.json.
   - repo name: quarto or quartocat?
+  - fork into multiple sites
 
 CODE:
+  - fewer stanzas for simplicity?
   - finish class Quarto docstring
   - can vacuum() delete empty folders with .unlink() ?
   - decapitate() and/or tidybody()
