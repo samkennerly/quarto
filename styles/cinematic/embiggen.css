@@ -5,7 +5,7 @@ https://www.w3schools.com/css/css_units.asp
 :root {
   --margin-main: .5rem auto;
   --margin-navbox: .2em .5em;
-  --padme: .2em .5em;
+  --padme: .2em;
   --puffy: .5rem 1rem;
 }
 body {
@@ -19,7 +19,6 @@ main {
 main blockquote,
 main pre {
   margin: var(--margin-main);
-  max-height: 100%;
   max-width: 100%;
   overflow: auto;
   padding: var(--puffy);
@@ -44,9 +43,6 @@ nav details {
 nav summary ~ a,
 nav details > details {
   margin: var(--margin-navbox);
-}
-nav #home {
-  padding: var(--padme);
 }
 /* embiggen others */
 #icons,

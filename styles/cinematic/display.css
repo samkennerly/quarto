@@ -10,9 +10,7 @@ main cite {
   display: block;
 }
 /* display nav */
-nav details {
-  display: inline-block;
-}
+nav details,
 nav summary {
   display: inline-block;
 }
@@ -21,12 +19,8 @@ nav summary ~ a {
   display: block;
 }
 /* display others */
-#icons img {
-  display: inline-block;
-}
-#jump a {
-  display: inline-block;
-}
+#icons img,
+#jump a,
 #klf address {
-  display: inline;
+  display: inline-block;
 }

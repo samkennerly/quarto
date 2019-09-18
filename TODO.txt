@@ -1,7 +1,5 @@
 ASAP:
-  - finish styles/cinematic
-  - elemental: default values only
-  - aflame: match template
+  - elemental: default values only. adjust others to match.
   - bloggy names: biglog, bluelog, beyond, blasted, bigblue
   - GitHub Pages: test caps, spaces, underscores in page paths
   - find static host. update index.json.
@@ -41,9 +39,10 @@ README:
   - edit ready/ to customize content
   - edit styles/ to customize styles
   - edit target/ to include other files
-
-
   - delete Dockerfile, kitchen if you want
+
+STYLES:
+  - download PNGs from subtlepatterns.com ?
 
 TESTING:
   - test with older Python versions

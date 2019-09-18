@@ -3,14 +3,14 @@ Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: paleturquoise;
-  --color-back: silver;
-  --color-link: skyblue;
+  --color-active: cyan;
+  --color-back: dimgray;
+  --color-link: lightskyblue;
   --color-text: ghostwhite;
   --color-main-back: #111;
-  --color-main-link: skyblue;
-  --color-main-text: silver;
-  --color-navbox: dimgray;
+  --color-main-link: lightskyblue;
+  --color-main-text: #eee;
+  --color-navbox: #333;
   --color-shadow: 0 .1em 0 black;
   --color-time: 250ms;
 }
@@ -32,6 +32,7 @@ body a:active {
 /* color main */
 main {
   background: var(--color-main-back);
+  border-color: var(--color-navbox);
   color: var(--color-main-text);
   text-shadow: none;
 }
@@ -61,8 +62,7 @@ main table tr:nth-child(even){
   background: white;
 }
 /* color nav */
-nav,
-nav details {
+nav {
   background: var(--color-navbox);
 }
 nav summary {

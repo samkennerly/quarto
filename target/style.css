@@ -61,14 +61,14 @@ Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: paleturquoise;
-  --color-back: silver;
-  --color-link: skyblue;
+  --color-active: cyan;
+  --color-back: dimgray;
+  --color-link: lightskyblue;
   --color-text: ghostwhite;
   --color-main-back: #111;
-  --color-main-link: skyblue;
-  --color-main-text: silver;
-  --color-navbox: dimgray;
+  --color-main-link: lightskyblue;
+  --color-main-text: #eee;
+  --color-navbox: #333;
   --color-shadow: 0 .1em 0 black;
   --color-time: 250ms;
 }
@@ -90,6 +90,7 @@ body a:active {
 /* color main */
 main {
   background: var(--color-main-back);
+  border-color: var(--color-navbox);
   color: var(--color-main-text);
   text-shadow: none;
 }
@@ -119,8 +120,7 @@ main table tr:nth-child(even){
   background: white;
 }
 /* color nav */
-nav,
-nav details {
+nav {
   background: var(--color-navbox);
 }
 nav summary {
@@ -157,9 +157,7 @@ main cite {
   display: block;
 }
 /* display nav */
-nav details {
-  display: inline-block;
-}
+nav details,
 nav summary {
   display: inline-block;
 }
@@ -168,14 +166,10 @@ nav summary ~ a {
   display: block;
 }
 /* display others */
-#icons img {
-  display: inline-block;
-}
-#jump a {
-  display: inline-block;
-}
+#icons img,
+#jump a,
 #klf address {
-  display: inline;
+  display: inline-block;
 }
 /*
 Margin, padding, and size in relative units: em, rem, vh, etc.
@@ -184,7 +178,7 @@ https://www.w3schools.com/css/css_units.asp
 :root {
   --margin-main: .5rem auto;
   --margin-navbox: .2em .5em;
-  --padme: .2em .5em;
+  --padme: .2em;
   --puffy: .5rem 1rem;
 }
 body {
@@ -198,7 +192,6 @@ main {
 main blockquote,
 main pre {
   margin: var(--margin-main);
-  max-height: 100%;
   max-width: 100%;
   overflow: auto;
   padding: var(--puffy);
@@ -224,9 +217,6 @@ nav summary ~ a,
 nav details > details {
   margin: var(--margin-navbox);
 }
-nav #home {
-  padding: var(--padme);
-}
 /* embiggen others */
 #icons,
 #jump,
@@ -247,7 +237,7 @@ Font family, size, weight, etc.
 https://www.w3schools.com/css/css_font.asp
 */
 body {
-  font-family: Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: medium;
   font-style: normal;
   font-variant: normal;
@@ -292,6 +282,7 @@ Grid layout for each page.
 https://www.w3schools.com/css/css_grid.asp
 */
 body {
+  grid-column-gap: 0;
   grid-row-gap: 0;
   grid-template-areas:
     'nav nav'
