@@ -1,6 +1,5 @@
 ASAP:
-  - elemental: default values only. adjust others to match.
-  - bloggy names: biglog, bluelog, beyond, blasted, bigblue
+  - finish commands
   - GitHub Pages: test caps, spaces, underscores in page paths
   - find static host. update index.json.
   - repo name: quarto or quartocat?
@@ -19,8 +18,8 @@ CODE:
 COMMANDS:
   - apply [STYLE] [TARGET]
   - build [READY] [TARGET]
-  - clean [TARGET]
-  - decap [READY]
+  - clear [SUFFIX] [TARGET]
+  - decap [PAGES] [READY]
 
 TIDY:
   - repair or remove all tidy scripts
