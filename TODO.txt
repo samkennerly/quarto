@@ -1,9 +1,12 @@
 ASAP:
-  - finish commands
-  - GitHub Pages: test caps, spaces, underscores in page paths
+  - commands:
+    - apply style target  # update style.css
+    - build ready target  # generate HTML files
+    - clean target html   # delete leftover pages. tidy existing pages.
+    - decap pages ready   # extract tidy body from HTML files
   - find static host. update index.json.
-  - repo name: quarto or quartocat?
-  - fork into multiple sites
+  - test caps, spaces, underscores in page paths
+  - fork into multiple sites?
 
 CODE:
   - fewer stanzas for simplicity?
@@ -15,15 +18,9 @@ CODE:
   - multithreading: one page per core?
   - Bottle or Flask demo app?
 
-COMMANDS:
-  - apply [STYLE] [TARGET]
-  - build [READY] [TARGET]
-  - clear [SUFFIX] [TARGET]
-  - decap [PAGES] [READY]
-
 TIDY:
   - repair or remove all tidy scripts
-  - remove defaults from tidy.txt
+  - remove unnecessary defaults from tidy.txt
 
 PACKAGING:
   - upload to PyPA? need to finish setup.py
@@ -39,6 +36,7 @@ README:
   - edit styles/ to customize styles
   - edit target/ to include other files
   - delete Dockerfile, kitchen if you want
+  - gotcha: spaces & weird chars in filenames
 
 STYLES:
   - download PNGs from subtlepatterns.com ?
