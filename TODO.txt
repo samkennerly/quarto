@@ -4,28 +4,24 @@ ASAP:
   - rename repo
   - remove #last references in styles
   - check for other #id values in styles
-  - finish tidybody(). remove Tidy folder.
+  - finish delete script
+  - finish clean script, tidybody(). remove tidy/ folder
+  - finish class Quarto docstring
+  - reserve PyPA name?
+
+HOSTING:
   - find static host. update index.json.
   - test caps, spaces, underscores in page paths
   - fork into multiple sites?
-  - reserve PyPA name?
 
-CODE:
-  - can vacuum() delete empty folders with .unlink() ?
-  - finish class Quarto docstring
-  - add external stylesheets in index.json?
+QUARTO:
+  - test with older Python versions
+  - delete empty folders with .unlink() ?
   - markdown: copy mistune.py ?
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
   - Bottle or Flask demo app?
   - call tidylib C functions
-
-PACKAGING:
-  - single executable for macOS? PyInstaller, Platypus?
-  - does setup.py need an __init__ ?
-  - how to trick setup.py into not hiding executables?
-  - don't inlcude example pages
-  - don't include example styles
 
 README:
   - tutorial (see yellow notes)
@@ -39,10 +35,11 @@ README:
   - gotcha: spaces & weird chars in filenames
 
 STYLES:
-  - download PNGs from subtlepatterns.com ?
+  - external stylesheets in index.json?
+  - easiest way to include background image?
+  - download PNGs from subtlepatterns.com
 
 TESTING:
-  - test with older Python versions
+  - test with multiple Python versions
   - what happens if old tidy is called?
   - nav: arrow keys, disability access OK?
-
