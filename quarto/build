@@ -1,1 +1,21 @@
 #!/usr/bin/env python3
+
+from argparse import ArgumentParser
+
+from quarto import Quarto
+
+opt = ArgumentParser()
+opt.description = 'Build pages from raw HTML'
+opt.add_argument('READY',
+    default='ready',
+    nargs='?',
+    help='path: read HTML files from READY folder'
+)
+opt.add_argument('TARGET',
+    default='target',
+    nargs='?',
+    help='path: write to TARGET folder'
+)
+opt = opt.parse_args()
+
+Quarto(opt.READY).build(opt.TARGET)
