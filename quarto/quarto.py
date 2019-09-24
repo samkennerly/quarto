@@ -41,12 +41,17 @@ class Quarto(Mapping):
         """ Cat stylesheets from style folder to target folder. """
         CSSPATH, stylecat = cls.CSSPATH, cls.stylecat
 
-        csspath = Path(target)/CSSPATH
-        with open(csspath,'w') as file:
-            print('Save',csspath)
+        target = Path(target)
+        outpath = target / CSSPATH
+        print('Apply', style, 'to', outpath)
+
+        if not target.is_dir():
+            raise NotADirectoryError(target)
+
+        with open(outpath,'w') as file:
             file.write(stylecat(style))
 
-        print('The style of', csspath, 'is', style)
+        print('The style of', target, 'is', style)
 
     def build(self,target):
         """ Generate each page and write to target folder. """
@@ -54,19 +59,19 @@ class Quarto(Mapping):
 
         source = home.parent
         target = Path(target)
+        print('Build', len(self), 'pages from', source, 'to', target)
+
         if not target.is_dir():
             raise NotADirectoryError(target)
 
-        print('Build', len(self), 'pages')
         for path, text in self.items():
             path = target / path.relative_to(source)
-
             print('Save',path)
-            path.mkdir(exist_ok=True,parents=True)
+            path.parent.mkdir(exist_ok=True,parents=True)
             with open(path,'w') as file:
-                files.write(text)
+                file.write(text)
 
-        print("What's done is done. Exeunt",type(self).__name__)
+        print("What's done is done. Exeunt", type(self).__name__)
 
     def convert(self,source):
         """ None: Import pages from preprints folder. """
@@ -139,12 +144,12 @@ class Quarto(Mapping):
         You got to scroll past the pop-ups to get to what's real.
         """
         jstag = '<script src="{]" async></script>'.format
-        uptag = '<a href="#">{}</a>'.format
+        uptag = '<a href="#" id="updog">{}</a>'.format
 
         yield '<section id="jump">'
         yield from map(jstag,js_sources)
         if updog:
-            yield uptag('top of page')
+            yield uptag(updog)
         yield "</section>"
 
     def klf(self, page, copyright='', email='', generator='', license=(), **kwargs):
@@ -153,8 +158,8 @@ class Quarto(Mapping):
         They're justified, and they're ancient. I hope you understand.
         """
         addrtag = '<address>{}</address>'.format
-        spantag = '<span id="{}">{}</span>'.format
-        genlink = '<a href="{}" rel="generator">{}</a>'.format
+        spantag = '<span id="{}">\n{}\n</span>'.format
+        genlink = 'built by a <a href="{}" rel="generator">quarto</a>'.format
         liclink = '<a href="{}" rel="license">{}</a>'.format
 
         yield '<section id="klf">'
@@ -165,7 +170,7 @@ class Quarto(Mapping):
         if email:
             yield addrtag(email)
         if generator:
-            yield 'this site is a' + genlink(generator,'quarto')
+            yield spantag('quarto', genlink(generator))
         yield "</section>"
 
     def links(self, page, base_url='', favicon='',  **kwargs):
@@ -182,18 +187,18 @@ class Quarto(Mapping):
         if favicon:
             yield linktag("icon", urlpath(page, home.parent / favicon))
 
-    def meta(self, page, author='', description='', keywords='', **kwargs):
+    def meta(self, page, author='', description='', keywords=(), **kwargs):
         """ Iterator[str]: <meta> tags in page <head>. """
         metatag = '<meta name="{}" content="{}">'.format
 
         yield '<meta charset="utf-8">'
-        yield metatag("viewport", "width=device-width, initial-scale=1.0")
         if author:
             yield metatag("author", author)
         if description:
             yield metatag("description", description)
         if keywords:
-            yield metatag("keywords", keywords)
+            yield metatag("keywords", ','.join(keywords))
+        yield metatag("viewport", "width=device-width, initial-scale=1.0")
 
     def nav(self,page,home_name="home",**kwargs):
         """ Iterator[str]: <nav> element with links to other pages. """
@@ -272,7 +277,6 @@ class Quarto(Mapping):
         """ Iterator[str]: Raw lines from text file(s). """
         for path in paths:
             with open(path) as lines:
-                print('Read',path)
                 yield from lines
 
     @classmethod
