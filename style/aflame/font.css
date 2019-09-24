@@ -13,19 +13,6 @@ body {
 body a {
   text-decoration: none;
 }
-/* font icons */
-#icons {
-  font-size: medium;
-}
-#icons img {
-  font-size: x-small;
-}
-/* font jump, klf, last */
-#jump,
-#klf,
-#last {
-  font-size: small;
-}
 /* font main */
 main blockquote {
   font-family: Georgia, serif;
@@ -41,4 +28,15 @@ main var {
 /* font nav */
 nav #home {
   font-size: 2rem;
+}
+/* font others */
+#icons {
+  font-size: medium;
+}
+#icons img {
+  font-size: x-small;
+}
+#jump,
+#klf {
+  font-size: small;
 }

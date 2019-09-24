@@ -5,18 +5,6 @@ https://www.w3schools.com/css/css_display_visibility.asp
 body {
   display: grid;
 }
-/* display icons */
-#icons {
-  position: sticky;
-  top: 0;
-}
-#icons img {
-  display: inline-block;
-}
-/* display jump */
-#jump a {
-  display: inline-block;
-}
 /* display main */
 main cite {
   display: block;
@@ -37,4 +25,15 @@ nav details summary ~ a {
 }
 nav #home {
   display: block;
+}
+/* display others */
+#icons {
+  position: sticky;
+  top: 0;
+}
+#icons img {
+  display: inline-block;
+}
+#jump a {
+  display: inline-block;
 }

@@ -35,46 +35,6 @@ body a:active {
   color: var(--color-active);
   transition: var(--time-color);
 }
-/* color icons */
-#icons {
-  background: var(--color-navback);
-  color: var(--color-nav);
-  text-shadow: var(--color-shadow);
-}
-#icons a img {
-  background: white;
-  border-color: var(--color-navlink);
-  color: black;
-  text-shadow: none;
-}
-#icons a img:focus,
-#icons a img:hover,
-#icons a img:active {
-  border-color: var(--color-active);
-  transition: var(--time-color);
-}
-/* color jump */
-#jump {
-  background: var(--color-main);
-  color: var(--color-mainback);
-}
-#jump :focus,
-#jump :hover,
-#jump :active {
-  background: var(--color-navlink);
-}
-/* color klf */
-#klf {
-  background: var(--color-navback);
-  color: var(--color-nav);
-  text-shadow: var(--color-shadow);
-}
-/* color last */
-#last {
-  background: var(--color-navback);
-  color: var(--color-nav);
-  text-shadow: var(--color-shadow);
-}
 /* color main */
 main {
   background: var(--color-mainback);
@@ -118,4 +78,36 @@ nav summary:hover {
 }
 nav #here {
   color: var(--color-active);
+}
+/* color others */
+#icons {
+  background: var(--color-navback);
+  color: var(--color-nav);
+  text-shadow: var(--color-shadow);
+}
+#icons a img {
+  background: white;
+  border-color: var(--color-navlink);
+  color: black;
+  text-shadow: none;
+}
+#icons a img:focus,
+#icons a img:hover,
+#icons a img:active {
+  border-color: var(--color-active);
+  transition: var(--time-color);
+}
+#jump {
+  background: var(--color-main);
+  color: var(--color-mainback);
+}
+#jump :focus,
+#jump :hover,
+#jump :active {
+  background: var(--color-navlink);
+}
+#klf {
+  background: var(--color-navback);
+  color: var(--color-nav);
+  text-shadow: var(--color-shadow);
 }

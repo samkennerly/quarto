@@ -13,39 +13,6 @@ body {
   min-height: 69vh;
   width: 42rem;
 }
-/* embiggen icons */
-#icons {
-  margin: 0;
-  padding: var(--puffy);
-}
-#icons a {
-  margin: var(--marge);
-}
-#icons img {
-  height: 1rem;
-  padding: 2px;
-  width: 2rem;
-}
-/* embiggen jump */
-#jump {
-  margin: 0;
-  padding: 0;
-}
-#jump a {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-/* embiggen klf */
-#klf {
-  margin: 0;
-  padding: var(--puffy);
-}
-/* embiggen last */
-#last {
-  margin: 0;
-  padding: var(--puffy);
-}
 /* embiggen main */
 main {
   padding: var(--puffy);
@@ -84,4 +51,30 @@ nav summary {
   margin: 0;
   padding: 0;
   width: 100%;
+}
+/* embiggen others */
+#icons {
+  margin: 0;
+  padding: var(--puffy);
+}
+#icons a {
+  margin: var(--marge);
+}
+#icons img {
+  height: 1rem;
+  padding: 2px;
+  width: 2rem;
+}
+#jump {
+  margin: 0;
+  padding: 0;
+}
+#jump a {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+#klf {
+  margin: 0;
+  padding: var(--puffy);
 }

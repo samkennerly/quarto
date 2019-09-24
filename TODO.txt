@@ -1,11 +1,12 @@
 ASAP:
-  - test apply
-  - test build
+  - style fixes:
+    - remove #last references
+    - /* others */ comments
+    - check for other #id values
   - rename repo
-  - remove #last references in styles
-  - check for other #id values in styles
-  - finish delete script
-  - finish clean script, tidybody(). remove tidy/ folder
+  - autoformat
+  - quarto/delete
+  - quarto/clean. use tidybody(). never modify inputs.
   - finish class Quarto docstring
   - reserve PyPA name?
 
