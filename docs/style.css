@@ -5,23 +5,12 @@ https://www.w3schools.com/css/css_text.asp
 body {
   text-align: center;
 }
-/* align main */
-main {
-  text-align: left;
-}
-main h1 {
-  text-align: center;
-}
 /* align nav */
-nav {
-  text-align: left;
-}
-nav a,
-nav details,
-nav summary {
+nav details {
   vertical-align: top;
 }
 /* align others */
+#icons,
 #icons img {
   vertical-align: middle;
 }
@@ -30,23 +19,17 @@ Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
-  --border: thin double;
+  --border: 2px ridge;
 }
 /* border main */
 main,
 main blockquote,
-main pre {
+main pre,
+main table {
   border: var(--border);
 }
 main h2 {
   border-bottom: var(--border);
-}
-main table {
-  border: var(--border);
-  border-collapse: collapse;
-}
-main table td {
-  border: var(--border);
 }
 /* border nav */
 nav summary {
@@ -54,55 +37,59 @@ nav summary {
 }
 /* border others */
 #icons img {
-  border: 2px solid;
+  border: var(--border);
 }
 /*
 Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: cyan;
-  --color-back: dimgray;
-  --color-link: lightskyblue;
-  --color-text: ghostwhite;
-  --color-main-back: #111;
-  --color-main-link: lightskyblue;
-  --color-main-text: #eee;
-  --color-navbox: #333;
+  --color-active: red;
+  --color-border: #666;
+  --color-main: #100;
+  --color-mainback: whitesmoke;
+  --color-mainlink: firebrick;
+  --color-nav: whitesmoke;
+  --color-navback: rgba(0,0,0,.7);
+  --color-navlink: gold;
   --color-shadow: 0 .1em 0 black;
-  --color-time: 250ms;
+  --time-color: 451ms;
 }
 body {
-  background: var(--color-back);
-  color: var(--color-text);
-  text-shadow: var(--color-shadow);
+  background: radial-gradient(
+    farthest-side at bottom,
+    var(--color-nav) 5%,
+    var(--color-navlink) 25%,
+    var(--color-mainlink) 75%,
+    var(--color-main)
+    );
+  background-attachment: fixed;
+  color: var(--color-main);
 }
 body a:link,
 body a:visited {
-  color: var(--color-link);
+  color: var(--color-navlink);
 }
 body a:focus,
 body a:hover,
 body a:active {
   color: var(--color-active);
-  transition: var(--color-time);
+  transition: var(--time-color);
 }
 /* color main */
 main {
-  background: var(--color-main-back);
-  border-color: var(--color-navbox);
-  color: var(--color-main-text);
-  text-shadow: none;
+  background: var(--color-mainback);
+  border-color: var(--color-border);
+  color: var(--color-main);
 }
 main a:link,
 main a:visited {
-  color: var(--color-main-link);
+  color: var(--color-mainlink);
 }
 main a:focus,
 main a:hover,
 main a:active {
   color: var(--color-active);
-  transition: var(--color-time);
 }
 main blockquote {
   background: white;
@@ -121,29 +108,49 @@ main table tr:nth-child(even){
 }
 /* color nav */
 nav {
-  background: var(--color-navbox);
-}
-nav summary {
-  border-color: var(--color-back);
+  background: var(--color-navback);
+  color: var(--color-nav);
+  text-shadow: var(--color-shadow);
 }
 nav summary:focus,
-nav summary:hover,
-nav summary:active {
+nav summary:hover {
   border-color: var(--color-active);
-  transition: var(--color-time);
+  transition: var(--time-color);
 }
 nav #here {
   color: var(--color-active);
 }
 /* color others */
-#icons,
-#jump,
-#klf,
-#last {
-  background: var(--color-navbox);
+#icons {
+  background: var(--color-navback);
+  color: var(--color-nav);
+  text-shadow: var(--color-shadow);
 }
-#icons img {
+#icons a img {
   background: white;
+  border-color: var(--color-navlink);
+  color: black;
+  text-shadow: none;
+}
+#icons a img:focus,
+#icons a img:hover,
+#icons a img:active {
+  border-color: var(--color-active);
+  transition: var(--time-color);
+}
+#jump {
+  background: var(--color-main);
+  color: var(--color-mainback);
+}
+#jump :focus,
+#jump :hover,
+#jump :active {
+  background: var(--color-navlink);
+}
+#klf {
+  background: var(--color-navback);
+  color: var(--color-nav);
+  text-shadow: var(--color-shadow);
 }
 /*
 Display behavior: block, inline, none, etc.
@@ -157,18 +164,31 @@ main cite {
   display: block;
 }
 /* display nav */
-nav details,
+nav a {
+  display: inline-block;
+}
+nav details {
+  display: inline;
+}
 nav summary {
   display: inline-block;
 }
 nav details > details,
-nav summary ~ a {
+nav details summary ~ a {
+  display: block;
+}
+nav #home {
   display: block;
 }
 /* display others */
-#icons img,
-#jump a,
-#klf address {
+#icons {
+  position: sticky;
+  top: 0;
+}
+#icons img {
+  display: inline-block;
+}
+#jump a {
   display: inline-block;
 }
 /*
@@ -176,14 +196,15 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --margin-main: .5rem auto;
-  --margin-navbox: .2em .5em;
-  --padme: .2em;
-  --puffy: .5rem 1rem;
+  --large-marge: 1em auto;
+  --marge: .5em;
+  --padme: .25em .5em;
+  --puffy: 1rem;
 }
 body {
-  min-height: 90vh;
-  margin: 1rem;
+  margin: var(--large-marge);
+  min-height: 69vh;
+  width: 42rem;
 }
 /* embiggen main */
 main {
@@ -191,16 +212,18 @@ main {
 }
 main blockquote,
 main pre {
-  margin: var(--margin-main);
+  margin: var(--large-marge);
   max-width: 100%;
   overflow: auto;
   padding: var(--puffy);
 }
+main cite {
+  margin: var(--marge);
+}
 main table {
-  margin: var(--margin-main);
+  margin: var(--large-marge);
   overflow: auto;
   padding: 0;
-  width: 100%;
 }
 main table td {
   padding: var(--padme);
@@ -209,50 +232,63 @@ main table td {
 nav {
   padding: var(--puffy);
 }
-nav a,
-nav details {
-  margin-right: 1em;
+nav a {
+  margin: 0;
+  padding: var(--padme);
 }
-nav summary ~ a,
-nav details > details {
-  margin: var(--margin-navbox);
+nav details {
+  margin: 0;
+  padding: var(--padme);
+}
+nav summary {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 /* embiggen others */
-#icons,
-#jump,
-#klf,
-#last {
+#icons {
+  margin: 0;
   padding: var(--puffy);
 }
+#icons a {
+  margin: var(--marge);
+}
 #icons img {
-  height: .9rem;
-  margin: var(--margin-navbox);
-  width: 1.6rem;
+  height: 1rem;
+  padding: 2px;
+  width: 2rem;
+}
+#jump {
+  margin: 0;
+  padding: 0;
 }
 #jump a {
+  margin: 0;
+  padding: 0;
   width: 100%;
+}
+#klf {
+  margin: 0;
+  padding: var(--puffy);
 }
 /*
 Font family, size, weight, etc.
 https://www.w3schools.com/css/css_font.asp
 */
 body {
-  font-family: "Courier New", Courier, monospace;
-  font-size: medium;
+  font-family: Charcoal, sans-serif;
+  font-size: large;
   font-style: normal;
   font-variant: normal;
-  font-weight: 400;
-  line-height: 1;
+  font-weight: 451;
+  line-height: 1.2;
 }
 body a {
   text-decoration: none;
 }
 /* font main */
-main {
-  font-family: Gadget, sans-serif;
-}
 main blockquote {
-  font-family: "Times New Roman", Times, serif;
+  font-family: Georgia, serif;
 }
 main code,
 main kbd,
@@ -261,36 +297,35 @@ main pre,
 main var {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: small;
-  font-variant: normal;
 }
 /* font nav */
-nav {
-  font-size: large;
-  font-variant: small-caps;
+nav #home {
+  font-size: 2rem;
 }
 /* font others */
-#icons,
-#jump {
-  font-size: small;
+#icons {
+  font-size: medium;
 }
-#klf,
-#last {
+#icons img {
   font-size: x-small;
+}
+#jump,
+#klf {
+  font-size: small;
 }
 /*
 Grid layout for each page.
 https://www.w3schools.com/css/css_grid.asp
 */
 body {
-  grid-column-gap: 0;
-  grid-row-gap: 0;
+  grid-row-gap: .5rem;
   grid-template-areas:
-    'nav nav'
-    'main main'
-    'icons jump'
-    'klf last';
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto 1fr auto auto;
+    'icons'
+    'nav'
+    'main'
+    'klf'
+    'jump';
+  grid-template-rows: auto auto 1fr auto auto auto;
 }
 #icons {
   grid-area: icons;
@@ -301,13 +336,9 @@ body {
 #klf {
   grid-area: klf;
 }
-#last {
-  grid-area: last;
-}
 main {
   grid-area: main;
 }
 nav {
   grid-area: nav;
 }
-

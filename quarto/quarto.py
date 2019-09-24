@@ -125,17 +125,17 @@ class Quarto(Mapping):
         nextpage = paths[(index + 1) % len(paths)]
         prevpage = paths[(index - 1) % len(paths)]
 
-        atag = '<a href="{}" rel="external">{}</a>'.format
+        atag = '<a href="{}" rel="{}">{}</a>'.format
         image = '<img alt="{}" src="{}" height=32 width=32 title="{}">'.format
 
         yield '<section id="icons">'
-        yield atag(urlpath(page, prevpage), "prev", "<<")
+        yield atag(urlpath(page, prevpage), "prev", "◄")
 
         for alt, src, href in icon_links:
             src = urlpath(page, home.parent / src)
-            yield atag(href, image(alt, src, alt))
+            yield atag(href, "", image(alt, src, alt))
 
-        yield atag(urlpath(page, nextpage), "next", ">>")
+        yield atag(urlpath(page, nextpage), "next", "►")
         yield "</section>"
 
     def jump(self, page, js_sources=(), updog='', **kwargs):
