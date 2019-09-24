@@ -1,36 +1,36 @@
 ASAP:
-  - commands:
-    - apply style target  # update style.css
-    - build ready target  # generate HTML files
-    - clean target html   # delete leftover pages. tidy existing pages.
-    - decap pages ready   # extract tidy body from HTML files
+  - test apply
+  - test build
+  - rename repo
+  - remove #last references in styles
+  - check for other #id values in styles
+  - finish tidybody(). remove Tidy folder.
   - find static host. update index.json.
   - test caps, spaces, underscores in page paths
   - fork into multiple sites?
+  - reserve PyPA name?
 
 CODE:
-  - fewer stanzas for simplicity?
-  - finish class Quarto docstring
   - can vacuum() delete empty folders with .unlink() ?
-  - decapitate() and/or tidybody()
-  - markdown support? need parser, requirements, etc
+  - finish class Quarto docstring
+  - add external stylesheets in index.json?
+  - markdown: copy mistune.py ?
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
   - Bottle or Flask demo app?
-
-TIDY:
-  - repair or remove all tidy scripts
-  - remove unnecessary defaults from tidy.txt
+  - call tidylib C functions
 
 PACKAGING:
-  - upload to PyPA? need to finish setup.py
-  - beware of setup.py data files
-  - remove .nojekyll
+  - single executable for macOS? PyInstaller, Platypus?
+  - does setup.py need an __init__ ?
+  - how to trick setup.py into not hiding executables?
+  - don't inlcude example pages
+  - don't include example styles
 
 README:
   - tutorial (see yellow notes)
   - no install required
-  - `python3 -m quarto build` or `quarto/please build`
+  - no __init__.py, __main__.py, setup.py, sys.path, PYTHONPATH, pip, venv
   - edit quarto/ to customize generation
   - edit ready/ to customize content
   - edit styles/ to customize styles
