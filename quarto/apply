@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+from argparse import ArgumentParser
+
+from quarto import Quarto
+
+opt = ArgumentParser()
+opt.description = 'Apply selected style to website.'
+opt.add_argument('STYLE',
+    default='style',
+    nargs='?',
+    help='path: read CSS files from STYLE folder'
+)
+opt.add_argument('TARGET',
+    default='target',
+    nargs='?',
+    help='path: write to TARGET/' + Quarto.CSSPATH
+)
+opt = opt.parse_args()
+
+Quarto.apply(opt.STYLE, opt.TARGET)

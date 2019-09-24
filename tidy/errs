@@ -1,7 +1,9 @@
 #!/usr/bin/env zsh
 
-tidy -config tidy/options.txt \
+tidy \
+  --doctype html5 \
   --markup no \
-  --show-info no \
+  --quiet yes \
+  --show-info yes \
   --show-warnings yes \
   "$@"

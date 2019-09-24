@@ -1,6 +1,0 @@
-#!/usr/bin/env zsh
-
-tidy -config tidy/options.txt \
-  --show-body-only y \
-  --quiet y \
-  "$@"
