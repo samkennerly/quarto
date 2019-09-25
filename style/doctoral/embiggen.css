@@ -61,10 +61,9 @@ nav #home {
   padding: var(--puffy);
 }
 #icons img {
-  height: 1rem;
-  margin: 0 .5rem;
-  padding: .2rem;
-  width: 1.25rem;
+  height: 1em;
+  margin: 0 .5em;
+  width: 1em;
 }
 #jump {
   line-height: 1.2rem;

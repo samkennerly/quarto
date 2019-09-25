@@ -35,7 +35,7 @@ nav summary {
 }
 #icons img {
   border: 2px solid;
-  border-radius: var(--radius);
+  border-radius: 4px;
 }
 #jump a {
   border: var(--border);

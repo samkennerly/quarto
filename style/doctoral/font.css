@@ -30,7 +30,9 @@ nav #home {
   font-size: 2em;
 }
 /* font others */
-#icons,
+#icons {
+  font-size: large;
+}
 #jump,
 #klf {
   font-size: small;

@@ -26,6 +26,7 @@ body a:focus,
 body a:hover,
 body a:active {
   color: var(--color-active);
+  transition: var(--color-time);
 }
 /* color main */
 main {
@@ -79,6 +80,7 @@ nav summary:focus,
 nav summary:hover {
   background: var(--color-text);
   color: var(--color-back);
+  transition: var(--color-time);
 }
 nav #here {
   background: var(--color-heading);
@@ -91,7 +93,6 @@ nav #here {
 }
 #icons img {
   background: white;
-  border-color: var(--color-link);
 }
 #jump {
   background: none;
