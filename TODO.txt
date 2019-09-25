@@ -1,4 +1,5 @@
 ASAP:
+  - update favicon.png
   - quarto/delete. clear empty folders with .unlink()?
   - quarto/clean. use tidybody(). never modify inputs.
   - finish class Quarto docstring
@@ -34,6 +35,6 @@ STYLES:
   - download PNGs from subtlepatterns.com
 
 TESTING:
-  - speed tests! compare to Hugo, Jekyll, Middleman?
   - what happens if old tidy is called?
   - nav: arrow keys, disability access OK?
+  - speed tests: compare to Hugo, Jekyll, Middleman?
