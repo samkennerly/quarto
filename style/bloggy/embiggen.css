@@ -54,8 +54,7 @@ nav summary {
 /* embiggen others */
 #icons,
 #jump,
-#klf,
-#last {
+#klf {
   margin: 0;
   padding: var(--padme);
 }

@@ -12,6 +12,12 @@ body {
     'jump';
   grid-template-rows: auto auto 1fr auto auto auto;
 }
+main {
+  grid-area: main;
+}
+nav {
+  grid-area: nav;
+}
 #icons {
   grid-area: icons;
 }
@@ -20,10 +26,4 @@ body {
 }
 #klf {
   grid-area: klf;
-}
-main {
-  grid-area: main;
-}
-nav {
-  grid-area: nav;
 }

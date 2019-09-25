@@ -6,10 +6,16 @@ body {
   grid-column-gap: 0;
   grid-row-gap: 1vh;
   grid-template-areas:
-    'nav   main icons'
-    'last  klf jump ';
+    'nav  main icons'
+    'jump klf  icons';
   grid-template-columns: 25% 1fr auto;
   grid-template-rows: 1fr auto;
+}
+main {
+  grid-area: main;
+}
+nav {
+  grid-area: nav;
 }
 #icons {
   grid-area: icons;
@@ -19,13 +25,4 @@ body {
 }
 #klf {
   grid-area: klf;
-}
-#last {
-  grid-area: last;
-}
-main {
-  grid-area: main;
-}
-nav {
-  grid-area: nav;
 }

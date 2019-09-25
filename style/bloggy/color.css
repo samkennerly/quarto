@@ -7,7 +7,7 @@ https://www.w3schools.com/css/css_colors.asp
   --color-back: black;
   --color-link: lightblue;
   --color-text: ghostwhite;
-  --color-header: slategray;
+  --color-header: #abc;
   --color-navbox: rgba(0,0,86,.5);
   --color-shadow: 1px 1px black;
   --color-time: 250ms;
@@ -53,6 +53,7 @@ main blockquote {
   background: white;
   color: black;
 }
+main h1,
 main h2,
 main h3,
 main h4,

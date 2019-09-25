@@ -27,13 +27,7 @@ nav summary ~ a {
 nav #home {
   display: block;
 }
-/* display other */
-#icons,
-#jump,
-#klf,
-#last {
-  display: block;
-}
+/* display others */
 #icons img {
   display: block;
 }
