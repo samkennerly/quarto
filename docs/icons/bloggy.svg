@@ -6,11 +6,11 @@ https://github.com/samkennerly/quarto
 <title>Quarto (doctoral)</title>
 <style>
   svg {
-    background: forestgreen;
+    background: navy;
     fill: none;
     height: 256px;
     width: 256px;
-    stroke: black;
+    stroke: deeppink;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 9;
