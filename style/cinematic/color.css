@@ -4,18 +4,16 @@ https://www.w3schools.com/css/css_colors.asp
 */
 :root {
   --color-active: cyan;
-  --color-back: #eee;
-  --color-link: lightskyblue;
+  --color-link: lightsteelblue;
   --color-text: ghostwhite;
-  --color-main-back: silver;
-  --color-main-link: darkcyan;
+  --color-main-back: ghostwhite;
+  --color-main-link: steelblue;
   --color-main-text: black;
-  --color-navbox: black;
-  --color-shadow: 0 .1em 0 black;
-  --color-time: 250ms;
+  --color-navbox: #111;
+  --color-shadow: 0 1px 0 black;
+  --color-time: 125ms;
 }
 body {
-  background: var(--color-back);
   color: var(--color-text);
   text-shadow: var(--color-shadow);
 }
@@ -64,9 +62,6 @@ main table tr:nth-child(even){
 /* color nav */
 nav {
   background: var(--color-navbox);
-}
-nav summary {
-  border-color: var(--color-back);
 }
 nav summary:focus,
 nav summary:hover,

@@ -35,7 +35,9 @@ nav {
   font-variant: small-caps;
 }
 /* font others */
-#icons,
+#icons {
+  font-size: large;
+}
 #jump,
 #klf {
   font-size: small;

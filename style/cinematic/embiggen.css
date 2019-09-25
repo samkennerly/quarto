@@ -51,9 +51,9 @@ nav details > details {
   padding: var(--puffy);
 }
 #icons img {
-  height: .9rem;
-  margin: var(--margin-navbox);
-  width: 1.6rem;
+  height: .9em;
+  margin: 0 .5em
+  width: 1.6em;
 }
 #jump a {
   width: 100%;

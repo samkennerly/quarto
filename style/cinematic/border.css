@@ -27,4 +27,5 @@ nav summary {
 /* border others */
 #icons img {
   border: 2px solid;
+  border-radius: 4px;
 }
