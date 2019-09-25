@@ -9,9 +9,15 @@ body {
     'nav  icons'
     'nav  main'
     'nav  klf'
-    'last jump';
+    'nav jump';
   grid-template-columns: 24vw 1fr;
   grid-template-rows: auto 1fr auto auto;
+}
+main {
+  grid-area: main;
+}
+nav {
+  grid-area: nav;
 }
 #icons {
   grid-area: icons;
@@ -21,13 +27,4 @@ body {
 }
 #klf {
   grid-area: klf;
-}
-#last {
-  grid-area: last;
-}
-main {
-  grid-area: main;
-}
-nav {
-  grid-area: nav;
 }

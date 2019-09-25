@@ -44,6 +44,3 @@ nav summary {
 #klf {
   border-radius: 0 0 var(--radius) var(--radius);
 }
-#last {
-  border-radius: var(--radius);
-}

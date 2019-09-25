@@ -20,12 +20,6 @@ nav #home {
   text-align: center;
 }
 /* align others */
-#icons,
-#jump,
-#klf,
-#last {
-  text-align: center;
-}
 #icons img {
   vertical-align: middle;
 }

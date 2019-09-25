@@ -32,10 +32,6 @@ nav #home {
 /* font others */
 #icons,
 #jump,
-#klf,
-#last {
+#klf {
   font-size: small;
-}
-#icons img {
-  font-size: x-small;
 }

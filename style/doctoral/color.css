@@ -15,11 +15,7 @@ https://www.w3schools.com/css/css_colors.asp
 }
 body {
   background-attachment: fixed;
-  background-image: linear-gradient(
-    var(--color-link),
-    var(--color-heading),
-    var(--color-back)
-    );
+  background: var(--color-heading);
   color: var(--color-text);
 }
 body a:link,
@@ -75,8 +71,8 @@ nav {
 }
 nav summary {
   border-color:
-    var(--color-link)
     var(--color-main-link)
+    var(--color-heading)
     var(--color-heading);
 }
 nav summary:focus,
@@ -97,8 +93,7 @@ nav #here {
   background: white;
   border-color: var(--color-link);
 }
-#jump,
-#last {
+#jump {
   background: none;
   border-color: var(--color-link);
 }

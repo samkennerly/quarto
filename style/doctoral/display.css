@@ -18,12 +18,6 @@ nav summary {
   display: block;
 }
 /* display others */
-#icons,
-#jump,
-#klf,
-#last {
-  display: block;
-}
 #icons img {
   display: inline-block;
 }
