@@ -9,8 +9,8 @@ https://www.w3schools.com/css/css_units.asp
   --puffy: .5rem 1rem;
 }
 body {
-  min-height: 90vh;
-  margin: 1rem;
+  min-height: 100vh;
+  margin: 0;
 }
 /* embiggen main */
 main {
@@ -47,8 +47,7 @@ nav details > details {
 /* embiggen others */
 #icons,
 #jump,
-#klf,
-#last {
+#klf {
   padding: var(--puffy);
 }
 #icons img {

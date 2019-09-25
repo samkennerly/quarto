@@ -4,13 +4,13 @@ https://www.w3schools.com/css/css_colors.asp
 */
 :root {
   --color-active: cyan;
-  --color-back: dimgray;
+  --color-back: #eee;
   --color-link: lightskyblue;
   --color-text: ghostwhite;
-  --color-main-back: #111;
-  --color-main-link: lightskyblue;
-  --color-main-text: #eee;
-  --color-navbox: #333;
+  --color-main-back: silver;
+  --color-main-link: darkcyan;
+  --color-main-text: black;
+  --color-navbox: black;
   --color-shadow: 0 .1em 0 black;
   --color-time: 250ms;
 }
@@ -80,8 +80,7 @@ nav #here {
 /* color others */
 #icons,
 #jump,
-#klf,
-#last {
+#klf {
   background: var(--color-navbox);
 }
 #icons img {

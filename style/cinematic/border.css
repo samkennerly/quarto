@@ -6,7 +6,6 @@ https://www.w3schools.com/css/css_border.asp
   --border: thin double;
 }
 /* border main */
-main,
 main blockquote,
 main pre {
   border: var(--border);
