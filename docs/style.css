@@ -20,6 +20,7 @@ nav #home {
   text-align: center;
 }
 /* align others */
+#icons,
 #icons img {
   vertical-align: middle;
 }
@@ -60,7 +61,7 @@ nav summary {
 }
 #icons img {
   border: 2px solid;
-  border-radius: var(--radius);
+  border-radius: 4px;
 }
 #jump a {
   border: var(--border);
@@ -97,6 +98,7 @@ body a:focus,
 body a:hover,
 body a:active {
   color: var(--color-active);
+  transition: var(--color-time);
 }
 /* color main */
 main {
@@ -150,6 +152,7 @@ nav summary:focus,
 nav summary:hover {
   background: var(--color-text);
   color: var(--color-back);
+  transition: var(--color-time);
 }
 nav #here {
   background: var(--color-heading);
@@ -162,7 +165,6 @@ nav #here {
 }
 #icons img {
   background: white;
-  border-color: var(--color-link);
 }
 #jump {
   background: none;
@@ -256,10 +258,9 @@ nav #home {
   padding: var(--puffy);
 }
 #icons img {
-  height: 1rem;
-  margin: 0 .5rem;
-  padding: .2rem;
-  width: 1.25rem;
+  height: 1em;
+  margin: 0 .5em;
+  width: 1em;
 }
 #jump {
   line-height: 1.2rem;
@@ -300,7 +301,9 @@ nav #home {
   font-size: 2em;
 }
 /* font others */
-#icons,
+#icons {
+  font-size: large;
+}
 #jump,
 #klf {
   font-size: small;
