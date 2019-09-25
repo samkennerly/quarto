@@ -1,5 +1,4 @@
 ASAP:
-  - autoformat
   - quarto/delete. clear empty folders with .unlink()?
   - quarto/clean. use tidybody(). never modify inputs.
   - finish class Quarto docstring
@@ -26,7 +25,7 @@ README:
   - HTML in ready/
   - CSS in style/
   - other files in target/ folder. build does not copy files.
-  - delete Dockerfile, kitchen if you want
+  - delete Dockerfile, kitchen if you don't want Docker
   - gotcha: spaces & weird chars in filenames
 
 STYLES:
@@ -35,5 +34,6 @@ STYLES:
   - download PNGs from subtlepatterns.com
 
 TESTING:
+  - speed tests! compare to Hugo, Jekyll, Middleman?
   - what happens if old tidy is called?
   - nav: arrow keys, disability access OK?
