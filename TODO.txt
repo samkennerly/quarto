@@ -1,13 +1,10 @@
 ASAP:
-  - style fixes:
-    - remove #last references
-    - /* others */ comments
-    - check for other #id values
   - rename repo
   - autoformat
   - quarto/delete
   - quarto/clean. use tidybody(). never modify inputs.
   - finish class Quarto docstring
+  - icons
   - reserve PyPA name?
 
 HOSTING:
