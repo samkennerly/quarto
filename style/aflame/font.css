@@ -31,10 +31,7 @@ nav #home {
 }
 /* font others */
 #icons {
-  font-size: medium;
-}
-#icons img {
-  font-size: x-small;
+  font-size: large;
 }
 #jump,
 #klf {

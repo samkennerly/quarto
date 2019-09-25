@@ -12,7 +12,7 @@ https://www.w3schools.com/css/css_colors.asp
   --color-navback: rgba(0,0,0,.7);
   --color-navlink: gold;
   --color-shadow: 0 .1em 0 black;
-  --time-color: 451ms;
+  --time-color: 125ms;
 }
 body {
   background: radial-gradient(
@@ -82,20 +82,9 @@ nav #here {
 /* color others */
 #icons {
   background: var(--color-navback);
-  color: var(--color-nav);
-  text-shadow: var(--color-shadow);
 }
-#icons a img {
+#icons img {
   background: white;
-  border-color: var(--color-navlink);
-  color: black;
-  text-shadow: none;
-}
-#icons a img:focus,
-#icons a img:hover,
-#icons a img:active {
-  border-color: var(--color-active);
-  transition: var(--time-color);
 }
 #jump {
   background: var(--color-main);

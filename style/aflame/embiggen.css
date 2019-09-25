@@ -61,9 +61,9 @@ nav summary {
   margin: var(--marge);
 }
 #icons img {
-  height: 1rem;
-  padding: 2px;
-  width: 2rem;
+  height: 1em;
+  margin: 0 .5em;
+  width: 1em;
 }
 #jump {
   margin: 0;
