@@ -59,10 +59,9 @@ nav summary {
   padding: var(--padme);
 }
 #icons img {
-  height: 1rem;
-  margin: 1rem 0;
-  width: 1rem;
-  padding: .25rem;
+  height: 1em;
+  margin: 1em 0;
+  width: 1em;
 }
 #jump a {
   width: 100%;

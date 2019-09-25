@@ -10,7 +10,7 @@ https://www.w3schools.com/css/css_colors.asp
   --color-header: #abc;
   --color-navbox: rgba(0,0,86,.5);
   --color-shadow: 1px 1px black;
-  --color-time: 250ms;
+  --color-time: 125ms;
 }
 body {
   background-attachment: fixed;
