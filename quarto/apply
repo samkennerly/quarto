@@ -5,17 +5,10 @@ from argparse import ArgumentParser
 from quarto import Quarto
 
 opt = ArgumentParser()
-opt.description = 'Apply selected style to website.'
-opt.add_argument('STYLE',
-    default='style',
-    nargs='?',
-    help='path: read CSS files from STYLE folder'
-)
-opt.add_argument('TARGET',
-    default='target',
-    nargs='?',
-    help='path: write to TARGET/' + Quarto.CSSPATH
-)
+opt.description = "Apply selected style to website."
+arg = opt.add_argument
+arg("STYLE", default="style", nargs="?", help="read CSS files from STYLE folder")
+arg("TARGET", default="target", nargs="?", help="write to TARGET/" + Quarto.CSSPATH)
 opt = opt.parse_args()
 
 Quarto.apply(opt.STYLE, opt.TARGET)

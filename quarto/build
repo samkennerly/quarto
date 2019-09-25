@@ -5,17 +5,10 @@ from argparse import ArgumentParser
 from quarto import Quarto
 
 opt = ArgumentParser()
-opt.description = 'Build pages from raw HTML'
-opt.add_argument('READY',
-    default='ready',
-    nargs='?',
-    help='path: read HTML files from READY folder'
-)
-opt.add_argument('TARGET',
-    default='target',
-    nargs='?',
-    help='path: write to TARGET folder'
-)
+opt.description = "Build pages from raw HTML"
+arg = opt.add_argument
+arg("READY", default="ready", nargs="?", help="read HTML files from READY folder")
+arg("TARGET", default="target", nargs="?", help="write to TARGET folder")
 opt = opt.parse_args()
 
 Quarto(opt.READY).build(opt.TARGET)

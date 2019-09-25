@@ -6,12 +6,13 @@ from pathlib import Path
 from posixpath import join as urljoin
 from urllib.parse import quote
 
+
 class Quarto(Mapping):
 
-    CSSPATH = 'style.css'
+    CSSPATH = "style.css"
 
-    def __init__(self,folder='.'):
-        self.home = Path(folder).resolve() / 'index.html'
+    def __init__(self, folder="."):
+        self.home = Path(folder).resolve() / "index.html"
         self._options = None
         self._paths = None
 
@@ -19,11 +20,11 @@ class Quarto(Mapping):
 
     # Magic methods
 
-    def __call__(self,page):
-        return self.generate(page,**self.querypage(page,**self.options))
+    def __call__(self, page):
+        return self.generate(page, **self.querypage(page, **self.options))
 
-    def __getitem__(self,page):
-        return '\n'.join(self(page))
+    def __getitem__(self, page):
+        return "\n".join(self(page))
 
     def __iter__(self):
         return iter(self.paths)
@@ -37,78 +38,78 @@ class Quarto(Mapping):
     # Commands
 
     @classmethod
-    def apply(cls,style,target):
+    def apply(cls, style, target):
         """ Cat stylesheets from style folder to target folder. """
         CSSPATH, stylecat = cls.CSSPATH, cls.stylecat
 
         target = Path(target)
         outpath = target / CSSPATH
-        print('Apply', style, 'to', outpath)
+        print("Apply", style, "to", outpath)
 
         if not target.is_dir():
             raise NotADirectoryError(target)
 
-        with open(outpath,'w') as file:
+        with open(outpath, "w") as file:
             file.write(stylecat(style))
 
-        print('The style of', target, 'is', style)
+        print("The style of", target, "is", style)
 
-    def build(self,target):
+    def build(self, target):
         """ Generate each page and write to target folder. """
         home, items = self.home, self.items
 
         source = home.parent
         target = Path(target)
-        print('Build', len(self), 'pages from', source, 'to', target)
+        print("Build", len(self), "pages from", source, "to", target)
 
         if not target.is_dir():
             raise NotADirectoryError(target)
 
         for path, text in self.items():
             path = target / path.relative_to(source)
-            print('Save',path)
-            path.parent.mkdir(exist_ok=True,parents=True)
-            with open(path,'w') as file:
+            print("Save", path)
+            path.parent.mkdir(exist_ok=True, parents=True)
+            with open(path, "w") as file:
                 file.write(text)
 
         print("What's done is done. Exeunt", type(self).__name__)
 
-    def convert(self,source):
+    def convert(self, source):
         """ None: Import pages from preprints folder. """
         raise NotImplementedError
 
     @classmethod
-    def delete(cls,suffix,target):
+    def delete(cls, suffix, target):
         """ None: Remove files with suffix from target folder. """
         search = Path(target).rglob
-        pattern = '*.' + suffix.lstrip('.')
+        pattern = "*." + suffix.lstrip(".")
         for path in search(pattern):
-            print('Delete',path)
+            print("Delete", path)
             path.unlink()
 
     @classmethod
-    def errors(cls,target):
+    def errors(cls, target):
         """ List[str]: Errors detected in pages in target folder. """
         raise NotImplementedError
 
     # HTML generators
 
-    def generate(self, page, title='', **kwargs):
+    def generate(self, page, title="", **kwargs):
         """ Iterator[str]: All lines in page. """
-        page = self.home.parent/page
-        title = title or page.stem.replace('_',' ')
+        page = self.home.parent / page
+        title = title or page.stem.replace("_", " ")
         lines = chain(
             ("<!DOCTYPE html>", "<html>", "<head>"),
-            ('<title>', title, '</title>'),
+            ("<title>", title, "</title>"),
             self.links(page, **kwargs),
             self.meta(page, **kwargs),
             ("</head>", "<body>"),
             self.nav(page, **kwargs),
-            ('<main>', self.tidybody(page), '</main>'),
+            ("<main>", self.tidybody(page), "</main>"),
             self.icons(page, **kwargs),
             self.jump(page, **kwargs),
             self.klf(page, **kwargs),
-            ("</body>", "</html>")
+            ("</body>", "</html>"),
         )
 
         return lines
@@ -138,7 +139,7 @@ class Quarto(Mapping):
         yield atag(urlpath(page, nextpage), "next", "►")
         yield "</section>"
 
-    def jump(self, page, js_sources=(), updog='', **kwargs):
+    def jump(self, page, js_sources=(), updog="", **kwargs):
         """
         Iterator[str]: And I know, reader, just how you feel.
         You got to scroll past the pop-ups to get to what's real.
@@ -147,33 +148,33 @@ class Quarto(Mapping):
         uptag = '<a href="#" id="updog">{}</a>'.format
 
         yield '<section id="jump">'
-        yield from map(jstag,js_sources)
+        yield from map(jstag, js_sources)
         if updog:
             yield uptag(updog)
         yield "</section>"
 
-    def klf(self, page, copyright='', email='', generator='', license=(), **kwargs):
+    def klf(self, page, copyright="", email="", generator="", license=(), **kwargs):
         """
         Iterator[str]: Copyright, license, and final elements.
         They're justified, and they're ancient. I hope you understand.
         """
-        addrtag = '<address>{}</address>'.format
+        addrtag = "<address>{}</address>".format
         spantag = '<span id="{}">\n{}\n</span>'.format
         genlink = 'built by a <a href="{}" rel="generator">quarto</a>'.format
         liclink = '<a href="{}" rel="license">{}</a>'.format
 
         yield '<section id="klf">'
         if copyright:
-            yield spantag('copyright', copyright)
+            yield spantag("copyright", copyright)
         if license:
-            yield spantag('license', liclink(*license))
+            yield spantag("license", liclink(*license))
         if email:
             yield addrtag(email)
         if generator:
-            yield spantag('quarto', genlink(generator))
+            yield spantag("quarto", genlink(generator))
         yield "</section>"
 
-    def links(self, page, base_url='', favicon='',  **kwargs):
+    def links(self, page, base_url="", favicon="", **kwargs):
         """ Iterator[str]: <link> tags in page <head>. """
         CSSPATH, home, urlpath = self.CSSPATH, self.home, self.urlpath
 
@@ -187,7 +188,7 @@ class Quarto(Mapping):
         if favicon:
             yield linktag("icon", urlpath(page, home.parent / favicon))
 
-    def meta(self, page, author='', description='', keywords=(), **kwargs):
+    def meta(self, page, author="", description="", keywords=(), **kwargs):
         """ Iterator[str]: <meta> tags in page <head>. """
         metatag = '<meta name="{}" content="{}">'.format
 
@@ -197,10 +198,10 @@ class Quarto(Mapping):
         if description:
             yield metatag("description", description)
         if keywords:
-            yield metatag("keywords", ','.join(keywords))
+            yield metatag("keywords", ",".join(keywords))
         yield metatag("viewport", "width=device-width, initial-scale=1.0")
 
-    def nav(self,page,home_name="home",**kwargs):
+    def nav(self, page, home_name="home", **kwargs):
         """ Iterator[str]: <nav> element with links to other pages. """
         home, paths, urlpath = self.home, self.paths, self.urlpath
 
@@ -213,7 +214,7 @@ class Quarto(Mapping):
         openbox = "<details open><summary>{}</summary>".format
         shutbox = "<details><summary>{}</summary>".format
 
-        yield '<nav>'
+        yield "<nav>"
         yield hometag(urlpath(page, home), home_name)
 
         newdirs = frozenset(home.parents)
@@ -253,8 +254,8 @@ class Quarto(Mapping):
         home, paths = self.home, self._paths
 
         if paths is None:
-            paths = home.parent.rglob('*.html')
-            paths = (home, *sorted( x for x in paths if x != home ))
+            paths = home.parent.rglob("*.html")
+            paths = (home, *sorted(x for x in paths if x != home))
             self._paths = paths
 
         return paths
@@ -262,9 +263,9 @@ class Quarto(Mapping):
     # File methods
 
     @classmethod
-    def querypage(cls,page,**kwargs):
+    def querypage(cls, page, **kwargs):
         """ dict: Page options, if any. Kwargs are default values. """
-        path = Path(page).with_suffix('.json')
+        path = Path(page).with_suffix(".json")
 
         if path.is_file():
             with open(path) as file:
@@ -273,23 +274,23 @@ class Quarto(Mapping):
         return kwargs
 
     @classmethod
-    def readlines(cls,*paths):
+    def readlines(cls, *paths):
         """ Iterator[str]: Raw lines from text file(s). """
         for path in paths:
             with open(path) as lines:
                 yield from lines
 
     @classmethod
-    def stylecat(cls,folder):
+    def stylecat(cls, folder):
         """ str: Concatenated CSS files from selected folder. """
-        return "".join(cls.readlines(*sorted(Path(folder).rglob('*.css'))))
+        return "".join(cls.readlines(*sorted(Path(folder).rglob("*.css"))))
 
     @classmethod
-    def tidybody(cls,page):
+    def tidybody(cls, page):
         """ Iterator[str]: Clean lines from raw HTML page. """
-        return ''.join(cls.readlines(page))
+        return "".join(cls.readlines(page))
 
     @classmethod
-    def urlpath(cls,page,path):
+    def urlpath(cls, page, path):
         """ str: URL-encoded relative path from page to local file. """
         return quote(relpath(path, start=Path(page).parent))
