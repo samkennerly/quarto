@@ -1,10 +1,9 @@
 ASAP:
-  - rename repo
   - autoformat
-  - quarto/delete
+  - quarto/delete. clear empty folders with .unlink()?
   - quarto/clean. use tidybody(). never modify inputs.
   - finish class Quarto docstring
-  - icons
+  - icons for all 4 styles
   - reserve PyPA name?
 
 HOSTING:
@@ -14,21 +13,19 @@ HOSTING:
 
 QUARTO:
   - test with older Python versions
-  - delete empty folders with .unlink() ?
-  - markdown: copy mistune.py ?
+  - markdown: use mistune.py ?
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
   - Bottle or Flask demo app?
   - call tidylib C functions
 
 README:
-  - tutorial (see yellow notes)
   - no install required
   - no __init__.py, __main__.py, setup.py, sys.path, PYTHONPATH, pip, venv
-  - edit quarto/ to customize generation
-  - edit ready/ to customize content
-  - edit styles/ to customize styles
-  - edit target/ to include other files
+  - code in quarto/
+  - HTML in ready/
+  - CSS in style/
+  - other files in target/ folder. build does not copy files.
   - delete Dockerfile, kitchen if you want
   - gotcha: spaces & weird chars in filenames
 
@@ -38,6 +35,5 @@ STYLES:
   - download PNGs from subtlepatterns.com
 
 TESTING:
-  - test with multiple Python versions
   - what happens if old tidy is called?
   - nav: arrow keys, disability access OK?
