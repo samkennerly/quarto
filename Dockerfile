@@ -8,7 +8,7 @@ WORKDIR "${WORKDIR}"
 
 # Install system packages
 RUN apt-get -y update && apt-get -y install \
-    less tree
+    tidy=2:5.6.0-10
 
 # Install Python packages
 RUN pip install --upgrade pip && pip install \
