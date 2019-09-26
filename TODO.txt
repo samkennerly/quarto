@@ -1,7 +1,7 @@
 ASAP:
-  - adjust font size for narrow screens
   - quarto/delete. clear empty folders with .unlink()?
   - quarto/clean. use tidybody(). never modify inputs.
+  - local or external paths for icons, other links?
   - finish class Quarto docstring
   - reserve PyPA name?
 
@@ -11,7 +11,6 @@ HOSTING:
   - fork into multiple sites?
 
 QUARTO:
-  - test with older Python versions
   - markdown: use mistune.py ?
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
@@ -24,7 +23,7 @@ README:
   - code in quarto/
   - HTML in ready/
   - CSS in style/
-  - other files in target/ folder. build does not copy files.
+  - data in target/ (build does not copy files!)
   - delete Dockerfile, kitchen if you don't want Docker
   - gotcha: spaces & weird chars in filenames
 
@@ -34,6 +33,7 @@ STYLES:
   - download PNGs from subtlepatterns.com
 
 TESTING:
+  - test with older Python versions
   - what happens if old tidy is called?
   - nav: arrow keys, disability access OK?
   - speed tests: compare to Hugo, Jekyll, Middleman?
