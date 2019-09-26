@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Find HTML files and Tidy in-place.
 
 find -L 'output' -name '*.html' -exec \
   tidy -config tidy/options.txt -modify \

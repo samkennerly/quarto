@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+
+from pathlib import Path
+from subprocess import run
+from sys import stderr
+
+TEST = Path(__file__).resolve().parent
+
+def tidycopy(page, target):
+    """ None: Save clean page to target folder. Requires HTML Tidy > 5. """
+    folder = TEST
+
+    page = folder / page
+    if not page.exists():
+        # tidy returns 0 if input does not exist
+        raise FileNotFoundError(page)
+
+    outpath = Path(target) / page.relative_to(folder)
+    command = '-ashtml -bare -clean -gdoc -quiet --show-body-only yes'.split()
+    command = ('tidy', *command, '-output', str(outpath), str(page))
+
+    print('Save', outpath)
+    outpath.parent.mkdir(exist_ok=True,parents=True)
+    ran = run(command,capture_output=True)
+    code, errs = ran.returncode, ran.stderr.decode()
+    if code == 1:
+        print(errs,file=stderr)
+    elif code:
+        raise ChildProcessError('Tidy: ' + errs)
+
+
+tidycopy('dirty.html', TEST / 'target')
