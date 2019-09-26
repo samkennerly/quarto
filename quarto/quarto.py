@@ -1,5 +1,4 @@
 from collections.abc import Mapping
-from itertools import chain
 from json import load as jsonload
 from os.path import relpath
 from pathlib import Path
@@ -97,22 +96,29 @@ class Quarto(Mapping):
     def generate(self, page, title="", **kwargs):
         """ Iterator[str]: All lines in page. """
         page = self.home.parent / page
-        title = title or page.stem.replace("_", " ")
-        lines = chain(
-            ("<!DOCTYPE html>", "<html>", "<head>"),
-            ("<title>", title, "</title>"),
-            self.links(page, **kwargs),
-            self.meta(page, **kwargs),
-            ("</head>", "<body>"),
-            self.nav(page, **kwargs),
-            ("<main>", self.tidybody(page), "</main>"),
-            self.icons(page, **kwargs),
-            self.jump(page, **kwargs),
-            self.klf(page, **kwargs),
-            ("</body>", "</html>"),
-        )
 
-        return lines
+        yield '<!DOCTYPE html>'
+        yield '<html>'
+
+        yield '<head>'
+        yield '<title>'
+        yield title or page.stem.replace('_', " ")
+        yield '</title>'
+        yield from self.links(page, **kwargs)
+        yield from self.meta(page, **kwargs)
+        yield '</head>'
+
+        yield '<body>'
+        yield '<main>'
+        yield from map(str.rstrip,self.readlines(page))
+        yield '</main>'
+        yield from self.nav(page, **kwargs)
+        yield from self.icons(page, **kwargs)
+        yield from self.jump(page, **kwargs)
+        yield from self.klf(page, **kwargs)
+        yield '</body>'
+
+        yield '</html>'
 
     def icons(self, page, icon_links=(), **kwargs):
         """
@@ -281,14 +287,33 @@ class Quarto(Mapping):
                 yield from lines
 
     @classmethod
-    def stylecat(cls, folder):
-        """ str: Concatenated CSS files from selected folder. """
-        return "".join(cls.readlines(*sorted(Path(folder).rglob("*.css"))))
+    def stylecat(cls, style):
+        """ str: Concatenated CSS files from style folder. """
+        return "".join(cls.readlines(*sorted(Path(style).rglob("*.css"))))
 
-    @classmethod
-    def tidybody(cls, page):
-        """ Iterator[str]: Clean lines from raw HTML page. """
-        return "".join(cls.readlines(page))
+    def tidycopy(self, page, target):
+        """ None: Save clean page to target folder. Requires HTML Tidy > 5. """
+        folder = self.folder
+
+        page = folder / page
+        outpath = Path(target) / page.relative_to(folder)
+        command = 'tidy -ashtml -bare -clean -gdoc -quiet --show-body-only yes'
+        command = (*command.split(), '-output', str(outpath), str(page))
+
+        # tidy returns status 0 even if input does not exist
+        if not page.exists():
+            raise FileNotFoundError(page)
+
+        print('Save', outpath)
+        outpath.parent.mkdir(exist_ok=True,parents=True)
+        ran = run(command,capture_output=True)
+
+        # print tidy warnings; raise tidy errors
+        status, errs = ran.returncode, ran.stderr.decode()
+        if status == 1:
+            print(errs,file=stderr)
+        elif status:
+            raise ChildProcessError('Tidy: ' + errs)
 
     @classmethod
     def urlpath(cls, page, path):
