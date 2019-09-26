@@ -4,7 +4,7 @@
   "copyright": "© Sam Kennerly 2019",
   "description": "Build static websites with Python3 and Tidy.",
   "email": "samkennerly@gmail.com",
-  "favicon": "favicon.png",
+  "favicon": "favicon.ico",
   "generator": "https://github.com/samkennerly/quarto",
   "home_name": "Quarto",
   "icon_links":
