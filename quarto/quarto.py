@@ -11,7 +11,7 @@ class Quarto(Mapping):
     CSSPATH = "style.css"
 
     def __init__(self, folder="."):
-        self.home = Path(folder).resolve() / "index.html"
+        self.home = self.validpath(folder) / "index.html"
         self._options = None
         self._paths = None
 
@@ -39,57 +39,51 @@ class Quarto(Mapping):
     @classmethod
     def apply(cls, style, target):
         """ Cat stylesheets from style folder to target folder. """
-        CSSPATH, stylecat = cls.CSSPATH, cls.stylecat
+        CSSPATH, stylecat, validpath = cls.CSSPATH, cls.stylecat, cls.validpath
 
-        target = Path(target)
-        outpath = target / CSSPATH
-        print("Apply", style, "to", outpath)
+        style = validpath(style)
+        sheet = validpath(target) / CSSPATH
 
-        if not target.is_dir():
-            raise NotADirectoryError(target)
-
-        with open(outpath, "w") as file:
+        print("Save", sheet)
+        with open(sheet, "w") as file:
             file.write(stylecat(style))
 
-        print("The style of", target, "is", style)
-
-    def build(self, target):
+    def build(cls, ready, target):
         """ Generate each page and write to target folder. """
-        home, items = self.home, self.items
+        folder, items, validpath = self.home, self.items, self.validpath
 
-        source = home.parent
-        target = Path(target)
-        print("Build", len(self), "pages from", source, "to", target)
+        target = quarto.validpath(target)
+        for path, text in quarto.items():
+            path = target / path.relative_to(folder)
 
-        if not target.is_dir():
-            raise NotADirectoryError(target)
-
-        for path, text in self.items():
-            path = target / path.relative_to(source)
             print("Save", path)
             path.parent.mkdir(exist_ok=True, parents=True)
             with open(path, "w") as file:
                 file.write(text)
 
-        print("What's done is done. Exeunt", type(self).__name__)
+    def clean(self, ready):
+        """ None: Save cleaned page bodies to ready folder. """
+        folder, paths, validpath = self.home, self.paths, self.validpath
 
-    def convert(self, source):
-        """ None: Import pages from preprints folder. """
-        raise NotImplementedError
+        ready = validpath(ready)
+        for dirty in paths:
+            clean = ready / dirty.relative_to(folder)
+
+            print("Save", clean)
+            clean.parent.mkdir(exist_ok=True, parents=True)
+            tidycopy(dirty, clean)
 
     @classmethod
     def delete(cls, suffix, target):
-        """ None: Remove files with suffix from target folder. """
-        search = Path(target).rglob
+        """ None: Remove files with suffix from folder. """
+        validpath = cls.validpath
+
+        target = validpath(target)
         pattern = "*." + suffix.lstrip(".")
-        for path in search(pattern):
+        for path in target.rglob(pattern):
+
             print("Delete", path)
             path.unlink()
-
-    @classmethod
-    def errors(cls, target):
-        """ List[str]: Errors detected in pages in target folder. """
-        raise NotImplementedError
 
     # HTML generators
 
@@ -272,7 +266,6 @@ class Quarto(Mapping):
     def querypage(cls, page, **kwargs):
         """ dict: Page options, if any. Kwargs are default values. """
         path = Path(page).with_suffix(".json")
-
         if path.is_file():
             with open(path) as file:
                 kwargs.update(jsonload(file))
@@ -291,31 +284,34 @@ class Quarto(Mapping):
         """ str: Concatenated CSS files from style folder. """
         return "".join(cls.readlines(*sorted(Path(style).rglob("*.css"))))
 
-    def tidycopy(self, page, target):
-        """ None: Save clean page to target folder. Requires HTML Tidy > 5. """
-        folder = self.folder
-
-        page = folder / page
-        outpath = Path(target) / page.relative_to(folder)
-        command = 'tidy -ashtml -bare -clean -gdoc -quiet --show-body-only yes'
-        command = (*command.split(), '-output', str(outpath), str(page))
+    @classmethod
+    def tidycopy(cls, page, path):
+        """ None: Clean raw HTML page and save. Requires HTML Tidy > 5. """
+        page, path = Path(page), Path(path)
 
         # tidy returns status 0 even if input does not exist
         if not page.exists():
             raise FileNotFoundError(page)
 
-        print('Save', outpath)
-        outpath.parent.mkdir(exist_ok=True,parents=True)
-        ran = run(command,capture_output=True)
-
-        # print tidy warnings; raise tidy errors
-        status, errs = ran.returncode, ran.stderr.decode()
-        if status == 1:
+        cmds = 'tidy -ashtml -bare -clean -gdoc -quiet --show-body-only yes'
+        cmds = (*cmds.split(), '-output', str(path), str(page))
+        proc = run(cmds,capture_output=True)
+        code, errs = proc.returncode, proc.stderr.decode()
+        if code == 1:
             print(errs,file=stderr)
-        elif status:
+        elif code:
             raise ChildProcessError('Tidy: ' + errs)
 
     @classmethod
     def urlpath(cls, page, path):
         """ str: URL-encoded relative path from page to local file. """
         return quote(relpath(path, start=Path(page).parent))
+
+    @classmethod
+    def validpath(cls, path):
+        """ Path: Absolute path. Raise error if path does not exist. """
+        path = Path(path).resolve()
+        if not path.exists():
+            raise FileNotFoundError(path)
+
+        return path
