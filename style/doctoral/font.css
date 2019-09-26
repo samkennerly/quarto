@@ -2,13 +2,18 @@
 Font family, size, weight, etc.
 https://www.w3schools.com/css/css_font.asp
 */
-body {
+html {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
-  font-size: medium;
+  font-size: 16px;
   font-style: normal;
   font-variant: normal;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.2;
+}
+@media all and (max-width: 800px) {
+  html {
+    font-size: 2vw;
+  }
 }
 body a {
   text-decoration: none;
@@ -23,7 +28,7 @@ main samp,
 main pre,
 main var {
   font-family: "Courier", monospace;
-  font-size: small;
+  font-size: .8rem;
 }
 /* font nav */
 nav #home {
@@ -31,9 +36,9 @@ nav #home {
 }
 /* font others */
 #icons {
-  font-size: large;
+  font-size: 1.2rem;
 }
 #jump,
 #klf {
-  font-size: small;
+  font-size: .8rem;
 }
