@@ -1,8 +1,9 @@
 ASAP:
   - quarto/clean. use tidycopy()
   - quarto/delete. clear empty folders with .unlink()?
+  - multiple stylesheets or multiple sites?
   - finish class Quarto docstring
-  - local or external paths for icons, other links?
+  - add Molly Blair icon credits
   - reserve PyPA name?
 
 HOSTING:
@@ -11,11 +12,14 @@ HOSTING:
   - fork into multiple sites?
 
 QUARTO:
+  - local or external paths for icons, other links?
+  - external stylesheets in index.json?
+  - easiest way to include background image?
   - markdown: use mistune.py ?
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
   - Bottle or Flask demo app?
-  - call tidylib C functions
+  - tidylib C bindings (not subprocess)
 
 README:
   - no install required
@@ -28,8 +32,6 @@ README:
   - gotcha: spaces & weird chars in filenames
 
 STYLES:
-  - external stylesheets in index.json?
-  - easiest way to include background image?
   - download PNGs from subtlepatterns.com
 
 TESTING:
