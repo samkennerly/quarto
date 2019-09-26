@@ -1,8 +1,8 @@
 ASAP:
+  - quarto/clean. use tidycopy()
   - quarto/delete. clear empty folders with .unlink()?
-  - quarto/clean. use tidybody(). never modify inputs.
-  - local or external paths for icons, other links?
   - finish class Quarto docstring
+  - local or external paths for icons, other links?
   - reserve PyPA name?
 
 HOSTING:
