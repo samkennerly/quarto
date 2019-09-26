@@ -1,9 +1,10 @@
 ASAP:
-  - test all commands
   - finish class Quarto docstring
+  - test with older Python versions
   - multiple stylesheets or multiple sites?
   - add Molly Blair icon credits
   - reserve PyPA name?
+  - README
 
 HOSTING:
   - find static host. update index.json.
@@ -11,7 +12,6 @@ HOSTING:
   - fork into multiple sites?
 
 QUARTO:
-  - delete() empty folders with unlink() ?
   - local or external paths for icons, other links?
   - external stylesheets in index.json?
   - easiest way to include background image?
@@ -30,12 +30,13 @@ README:
   - data in target/ (build does not copy files!)
   - delete Dockerfile, kitchen if you don't want Docker
   - gotcha: spaces & weird chars in filenames
+  - gotcha: can't delete empty folders because .DS_Store
 
 STYLES:
   - download PNGs from subtlepatterns.com
 
 TESTING:
-  - test with older Python versions
+
   - what happens if old tidy is called?
   - nav: arrow keys, disability access OK?
   - speed tests: compare to Hugo, Jekyll, Middleman?

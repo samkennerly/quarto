@@ -41,10 +41,10 @@ class Quarto(Mapping):
     @classmethod
     def apply(cls, style, target):
         """ Cat stylesheets from style folder to target folder. """
-        stylecat = self.stylecat
-        csspath = self.validpath(target) / CSSPATH
+        stylecat = cls.stylecat
+        csspath = cls.validpath(target) / cls.CSSPATH
 
-        print("Apply", style, "to", csspath)
+        print('Save', csspath)
         with open(csspath, "w") as file:
             file.write(stylecat(style))
 
@@ -56,7 +56,7 @@ class Quarto(Mapping):
 
         for path, text in items():
             path = target / path.relative_to(folder)
-            print("Build", path)
+            print("Save", path)
             path.parent.mkdir(exist_ok=True, parents=True)
             with open(path, "w") as file:
                 file.write(text)
@@ -70,7 +70,7 @@ class Quarto(Mapping):
 
         for dirty in paths:
             clean = ready / dirty.relative_to(folder)
-            print("Clean", clean)
+            print("Save", clean)
             clean.parent.mkdir(exist_ok=True, parents=True)
             tidycopy(dirty, clean)
 
@@ -281,7 +281,7 @@ class Quarto(Mapping):
     @classmethod
     def stylecat(cls, style):
         """ str: Concatenated CSS files from style folder. """
-        readlines, validpath = self.readlines, self.validpath
+        readlines, validpath = cls.readlines, cls.validpath
 
         return "".join(readlines(*sorted(validpath(style).rglob("*.css"))))
 

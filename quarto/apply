@@ -19,7 +19,7 @@ opt.add_argument(
     help="save {} to this folder".format(Quarto.CSSPATH)
 )
 opt = opt.parse_args()
-print(opt.STYLE, "by any other name would style as", opt.TARGET)
+print(opt.STYLE, "by any other name would style as sheet.")
 
 Quarto.apply(opt.STYLE, opt.TARGET)
 print("Exeunt.")
