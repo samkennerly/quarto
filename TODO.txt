@@ -1,9 +1,8 @@
 ASAP:
-  - update favicon.png
+  - adjust font size for narrow screens
   - quarto/delete. clear empty folders with .unlink()?
   - quarto/clean. use tidybody(). never modify inputs.
   - finish class Quarto docstring
-  - icons for all 4 styles
   - reserve PyPA name?
 
 HOSTING:
