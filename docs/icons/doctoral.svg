@@ -12,8 +12,8 @@
     stroke-width: 9;
   }
 </style>
-<circle cx="50" cy="50" r="33.333" />
 <polygon points="20,16 32,20 20,32" />
 <polygon points="80,16 68,20 80,32" />
+<circle cx="50" cy="50" r="33.333" />
 <path d="M83 83 Q 64 83 64 64" />
 </svg>
