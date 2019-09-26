@@ -48,7 +48,7 @@ class Quarto(Mapping):
         with open(csspath, "w") as file:
             file.write(stylecat(style))
 
-    def build(self, ready, target):
+    def build(self, target):
         """ Generate each page and write to target folder. """
         folder = self.folder
         target = self.validpath(target)
