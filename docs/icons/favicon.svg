@@ -1,0 +1,18 @@
+<svg role="image" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<title>Quarto</title>
+<style>
+  svg {
+    fill: none;
+    height: 256px;
+    width: 256px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 9;
+  }
+</style>
+<rect fill="white" height="100%" width="100%" stroke="none" />
+<polygon points="20,16 32,20 20,32" stroke="firebrick" />
+<polygon points="80,16 68,20 80,32" stroke="forestgreen" />
+<circle cx="50" cy="50" r="33.333" stroke="dimgray" />
+<path d="M83 83 Q 64 83 64 64" stroke="navy" />
+</svg>
