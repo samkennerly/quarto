@@ -19,7 +19,7 @@ opt.add_argument(
     help="delete from this folder"
 )
 opt = opt.parse_args()
-print("Out, damned", opt.SUFFIX, "! What's done cannot be undone to", opt.TARGET)
+print("Et tu, {}? Then fall, {}!".format(opt.TARGET, opt.SUFFIX))
 
 Quarto.delete(opt.SUFFIX, opt.TARGET)
 print("Exeunt.")

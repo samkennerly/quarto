@@ -3,6 +3,8 @@ from json import load as jsonload
 from os.path import relpath
 from pathlib import Path
 from posixpath import join as urljoin
+from subprocess import run
+from sys import stderr
 from urllib.parse import quote
 
 
@@ -39,49 +41,46 @@ class Quarto(Mapping):
     @classmethod
     def apply(cls, style, target):
         """ Cat stylesheets from style folder to target folder. """
-        CSSPATH, stylecat, validpath = cls.CSSPATH, cls.stylecat, cls.validpath
+        stylecat = self.stylecat
+        csspath = self.validpath(target) / CSSPATH
 
-        style = validpath(style)
-        sheet = validpath(target) / CSSPATH
-
-        print("Save", sheet)
-        with open(sheet, "w") as file:
+        print("Apply", style, "to", csspath)
+        with open(csspath, "w") as file:
             file.write(stylecat(style))
 
-    def build(cls, ready, target):
+    def build(self, ready, target):
         """ Generate each page and write to target folder. """
-        folder, items, validpath = self.home, self.items, self.validpath
+        folder = self.folder
+        target = self.validpath(target)
+        items = self.items
 
-        target = quarto.validpath(target)
-        for path, text in quarto.items():
+        for path, text in items():
             path = target / path.relative_to(folder)
-
-            print("Save", path)
+            print("Build", path)
             path.parent.mkdir(exist_ok=True, parents=True)
             with open(path, "w") as file:
                 file.write(text)
 
     def clean(self, ready):
         """ None: Save cleaned page bodies to ready folder. """
-        folder, paths, validpath = self.home, self.paths, self.validpath
+        tidycopy = self.tidycopy
+        folder = self.folder
+        ready = self.validpath(ready)
+        paths = self.paths
 
-        ready = validpath(ready)
         for dirty in paths:
             clean = ready / dirty.relative_to(folder)
-
-            print("Save", clean)
+            print("Clean", clean)
             clean.parent.mkdir(exist_ok=True, parents=True)
             tidycopy(dirty, clean)
 
     @classmethod
     def delete(cls, suffix, target):
-        """ None: Remove files with suffix from folder. """
-        validpath = cls.validpath
+        """ None: Remove files with selected suffix and any empty folders. """
+        target = cls.validpath(target)
 
-        target = validpath(target)
         pattern = "*." + suffix.lstrip(".")
         for path in target.rglob(pattern):
-
             print("Delete", path)
             path.unlink()
 
@@ -282,7 +281,9 @@ class Quarto(Mapping):
     @classmethod
     def stylecat(cls, style):
         """ str: Concatenated CSS files from style folder. """
-        return "".join(cls.readlines(*sorted(Path(style).rglob("*.css"))))
+        readlines, validpath = self.readlines, self.validpath
+
+        return "".join(readlines(*sorted(validpath(style).rglob("*.css"))))
 
     @classmethod
     def tidycopy(cls, page, path):
@@ -312,6 +313,6 @@ class Quarto(Mapping):
         """ Path: Absolute path. Raise error if path does not exist. """
         path = Path(path).resolve()
         if not path.exists():
-            raise FileNotFoundError(path)
+            raise FileNotFoundError("No such file or folder: {}".format(path))
 
         return path
