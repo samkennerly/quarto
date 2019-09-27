@@ -1,8 +1,8 @@
 {
   "author": "Sam Kennerly",
-  "base_url": "https://samkennerly.github.io/quartocat",
+  "base_url": "https://samkennerly.github.io/quarto",
   "copyright": "© Sam Kennerly 2019",
-  "description": "Build static websites with Python3 and Tidy.",
+  "description": "Quarto builds static websites with Python 3.",
   "email": "samkennerly@gmail.com",
   "favicon": "favicon.ico",
   "generator": "https://github.com/samkennerly/quarto",
@@ -42,6 +42,6 @@
     "https://creativecommons.org/licenses/by/4.0",
     "CC-BY-4.0 International"
   ],
-  "title": "Quarto builds static websites.",
+  "title": "Quarto",
   "updog": "⇪"
 }
