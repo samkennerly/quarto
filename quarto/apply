@@ -2,7 +2,7 @@
 
 from argparse import ArgumentParser
 
-from quarto import Quarto
+from pages import Pages
 
 opt = ArgumentParser()
 opt.description = "Apply selected style to built pages."
@@ -16,10 +16,11 @@ opt.add_argument(
     "TARGET",
     default="target",
     nargs="?",
-    help="save {} to this folder".format(Quarto.CSSPATH)
+    help="save {} to this folder".format(Pages.CSSPATH)
 )
 opt = opt.parse_args()
-print(opt.STYLE, "by any other name would style as sheet.")
 
-Quarto.apply(opt.STYLE, opt.TARGET)
+print(opt.STYLE, "by any other name would style as sheet.")
+Pages.apply(opt.STYLE, opt.TARGET)
+
 print("Exeunt.")

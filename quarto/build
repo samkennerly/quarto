@@ -2,10 +2,10 @@
 
 from argparse import ArgumentParser
 
-from quarto import Quarto
+from pages import Pages
 
 opt = ArgumentParser()
-opt.description = "Build pages from clean HTML files."
+opt.description = "Build pages from HTML fragments."
 opt.add_argument(
   "READY",
   default="ready",
@@ -19,7 +19,8 @@ opt.add_argument(
   help="save HTML to this folder"
 )
 opt = opt.parse_args()
-print("O brave new", opt.TARGET, "that has", opt.READY, "pages in 't!")
 
-Quarto(opt.READY).build(opt.TARGET)
+print("O brave new", opt.TARGET, "that has", opt.READY, "pages in 't!")
+Pages(opt.READY).build(opt.TARGET)
+
 print("Exeunt.")

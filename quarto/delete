@@ -2,7 +2,7 @@
 
 from argparse import ArgumentParser
 
-from quarto import Quarto
+from pages import Pages
 
 opt = ArgumentParser()
 opt.description = "Delete files with selected suffix recursively."
@@ -19,7 +19,8 @@ opt.add_argument(
     help="delete from this folder"
 )
 opt = opt.parse_args()
-print("Et tu, {}? Then fall, {}!".format(opt.TARGET, opt.SUFFIX))
 
-Quarto.delete(opt.SUFFIX, opt.TARGET)
+print("Et tu, {}? Then fall, {}!".format(opt.TARGET, opt.SUFFIX))
+Pages.delete(opt.SUFFIX, opt.TARGET)
+
 print("Exeunt.")

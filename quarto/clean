@@ -2,12 +2,12 @@
 
 from argparse import ArgumentParser
 
-from quarto import Quarto
+from pages import Pages
 
 opt = ArgumentParser()
 opt.description = "Clean HTML files and extract <body> elements."
 opt.add_argument(
-    "PAGES",
+    "PREPRINT",
     default="pages",
     nargs="?",
     help="read HTML from this folder"
@@ -19,7 +19,8 @@ opt.add_argument(
     help="save HTML to this folder"
 )
 opt = opt.parse_args()
-print("This above all: to HTML5 standards be", opt.READY)
 
-Quarto(opt.PAGES).clean(opt.READY)
+print("This above all: to HTML5 standards be", opt.READY)
+Pages(opt.PREPRINT).clean(opt.READY)
+
 print("Exeunt.")

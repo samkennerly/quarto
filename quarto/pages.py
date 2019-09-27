@@ -8,27 +8,28 @@ from sys import stderr
 from urllib.parse import quote
 
 
-class Quarto(Mapping):
+class Pages(Mapping):
     """
-    Quarto(folder=".")
+    Pages(folder=".")
 
     Generate web pages from HTML fragments.
 
-    Quarto is a callable, ordered, immutable Mapping.
-    Keys are absolute Path objects to .html files.
+    Pages is a callable, ordered, immutable Mapping.
+    Keys are absolute Path objects to text files with .html suffix.
     Values are HTML strings generated lazily and never cached.
 
-    Initialize Quarto with a path to a folder containing .html files.
-    Quarto accepts absolute or relative paths as str or pathlib.Path objects.
-    Quarto searches recursively for all .html files in that folder.
-    Text and markup in each file will be used as one page's <main> element.
+    Initialize Pages with a folder containing .html files.
+    Pages searches recursively for .html files in that folder.
+    Each file is used as the <main> element of one HTML page.
 
+    Pages accepts absolute or relative paths as str or pathlib.Path objects.
     An index.html file must exist. All other files are optional.
+
     Page options (title, description, etc.) may be stored in JSON files.
     Options must have the same path as their page, but with a .json suffix.
     If index.json exists, its values are defaults for all missing page options.
 
-    Call help(Quarto) for more information.
+    Call help(Pages) for more information.
     """
     CSSPATH = "style.css"
 
