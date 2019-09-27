@@ -1,5 +1,5 @@
 ASAP:
-  - test with older Python versions
+  - add glitch to preprint/index.html
   - simplify example pages
   - icons point to nowhere!
   - add Molly Blair icon credits

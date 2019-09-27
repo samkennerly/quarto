@@ -3,7 +3,7 @@ from json import load as jsonload
 from os.path import relpath
 from pathlib import Path
 from posixpath import join as urljoin
-from subprocess import run
+from subprocess import PIPE, run
 from sys import stderr
 from urllib.parse import quote
 
@@ -323,7 +323,7 @@ class Pages(Mapping):
 
         cmds = "tidy -ashtml -bare -clean -gdoc -quiet --show-body-only yes"
         cmds = (*cmds.split(), "-output", str(path), str(page))
-        proc = run(cmds, capture_output=True)
+        proc = run(cmds, stderr=PIPE)
         code, errs = proc.returncode, proc.stderr.decode()
         if code == 1:
             print(errs, file=stderr)
