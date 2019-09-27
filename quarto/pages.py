@@ -31,6 +31,7 @@ class Pages(Mapping):
 
     Call help(Pages) for more information.
     """
+
     CSSPATH = "style.css"
 
     def __init__(self, folder="."):

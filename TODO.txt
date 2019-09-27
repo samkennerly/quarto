@@ -1,17 +1,19 @@
 ASAP:
-  - finish class Quarto docstring
   - test with older Python versions
-  - multiple sites?
+  - simplify example pages
+  - icons point to nowhere!
   - add Molly Blair icon credits
   - reserve PyPA name?
   - README
 
 HOSTING:
+  - multiple sites?
   - find static host. update index.json.
   - test caps, spaces, underscores in page paths
   - fork into multiple sites?
 
 QUARTO:
+  - help script?
   - local or external paths for icons, other links?
   - options: external stylesheets?
   - easiest way to include background image?
