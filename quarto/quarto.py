@@ -44,7 +44,7 @@ class Quarto(Mapping):
         stylecat = cls.stylecat
         csspath = cls.validpath(target) / cls.CSSPATH
 
-        print('Save', csspath)
+        print("Save", csspath)
         with open(csspath, "w") as file:
             file.write(stylecat(style))
 
@@ -90,28 +90,28 @@ class Quarto(Mapping):
         """ Iterator[str]: All lines in page. """
         page = self.home.parent / page
 
-        yield '<!DOCTYPE html>'
-        yield '<html>'
+        yield "<!DOCTYPE html>"
+        yield "<html>"
 
-        yield '<head>'
-        yield '<title>'
-        yield title or page.stem.replace('_', " ")
-        yield '</title>'
+        yield "<head>"
+        yield "<title>"
+        yield title or page.stem.replace("_", " ")
+        yield "</title>"
         yield from self.links(page, **kwargs)
         yield from self.meta(page, **kwargs)
-        yield '</head>'
+        yield "</head>"
 
-        yield '<body>'
-        yield '<main>'
-        yield from map(str.rstrip,self.readlines(page))
-        yield '</main>'
+        yield "<body>"
+        yield "<main>"
+        yield from map(str.rstrip, self.readlines(page))
+        yield "</main>"
         yield from self.nav(page, **kwargs)
         yield from self.icons(page, **kwargs)
         yield from self.jump(page, **kwargs)
         yield from self.klf(page, **kwargs)
-        yield '</body>'
+        yield "</body>"
 
-        yield '</html>'
+        yield "</html>"
 
     def icons(self, page, icon_links=(), **kwargs):
         """
@@ -294,14 +294,14 @@ class Quarto(Mapping):
         if not page.exists():
             raise FileNotFoundError(page)
 
-        cmds = 'tidy -ashtml -bare -clean -gdoc -quiet --show-body-only yes'
-        cmds = (*cmds.split(), '-output', str(path), str(page))
-        proc = run(cmds,capture_output=True)
+        cmds = "tidy -ashtml -bare -clean -gdoc -quiet --show-body-only yes"
+        cmds = (*cmds.split(), "-output", str(path), str(page))
+        proc = run(cmds, capture_output=True)
         code, errs = proc.returncode, proc.stderr.decode()
         if code == 1:
-            print(errs,file=stderr)
+            print(errs, file=stderr)
         elif code:
-            raise ChildProcessError('Tidy: ' + errs)
+            raise ChildProcessError("Tidy: " + errs)
 
     @classmethod
     def urlpath(cls, page, path):
