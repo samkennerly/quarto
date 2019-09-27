@@ -1,9 +1,0 @@
-#!/usr/bin/env zsh
-
-tidy \
-  --doctype html5 \
-  --markup no \
-  --quiet yes \
-  --show-info yes \
-  --show-warnings yes \
-  "$@"
