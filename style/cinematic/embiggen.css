@@ -4,7 +4,7 @@ https://www.w3schools.com/css/css_units.asp
 */
 :root {
   --margin-main: .5rem auto;
-  --margin-navbox: .2em .5em;
+  --margin-navbox: .2em 1em;
   --padme: .2em;
   --puffy: .5rem 1rem;
 }
@@ -39,6 +39,9 @@ nav {
 nav a,
 nav details {
   margin-right: 1em;
+}
+nav summary {
+  width: 100%;
 }
 nav summary ~ a,
 nav details > details {

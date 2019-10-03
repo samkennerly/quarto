@@ -14,12 +14,14 @@ main h1 {
 }
 /* align nav */
 nav {
-  text-align: left;
+  text-align: right;
 }
-nav a,
-nav details,
-nav summary {
+nav details {
+  text-align: center;
   vertical-align: top;
+}
+nav #home {
+  float: left;
 }
 /* align others */
 #icons,

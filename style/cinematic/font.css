@@ -39,6 +39,9 @@ nav {
   font-size: 1.2rem;
   font-variant: small-caps;
 }
+nav #home {
+  font-size: 2rem;
+}
 /* font others */
 #icons {
   font-size: 1.2rem;
