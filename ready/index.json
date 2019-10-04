@@ -2,7 +2,7 @@
   "author": "Sam Kennerly",
   "base_url": "https://samkennerly.github.io/quarto",
   "copyright": "© Sam Kennerly 2019",
-  "description": "Quarto builds static websites with Python 3.",
+  "description": "Quarto is a hackable website builder.",
   "email": "samkennerly@gmail.com",
   "favicon": "favicon.ico",
   "generator": "https://github.com/samkennerly/quarto",
@@ -10,29 +10,24 @@
   "icon_links":
   [
     [
-      "Aflame",
-      "icons/aflame.svg",
-      "#"
-    ],
-    [
-      "Bloggy",
-      "icons/bloggy.svg",
-      "#"
-    ],
-        [
-      "Cinematic",
-      "icons/cinematic.svg",
-      "#"
-    ],
-    [
-      "Doctoral",
-      "icons/doctoral.svg",
-      "#"
-    ],
-    [
       "GitHub",
-      "icons/github.svg",
-      "https://github.com/samkennerly/quarto"
+      "media/github.svg",
+      "https://github.com/samkennerly/quarto/"
+    ],
+    [
+      "Neocities",
+      "media/neocities.svg",
+      "https://neocities.org/"
+    ],
+    [
+      "Python",
+      "media/python.svg",
+      "https://www.python.org/"
+    ],
+    [
+      "Tidy",
+      "media/tidy.png",
+      "http://www.html-tidy.org/"
     ]
   ],
   "js_sources": [ ],
