@@ -20,7 +20,6 @@ nav #home {
   text-align: center;
 }
 /* align others */
-#icons,
 #icons img {
   vertical-align: middle;
 }
@@ -307,7 +306,7 @@ nav #home {
 }
 /* font others */
 #icons {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 #jump,
 #klf {
