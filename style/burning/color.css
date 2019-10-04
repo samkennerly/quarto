@@ -3,23 +3,23 @@ Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: red;
+  --color-active: firebrick;
   --color-border: #666;
   --color-main: #100;
   --color-mainback: whitesmoke;
-  --color-mainlink: firebrick;
+  --color-mainlink: orangered;
   --color-nav: whitesmoke;
   --color-navback: rgba(0,0,0,.7);
   --color-navlink: gold;
   --color-shadow: 0 .1em 0 black;
-  --time-color: 125ms;
+  --time-color: 250ms;
 }
 body {
   background: radial-gradient(
     farthest-side at bottom,
     var(--color-nav) 5%,
     var(--color-navlink) 25%,
-    var(--color-mainlink) 75%,
+    var(--color-active) 75%,
     var(--color-main)
     );
   background-attachment: fixed;
@@ -80,23 +80,13 @@ nav #here {
   color: var(--color-active);
 }
 /* color others */
-#icons {
-  background: var(--color-navback);
-}
-#icons img {
-  background: white;
-}
-#jump {
-  background: var(--color-main);
-  color: var(--color-mainback);
-}
-#jump :focus,
-#jump :hover,
-#jump :active {
-  background: var(--color-navlink);
-}
+#icons,
+#jump,
 #klf {
   background: var(--color-navback);
   color: var(--color-nav);
   text-shadow: var(--color-shadow);
+}
+#icons img {
+  background: white;
 }

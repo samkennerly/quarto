@@ -6,6 +6,10 @@ https://www.w3schools.com/css/css_border.asp
   --border: thin solid;
   --radius: .5rem;
 }
+body a img {
+  border: 2px solid;
+  border-radius: 4px;
+}
 /* border main */
 main {
   border: none;
@@ -33,9 +37,8 @@ nav summary {
 #icons {
   border-radius: var(--radius) var(--radius) 0 0;
 }
-#icons img {
-  border: 2px solid;
-  border-radius: 4px;
+#jump {
+  border-radius: var(--radius);
 }
 #jump a {
   border: var(--border);

@@ -1,12 +1,10 @@
 ASAP:
-  - update favicon, icons
-  - write draft about.html (see note)
   - move site to neocities. update index.json.
   - neocities uploader?
 
 QUARTO:
   - can urlpath() accept external links?
-  - option background: path/to/image.png
+  - background: relative path in style.css ?
   - option stylesheets: [style.css, http://whatever/style.css, ...]
   - option pages: [About, Photo/Editorial, Photo/Headshots, ...]
   - use page titles for nav buttons?

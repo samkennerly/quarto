@@ -88,13 +88,10 @@ nav #here {
 }
 /* color others */
 #icons,
+#jump,
 #klf {
   background: var(--color-back);
 }
 #icons img {
   background: white;
-}
-#jump {
-  background: none;
-  border-color: var(--color-link);
 }

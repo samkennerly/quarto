@@ -9,7 +9,7 @@ https://www.w3schools.com/css/css_colors.asp
   --color-text: ghostwhite;
   --color-header: #abc;
   --color-navbox: rgba(0,0,86,.5);
-  --color-shadow: 1px 1px black;
+  --color-shadow: 0px 1px 0px black;
   --color-time: 125ms;
 }
 body {
@@ -50,8 +50,10 @@ main a:active {
   transition: var(--color-time);
 }
 main blockquote {
-  background: white;
-  color: black;
+  background: var(--color-navbox);
+}
+main cite {
+  text-shadow: var(--color-shadow);
 }
 main h1,
 main h2,

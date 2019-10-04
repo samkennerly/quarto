@@ -6,13 +6,16 @@ https://www.w3schools.com/css/css_border.asp
   --border: thin solid;
   --radius: 1rem;
 }
+body a img {
+  border: 2px solid;
+  border-radius: 4px;
+}
 /* border main */
 main {
   border-radius: var(--radius);
 }
 main blockquote,
 main pre {
-  border: var(--border);
   border-radius: var(--radius);
 }
 main h2 {
@@ -35,10 +38,8 @@ nav summary {
   border-bottom: var(--border);
 }
 /* border others */
-#icons img {
-  border: 2px solid;
-  border-radius: 4px;
-}
-#jump a {
+#jump,
+#jump a,
+#klf {
   border-radius: var(--radius);
 }
