@@ -1,5 +1,4 @@
 ASAP:
-  - fix tidycopy() weird errors
   - update favicon, icons
   - write draft about.html (see note)
   - move site to neocities. update index.json.
@@ -30,7 +29,7 @@ README:
     2: quarto/delete html target
     3: quarto/clean ready ready
     4: quarto/build ready target
-    5: quarto/apply style target
+    5: quarto/apply style/doctoral target
 
 STYLES:
   - download PNGs from subtlepatterns.com
