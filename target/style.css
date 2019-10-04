@@ -12,6 +12,9 @@ main {
 main h1 {
   text-align: center;
 }
+main .gallery {
+  text-align: center;
+}
 /* align nav */
 nav {
   text-align: left;
@@ -224,6 +227,7 @@ main pre {
 }
 main cite,
 main div,
+main img,
 main li,
 main p {
   margin: var(--marge-small);

@@ -1,4 +1,5 @@
 ASAP:
+  - finish cat galleries. update CSS for all styles.
   - move site to neocities. update index.json.
   - neocities uploader?
 
@@ -8,6 +9,7 @@ QUARTO:
   - option stylesheets: [style.css, http://whatever/style.css, ...]
   - option pages: [About, Photo/Editorial, Photo/Headshots, ...]
   - use page titles for nav buttons?
+  - does tidy kill <style> section inside <main> ?
   - markdown: use mistune.py ?
   - `gallerize` builds image galleries?
   - multithreading: one page per core?

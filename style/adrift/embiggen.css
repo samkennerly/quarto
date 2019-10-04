@@ -26,6 +26,7 @@ main pre {
 }
 main cite,
 main div,
+main img,
 main li,
 main p {
   margin: var(--marge-small);
