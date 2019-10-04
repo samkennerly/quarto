@@ -3,8 +3,7 @@ from json import load as jsonload
 from os.path import relpath
 from pathlib import Path
 from posixpath import join as urljoin
-from subprocess import PIPE, run
-from sys import stderr
+from subprocess import run
 from urllib.parse import quote
 
 
@@ -313,22 +312,19 @@ class Pages(Mapping):
         return "".join(readlines(*sorted(validpath(style).rglob("*.css"))))
 
     @classmethod
-    def tidycopy(cls, page, path):
-        """ None: Clean raw HTML page and save. Requires HTML Tidy > 5. """
-        page, path = Path(page), Path(path)
+    def tidycopy(cls, dirty, clean):
+        """ None: Clean raw HTML page and save. Requires HTML Tidy >= 5. """
+        dirty, clean = Path(dirty), Path(clean)
 
         # tidy returns status 0 even if input does not exist
-        if not page.exists():
-            raise FileNotFoundError(page)
+        if not dirty.exists():
+            raise FileNotFoundError(dirty)
 
-        cmds = "tidy -ashtml -bare -clean -gdoc -quiet --show-body-only yes"
-        cmds = (*cmds.split(), "-output", str(path), str(page))
-        proc = run(cmds, stderr=PIPE)
-        code, errs = proc.returncode, proc.stderr.decode()
-        if code == 1:
-            print(errs, file=stderr)
-        elif code:
-            raise ChildProcessError("Tidy: " + errs)
+        cmds = "tidy -ashtml -bare -clean -quiet --show-body-only yes".split()
+        cmds = (*cmds, '-output', str(clean), str(dirty))
+        status = run(cmds).returncode
+        if status and (status != 1):
+            raise ChildProcessError("Tidy returned {}".format(status))
 
     @classmethod
     def urlpath(cls, page, path):
