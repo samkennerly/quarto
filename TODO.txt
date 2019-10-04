@@ -1,7 +1,10 @@
 ASAP:
-  - finish cat galleries. update CSS for all styles.
+  - styles: gallery tweaks for all styles
+  - finish style/adrift
+  - style/elemental: use github.com/neocities/element/element.css ?
+  - .clean() should not require index.html ?
   - move site to neocities. update index.json.
-  - neocities uploader?
+  - quarto/export: sync target to neocities account?
 
 QUARTO:
   - can urlpath() accept external links?
@@ -32,6 +35,7 @@ README:
     5: quarto/apply style/doctoral target
 
 STYLES:
+
   - download PNGs from subtlepatterns.com
 
 TESTING:
