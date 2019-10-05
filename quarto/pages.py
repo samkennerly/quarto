@@ -321,7 +321,7 @@ class Pages(Mapping):
             raise FileNotFoundError(dirty)
 
         cmds = "tidy -ashtml -bare -clean -quiet --show-body-only yes".split()
-        cmds = (*cmds, '-output', str(clean), str(dirty))
+        cmds = (*cmds, "-output", str(clean), str(dirty))
         status = run(cmds).returncode
         if status and (status != 1):
             raise ChildProcessError("Tidy returned {}".format(status))
