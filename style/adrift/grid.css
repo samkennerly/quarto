@@ -4,11 +4,11 @@ https://www.w3schools.com/css/css_grid.asp
 */
 body {
   grid-column-gap: 0;
-  grid-row-gap: 1vh;
+  grid-row-gap: 0;
   grid-template-areas:
-    'nav  main icons'
-    'jump klf  icons';
-  grid-template-columns: 25% 1fr auto;
+    'nav main icons'
+    'klf klf jump';
+  grid-template-columns: 20% 1fr auto;
   grid-template-rows: 1fr auto;
 }
 main {

@@ -22,3 +22,7 @@ nav {
 nav #home {
   text-align: center;
 }
+/* align others */
+#klf {
+  text-align: right;
+}

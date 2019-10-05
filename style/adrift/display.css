@@ -7,30 +7,21 @@ body {
 }
 /* display main */
 main,
-main cite {
+main cite,
+main mark {
   display: block;
 }
 /* display nav */
-nav a {
-  display: block;
-}
-nav details {
-  display: block;
-}
-nav summary {
-  display: inline-block;
-}
-nav details > details,
-nav summary ~ a {
-  display: block;
-}
-nav #home {
-  display: block;
-}
+nav a,
+nav details,
+nav summary,
 /* display others */
 #icons img {
   display: block;
 }
 #jump a {
   display: inline-block;
+}
+#klf address {
+  display: inline;
 }

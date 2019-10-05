@@ -3,67 +3,78 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge-large: 1rem auto;
-  --marge-small: .25em 0;
-  --padme: .25em .75em;
-  --puffy: 1rem;
+  --marg-block: .5em auto;
+  --marg-icons: .5em 0;
+  --pad-main: .5em 1em;
+  --pad-nav: .25em .5em;
 }
 body {
-  margin: var(--marge-large);
-  max-width: 64rem;
-  min-height: 86vh;
+  margin: 1vh auto;
+  max-width: 80rem;
+  min-height: 98vh;
 }
 /* embiggen main */
 main {
-  padding: var(--puffy);
+  margin: 0;
+  padding: var(--pad-main);
 }
 main blockquote,
 main pre {
-  margin: var(--marge-large);
+  margin: var(--marg-block);
   max-width: 100%;
   overflow: auto;
-  padding: var(--puffy);
+  padding: var(--pad-main);
 }
-main cite,
 main div,
+main h1,
 main img,
-main li,
 main p {
-  margin: var(--marge-small);
+  margin: var(--marg-block);
+  padding: 0;
+}
+main mark {
+  margin: var(--marg-block);
+  padding: var(--pad-main);
 }
 main table {
-  margin: var(--marge-large);
+  margin: var(--marg-block);
   overflow: auto;
-  padding: 0;
   width: 100%;
 }
 main table td {
-  padding: var(--padme);
+  padding: .5em;
 }
 /* embiggen nav */
 nav {
-  padding: var(--puffy);
+  margin: 0;
+  padding: var(--pad-nav);
 }
 nav a,
 nav details {
-  margin: var(--marge-small);
-  padding: var(--padme);
+  margin: 0;
+  padding: var(--pad-nav);
 }
 nav summary {
   width: 100%;
+}
+nav #home {
+  margin: var(--marg-block);
 }
 /* embiggen others */
 #icons,
 #jump,
 #klf {
   margin: 0;
-  padding: var(--padme);
+  padding: var(--pad-nav);
 }
 #icons img {
   height: 1em;
-  margin: 1em 0;
+  margin: var(--marg-icons);
   width: 1em;
 }
 #jump a {
   width: 100%;
+}
+#klf address {
+  margin: 0 1em;
 }
