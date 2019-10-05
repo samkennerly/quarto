@@ -1,6 +1,5 @@
 ASAP:
   - styles: gallery tweaks for all styles
-  - finish style/adrift
   - style/elemental: use github.com/neocities/element/element.css ?
   - .clean() should not require index.html ?
   - move site to neocities. update index.json.
