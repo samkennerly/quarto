@@ -71,13 +71,13 @@ nav {
   color: var(--color-nav);
   text-shadow: var(--color-shadow);
 }
+nav a[href="#"] {
+  color: var(--color-active);
+}
 nav summary:focus,
 nav summary:hover {
   border-color: var(--color-active);
   transition: var(--time-color);
-}
-nav #here {
-  color: var(--color-active);
 }
 /* color others */
 #icons,

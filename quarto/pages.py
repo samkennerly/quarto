@@ -234,7 +234,6 @@ class Pages(Mapping):
         targets = paths[1:]
 
         atag = '<a href="{}">{}</a>'.format
-        heretag = '<a href="#" id="here">{}</a>'.format
         hometag = '<a href="{}" id="home">{}</a>'.format
         openbox = "<details open><summary>{}</summary>".format
         shutbox = "<details><summary>{}</summary>".format
@@ -254,8 +253,8 @@ class Pages(Mapping):
                 yield openbox(d.stem) if (d in pagedirs) else shutbox(d.stem)
 
             # Current page gets a special "you are here" link
-            name = t.stem.replace("_", " ")
-            yield heretag(name) if (t == page) else atag(urlpath(page, t), name)
+            href = "#" if (t == page) else urlpath(page, t)
+            yield atag(href, t.stem.replace("_", " "))
 
         yield from ("</details>" for _ in (newdirs - set(home.parents)))
         yield "</nav>"

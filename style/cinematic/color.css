@@ -63,14 +63,14 @@ main table tr:nth-child(even){
 nav {
   background: var(--color-navbox);
 }
+nav a[href="#"] {
+  color: var(--color-active);
+}
 nav summary:focus,
 nav summary:hover,
 nav summary:active {
   border-color: var(--color-active);
   transition: var(--color-time);
-}
-nav #here {
-  color: var(--color-active);
 }
 /* color others */
 #icons,

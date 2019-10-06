@@ -132,6 +132,9 @@ main table tr:nth-child(even){
   background: white;
 }
 /* color nav */
+nav a[href="#"] {
+  color: var(--color-active);
+}
 nav details {
   background: var(--color-navbox);
   border-color: var(--color-navbox);
@@ -140,9 +143,6 @@ nav details:focus,
 nav details:hover {
   border-color: var(--color-active);
   transition: var(--color-time);
-}
-nav #here {
-  color: var(--color-active);
 }
 /*
 Display behavior: block, inline, none, etc.

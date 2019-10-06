@@ -70,6 +70,10 @@ main table tr:nth-child(even){
 nav {
   background: var(--color-back);
 }
+nav a[href="#"] {
+  background: var(--color-heading);
+  color: var(--color-text);
+}
 nav summary {
   border-color:
     var(--color-main-link)
@@ -81,10 +85,6 @@ nav summary:hover {
   background: var(--color-text);
   color: var(--color-back);
   transition: var(--color-time);
-}
-nav #here {
-  background: var(--color-heading);
-  color: var(--color-text);
 }
 /* color others */
 #icons,
