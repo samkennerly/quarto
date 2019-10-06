@@ -1,5 +1,4 @@
 ASAP:
-  - styles: rename burning -> blazing
   - styles: gallery tweaks for all styles
   - style/elemental: use github.com/neocities/element/element.css ?
   - .clean() should not require index.html ?

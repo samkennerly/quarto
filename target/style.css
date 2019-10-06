@@ -48,8 +48,11 @@ main h2 {
   border-bottom: var(--border);
 }
 /* border nav */
-nav,
+nav {
+  border-radius: var(--radius);
+}
 nav details {
+  border: var(--border);
   border-radius: var(--radius);
 }
 /* border others */
