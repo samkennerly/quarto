@@ -14,29 +14,20 @@ body a img {
 main,
 main blockquote,
 main mark,
-main pre {
+main pre,
+main table {
   border-radius: var(--radius);
 }
 main h2 {
   border-bottom: var(--border);
 }
-main table {
-  border: var(--border);
-  border-collapse: collapse;
-  border-radius: var(--radius);
-}
-main table td {
-  border: var(--border);
-}
 /* border nav */
+nav,
 nav details {
-  border: var(--border);
   border-radius: var(--radius);
-}
-nav summary {
-  border-bottom: var(--border);
 }
 /* border others */
+#icons,
 #jump,
 #klf {
   border-radius: var(--radius);

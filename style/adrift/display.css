@@ -6,7 +6,6 @@ body {
   display: grid;
 }
 /* display main */
-main,
 main cite,
 main mark {
   display: block;
@@ -14,7 +13,9 @@ main mark {
 /* display nav */
 nav a,
 nav details,
-nav summary,
+nav summary {
+  display: block;
+}
 /* display others */
 #icons img {
   display: block;
@@ -23,5 +24,5 @@ nav summary,
   display: inline-block;
 }
 #klf address {
-  display: inline;
+  display: inline-block;
 }

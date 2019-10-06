@@ -3,23 +3,23 @@ Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: deeppink;
-  --color-back: black;
+  --color-active: #ffde57;
+  --color-back: #001;
   --color-link: lightblue;
-  --color-text: azure;
-  --color-header: #abc;
-  --color-navbox: rgba(0,0,86,.5);
+  --color-text: aliceblue;
+  --color-main-back: aliceblue;
+  --color-main-link: steelblue;
+  --color-main-text: black;
+  --color-navbox: rgba(100,100,100,.5);
   --color-shadow: 0px 1px 0px black;
   --color-time: 250ms;
 }
 body {
   background-attachment: fixed;
-  background-image: radial-gradient(
-    circle farthest-corner at 0% 0%,
-    black 42%,
-    navy,
-    steelblue 84%,
-    black 86%
+  background-image:
+    radial-gradient(
+      circle farthest-corner at 0% 0%,
+      var(--color-back) 42%, steelblue 86%, black
     );
   color: var(--color-text);
   text-shadow: var(--color-shadow);
@@ -39,20 +39,30 @@ body img {
 }
 /* color main */
 main {
-  background: var(--color-back);
+  background: var(--color-main-back);
+  color: var(--color-main-text);
   text-shadow: none;
 }
-main blockquote,
-main pre {
-  background: var(--color-navbox);
+main a:link,
+main a:visited {
+  color: var(--color-main-link);
 }
-main h1,
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
-  color: var(--color-header);
+main a:focus,
+main a:hover,
+main a:active {
+  color: var(--color-active);
+  transition: var(--color-time);
+}
+main blockquote {
+  background: white;
+  color: black;
+}
+main mark {
+  background: var(--color-active);
+}
+main pre {
+  background: black;
+  color: #ada;
 }
 main table {
   background: #dadada;
@@ -64,13 +74,10 @@ main table tr:nth-child(even){
 /* color nav */
 nav details {
   background: var(--color-navbox);
-  border-color: var(--color-back);
-}
-nav summary {
   border-color: var(--color-navbox);
 }
-nav summary:focus,
-nav summary:hover {
+nav details:focus,
+nav details:hover {
   border-color: var(--color-active);
   transition: var(--color-time);
 }

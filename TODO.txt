@@ -1,4 +1,5 @@
 ASAP:
+  - home link should have id="here" on index.html?
   - styles: gallery tweaks for all styles
   - style/elemental: use github.com/neocities/element/element.css ?
   - .clean() should not require index.html ?
