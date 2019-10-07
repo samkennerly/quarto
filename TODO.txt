@@ -1,6 +1,8 @@
 ASAP:
-  - styles: gallery tweaks for all styles
+  - styles: cinematic
+  - styles: standardize. include gallery tweaks.
   - style/elemental: use github.com/neocities/element/element.css ?
+  - option: arrow text for prev + next in #icons
   - .clean() should not require index.html ?
   - move site to neocities. update index.json.
   - quarto/export: sync target to neocities account?
