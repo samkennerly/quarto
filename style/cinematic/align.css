@@ -12,6 +12,9 @@ main {
 main h1 {
   text-align: center;
 }
+main .gallery {
+  text-align: center;
+}
 /* align nav */
 nav {
   text-align: right;
@@ -25,6 +28,10 @@ nav #home {
 }
 /* align others */
 #icons,
+#jump,
+#klf {
+  text-align: center;
+}
 #icons img {
   vertical-align: middle;
 }

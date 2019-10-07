@@ -3,11 +3,11 @@ Font family, size, weight, etc.
 https://www.w3schools.com/css/css_font.asp
 */
 html {
-  font-family: "Courier New", Courier, monospace;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-variant: normal;
-  font-weight: 400;
+  font-weight: normal;
   line-height: 1.2;
 }
 @media all and (max-width: 800px) {
@@ -20,7 +20,7 @@ body a {
 }
 /* font main */
 main {
-  font-family: Gadget, sans-serif;
+  font-weight: lighter;
 }
 main blockquote {
   font-family: "Times New Roman", Times, serif;
@@ -32,7 +32,9 @@ main pre,
 main var {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: .8rem;
-  font-variant: normal;
+}
+main h1 {
+  font-size: 1.5rem;
 }
 /* font nav */
 nav {
@@ -40,13 +42,15 @@ nav {
   font-variant: small-caps;
 }
 nav #home {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 /* font others */
 #icons {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
-#jump,
+#jump {
+  font-size: 1rem;
+}
 #klf {
-  font-size: .8rem;
+  font-size: .67rem;
 }
