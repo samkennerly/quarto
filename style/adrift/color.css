@@ -4,25 +4,27 @@ https://www.w3schools.com/css/css_colors.asp
 */
 :root {
   --color-active: #ffde57;
-  --color-back: #001;
-  --color-link: lightblue;
+  --color-back: #003;
+  --color-link: lightsteelblue;
   --color-text: aliceblue;
   --color-main-back: aliceblue;
   --color-main-link: steelblue;
   --color-main-text: black;
   --color-navbox: rgba(100,100,100,.5);
-  --color-shadow: 0px 1px 0px black;
-  --color-time: 250ms;
+  --text-shadow: 0px 1px 0px black;
+  --transition: 250ms;
 }
 body {
   background-attachment: fixed;
   background-image:
     radial-gradient(
       circle farthest-corner at 0% 0%,
-      var(--color-back) 42%, steelblue 86%, black
+      var(--color-back) 42%,
+      var(--color-main-link) 86%,
+      var(--color-main-text)
     );
   color: var(--color-text);
-  text-shadow: var(--color-shadow);
+  text-shadow: var(--text-shadow);
 }
 body a:link,
 body a:visited {
@@ -32,7 +34,7 @@ body a:focus,
 body a:hover,
 body a:active {
   color: var(--color-active);
-  transition: var(--color-time);
+  transition: var(--transition);
 }
 body img {
   background: white;
@@ -51,7 +53,6 @@ main a:focus,
 main a:hover,
 main a:active {
   color: var(--color-active);
-  transition: var(--color-time);
 }
 main blockquote {
   background: white;
@@ -80,7 +81,14 @@ nav details {
   border-color: var(--color-navbox);
 }
 nav details:focus,
-nav details:hover {
+nav details:hover,
+nav details:active {
   border-color: var(--color-active);
-  transition: var(--color-time);
+  transition: var(--transition);
+}
+/* color others */
+#icons,
+#jump,
+#klf {
+  background: none;
 }

@@ -20,8 +20,12 @@ nav {
   text-align: center;
 }
 /* align others */
-#icons,
-#jump,
+#icons {
+  text-align: center;
+}
+#jump {
+  text-align: center;
+}
 #klf {
   text-align: center:
 }

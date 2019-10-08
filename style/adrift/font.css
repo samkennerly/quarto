@@ -7,7 +7,7 @@ html {
   font-size: 16px;
   font-style: normal;
   font-variant: normal;
-  font-weight: 500;
+  font-weight: normal;
   line-height: 1.2;
 }
 @media all and (max-width: 800px) {
@@ -27,13 +27,16 @@ main kbd,
 main samp,
 main pre,
 main var {
-  font-family: "Lucida Console", Monaco, monospace;
+  font-family:"Lucida Console", Monaco, monospace;
   font-size: .8rem;
 }
 main h1 {
   font-size: 1.5rem;
 }
 /* font nav */
+nav {
+  font-size: 1rem;
+}
 nav #home {
   font-size: 1.5rem;
 }
@@ -41,7 +44,9 @@ nav #home {
 #icons {
   font-size: 1.5rem;
 }
-#jump,
+#jump {
+  font-size: .67rem;
+}
 #klf {
   font-size: .67rem;
 }
