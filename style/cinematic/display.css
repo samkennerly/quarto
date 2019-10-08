@@ -20,12 +20,8 @@ nav summary ~ a {
   display: block;
 }
 /* display others */
-#jump {
-  display: none;
-}
-#icons img {
-  display: inline-block;
-}
+#icons img,
+#jump a,
 #klf address {
   display: inline-block;
 }

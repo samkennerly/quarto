@@ -7,18 +7,17 @@ https://www.w3schools.com/css/css_colors.asp
   --color-back: black;
   --color-link: #abc;
   --color-text: #eee;
+  --color-main-active: deeppink;
   --color-main-back: #eee;
   --color-main-link: #789;
   --color-main-text: black;
   --color-navbox: rgba(0,0,0,.666);
-  --color-shadow: 0 1px 0 black;
-  --color-time: 250ms;
+  --color-shadow: 1px 1px 0 black;
+  --color-time: 500ms;
 }
 body {
-  /* background-color: black; */
+  background-color: var(--color-back);
   background-image: url("media/galaxy.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
   color: var(--color-text);
   text-shadow: var(--color-shadow);
 }
@@ -48,15 +47,15 @@ main a:visited {
 main a:focus,
 main a:hover,
 main a:active {
-  color: var(--color-active);
-  transition: var(--color-time);
+  color: var(--color-main-active);
 }
 main blockquote {
   background: white;
   color: black;
 }
 main mark {
-  background: var(--color-active);
+  background: none;
+  color: var(--color-main-active);
 }
 main pre {
   background: black;

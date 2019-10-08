@@ -3,20 +3,28 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge-icons: 0 .5em;
+  --marge-icons: 0 .5rem;
   --marge-large: .5rem auto;
-  --marge-small: .2em 1em;
-  --padme: .2em .5em;
-  --puffy: 1rem;
-  --size-icons: 1em;
+  --marge-small: .25rem 1rem;
+  --padme: .25rem .5rem;
+  --puffy: .5rem 1rem;
+  --size-icons: 1.25rem;
 }
 body {
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   min-height: 100vh;
 }
 /* embiggen main */
 main {
   padding: var(--puffy);
+}
+@media all and (min-width: 1024px) {
+  main {
+    padding-left: calc(50vw - 512px);
+    padding-right: calc(50vw - 512px);
+  }
 }
 main blockquote,
 main pre {
@@ -27,32 +35,32 @@ main pre {
 }
 main table {
   margin: var(--marge-large);
+  max-width: 100%;
   overflow: auto;
   padding: 0;
-  width: 100%;
 }
 main table td {
   padding: var(--padme);
 }
+main .widescreen {
+  padding: 1rem 0;
+}
 /* embiggen nav */
 nav {
-  padding: var(--puffy);
+  padding: var(--padme);
 }
 nav a,
 nav details {
-  margin: var(--marge-icons);
+  margin: var(--marge-small);
 }
 nav summary {
   width: 100%;
-}
-nav summary ~ a,
-nav details > details {
-  margin: var(--marge-small);
 }
 /* embiggen others */
 #icons,
 #jump,
 #klf {
+  margin: 0;
   padding: var(--padme);
 }
 #icons img {
@@ -60,9 +68,9 @@ nav details > details {
   margin: var(--marge-icons);
   width: var(--size-icons);
 }
-#jump a {
+#jump #updog {
   width: 100%;
 }
 #klf address {
-  margin: 0 1rem;
+  margin: 0 1em;
 }

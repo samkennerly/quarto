@@ -9,9 +9,7 @@ body {
 main {
   text-align: left;
 }
-main h1 {
-  text-align: center;
-}
+main h1,
 main .gallery {
   text-align: center;
 }
