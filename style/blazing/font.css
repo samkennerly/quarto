@@ -30,7 +30,13 @@ main var {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: .8rem;
 }
+main h1 {
+  font-size: 2rem;
+}
 /* font nav */
+nav {
+  font-size: 1rem;
+}
 nav #home {
   font-size: 1.5rem;
 }
@@ -38,7 +44,9 @@ nav #home {
 #icons {
   font-size: 1.2rem;
 }
-#jump,
+#jump {
+  font-size: .8rem;
+}
 #klf {
   font-size: .8rem;
 }

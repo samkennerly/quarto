@@ -3,14 +3,15 @@ Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
-  --border: 2px ridge;
+  --border: double;
 }
 body a img {
-  border: 2px solid;
-  border-radius: 4px;
+  border: var(--border);
 }
 /* border main */
-main,
+main {
+  border: none;
+}
 main blockquote,
 main pre,
 main table {
@@ -20,10 +21,26 @@ main h2 {
   border-bottom: var(--border);
 }
 /* border nav */
-nav summary {
-  border-bottom: var(--border);
+nav {
+  border: none;
+}
+nav a,
+nav details {
+  border: var(--border);
+}
+nav details > details {
+  border: none;
+  border-top: var(--border);
+}
+nav #home {
+  border: none;
 }
 /* border others */
-#jump a {
+#icons,
+#jump,
+#klf {
+  border: none;
+}
+#jump #updog {
   border: var(--border);
 }

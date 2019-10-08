@@ -10,12 +10,8 @@ main cite {
   display: block;
 }
 /* display nav */
-nav a {
-  display: inline-block;
-}
-nav details {
-  display: inline;
-}
+nav a,
+nav details,
 nav summary {
   display: inline-block;
 }
@@ -34,6 +30,13 @@ nav #home {
 #icons img {
   display: inline-block;
 }
-#jump a {
+#jump {
+   position: sticky;
+   bottom: 0;
+}
+#jump #updog {
   display: inline-block;
+}
+#klf address {
+  display: block;
 }

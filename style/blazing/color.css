@@ -4,59 +4,52 @@ https://www.w3schools.com/css/css_colors.asp
 */
 :root {
   --color-active: firebrick;
-  --color-border: #666;
-  --color-main: #100;
-  --color-mainback: whitesmoke;
-  --color-mainlink: orangered;
-  --color-nav: whitesmoke;
-  --color-navback: rgba(0,0,0,.7);
-  --color-navlink: gold;
-  --color-shadow: 0 .1em 0 black;
-  --time-color: 250ms;
+  --color-box: rgba(0,0,0,.911);
+  --color-link: #f6ad52;
+  --color-text: whitesmoke;
+  --text-shadow: 0 1px 1px black;
+  --transition: 451ms;
 }
 body {
-  background: radial-gradient(
-    farthest-side at bottom,
-    var(--color-nav) 5%,
-    var(--color-navlink) 25%,
-    var(--color-active) 75%,
-    var(--color-main)
-    );
   background-attachment: fixed;
-  color: var(--color-main);
+  background-blend-mode: lighten;
+  background-color: var(--color-link);
+  background-image: url("media/tyger.svg");
+  background-repeat: repeat-x;
+  color: var(--color-text);
+  text-shadow: var(--text-shadow);
 }
 body a:link,
 body a:visited {
-  color: var(--color-navlink);
+  color: var(--color-link);
+  transition: var(--transition);
 }
 body a:focus,
 body a:hover,
 body a:active {
   color: var(--color-active);
-  transition: var(--time-color);
+  transition: var(--transition);
+}
+body img {
+  background: white;
 }
 /* color main */
 main {
-  background: var(--color-mainback);
-  border-color: var(--color-border);
-  color: var(--color-main);
-}
-main a:link,
-main a:visited {
-  color: var(--color-mainlink);
-}
-main a:focus,
-main a:hover,
-main a:active {
-  color: var(--color-active);
+  background: var(--color-box);
+  color: var(--color-text);
+  text-shadow: none;
 }
 main blockquote {
   background: white;
   color: black;
 }
+main mark {
+  background: none;
+  color: var(--color-active);
+}
 main pre {
   background: black;
-  color: #dadada;
+  color: #ada;
 }
 main table {
   background: #dadada;
@@ -67,26 +60,22 @@ main table tr:nth-child(even){
 }
 /* color nav */
 nav {
-  background: var(--color-navback);
-  color: var(--color-nav);
-  text-shadow: var(--color-shadow);
+  background: var(--color-box);
 }
 nav a[href="#"] {
   color: var(--color-active);
 }
+nav summary {
+  transition: var(--transition);
+}
 nav summary:focus,
 nav summary:hover {
-  border-color: var(--color-active);
-  transition: var(--time-color);
+  color: var(--color-active);
+  transition: var(--transition);
 }
 /* color others */
 #icons,
 #jump,
 #klf {
-  background: var(--color-navback);
-  color: var(--color-nav);
-  text-shadow: var(--color-shadow);
-}
-#icons img {
-  background: white;
+  background: var(--color-box);
 }
