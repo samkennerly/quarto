@@ -27,11 +27,6 @@ nav #home {
   float: left;
 }
 /* align others */
-#icons,
-#jump,
-#klf {
-  text-align: center;
-}
 #icons img {
   vertical-align: middle;
 }

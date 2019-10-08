@@ -5,14 +5,15 @@ https://www.w3schools.com/css/css_units.asp
 :root {
   --marge-icons: 0 .5rem;
   --marge-large: .5rem auto;
-  --marge-small: .25rem 1rem;
-  --padme: .25rem .5rem;
+  --marge-small: .2rem 1rem;
+  --padme: .2rem .5rem;
   --puffy: .5rem 1rem;
   --size-icons: 1.25rem;
 }
 body {
   margin: 0;
   min-height: 100vh;
+  padding: 0;
 }
 /* embiggen main */
 main {
@@ -30,6 +31,9 @@ main pre {
   max-width: 100%;
   overflow: auto;
   padding: var(--puffy);
+}
+main cite {
+  margin-top: .5em;
 }
 main h1 {
   margin: var(--marge-large);
@@ -69,5 +73,5 @@ nav summary {
   width: 100%;
 }
 #klf address {
-  margin: 0 1em;
+  margin: var(--marge-small);
 }

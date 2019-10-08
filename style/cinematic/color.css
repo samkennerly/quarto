@@ -4,19 +4,18 @@ https://www.w3schools.com/css/css_colors.asp
 */
 :root {
   --color-active: #fad;
-  --color-back: black;
+  --color-box: rgba(0,0,0,.666);
   --color-link: #abc;
   --color-text: #eee;
   --color-main-active: deeppink;
-  --color-main-back: #eee;
+  --color-main-box: #eee;
   --color-main-link: #789;
   --color-main-text: black;
-  --color-navbox: rgba(0,0,0,.666);
   --text-shadow: 1px 1px 0 black;
-  --transition: 500ms;
+  --transition: 1000ms;
 }
 body {
-  background-color: var(--color-back);
+  background-color: black;
   background-image: url("media/galaxy.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -38,7 +37,7 @@ body img {
 }
 /* color main */
 main {
-  background: var(--color-main-back);
+  background: var(--color-main-box);
   color: var(--color-main-text);
   text-shadow: none;
 }
@@ -72,14 +71,13 @@ main table tr:nth-child(even){
 }
 /* color nav */
 nav {
-  background: var(--color-navbox);
+  background: var(--color-box);
 }
 nav a[href="#"] {
   color: var(--color-active);
 }
 nav summary:focus,
-nav summary:hover,
-nav summary:active {
+nav summary:hover {
   border-color: var(--color-active);
   transition: var(--transition);
 }
@@ -87,5 +85,5 @@ nav summary:active {
 #icons,
 #jump,
 #klf {
-  background: var(--color-navbox);
+  background: var(--color-box);
 }

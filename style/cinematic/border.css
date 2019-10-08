@@ -3,7 +3,7 @@ Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
-  --border: thin solid;
+  --border: 2px solid;
 }
 body a img {
   border: var(--border);
@@ -21,15 +21,10 @@ main h2 {
   border-bottom: var(--border);
 }
 /* border nav */
-nav {
-  border: none;
-}
 nav summary {
   border-bottom: var(--border);
 }
 /* border others */
-#icons,
-#jump,
-#klf {
-  border: none;
+#icons img {
+  border-width: medium;
 }
