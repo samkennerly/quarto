@@ -20,10 +20,10 @@ body {
 main {
   padding: var(--puffy);
 }
-@media all and (min-width: 1024px) {
+@media all and (min-width: 64rem) {
   main {
-    padding-left: calc(50vw - 512px);
-    padding-right: calc(50vw - 512px);
+    padding-left: calc(50vw - 31rem);
+    padding-right: calc(50vw - 31rem);
   }
 }
 main blockquote,

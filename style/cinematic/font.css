@@ -30,7 +30,7 @@ main kbd,
 main samp,
 main pre,
 main var {
-  font-family: "Lucida Console", Monaco, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: .8rem;
 }
 main h1 {
