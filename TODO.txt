@@ -1,20 +1,16 @@
 ASAP:
   - styles: standardize. include gallery tweaks.
-  - style/elemental: use github.com/neocities/element/element.css ?
-  - option: arrow text for prev + next in #icons
-  - option: stylesheets: ['style.css']
-    quarto/apply style/adrift target/style.css
+  - option nextprev: ["◄", "►"]
+  - option pages: [About, Photo/Editorial, Photo/Headshots, ...]
+  - option styles: ["style.css"]
+  - .apply() should input target file. default is target/style.css.
   - .clean() should not require index.html ?
+  - multiple styles for example site
   - move site to neocities. update index.json.
   - quarto/export: sync target to neocities account?
 
 QUARTO:
   - can urlpath() accept external links?
-  - background: relative path in style.css ?
-  - option stylesheets: [style.css, http://whatever/style.css, ...]
-  - option pages: [About, Photo/Editorial, Photo/Headshots, ...]
-  - use page titles for nav buttons?
-  - does tidy kill <style> section inside <main> ?
   - markdown: use mistune.py ?
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
@@ -28,7 +24,7 @@ README:
   - delete Dockerfile, kitchen if you don't want Docker
   - gotcha: spaces & weird chars in filenames
   - gotcha: can't delete empty folders because .DS_Store
-  - gotcha: inline <style> requires <body> tag (if using Tidy)
+  - gotcha: Tidy deletes head elements, including <style> tag(s)
   - standard workflow:
     0: write pages in preprint
     1: copy pages to ready
@@ -38,7 +34,6 @@ README:
     5: quarto/apply style/doctoral target
 
 STYLES:
-
   - download PNGs from subtlepatterns.com
 
 TESTING:
