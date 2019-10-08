@@ -12,14 +12,16 @@ https://www.w3schools.com/css/css_colors.asp
   --color-main-link: #789;
   --color-main-text: black;
   --color-navbox: rgba(0,0,0,.666);
-  --color-shadow: 1px 1px 0 black;
-  --color-time: 500ms;
+  --text-shadow: 1px 1px 0 black;
+  --transition: 500ms;
 }
 body {
   background-color: var(--color-back);
   background-image: url("media/galaxy.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   color: var(--color-text);
-  text-shadow: var(--color-shadow);
+  text-shadow: var(--text-shadow);
 }
 body a:link,
 body a:visited {
@@ -29,7 +31,7 @@ body a:focus,
 body a:hover,
 body a:active {
   color: var(--color-active);
-  transition: var(--color-time);
+  transition: var(--transition);
 }
 body img {
   background: white;
@@ -79,7 +81,7 @@ nav summary:focus,
 nav summary:hover,
 nav summary:active {
   border-color: var(--color-active);
-  transition: var(--color-time);
+  transition: var(--transition);
 }
 /* color others */
 #icons,

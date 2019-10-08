@@ -11,8 +11,6 @@ https://www.w3schools.com/css/css_units.asp
   --size-icons: 1.25rem;
 }
 body {
-  background-repeat: no-repeat;
-  background-size: cover;
   margin: 0;
   min-height: 100vh;
 }
@@ -33,17 +31,17 @@ main pre {
   overflow: auto;
   padding: var(--puffy);
 }
+main h1 {
+  margin: var(--marge-large);
+}
 main table {
   margin: var(--marge-large);
-  max-width: 100%;
   overflow: auto;
   padding: 0;
+  width: 100%;
 }
 main table td {
   padding: var(--padme);
-}
-main .widescreen {
-  padding: 1rem 0;
 }
 /* embiggen nav */
 nav {
@@ -60,7 +58,6 @@ nav summary {
 #icons,
 #jump,
 #klf {
-  margin: 0;
   padding: var(--padme);
 }
 #icons img {

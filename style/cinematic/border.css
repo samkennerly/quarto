@@ -6,18 +6,30 @@ https://www.w3schools.com/css/css_border.asp
   --border: thin solid;
 }
 body a img {
-  border: 2px solid;
+  border: var(--border);
 }
 /* border main */
+main {
+  border: none;
+}
 main blockquote,
 main pre,
 main table {
   border: var(--border);
 }
-h2 {
+main h2 {
   border-bottom: var(--border);
 }
 /* border nav */
+nav {
+  border: none;
+}
 nav summary {
   border-bottom: var(--border);
+}
+/* border others */
+#icons,
+#jump,
+#klf {
+  border: none;
 }
