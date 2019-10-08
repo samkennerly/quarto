@@ -3,17 +3,16 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge-icons: .5em auto;
   --marge-large: .5em auto;
-  --marge-small: .25em 0;
-  --padme: .25em .5em;
-  --puffy: .75rem;
-  --size-icons: 1em;
+  --marge-small: .25rem auto;
+  --padme: .25rem .5rem;
+  --puffy: .75rem 1rem;
+  --size-icons: 1.5rem;
 }
 body {
-  margin: 1vh auto 0 auto;
-  max-width: 80rem;
-  min-height: 99vh;
+  margin: 2vh auto 0 auto;
+  max-width: 86rem;
+  min-height: 98vh;
 }
 /* embiggen main */
 main {
@@ -26,6 +25,9 @@ main pre {
   max-width: 100%;
   overflow: auto;
   padding: var(--puffy);
+}
+main cite {
+  margin-top: .5em;
 }
 main h1 {
   margin: var(--marge-large);
@@ -61,7 +63,7 @@ nav #home {
 }
 #icons img {
   height: var(--size-icons);
-  margin: var(--marge-icons);
+  margin: var(--marge-large);
   width: var(--size-icons);
 }
 #jump #updog {

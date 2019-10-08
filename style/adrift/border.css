@@ -22,16 +22,11 @@ main h2 {
   border-bottom: var(--border);
 }
 /* border nav */
-nav {
-  border: none;
-}
 nav details {
   border: var(--border);
   border-radius: var(--radius);
 }
 /* border others */
-#icons,
-#jump,
-#klf {
-  border: none;
+#icons img {
+  border-width: medium;
 }
