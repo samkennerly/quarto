@@ -1,8 +1,9 @@
 ASAP:
-  - styles: cinematic
   - styles: standardize. include gallery tweaks.
   - style/elemental: use github.com/neocities/element/element.css ?
   - option: arrow text for prev + next in #icons
+  - option: stylesheets: ['style.css']
+    quarto/apply style/adrift target/style.css
   - .clean() should not require index.html ?
   - move site to neocities. update index.json.
   - quarto/export: sync target to neocities account?
@@ -27,6 +28,7 @@ README:
   - delete Dockerfile, kitchen if you don't want Docker
   - gotcha: spaces & weird chars in filenames
   - gotcha: can't delete empty folders because .DS_Store
+  - gotcha: inline <style> requires <body> tag (if using Tidy)
   - standard workflow:
     0: write pages in preprint
     1: copy pages to ready

@@ -20,7 +20,7 @@ opt.add_argument(
 )
 opt = opt.parse_args()
 
-print("Et tu, {}? Then fall, {}!".format(opt.TARGET, opt.SUFFIX))
+print("Out, {} {}! Out, I say!".format(opt.TARGET, opt.SUFFIX))
 Pages.delete(opt.SUFFIX, opt.TARGET)
 
 print("Exeunt.")

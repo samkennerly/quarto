@@ -9,9 +9,7 @@ body {
 main {
   text-align: left;
 }
-main h1 {
-  text-align: center;
-}
+main h1,
 main .gallery {
   text-align: center;
 }
@@ -67,18 +65,17 @@ https://www.w3schools.com/css/css_colors.asp
   --color-back: black;
   --color-link: #abc;
   --color-text: #eee;
+  --color-main-active: deeppink;
   --color-main-back: #eee;
   --color-main-link: #789;
   --color-main-text: black;
   --color-navbox: rgba(0,0,0,.666);
-  --color-shadow: 0 1px 0 black;
-  --color-time: 250ms;
+  --color-shadow: 1px 1px 0 black;
+  --color-time: 500ms;
 }
 body {
-  /* background-color: black; */
+  background-color: var(--color-back);
   background-image: url("media/galaxy.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
   color: var(--color-text);
   text-shadow: var(--color-shadow);
 }
@@ -108,15 +105,15 @@ main a:visited {
 main a:focus,
 main a:hover,
 main a:active {
-  color: var(--color-active);
-  transition: var(--color-time);
+  color: var(--color-main-active);
 }
 main blockquote {
   background: white;
   color: black;
 }
 main mark {
-  background: var(--color-active);
+  background: none;
+  color: var(--color-main-active);
 }
 main pre {
   background: black;
@@ -170,12 +167,8 @@ nav summary ~ a {
   display: block;
 }
 /* display others */
-#jump {
-  display: none;
-}
-#icons img {
-  display: inline-block;
-}
+#icons img,
+#jump a,
 #klf address {
   display: inline-block;
 }
@@ -184,20 +177,28 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge-icons: 0 .5em;
+  --marge-icons: 0 .5rem;
   --marge-large: .5rem auto;
-  --marge-small: .2em 1em;
-  --padme: .2em .5em;
-  --puffy: 1rem;
-  --size-icons: 1em;
+  --marge-small: .25rem 1rem;
+  --padme: .25rem .5rem;
+  --puffy: .5rem 1rem;
+  --size-icons: 1.25rem;
 }
 body {
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   min-height: 100vh;
 }
 /* embiggen main */
 main {
   padding: var(--puffy);
+}
+@media all and (min-width: 1024px) {
+  main {
+    padding-left: calc(50vw - 512px);
+    padding-right: calc(50vw - 512px);
+  }
 }
 main blockquote,
 main pre {
@@ -208,32 +209,32 @@ main pre {
 }
 main table {
   margin: var(--marge-large);
+  max-width: 100%;
   overflow: auto;
   padding: 0;
-  width: 100%;
 }
 main table td {
   padding: var(--padme);
 }
+main .widescreen {
+  padding: 1rem 0;
+}
 /* embiggen nav */
 nav {
-  padding: var(--puffy);
+  padding: var(--padme);
 }
 nav a,
 nav details {
-  margin: var(--marge-icons);
+  margin: var(--marge-small);
 }
 nav summary {
   width: 100%;
-}
-nav summary ~ a,
-nav details > details {
-  margin: var(--marge-small);
 }
 /* embiggen others */
 #icons,
 #jump,
 #klf {
+  margin: 0;
   padding: var(--padme);
 }
 #icons img {
@@ -241,11 +242,11 @@ nav details > details {
   margin: var(--marge-icons);
   width: var(--size-icons);
 }
-#jump a {
+#jump #updog {
   width: 100%;
 }
 #klf address {
-  margin: 0 1rem;
+  margin: 0 1em;
 }
 /*
 Font family, size, weight, etc.
@@ -295,10 +296,10 @@ nav #home {
 }
 /* font others */
 #icons {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 #jump {
-  font-size: 1rem;
+  font-size: .8rem;
 }
 #klf {
   font-size: .67rem;
@@ -312,10 +313,11 @@ body {
   grid-template-areas:
     'nav'
     'main'
+    '.'
     'jump'
     'icons'
     'klf';
-  grid-template-rows: auto auto 1fr auto auto;
+  grid-template-rows: auto auto 1fr auto auto auto;
 }
 main {
   grid-area: main;
