@@ -233,32 +233,27 @@ class Pages(Mapping):
         home, paths, urlpath = self.home, self.paths, self.urlpath
 
         page = home.parent / page
-        targets = paths[1:]
-
         atag = '<a href="{}">{}</a>'.format
         hometag = '<a href="{}" id="home">{}</a>'.format
         openbox = "<details open><summary>{}</summary>".format
         shutbox = "<details><summary>{}</summary>".format
+        opendirs = frozenset(page.parents)
+        workdirs = frozenset(home.parents)
 
         yield "<nav>"
-        yield hometag(urlpath(page, home), home_name)
+        for p in paths:
 
-        newdirs = frozenset(home.parents)
-        pagedirs = frozenset(page.parents)
-        for t in targets:
-            context = newdirs
-            newdirs = frozenset(t.parents)
+            context = workdirs
+            workdirs = frozenset(p.parents)
+            yield from ( "</details>" for _ in (context - workdirs) )
+            for d in sorted(workdirs - context):
+                yield openbox(d.stem) if d in opendirs else shutbox(d.stem)
 
-            # End old <details> boxes and start new ones
-            yield from ("</details>" for _ in (context - newdirs))
-            for d in sorted(newdirs - context):
-                yield openbox(d.stem) if (d in pagedirs) else shutbox(d.stem)
+            name = p.stem.replace("_", " ")
+            href = "#" if (p == page) else urlpath(page, p)
+            yield hometag(href, home_name) if p == home else atag(href, name)
 
-            # Current page gets a special "you are here" link
-            href = "#" if (t == page) else urlpath(page, t)
-            yield atag(href, t.stem.replace("_", " "))
-
-        yield from ("</details>" for _ in (newdirs - set(home.parents)))
+        yield from ( "</details>" for _ in (workdirs - set(home.parents)) )
         yield "</nav>"
 
     # Cached properties
@@ -277,11 +272,13 @@ class Pages(Mapping):
     @property
     def paths(self):
         """ Tuple[Path]: Absolute path to each page in home folder. """
-        home, paths = self.home, self._paths
+        home, options, paths = self.home, self.options, self._paths
 
         if paths is None:
-            paths = home.parent.rglob("*.html")
-            paths = (home, *sorted(x for x in paths if x != home))
+            base = home.parent
+            paths = options.get('page_paths') or [ ]
+            paths = [ base/x for x in paths ] or sorted(base.rglob('*.html'))
+            paths = (home, *[ x for x in paths if x != home ])
             self._paths = paths
 
         return paths
