@@ -3,8 +3,7 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge-large: .5rem auto;
-  --marge-small: .25rem auto;
+  --marge: .5rem auto;
   --padme: .25rem .5rem;
   --puffy: .75rem 1rem;
   --size-icons: 1.5rem;
@@ -13,6 +12,7 @@ body {
   margin: 2vh auto 0 auto;
   max-width: 86rem;
   min-height: 98vh;
+  overflow-y: scroll;
 }
 /* embiggen main */
 main {
@@ -21,7 +21,7 @@ main {
 main blockquote,
 main mark,
 main pre {
-  margin: var(--marge-large);
+  margin: var(--marge);
   max-width: 100%;
   overflow: auto;
   padding: var(--puffy);
@@ -30,10 +30,10 @@ main cite {
   margin-top: .5em;
 }
 main h1 {
-  margin: var(--marge-large);
+  margin: var(--marge);
 }
 main table {
-  margin: var(--marge-large);
+  margin: var(--marge);
   overflow: auto;
   padding: 0;
   width: 100%;
@@ -47,13 +47,13 @@ nav {
 }
 nav a,
 nav details {
-  margin: var(--marge-small);
+  margin: var(--marge);
 }
 nav details {
   padding: var(--padme);
 }
 nav #home {
-  margin: var(--marge-large);
+  margin: var(--marge);
 }
 /* embiggen others */
 #icons,
@@ -63,7 +63,7 @@ nav #home {
 }
 #icons img {
   height: var(--size-icons);
-  margin: var(--marge-large);
+  margin: var(--marge);
   width: var(--size-icons);
 }
 #jump #updog {
