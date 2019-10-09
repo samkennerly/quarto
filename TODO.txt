@@ -1,5 +1,4 @@
 ASAP:
-  - option nextprev: ["◄", "►"]
   - option pages: [About, Photo/Editorial, Photo/Headshots, ...]
   - option styles: ["style.css"]
   - .apply() should input target file. default is target/style.css.
