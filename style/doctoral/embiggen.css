@@ -3,15 +3,17 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge-large: 1rem 0;
-  --marge-small: .25em 0;
-  --padme: .25em .5em;
+  --marge-icons: 0 .5rem;
+  --marge-large: .5rem auto 1rem;
+  --marge-small: .2rem 0;
+  --padme: .2rem .5rem;
   --puffy: .5rem 1rem;
+  --size-icons: 1.5rem;
 }
 body {
   margin: 1vh 1vw;
-  max-width: 96vw;
   min-height: 98vh;
+  overflow-y: scroll;
 }
 /* embiggen main */
 main {
@@ -45,30 +47,33 @@ nav {
 }
 nav a,
 nav summary {
-  margin: var(--marge-small);
   padding: var(--padme);
 }
 nav details > details,
 nav summary ~ a {
-  margin-left: 1em;
+  margin-left: .5rem;
 }
 nav #home {
   margin: var(--marge-large);
 }
 /* embiggen others */
-#icons,
-#klf {
+#icons {
   padding: var(--puffy);
 }
 #icons img {
-  height: 1em;
-  margin: 0 .5em;
-  width: 1em;
-}
-#jump {
-  line-height: 1.2rem;
-  margin: .5rem 0 0 0;
+  height: var(--size-icons);
+  margin: var(--marge-icons);
+  width: var(--size-icons);
 }
 #jump a {
+  box-sizing: border-box;
+  height: 100%;
+  padding: var(--padme);
   width: 100%;
+}
+#klf {
+  padding: var(--puffy)
+}
+#klf address {
+  margin: var(--marge-icons);
 }

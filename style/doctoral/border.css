@@ -3,18 +3,14 @@ Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
-  --border: thin solid;
-  --radius: .5rem;
+  --border: 2px groove;
+  --radius: .25rem;
 }
-body a img {
-  border: 2px solid;
-  border-radius: 4px;
+body img {
+  border: var(--border);
+  border-radius: var(--radius);
 }
 /* border main */
-main {
-  border: none;
-  border-radius: 0;
-}
 main blockquote,
 main pre,
 main table {

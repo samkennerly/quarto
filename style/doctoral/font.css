@@ -7,7 +7,7 @@ html {
   font-size: 16px;
   font-style: normal;
   font-variant: normal;
-  font-weight: 400;
+  font-weight: normal;
   line-height: 1.2;
 }
 @media all and (max-width: 800px) {
@@ -30,15 +30,20 @@ main var {
   font-family: "Courier", monospace;
   font-size: .8rem;
 }
+main h1 {
+  font-size: 1.75rem;
+}
 /* font nav */
 nav #home {
-  font-size: 2em;
+  font-size: 1.5rem;
 }
 /* font others */
 #icons {
   font-size: 1.5rem;
 }
-#jump,
+#jump {
+  font-size: .625rem;
+}
 #klf {
-  font-size: .8rem;
+  font-size: .625rem;
 }

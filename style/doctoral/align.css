@@ -12,6 +12,9 @@ main {
 main h1 {
   text-align: center;
 }
+main .gallery {
+  text-align: center;
+}
 /* align nav */
 nav {
   text-align: left;

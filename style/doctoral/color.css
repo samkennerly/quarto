@@ -3,19 +3,18 @@ Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: crimson;
-  --color-back: black;
+  --color-active: darkturquoise;
+  --color-back: #042;
+  --color-box: black;
   --color-link: #ada;
   --color-text: mintcream;
-  --color-main-back: white;
+  --color-main-box: white;
   --color-main-link: forestgreen;
   --color-main-text: black;
-  --color-heading: #032;
-  --color-time: 125ms;
+  --transition: 125ms;
 }
 body {
-  background-attachment: fixed;
-  background: var(--color-heading);
+  background: var(--color-back);
   color: var(--color-text);
 }
 body a:link,
@@ -26,11 +25,14 @@ body a:focus,
 body a:hover,
 body a:active {
   color: var(--color-active);
-  transition: var(--color-time);
+  transition: var(--transition);
+}
+body img {
+  background: white;
 }
 /* color main */
 main {
-  background: var(--color-main-back);
+  background: var(--color-main-box);
   color: var(--color-main-text);
 }
 main a:link,
@@ -44,20 +46,18 @@ main a:active {
 }
 main blockquote {
   background: white;
-  border-color: var(--color-heading);
   color: black;
 }
-main h1,
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
-  color: var(--color-heading);
+main h2 {
+  border-color: var(--color-back);
+}
+main mark {
+  background: none;
+  color: var(--color-active);
 }
 main pre {
   background: black;
-  color: #dadada;
+  color: #ada;
 }
 main table {
   background: #dadada;
@@ -68,30 +68,23 @@ main table tr:nth-child(even){
 }
 /* color nav */
 nav {
-  background: var(--color-back);
+  background: var(--color-box);
 }
 nav a[href="#"] {
-  background: var(--color-heading);
-  color: var(--color-text);
+  color: var(--color-active);
 }
 nav summary {
-  border-color:
-    var(--color-main-link)
-    var(--color-heading)
-    var(--color-heading);
+  border-color: var(--color-back);
+  border-top-color: var(--color-link);
 }
 nav summary:focus,
 nav summary:hover {
-  background: var(--color-text);
-  color: var(--color-back);
-  transition: var(--color-time);
+  border-color: var(--color-active);
+  transition: var(--transition);
 }
 /* color others */
 #icons,
 #jump,
 #klf {
-  background: var(--color-back);
-}
-#icons img {
-  background: white;
+  background: var(--color-box);
 }
