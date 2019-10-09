@@ -148,25 +148,21 @@ class Pages(Mapping):
 
         base = home.parent
         page = base / page
-        index = paths.index(page)
-        npaths = len(paths)
-
+        i, n = paths.index(page), len(paths)
         atag = '<a href="{}" rel="{}">{}</a>'.format
-        image = '<img alt="{}" src="{}" height=32 width=32 title="{}">'.format
+        imgtag = '<img alt="{}" src="{}" height=32 width=32 title="{}">'.format
 
         yield '<section id="icons">'
 
         if prev_name:
-            path = paths[(index - 1) % npaths]
-            yield atag(urlpath(page, path), "prev", prev_name)
+            yield atag(urlpath(page, paths[(i - 1) % n]), "prev", prev_name)
 
         for alt, src, href in icon_links:
             src = urlpath(page, base / src)
-            yield atag(href, "external", image(alt, src, alt))
+            yield atag(href, "external", imgtag(alt, src, alt))
 
         if next_name:
-            path = paths[(index + 1) % npaths]
-            yield atag(urlpath(page, path), "next", next_name)
+            yield atag(urlpath(page, paths[(i + 1) % n]), "next", next_name)
 
         yield "</section>"
 
