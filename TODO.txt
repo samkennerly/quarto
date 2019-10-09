@@ -1,6 +1,4 @@
 ASAP:
-  - styles: rename cinematic -> celestial
-  - media: bring back bigger penelopes?
   - option nextprev: ["◄", "►"]
   - option pages: [About, Photo/Editorial, Photo/Headshots, ...]
   - option styles: ["style.css"]
