@@ -1,5 +1,6 @@
 ASAP:
-  - styles: standardize. include gallery tweaks.
+  - styles: rename cinematic -> celestial
+  - media: bring back bigger penelopes?
   - option nextprev: ["◄", "►"]
   - option pages: [About, Photo/Editorial, Photo/Headshots, ...]
   - option styles: ["style.css"]
@@ -34,6 +35,7 @@ README:
     5: quarto/apply style/doctoral target
 
 STYLES:
+  - elemental, fatuous, graphic
   - download PNGs from subtlepatterns.com
 
 TESTING:

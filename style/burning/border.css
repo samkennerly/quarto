@@ -3,7 +3,7 @@ Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
-  --border: double;
+  --border: 2px double;
 }
 body a img {
   border: var(--border);

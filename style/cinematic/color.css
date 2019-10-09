@@ -12,7 +12,7 @@ https://www.w3schools.com/css/css_colors.asp
   --color-main-link: #789;
   --color-main-text: black;
   --text-shadow: 1px 1px 0 black;
-  --transition: 1000ms;
+  --transition: 500ms;
 }
 body {
   background-color: black;
