@@ -51,9 +51,6 @@ nav details {
 nav details {
   padding: var(--padme);
 }
-nav #home {
-  margin: var(--marge);
-}
 /* embiggen others */
 #icons,
 #jump,

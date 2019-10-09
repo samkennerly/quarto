@@ -9,9 +9,6 @@ body a img {
   border: var(--border);
 }
 /* border main */
-main {
-  border: none;
-}
 main blockquote,
 main pre,
 main table {

@@ -1,5 +1,4 @@
 ASAP:
-  - option pages: [About, Photo/Editorial, Photo/Headshots, ...]
   - option styles: ["style.css"]
   - .apply() should input target file. default is target/style.css.
   - can urlpath() accept external links?
@@ -8,6 +7,7 @@ ASAP:
 
 QUARTO:
   - quarto/export: sync target to neocities account?
+  - quarto/clean: also tidy style files?
   - markdown: use mistune.py ?
   - `gallerize` builds image galleries?
   - multithreading: one page per core?

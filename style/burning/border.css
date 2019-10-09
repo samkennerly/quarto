@@ -21,9 +21,6 @@ main h2 {
   border-bottom: var(--border);
 }
 /* border nav */
-nav {
-  border: none;
-}
 nav a,
 nav details {
   border: var(--border);

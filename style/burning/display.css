@@ -15,11 +15,9 @@ nav details,
 nav summary {
   display: inline-block;
 }
+nav #home,
 nav details > details,
 nav details summary ~ a {
-  display: block;
-}
-nav #home {
   display: block;
 }
 /* display others */
@@ -34,7 +32,7 @@ nav #home {
    position: sticky;
    bottom: 0;
 }
-#jump #updog {
+#jump a {
   display: inline-block;
 }
 #klf address {
