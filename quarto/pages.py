@@ -139,29 +139,35 @@ class Pages(Mapping):
 
         yield "</html>"
 
-    def icons(self, page, icon_links=(), **kwargs):
+    def icons(self, page, icon_links=(), next_name="", prev_name="", **kwargs):
         """
         Iterator[str]: Links drawn with JPEGs, PNGs, ICOs or even GIFs.
         Consider SVGs so there's no scaling glitch. (I love it.)
         """
         home, paths, urlpath = self.home, self.paths, self.urlpath
 
-        page = home.parent / page
+        base = home.parent
+        page = base / page
         index = paths.index(page)
-        nextpage = paths[(index + 1) % len(paths)]
-        prevpage = paths[(index - 1) % len(paths)]
+        npaths = len(paths)
 
         atag = '<a href="{}" rel="{}">{}</a>'.format
         image = '<img alt="{}" src="{}" height=32 width=32 title="{}">'.format
 
         yield '<section id="icons">'
-        yield atag(urlpath(page, prevpage), "prev", "◄")
+
+        if prev_name:
+            path = paths[(index + 1) % npaths]
+            yield atag(urlpath(page, path), "prev", prev_name)
 
         for alt, src, href in icon_links:
-            src = urlpath(page, home.parent / src)
-            yield atag(href, "", image(alt, src, alt))
+            src = urlpath(page, base / src)
+            yield atag(href, "external", image(alt, src, alt))
 
-        yield atag(urlpath(page, nextpage), "next", "►")
+        if next_name:
+            path = paths[(index - 1) % npaths]
+            yield atag(urlpath(page, path), "next", next_name)
+
         yield "</section>"
 
     def jump(self, page, js_sources=(), updog="", **kwargs):

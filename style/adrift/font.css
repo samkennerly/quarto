@@ -38,12 +38,8 @@ nav #home {
   font-size: 1.5rem;
 }
 /* font others */
-#icons {
-  font-size: 1.5rem;
-}
-#jump {
-  font-size: .67rem;
-}
+#icons,
+#jump,
 #klf {
   font-size: .67rem;
 }

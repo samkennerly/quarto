@@ -30,6 +30,7 @@
       "http://www.html-tidy.org/"
     ]
   ],
+
   "js_sources": [ ],
   "keywords": ["html", "css", "static website", "python", "quarto", "tidy"],
   "license":
@@ -37,6 +38,8 @@
     "https://creativecommons.org/licenses/by/4.0",
     "CC-BY-4.0 International"
   ],
+  "next_name": "►►",
+  "prev_name": "◄◄",
   "title": "Quarto",
   "updog": "⇪"
 }

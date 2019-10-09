@@ -3,7 +3,7 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge-large: .5em auto;
+  --marge-large: .5rem auto;
   --marge-small: .25rem auto;
   --padme: .25rem .5rem;
   --puffy: .75rem 1rem;
