@@ -157,7 +157,7 @@ class Pages(Mapping):
         yield '<section id="icons">'
 
         if prev_name:
-            path = paths[(index + 1) % npaths]
+            path = paths[(index - 1) % npaths]
             yield atag(urlpath(page, path), "prev", prev_name)
 
         for alt, src, href in icon_links:
@@ -165,7 +165,7 @@ class Pages(Mapping):
             yield atag(href, "external", image(alt, src, alt))
 
         if next_name:
-            path = paths[(index - 1) % npaths]
+            path = paths[(index + 1) % npaths]
             yield atag(urlpath(page, path), "next", next_name)
 
         yield "</section>"
