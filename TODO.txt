@@ -3,13 +3,12 @@ ASAP:
   - option pages: [About, Photo/Editorial, Photo/Headshots, ...]
   - option styles: ["style.css"]
   - .apply() should input target file. default is target/style.css.
-  - .clean() should not require index.html ?
-  - multiple styles for example site
+  - can urlpath() accept external links?
+  - style examples: examples/adrift.html, ...
   - move site to neocities. update index.json.
-  - quarto/export: sync target to neocities account?
 
 QUARTO:
-  - can urlpath() accept external links?
+  - quarto/export: sync target to neocities account?
   - markdown: use mistune.py ?
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
@@ -33,8 +32,9 @@ README:
     5: quarto/apply style/doctoral target
 
 STYLES:
-  - elemental, fatuous, graphic
-  - download PNGs from subtlepatterns.com
+  - elemental: ???
+  - fatuous: ties the room together
+  - graphic: graph gallery
 
 TESTING:
   - test caps, spaces, underscores in page paths
