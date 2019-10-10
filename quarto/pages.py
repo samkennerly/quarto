@@ -4,7 +4,12 @@ from os.path import relpath
 from pathlib import Path
 from posixpath import join as urljoin
 from subprocess import run
-from urllib.parse import quote
+from urllib.parse import quote, urlsplit
+
+HOMEPAGE = "index.html"
+PAGEPATHS = "pages.txt"
+QUARTOHOME = "https://github.com/samkennerly/quarto"
+STYLESHEET = "style.css"
 
 
 class Pages(Mapping):
@@ -31,10 +36,8 @@ class Pages(Mapping):
     Call help(Pages) for more information.
     """
 
-    CSSPATH = "style.css"
-
     def __init__(self, folder="."):
-        self.home = self.validpath(folder) / "index.html"
+        self.home = type(self).validpath(folder) / HOMEPAGE
         self._options = None
         self._paths = None
 
@@ -60,25 +63,25 @@ class Pages(Mapping):
 
     def __repr__(self):
         """ str: Printable representation of self. """
-        return "{}({})".format(type(self).__name__, self.home.parent)
+        return "{}({})".format(type(self).__name__, self.folder)
 
     # Commands
 
     @classmethod
     def apply(cls, style, target):
         """ None: Cat stylesheets from style folder to target folder. """
-        stylecat = cls.stylecat
-        csspath = cls.validpath(target) / cls.CSSPATH
+        path = cls.validpath(target) / STYLESHEET
+        style = cls.stylecat(style)
 
-        print("Save", csspath)
-        with open(csspath, "w") as file:
-            file.write(stylecat(style))
+        print("Save", path)
+        with open(path, "w") as file:
+            file.write(style)
 
     def build(self, target):
         """ None: Generate each page and write to target folder. """
+        items = self.items
         folder = self.folder
         target = self.validpath(target)
-        items = self.items
 
         for path, text in items():
             path = target / path.relative_to(folder)
@@ -89,10 +92,10 @@ class Pages(Mapping):
 
     def clean(self, ready):
         """ None: Save cleaned page bodies to ready folder. """
-        tidycopy = self.tidycopy
         folder = self.folder
-        ready = self.validpath(ready)
         paths = self.paths
+        ready = self.validpath(ready)
+        tidycopy = self.tidycopy
 
         for dirty in paths:
             clean = ready / dirty.relative_to(folder)
@@ -114,7 +117,7 @@ class Pages(Mapping):
 
     def generate(self, page, title="", **kwargs):
         """ Iterator[str]: All lines in page. """
-        page = self.home.parent / page
+        page = self.folder / page
 
         yield "<!DOCTYPE html>"
         yield "<html>"
@@ -139,121 +142,116 @@ class Pages(Mapping):
 
         yield "</html>"
 
-    def icons(self, page, icon_links=(), next_name="", prev_name="", **kwargs):
+    def icons(self, page, icons=(), nextlink="", prevlink="", **kwargs):
         """
         Iterator[str]: Links drawn with JPEGs, PNGs, ICOs or even GIFs.
         Consider SVGs so there's no scaling glitch. (I love it.)
         """
         home, paths, urlpath = self.home, self.paths, self.urlpath
 
-        base = home.parent
-        page = base / page
+        folder = home.parent
+        page = folder / page
         i, n = paths.index(page), len(paths)
-        atag = '<a href="{}" rel="{}">{}</a>'.format
-        imgtag = '<img alt="{}" src="{}" height=32 width=32 title="{}">'.format
 
         yield '<section id="icons">'
 
-        if prev_name:
-            yield atag(urlpath(page, paths[(i - 1) % n]), "prev", prev_name)
-
-        for alt, src, href in icon_links:
-            src = urlpath(page, base / src)
-            yield atag(href, "external", imgtag(alt, src, alt))
-
-        if next_name:
-            yield atag(urlpath(page, paths[(i + 1) % n]), "next", next_name)
+        if prevlink:
+            href = urlpath(page, paths[(i - 1) % n])
+            yield f'<a href="{href}" rel="prev">{prevlink}</a>'
+        for alt, src, href in icons:
+            src = urlpath(page, folder / src)
+            alt = f'<img alt="{alt}" src="{src}" height="32" title="{alt}">'
+            yield f'<a href="{href}">{alt}</a>'
+        if nextlink:
+            href = urlpath(page, paths[(i + 1) % n])
+            yield f'<a href="{href}" rel="next">{nextlink}</a>'
 
         yield "</section>"
 
-    def jump(self, page, js_sources=(), updog="", **kwargs):
+    def jump(self, page, javascripts=(), updog="", **kwargs):
         """
         Iterator[str]: And I know, reader, just how you feel.
         You got to scroll past the pop-ups to get to what's real.
         """
-        jstag = '<script src="{]" async></script>'.format
-        uptag = '<a href="#" id="updog">{}</a>'.format
-
         yield '<section id="jump">'
-        yield from map(jstag, js_sources)
+
         if updog:
-            yield uptag(updog)
+            yield f'<a href="#" id="updog">{updog}</a>'
+        for src in javascripts:
+            yield f'<script src="{src}" async></script>'
+
         yield "</section>"
 
-    def klf(self, page, copyright="", email="", generator="", license=(), **kwargs):
+    def klf(self, page, copyright="", email="", qlink="", license=(), **kwargs):
         """
         Iterator[str]: Copyright, license, and final elements.
         They're justified, and they're ancient. I hope you understand.
         """
-        addrtag = "<address>{}</address>".format
-        spantag = '<span id="{}">\n{}\n</span>'.format
-        genlink = 'built by a <a href="{}" rel="generator">quarto</a>'.format
-        liclink = '<a href="{}" rel="license">{}</a>'.format
-
         yield '<section id="klf">'
+
         if copyright:
-            yield spantag("copyright", copyright)
+            yield f'<span id="copyright">{copyright}</span>'
         if license:
-            yield spantag("license", liclink(*license))
+            yield '<a href="{}" rel="license">{}</a>'.format(*license)
         if email:
-            yield addrtag(email)
-        if generator:
-            yield spantag("quarto", genlink(generator))
+            yield f"<address>{email}</address>"
+        if qlink:
+            yield f'<a href="{QUARTOHOME}" rel="generator">{qlink}</a>'
+
         yield "</section>"
 
-    def links(self, page, base_url="", favicon="", **kwargs):
+    def links(self, page, base="", favicon="", styles=(), **kwargs):
         """ Iterator[str]: <link> tags in page <head>. """
-        CSSPATH, home, urlpath = self.CSSPATH, self.home, self.urlpath
+        home, urlpath = self.home, self.urlpath
 
-        page = home.parent / page
-        linktag = '<link rel="{}" href="{}">'.format
+        folder = home.parent
+        page = folder / page
+        link = '<link rel="{}" href="{}">'.format
 
-        yield linktag("stylesheet", urlpath(page, home.parent / CSSPATH))
-        if base_url:
-            yield linktag("home", base_url)
-            yield linktag("canonical", urljoin(base_url, urlpath(home, page)))
+        if base:
+            yield link("home", base)
+            yield link("canonical", urljoin(base, urlpath(home, page)))
         if favicon:
-            yield linktag("icon", urlpath(page, home.parent / favicon))
+            yield link("icon", urlpath(page, folder / favicon))
+        for sheet in styles:
+            yield link("stylesheet", urlpath(page, folder / sheet))
 
-    def meta(self, page, author="", description="", keywords=(), **kwargs):
+    def meta(self, page, meta=(), **kwargs):
         """ Iterator[str]: <meta> tags in page <head>. """
-        metatag = '<meta name="{}" content="{}">'.format
+        mtag = '<meta name="{}" content="{}">'.format
 
         yield '<meta charset="utf-8">'
-        if author:
-            yield metatag("author", author)
-        if description:
-            yield metatag("description", description)
-        if keywords:
-            yield metatag("keywords", ",".join(keywords))
-        yield metatag("viewport", "width=device-width, initial-scale=1.0")
+        yield mtag("viewport", "width=device-width, initial-scale=1.0")
+        for k, v in dict(meta).items():
+            yield mtag(k, v)
 
-    def nav(self, page, home_name="home", **kwargs):
+    def nav(self, page, homelink="home", **kwargs):
         """ Iterator[str]: <nav> element with links to other pages. """
         home, paths, urlpath = self.home, self.paths, self.urlpath
 
         page = home.parent / page
-        atag = '<a href="{}">{}</a>'.format
-        hometag = '<a href="{}" id="home">{}</a>'.format
-        openbox = "<details open><summary>{}</summary>".format
-        shutbox = "<details><summary>{}</summary>".format
         opendirs = frozenset(page.parents)
         workdirs = frozenset(home.parents)
+        openbox = "<details open><summary>{}</summary>".format
+        shutbox = "<details><summary>{}</summary>".format
 
         yield "<nav>"
         for p in paths:
 
+            href = "#" if (p == page) else urlpath(page, p)
             context = workdirs
             workdirs = frozenset(p.parents)
-            yield from ( "</details>" for _ in (context - workdirs) )
+
+            yield from ("</details>" for _ in (context - workdirs))
             for d in sorted(workdirs - context):
                 yield openbox(d.stem) if d in opendirs else shutbox(d.stem)
 
-            name = p.stem.replace("_", " ")
-            href = "#" if (p == page) else urlpath(page, p)
-            yield hometag(href, home_name) if p == home else atag(href, name)
+            if p == home:
+                yield f'<a href="{href}" id="home">{homelink}</a>'
+            else:
+                yield f'<a href="{href}">{p.stem.replace("_", " ")}</a>'
 
-        yield from ( "</details>" for _ in (workdirs - set(home.parents)) )
+        yield from ("</details>" for _ in (workdirs - set(home.parents)))
         yield "</nav>"
 
     # Cached properties
@@ -275,10 +273,11 @@ class Pages(Mapping):
         home, options, paths = self.home, self.options, self._paths
 
         if paths is None:
-            base = home.parent
-            paths = options.get('page_paths') or [ ]
-            paths = [ base/x for x in paths ] or sorted(base.rglob('*.html'))
-            paths = (home, *[ x for x in paths if x != home ])
+            folder = home.parent
+            paths = options.get("page_paths") or []
+            paths = [folder / x for x in paths]
+            paths = paths or sorted(folder.rglob("*.html"))
+            paths = (home, *[x for x in paths if x != home])
             self._paths = paths
 
         return paths
@@ -325,15 +324,25 @@ class Pages(Mapping):
             raise ChildProcessError("Tidy returned {}".format(status))
 
     @classmethod
-    def urlpath(cls, page, path):
-        """ str: URL-encoded relative path from page to local file. """
-        return quote(relpath(path, start=Path(page).parent))
+    def urlpath(cls, page, url):
+        """
+        str: URL from page to (local file or remote URL).
+        Inputs can be Path or str objects. Inputs must not be relative.
+        """
+        page, url = Path(page), str(url)
+
+        if urlsplit(url).scheme:
+            return url
+        elif not url.startswith("/"):
+            raise ValueError(f"ambiguous src: {src}")
+        elif not page.is_absolute():
+            raise ValueError(f"ambiguous page: {page}")
+        else:
+            return quote(relpath(url, page.parent))
 
     @classmethod
     def validpath(cls, path):
         """ Path: Absolute path. Raise error if path does not exist. """
-        path = Path(path).resolve()
-        if not path.exists():
-            raise FileNotFoundError("No such file or folder: {}".format(path))
+        path = Path(path)
 
-        return path
+        return path if path.is_absolute() else path.resolve(strict=True)

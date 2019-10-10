@@ -1,14 +1,16 @@
 ASAP:
-  - option styles: ["style.css"]
+  - .clean() check Tidy options for readability
   - .apply() should input target file. default is target/style.css.
-  - can urlpath() accept external links?
-  - style examples: examples/adrift.html, ...
+  - .paths should use pages.txt if available
+  - finish example pages
   - move site to neocities. update index.json.
+  - quarto/clean: also tidy style files?
+  - quarto/export: sync target to neocities account?
 
 QUARTO:
-  - quarto/export: sync target to neocities account?
-  - quarto/clean: also tidy style files?
+  - Google search bar?
   - markdown: use mistune.py ?
+  - three.js example script
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
   - tidylib C bindings (not subprocess)

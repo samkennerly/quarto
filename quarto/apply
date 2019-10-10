@@ -2,7 +2,7 @@
 
 from argparse import ArgumentParser
 
-from pages import Pages
+from pages import Pages, STYLESHEET
 
 opt = ArgumentParser()
 opt.description = "Apply selected style to built pages."
@@ -10,13 +10,13 @@ opt.add_argument(
     "STYLE",
     default="style",
     nargs="?",
-    help="read CSS from this folder"
+    help="read CSS files from this folder"
 )
 opt.add_argument(
     "TARGET",
     default="target",
     nargs="?",
-    help="save {} to this folder".format(Pages.CSSPATH)
+    help=f"save {STYLESHEET} to this folder"
 )
 opt = opt.parse_args()
 
