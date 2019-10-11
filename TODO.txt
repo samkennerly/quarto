@@ -1,9 +1,9 @@
 ASAP:
-  - .apply() should input target file. default is target/style.css.
   - .paths should use pages.txt if available
-  - finish example pages
+  - quarto/clean: don't check for index.html?
+  - .apply() should input target file. default is target/style.css.
+  - multiple stylesheets for examples/
   - move site to neocities. update index.json.
-  - quarto/clean: also tidy style files?
   - quarto/export: sync target to neocities account?
 
 QUARTO:
