@@ -1,5 +1,4 @@
 ASAP:
-  - .clean() check Tidy options for readability
   - .apply() should input target file. default is target/style.css.
   - .paths should use pages.txt if available
   - finish example pages

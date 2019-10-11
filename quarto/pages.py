@@ -317,8 +317,9 @@ class Pages(Mapping):
         if not dirty.exists():
             raise FileNotFoundError(dirty)
 
-        cmds = "tidy -ashtml -bare -clean -quiet --show-body-only yes".split()
-        cmds = (*cmds, "-output", str(clean), str(dirty))
+        cmds = "tidy -ashtml -bare -clean -indent -quiet -wrap 0".split()
+        cmds += "--fix-style-tags no --show-body-only yes".split()
+        cmds += [ "-output", str(clean), str(dirty) ]
         status = run(cmds).returncode
         if status and (status != 1):
             raise ChildProcessError("Tidy returned {}".format(status))
