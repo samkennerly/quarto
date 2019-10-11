@@ -73,8 +73,8 @@ class Pages(Mapping):
         path = cls.validpath(target) / STYLESHEET
         style = cls.stylecat(style)
 
-        print("Save", path)
         with open(path, "w") as file:
+            print("Write", path)
             file.write(style)
 
     def build(self, target):
@@ -84,10 +84,10 @@ class Pages(Mapping):
         target = self.validpath(target)
 
         for path, text in items():
-            path = target / path.relative_to(folder)
-            print("Save", path)
+            path = (target / path.relative_to(folder)).with_suffix('.html')
             path.parent.mkdir(exist_ok=True, parents=True)
             with open(path, "w") as file:
+                print("Write", path)
                 file.write(text)
 
     def clean(self, ready):
@@ -99,8 +99,8 @@ class Pages(Mapping):
 
         for dirty in paths:
             clean = ready / dirty.relative_to(folder)
-            print("Save", clean)
             clean.parent.mkdir(exist_ok=True, parents=True)
+            print("Write", clean)
             tidycopy(dirty, clean)
 
     @classmethod
@@ -238,6 +238,7 @@ class Pages(Mapping):
         yield "<nav>"
         for p in paths:
 
+            p = p.with_suffix('.html')
             href = "#" if (p == page) else urlpath(page, p)
             context = workdirs
             workdirs = frozenset(p.parents)
