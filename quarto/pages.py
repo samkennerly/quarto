@@ -152,7 +152,6 @@ class Pages(Mapping):
         i, n = paths.index(page), len(paths)
 
         yield '<section id="icons">'
-
         if prevlink:
             href = urlpath(page, paths[(i - 1) % n])
             yield f'<a href="{href}" rel="prev">{prevlink}</a>'
@@ -163,7 +162,6 @@ class Pages(Mapping):
         if nextlink:
             href = urlpath(page, paths[(i + 1) % n])
             yield f'<a href="{href}" rel="next">{nextlink}</a>'
-
         yield "</section>"
 
     def jump(self, page, javascripts=(), updog="", **kwargs):
@@ -172,12 +170,10 @@ class Pages(Mapping):
         You got to scroll past the pop-ups to get to what's real.
         """
         yield '<section id="jump">'
-
         if updog:
             yield f'<a href="#" id="updog">{updog}</a>'
         for src in javascripts:
             yield f'<script src="{src}" async></script>'
-
         yield "</section>"
 
     def klf(self, page, copyright="", email="", qlink="", license=(), **kwargs):
@@ -186,7 +182,6 @@ class Pages(Mapping):
         They're justified, and they're ancient. I hope you understand.
         """
         yield '<section id="klf">'
-
         if copyright:
             yield f'<span id="copyright">{copyright}</span>'
         if license:
@@ -195,7 +190,6 @@ class Pages(Mapping):
             yield f"<address>{email}</address>"
         if qlink:
             yield f'<a href="{QUARTOHOME}" rel="generator">{qlink}</a>'
-
         yield "</section>"
 
     def links(self, page, base="", favicon="", styles=(), **kwargs):
