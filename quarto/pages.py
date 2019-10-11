@@ -49,7 +49,7 @@ class Pages(Mapping):
 
     def __call__(self, page):
         """ Iterator[str]: Lines of finished page. """
-        return self.generate(page, **self.querypage(page, **self.options))
+        return self.generate(page, **self.query(page, **self.options))
 
     def __fspath__(self):
         """ str: String representation of base folder. """
@@ -69,7 +69,7 @@ class Pages(Mapping):
 
     def __repr__(self):
         """ str: Printable representation of self. """
-        return "{}({})".format(type(self).__name__, self.folder)
+        return f"{type(self).__name__}({self.__fspath__()})"
 
     def __truediv__(self, pathlike):
         """ Path: Absolute path from base folder. """
@@ -117,7 +117,7 @@ class Pages(Mapping):
 
     def generate(self, page, title="", **kwargs):
         """ Iterator[str]: All lines in page. """
-        page = self.folder / page
+        page = self / page
 
         yield "<!DOCTYPE html>"
         yield "<html>"
@@ -258,10 +258,10 @@ class Pages(Mapping):
     @property
     def options(self):
         """ dict: Home page options from index.json file. """
-        home, options, querypage = self.home, self._options, self.querypage
+        home, options, query = self.home, self._options, self.query
 
         if options is None:
-            options = querypage(home)
+            options = query(home)
             self._options = options
 
         return options
@@ -284,7 +284,7 @@ class Pages(Mapping):
     # File methods
 
     @classmethod
-    def querypage(cls, page, **kwargs):
+    def query(cls, page, **kwargs):
         """ dict: Page options, if any. Kwargs are default values. """
         path = Path(page).with_suffix(".json")
         if path.is_file():
@@ -354,6 +354,6 @@ class Pages(Mapping):
         """ None: Write text to selected path. """
         path = Path(path)
 
-        print("Write", path)
         with open(path, 'w') as file:
+            print("Write", path)
             file.write(str(text))
