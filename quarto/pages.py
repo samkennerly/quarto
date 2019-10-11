@@ -53,7 +53,7 @@ class Pages(Mapping):
 
     def __fspath__(self):
         """ str: String representation of base folder. """
-        return str(self.home.parent)
+        return str(self.folder)
 
     def __getitem__(self, page):
         """ str: Finished page as one big string. """
@@ -69,11 +69,11 @@ class Pages(Mapping):
 
     def __repr__(self):
         """ str: Printable representation of self. """
-        return f"{type(self).__name__}({self.__fspath__()})"
+        return f"{type(self).__name__}({self.folder})"
 
     def __truediv__(self, pathlike):
         """ Path: Absolute path from base folder. """
-        return self.home.parent / pathlike
+        return self.folder / pathlike
 
     # Commands
 
@@ -88,7 +88,7 @@ class Pages(Mapping):
 
         target = validpath(target)
         for path, text in items():
-            path = target / path.relative_to(self).with_suffix('.html')
+            path = target / path.relative_to(self).with_suffix(".html")
             path.parent.mkdir(exist_ok=True, parents=True)
             write(text, path)
 
@@ -98,7 +98,7 @@ class Pages(Mapping):
 
         ready = validpath(ready)
         for dirty in self:
-            clean = ready / dirty.relative_to(self).with_suffix('.html')
+            clean = ready / dirty.relative_to(self).with_suffix(".html")
             clean.parent.mkdir(exist_ok=True, parents=True)
             tidycopy(dirty, clean)
 
@@ -147,20 +147,19 @@ class Pages(Mapping):
         """
         home, paths, urlpath = self.home, self.paths, self.urlpath
 
-        folder = home.parent
-        page = folder / page
+        page = self / page
         i, n = paths.index(page), len(paths)
 
         yield '<section id="icons">'
         if prevlink:
-            href = urlpath(page, paths[(i - 1) % n])
+            href = urlpath(page, (paths[(i - 1) % n]).with_suffix(".html"))
             yield f'<a href="{href}" rel="prev">{prevlink}</a>'
         for alt, src, href in icons:
-            src = urlpath(page, folder / src)
+            src = urlpath(page, self / src)
             alt = f'<img alt="{alt}" src="{src}" height="32" title="{alt}">'
             yield f'<a href="{href}">{alt}</a>'
         if nextlink:
-            href = urlpath(page, paths[(i + 1) % n])
+            href = urlpath(page, (paths[(i + 1) % n]).with_suffix(".html"))
             yield f'<a href="{href}" rel="next">{nextlink}</a>'
         yield "</section>"
 
@@ -196,17 +195,16 @@ class Pages(Mapping):
         """ Iterator[str]: <link> tags in page <head>. """
         home, urlpath = self.home, self.urlpath
 
-        folder = home.parent
-        page = folder / page
+        page = (self / page).with_suffix(".html")
         link = '<link rel="{}" href="{}">'.format
 
         if base:
             yield link("home", base)
             yield link("canonical", urljoin(base, urlpath(home, page)))
         if favicon:
-            yield link("icon", urlpath(page, folder / favicon))
+            yield link("icon", urlpath(page, self / favicon))
         for sheet in styles:
-            yield link("stylesheet", urlpath(page, folder / sheet))
+            yield link("stylesheet", urlpath(page, self / sheet))
 
     def meta(self, page, meta=(), **kwargs):
         """ Iterator[str]: <meta> tags in page <head>. """
@@ -221,7 +219,7 @@ class Pages(Mapping):
         """ Iterator[str]: <nav> element with links to other pages. """
         home, paths, urlpath = self.home, self.paths, self.urlpath
 
-        page = home.parent / page
+        page = (self / page).with_suffix(".html")
         opendirs = frozenset(page.parents)
         workdirs = frozenset(home.parents)
         openbox = "<details open><summary>{}</summary>".format
@@ -230,7 +228,7 @@ class Pages(Mapping):
         yield "<nav>"
         for p in paths:
 
-            p = p.with_suffix('.html')
+            p = p.with_suffix(".html")
             href = "#" if (p == page) else urlpath(page, p)
             context = workdirs
             workdirs = frozenset(p.parents)
@@ -263,14 +261,18 @@ class Pages(Mapping):
     @property
     def paths(self):
         """ Tuple[Path]: Absolute path to each page in home folder. """
-        home, options, paths = self.home, self.options, self._paths
+        home, paths, readlines = self.home, self._paths, self.readlines
 
         if paths is None:
             folder = home.parent
-            paths = options.get("page_paths") or []
-            paths = [folder / x for x in paths]
-            paths = paths or sorted(folder.rglob("*.html"))
-            paths = (home, *[x for x in paths if x != home])
+            pagepaths = folder / PAGEPATHS
+            if pagepaths.is_file():
+                paths = (x.strip() for x in readlines(pagepaths))
+                paths = tuple(folder / x for x in paths if x)
+            if not paths:
+                paths = set(folder.rglob("*.html")) - {home}
+                paths = (home, *sorted(paths))
+
             self._paths = paths
 
         return paths
@@ -312,7 +314,7 @@ class Pages(Mapping):
 
         cmds = "tidy -ashtml -bare -clean -indent -quiet -wrap 0".split()
         cmds += "--fix-style-tags no --show-body-only yes".split()
-        cmds += [ "-output", str(clean), str(dirty) ]
+        cmds += ["-output", str(clean), str(dirty)]
 
         print("Tidy", clean)
         status = run(cmds).returncode
@@ -348,6 +350,6 @@ class Pages(Mapping):
         """ None: Write text to selected path. """
         path = Path(path)
 
-        with open(path, 'w') as file:
+        with open(path, "w") as file:
             print("Write", path)
             file.write(str(text))
