@@ -37,7 +37,9 @@ class Pages(Mapping):
     """
 
     def __init__(self, folder="."):
-        self.home = type(self).validpath(folder) / HOMEPAGE
+        validpath = type(self).validpath
+
+        self.home = validpath(folder) / HOMEPAGE
         self._options = None
         self._paths = None
 
@@ -48,6 +50,10 @@ class Pages(Mapping):
     def __call__(self, page):
         """ Iterator[str]: Lines of finished page. """
         return self.generate(page, **self.querypage(page, **self.options))
+
+    def __fspath__(self):
+        """ str: String representation of base folder. """
+        return str(self.home.parent)
 
     def __getitem__(self, page):
         """ str: Finished page as one big string. """
@@ -65,49 +71,43 @@ class Pages(Mapping):
         """ str: Printable representation of self. """
         return "{}({})".format(type(self).__name__, self.folder)
 
+    def __truediv__(self, pathlike):
+        """ Path: Absolute path from base folder. """
+        return self.home.parent / pathlike
+
     # Commands
 
     @classmethod
     def apply(cls, style, target):
         """ None: Cat stylesheets from style folder to target folder. """
-        path = cls.validpath(target) / STYLESHEET
-        style = cls.stylecat(style)
-
-        with open(path, "w") as file:
-            print("Write", path)
-            file.write(style)
+        cls.write(cls.stylecat(style), cls.validpath(target) / STYLESHEET)
 
     def build(self, target):
         """ None: Generate each page and write to target folder. """
-        items = self.items
-        folder = self.folder
-        target = self.validpath(target)
+        items, validpath, write = self.items, self.validpath, self.write
 
+        target = validpath(target)
         for path, text in items():
-            path = (target / path.relative_to(folder)).with_suffix('.html')
+            path = target / path.relative_to(self).with_suffix('.html')
             path.parent.mkdir(exist_ok=True, parents=True)
-            with open(path, "w") as file:
-                print("Write", path)
-                file.write(text)
+            write(text, path)
 
     def clean(self, ready):
         """ None: Save cleaned page bodies to ready folder. """
-        folder = self.folder
-        paths = self.paths
-        ready = self.validpath(ready)
-        tidycopy = self.tidycopy
+        validpath, tidycopy = self.validpath, self.tidycopy
 
-        for dirty in paths:
-            clean = ready / dirty.relative_to(folder)
+        ready = validpath(ready)
+        for dirty in self:
+            clean = ready / dirty.relative_to(self).with_suffix('.html')
             clean.parent.mkdir(exist_ok=True, parents=True)
-            print("Write", clean)
             tidycopy(dirty, clean)
 
     @classmethod
     def delete(cls, suffix, target):
         """ None: Remove files with selected suffix and any empty folders. """
-        target = cls.validpath(target)
+        validpath = cls.validpath
 
+        target = validpath(target)
         pattern = "*." + suffix.lstrip(".")
         for path in target.rglob(pattern):
             print("Delete", path)
@@ -319,6 +319,8 @@ class Pages(Mapping):
         cmds = "tidy -ashtml -bare -clean -indent -quiet -wrap 0".split()
         cmds += "--fix-style-tags no --show-body-only yes".split()
         cmds += [ "-output", str(clean), str(dirty) ]
+
+        print("Tidy", clean)
         status = run(cmds).returncode
         if status and (status != 1):
             raise ChildProcessError("Tidy returned {}".format(status))
@@ -346,3 +348,12 @@ class Pages(Mapping):
         path = Path(path)
 
         return path if path.is_absolute() else path.resolve(strict=True)
+
+    @classmethod
+    def write(cls, text, path):
+        """ None: Write text to selected path. """
+        path = Path(path)
+
+        print("Write", path)
+        with open(path, 'w') as file:
+            file.write(str(text))
