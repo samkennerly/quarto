@@ -121,7 +121,6 @@ class Pages(Mapping):
 
         yield "<!DOCTYPE html>"
         yield "<html>"
-
         yield "<head>"
         yield "<title>"
         yield title or page.stem.replace("_", " ")
@@ -129,7 +128,6 @@ class Pages(Mapping):
         yield from self.links(page, **kwargs)
         yield from self.meta(page, **kwargs)
         yield "</head>"
-
         yield "<body>"
         yield "<main>"
         yield from map(str.rstrip, self.readlines(page))
@@ -139,8 +137,8 @@ class Pages(Mapping):
         yield from self.jump(page, **kwargs)
         yield from self.klf(page, **kwargs)
         yield "</body>"
-
         yield "</html>"
+        yield ""
 
     def icons(self, page, icons=(), nextlink="", prevlink="", **kwargs):
         """
