@@ -19,6 +19,9 @@ main .gallery {
 nav {
   text-align: right;
 }
+nav a {
+  vertical-align: top;
+}
 nav details {
   text-align: center;
   vertical-align: top;
