@@ -6,21 +6,14 @@ from pages import Pages
 
 opt = ArgumentParser()
 opt.description = "Delete files with selected suffix recursively."
-opt.add_argument(
-    "SUFFIX",
-    default=".html",
-    nargs="?",
+opt.add_argument("SUFFIX", default=".html", nargs="?",
     help="delete files with this extension"
 )
-opt.add_argument(
-    "TARGET",
-    default="target",
-    nargs="?",
+opt.add_argument("TARGET", default="target", nargs="?",
     help="delete from this folder"
 )
 opt = opt.parse_args()
 
 print("Out, {} {}! Out, I say!".format(opt.TARGET, opt.SUFFIX))
 Pages.delete(opt.SUFFIX, opt.TARGET)
-
 print("Exeunt.")

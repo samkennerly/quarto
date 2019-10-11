@@ -6,21 +6,14 @@ from pages import Pages, STYLESHEET
 
 opt = ArgumentParser()
 opt.description = "Apply selected style to built pages."
-opt.add_argument(
-    "STYLE",
-    default="style",
-    nargs="?",
+opt.add_argument("STYLE", default="style", nargs="?",
     help="read CSS files from this folder"
 )
-opt.add_argument(
-    "TARGET",
-    default="target",
-    nargs="?",
+opt.add_argument("TARGET", default="target", nargs="?",
     help=f"save {STYLESHEET} to this folder"
 )
 opt = opt.parse_args()
 
 print(opt.STYLE, "by any other name would style as sheet.")
 Pages.apply(opt.STYLE, opt.TARGET)
-
 print("Exeunt.")

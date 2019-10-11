@@ -6,21 +6,14 @@ from pages import Pages
 
 opt = ArgumentParser()
 opt.description = "Build pages from HTML fragments."
-opt.add_argument(
-  "READY",
-  default="ready",
-  nargs="?",
+opt.add_argument("READY", default="ready", nargs="?",
   help="read HTML from this folder"
 )
-opt.add_argument(
-  "TARGET",
-  default="target",
-  nargs="?",
+opt.add_argument("TARGET", default="target", nargs="?",
   help="save HTML to this folder"
 )
 opt = opt.parse_args()
 
 print("O brave new", opt.TARGET, "that has", opt.READY, "pages in 't!")
 Pages(opt.READY).build(opt.TARGET)
-
 print("Exeunt.")
