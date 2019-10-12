@@ -6,7 +6,6 @@ from posixpath import join as urljoin
 from subprocess import run
 from urllib.parse import quote, urlsplit
 
-HOMEPAGE = "index.html"
 PAGEPATHS = "pages.txt"
 QUARTOHOME = "https://github.com/samkennerly/quarto"
 STYLESHEET = "style.css"
@@ -39,16 +38,15 @@ class Pages(Mapping):
     def __init__(self, folder="."):
         validpath = type(self).validpath
 
-        self.home = validpath(folder) / HOMEPAGE
+        self.folder = validpath(folder)
+        self._home = None
         self._options = None
         self._paths = None
-
-    folder = property(lambda self: self.home.parent)
 
     # Magic methods
 
     def __call__(self, page):
-        """ Iterator[str]: Lines of finished page. """
+        """ Iterator[str]: Lines of generated page. """
         return self.generate(page, **self.query(page, **self.options))
 
     def __fspath__(self):
@@ -56,7 +54,7 @@ class Pages(Mapping):
         return str(self.folder)
 
     def __getitem__(self, page):
-        """ str: Finished page as one big string. """
+        """ str: Generated page as a single string. """
         return "\n".join(self(page))
 
     def __iter__(self):
@@ -72,7 +70,7 @@ class Pages(Mapping):
         return f"{type(self).__name__}({self.folder})"
 
     def __truediv__(self, pathlike):
-        """ Path: Absolute path from base folder. """
+        """ Path: Absolute path. If input is relative, then append to base """
         return self.folder / pathlike
 
     # Commands
@@ -113,7 +111,7 @@ class Pages(Mapping):
             print("Delete", path)
             path.unlink()
 
-    # HTML generators
+    # Page generator
 
     def generate(self, page, title="", **kwargs):
         """ Iterator[str]: All lines in page. """
@@ -140,6 +138,27 @@ class Pages(Mapping):
         yield "</html>"
         yield ""
 
+    # Home page
+
+    @property
+    def home(self):
+        """ Path: Absolute path to home page. """
+        folder, home = self.folder, self._home
+
+        if home is None:
+            found = [ x for x in folder.glob('index.*') if x.suffix != '.json' ]
+            if not found:
+                raise FileNotFoundError(folder / 'index.html')
+            elif len(found) > 1:
+                raise ValueError(f"multiple homepages: {found}")
+            home = found.pop()
+
+            self._home = home
+
+        return home
+
+    # Tag generators
+
     def icons(self, page, icons=(), nextlink="", prevlink="", **kwargs):
         """
         Iterator[str]: Links drawn with JPEGs, PNGs, ICOs or even GIFs.
@@ -147,20 +166,25 @@ class Pages(Mapping):
         """
         home, paths, urlpath = self.home, self.paths, self.urlpath
 
-        page = self / page
+        folder = home.parent
+        page = folder / page
         i, n = paths.index(page), len(paths)
 
         yield '<section id="icons">'
+
         if prevlink:
             href = urlpath(page, (paths[(i - 1) % n]).with_suffix(".html"))
             yield f'<a href="{href}" rel="prev">{prevlink}</a>'
+
         for alt, src, href in icons:
-            src = urlpath(page, self / src)
+            src = urlpath(page, folder / src)
             alt = f'<img alt="{alt}" src="{src}" height="32" title="{alt}">'
             yield f'<a href="{href}">{alt}</a>'
+
         if nextlink:
             href = urlpath(page, (paths[(i + 1) % n]).with_suffix(".html"))
             yield f'<a href="{href}" rel="next">{nextlink}</a>'
+
         yield "</section>"
 
     def jump(self, page, javascripts=(), updog="", **kwargs):
@@ -195,16 +219,17 @@ class Pages(Mapping):
         """ Iterator[str]: <link> tags in page <head>. """
         home, urlpath = self.home, self.urlpath
 
-        page = (self / page).with_suffix(".html")
+        folder = home.parent
+        page = (folder / page).with_suffix(".html")
         link = '<link rel="{}" href="{}">'.format
 
         if base:
             yield link("home", base)
             yield link("canonical", urljoin(base, urlpath(home, page)))
         if favicon:
-            yield link("icon", urlpath(page, self / favicon))
+            yield link("icon", urlpath(page, folder / favicon))
         for sheet in styles:
-            yield link("stylesheet", urlpath(page, self / sheet))
+            yield link("stylesheet", urlpath(page, folder / sheet))
 
     def meta(self, page, meta=(), **kwargs):
         """ Iterator[str]: <meta> tags in page <head>. """
@@ -219,7 +244,7 @@ class Pages(Mapping):
         """ Iterator[str]: <nav> element with links to other pages. """
         home, paths, urlpath = self.home, self.paths, self.urlpath
 
-        page = (self / page).with_suffix(".html")
+        page = (home.parent / page).with_suffix('.html')
         opendirs = frozenset(page.parents)
         workdirs = frozenset(home.parents)
         openbox = "<details open><summary>{}</summary>".format
@@ -228,7 +253,7 @@ class Pages(Mapping):
         yield "<nav>"
         for p in paths:
 
-            p = p.with_suffix(".html")
+            p = p.with_suffix('.html')
             href = "#" if (p == page) else urlpath(page, p)
             context = workdirs
             workdirs = frozenset(p.parents)
@@ -245,15 +270,15 @@ class Pages(Mapping):
         yield from ("</details>" for _ in (workdirs - set(home.parents)))
         yield "</nav>"
 
-    # Cached properties
+    # File methods
 
     @property
     def options(self):
         """ dict: Home page options from index.json file. """
-        home, options, query = self.home, self._options, self.query
+        options = self._options
 
         if options is None:
-            options = query(home)
+            options = self.query(self.home)
             self._options = options
 
         return options
@@ -261,23 +286,24 @@ class Pages(Mapping):
     @property
     def paths(self):
         """ Tuple[Path]: Absolute path to each page in home folder. """
-        home, paths, readlines = self.home, self._paths, self.readlines
+        paths = self._paths
 
         if paths is None:
-            folder = home.parent
-            pagepaths = folder / PAGEPATHS
-            if pagepaths.is_file():
-                paths = (x.strip() for x in readlines(pagepaths))
-                paths = tuple(folder / x for x in paths if x)
-            if not paths:
-                paths = set(folder.rglob("*.html")) - {home}
-                paths = (home, *sorted(paths))
+            folder, home, readlines = self.folder, self.home, self.readlines
+
+            paths = folder / PAGEPATHS
+            if paths.is_file():
+                print("Get page list from", paths)
+                paths = ( x.strip() for x in readlines(paths) )
+                paths = tuple( folder / x for x in paths if x )
+            else:
+                print("Find pages in", folder)
+                paths = folder.rglob("*.html")
+                paths = (home, *sorted( x for x in paths if x != home ))
 
             self._paths = paths
 
         return paths
-
-    # File methods
 
     @classmethod
     def query(cls, page, **kwargs):
