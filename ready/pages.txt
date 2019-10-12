@@ -3,9 +3,11 @@ about.html
 boxes/can/be/nested.html
 cats/octocats.html
 cats/penelope.html
-docs.html
-fnord.html
+docs/quickstart.html
+docs/scripts.html
+docs/options.html
 examples/adrift.html
 examples/burning.html
 examples/celestial.html
 examples/doctoral.html
+faq.html
