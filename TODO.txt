@@ -1,4 +1,5 @@
 ASAP:
+  - finish testing pages.txt (see card)
   - quarto/clean: don't check for index.html?
   - .apply() should input target file. default is target/style.css.
   - multiple stylesheets for examples/
@@ -31,6 +32,8 @@ README:
     5: quarto/apply style/doctoral target
 
 STYLES:
+  - check FAQ for line-width and font-size
+  - <aside> element: smaller font?
   - elemental: ???
   - fatuous: ties the room together
   - graphic: graph gallery
