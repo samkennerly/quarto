@@ -1,7 +1,10 @@
 ASAP:
+  - consolidate examples into example pages
+  - test .home methods with .md homepage.
   - finish testing pages.txt (see card)
-  - quarto/clean: don't check for index.html?
+  - use __truediv__ isntead of validpath(). remove .write().
   - .apply() should input target file. default is target/style.css.
+  - quarto/clean should not require a homepage?
   - multiple stylesheets for examples/
   - move site to neocities. update index.json.
   - quarto/export: sync target to neocities account?
