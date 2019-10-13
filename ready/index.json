@@ -5,10 +5,26 @@
   "favicon": "favicon.ico",
   "homelink": "Quarto",
   "icons": [
-    [ "GitHub", "media/github.svg", "https://github.com/samkennerly/quarto/" ],
-    [ "Neocities", "media/neocities.svg", "https://neocities.org/" ],
-    [ "Python", "media/python.svg", "https://www.python.org/" ],
-    [ "Tidy", "media/tidy.png", "http://www.html-tidy.org/" ]
+    [
+      "GitHub",
+      "media/icons/github.svg",
+      "https://github.com/samkennerly/quarto/"
+    ],
+    [
+      "Neocities",
+      "media/icons/neocities.svg",
+      "https://neocities.org/"
+    ],
+    [
+      "Python",
+      "media/icons/python.svg",
+      "https://www.python.org/"
+    ],
+    [
+      "Tidy",
+      "media/icons/tidy.png",
+      "http://www.html-tidy.org/"
+    ]
   ],
   "javascripts": [
 
