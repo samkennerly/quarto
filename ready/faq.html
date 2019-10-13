@@ -1,50 +1,66 @@
 <h1>Frequently Asked Questions</h1>
 <h2>UNDER CONSTRUCTION</h2>
-<h3>How do I install Quarto?</h3>
-<h3>Why can't Quarto read Markdown?</h3>
-<ul>
-  <li>[making beginners learn another language]</li>
-  <li>[adds complexity and/or dependencies]</li>
-  <li>Consider <a href="https://help.github.com/en/articles/fork-a-repo">forking</a> Quarto to use a Python Markdown parser like <a href="https://mistune.readthedocs.io/en/latest/">mistune</a>.
-  </li>
-</ul>
-<h3>Why doesn't Quarto have {x}?</h3>
-<ul>
-  <li>Quarto is designed to minimize <a href="https://en.wikipedia.org/wiki/Dependency_hell">dependencies</a>.
-  </li>
-  <li>Quarto is intended to be customized by <a href="https://en.wikipedia.org/wiki/Do_it_yourself">DIY</a> users.
-  </li>
-  <li>Quarto favors speed and <a href="https://en.wikipedia.org/wiki/KISS_principle">simplicity</a> over <a href="https://en.wikipedia.org/wiki/Feature_creep">completeness</a>.
-  </li>
-</ul>
-<h3>What are some other static website generators?</h3>
-<ul>
-  <li>
-    <a href="https://gohugo.io/">Hugo</a>
-  </li>
-  <li>
-    <a href="https://jekyllrb.com/">Jekyll</a>
-  </li>
-  <li>
-    <a href="https://middlemanapp.com/">Middleman</a>
-  </li>
-  <li>
-    <a href="https://blog.getpelican.com/">Pelican</a>
-  </li>
-</ul>
-<h3>Is Quarto a web development framework?</h3>
-<ul>
-  <li>No. Quarto only builds <a href="https://motherfuckingwebsite.com/">websites</a>, but...
-  </li>
-  <li>you could use Quarto to generate HTML for something like <a href="http://bottlepy.org/docs/dev/">bottle</a>.
-  </li>
-</ul>
-<h3>Why does the Quarto icon have cat ears?</h3>
-<ul>
-  <li>Quarto is <a href="https://en.wikipedia.org/wiki/Lazy_evaluation">lazy</a>. It uses cached <a href="https://docs.python.org/3/library/functions.html#property">properties</a> and <a href="https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/">generators</a> to avoid <a href="https://en.wikichip.org/wiki/schlemiel_the_painter%27s_algorithm">schlemieling</a>.
-  </li>
-  <li>Quarto is <a href="https://twitter.com/arr/status/774855950070972417?lang=en">small</a>. It has &lt; 500 lines of code, mostly in <a href="https://github.com/samkennerly/quarto/blob/master/quarto/pages.py">one file</a>.
-  </li>
-  <li>Quarto spends much of its time <a href="https://en.wikipedia.org/wiki/Cat_(Unix)">concatenating</a> strings.
-  </li>
-</ul>
+<dl>
+  <dt>How do I install Quarto?</dt>
+  <dt>What is a <q>static</q> website?</dt>
+  <dt>What are <abbr title="Hypertext Markup Language">HTML</abbr> files?</dt>
+  <dt>What are <abbr title="Cascading Style Sheets">CSS</abbr> files?</dt>
+  <dt>How do I customize my website's style?</dt>
+  <dt>Can Quarto use external stylesheets?</dt>
+  <dt>How do I publish my website?</dt>
+  <dt>Can I build my site without icons, an email, a license, ...?</dt>
+  <dt>Why can't Quarto read Markdown?</dt>
+  <dd>[making beginners learn another language]</dd>
+  <dd>[adds complexity and/or dependencies]</dd>
+  <dd>
+    Consider <a href="https://help.github.com/en/articles/fork-a-repo">forking</a> Quarto to use a Python Markdown parser like <a href="https://mistune.readthedocs.io/en/latest/">mistune</a>.
+  </dd>
+  <dt>Why doesn't Quarto have {x}?</dt>
+  <dd>
+    Quarto is designed to minimize <a href="https://en.wikipedia.org/wiki/Dependency_hell">dependencies</a>.
+  </dd>
+  <dd>
+    Quarto is intended to be customized by <a href="https://en.wikipedia.org/wiki/Do_it_yourself">DIY</a> users.
+  </dd>
+  <dd>
+    Quarto favors speed and <a href="https://en.wikipedia.org/wiki/KISS_principle">simplicity</a> over <a href="https://en.wikipedia.org/wiki/Feature_creep">completeness</a>.
+  </dd>
+  <dt>Is Quarto a web development framework?</dt>
+  <dd>
+    No. Quarto builds <a href="https://en.wikipedia.org/wiki/Static_web_page">static</a> <a href="https://motherfuckingwebsite.com/">websites</a>, but...
+  </dd>
+  <dd>
+    you could modify Quarto to act as a <a href="https://en.wikipedia.org/wiki/Dynamic_web_page#Server-side_scripting">server-side</a> HTML generator and serve dynamic pages with something like <a href="http://bottlepy.org/docs/dev/">bottle</a> or <a href="https://palletsprojects.com/p/flask/">flask</a> or <a href="https://www.tornadoweb.org/en/stable/">tornado</a>.
+  </dd>
+  <dt>Why does the Quarto icon have cat ears?</dt>
+  <dd>
+    Quarto is <a href="https://en.wikipedia.org/wiki/Lazy_evaluation">lazy</a>. It uses cached <a href="https://docs.python.org/3/library/functions.html#property">properties</a> and <a href="https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/">generators</a> to avoid <a href="https://en.wikichip.org/wiki/schlemiel_the_painter%27s_algorithm">schlemieling</a>.
+  </dd>
+  <dd>
+    Quarto is <a href="https://twitter.com/arr/status/774855950070972417?lang=en">small</a>. It has &lt; 500 lines of code, mostly in <a href="https://github.com/samkennerly/quarto/blob/master/quarto/pages.py">one file</a>.
+  </dd>
+  <dd>
+    Quarto spends much of its time <a href="https://en.wikipedia.org/wiki/Cat_(Unix)">concatenating</a> strings.
+  </dd>
+  <dt>Wherefore art thou Quarto?</dt>
+  <dd>
+    <blockquote>
+      The more complex your systems become, the more you need a human to look at the bigger picture and make decisions. <cite><a href="http://sysadvent.blogspot.com/2016/12/day-6-no-more-on-call-martyrs.html">Alice Goldfuss</a></cite>
+    </blockquote>
+  </dd>
+  <dd>
+    <blockquote>
+      There will come a point where the accumulated complexity of our existing systems is greater than the complexity of creating a new one. <cite><a href="https://tinyclouds.org/rant.html">Ryan Dahl</a></cite>
+    </blockquote>
+  </dd>
+  <dd>
+    <blockquote>
+      It is time to unmask the computing community as a Secret Society for the Creation and Preservation of Artificial Complexity. <cite><a href="https://www.cs.utexas.edu/users/EWD/transcriptions/EWD12xx/EWD1243a.html">Edsger W. Dijkstra</a></cite>
+    </blockquote>
+  </dd>
+  <dd>
+    <blockquote>
+      Give the game away. <cite><a href="https://www.enoshop.co.uk/product/oblique-strategies.html">Brian Eno and Peter Schmidt</a></cite>
+    </blockquote>
+  </dd>
+</dl>
