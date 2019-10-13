@@ -334,13 +334,12 @@ class Pages(Mapping):
         """ None: Clean raw HTML page and save. Requires HTML Tidy >= 5. """
         dirty, clean = Path(dirty), Path(clean)
 
-        # tidy returns status 0 even if input does not exist
         if not dirty.exists():
             raise FileNotFoundError(dirty)
 
-        cmds = "tidy -ashtml -bare -clean -indent -quiet -wrap 0".split()
-        cmds += "--fix-style-tags no --show-body-only yes".split()
-        cmds += ["-output", str(clean), str(dirty)]
+        cmds = ["tidy", "-ashtml", "-bare", "-clean", "-indent", "-quiet"]
+        cmds += ["--fix-style-tags", "n", "--vertical-space", "n", "-wrap", "0"]
+        cmds += ["--show-body-only", "y", "-output", str(clean), str(dirty)]
 
         print("Tidy", clean)
         status = run(cmds).returncode
