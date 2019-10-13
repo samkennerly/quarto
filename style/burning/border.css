@@ -21,16 +21,15 @@ main h2 {
   border-bottom: var(--border);
 }
 /* border nav */
-nav a,
+nav a[rel="home"] {
+  border: none;
+}
 nav details {
   border: var(--border);
 }
 nav details > details {
   border: none;
   border-top: var(--border);
-}
-nav #home {
-  border: none;
 }
 /* border others */
 #icons,

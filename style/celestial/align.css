@@ -22,12 +22,12 @@ nav {
 nav a {
   vertical-align: top;
 }
+nav a[rel="home"] {
+  float: left;
+}
 nav details {
   text-align: center;
   vertical-align: top;
-}
-nav #home {
-  float: left;
 }
 /* align others */
 #icons img {

@@ -19,7 +19,7 @@ main .gallery {
 nav {
   text-align: left;
 }
-nav #home {
+nav a[rel="home"] {
   text-align: center;
 }
 /* align others */

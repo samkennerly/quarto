@@ -49,12 +49,12 @@ nav a,
 nav summary {
   padding: var(--padme);
 }
+nav a[rel="home"] {
+  margin: var(--marge-large);
+}
 nav details > details,
 nav summary ~ a {
   margin-left: .5rem;
-}
-nav #home {
-  margin: var(--marge-large);
 }
 /* embiggen others */
 #icons {

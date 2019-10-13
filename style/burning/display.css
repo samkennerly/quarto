@@ -15,7 +15,7 @@ nav details,
 nav summary {
   display: inline-block;
 }
-nav #home,
+nav a[rel="home"],
 nav details > details,
 nav details summary ~ a {
   display: block;
