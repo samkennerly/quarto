@@ -254,18 +254,20 @@ class Pages(Mapping):
         for p in paths:
 
             p = p.with_suffix('.html')
+            name = p.stem.replace("_", " ")
             href = "#" if (p == page) else urlpath(page, p)
             context = workdirs
             workdirs = frozenset(p.parents)
 
             yield from ("</details>" for _ in (context - workdirs))
             for d in sorted(workdirs - context):
-                yield openbox(d.stem) if d in opendirs else shutbox(d.stem)
+                dname = d.stem.replace("_", " ")
+                yield openbox(dname) if d in opendirs else shutbox(dname)
 
             if p == home:
                 yield f'<a href="{href}" id="home">{homelink}</a>'
             else:
-                yield f'<a href="{href}">{p.stem.replace("_", " ")}</a>'
+                yield f'<a href="{href}">{name}</a>'
 
         yield from ("</details>" for _ in (workdirs - set(home.parents)))
         yield "</nav>"

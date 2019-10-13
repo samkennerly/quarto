@@ -1,8 +1,8 @@
 index.html
 about.html
 boxes/can/be/nested.html
-cats/octocats.html
-cats/penelope.html
+cat_pics/octocats.html
+cat_pics/penelope.html
 docs/quickstart.html
 docs/scripts.html
 docs/options.html
