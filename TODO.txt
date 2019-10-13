@@ -1,5 +1,5 @@
 ASAP:
-  - consolidate examples into example pages
+  - edit ready/ directly instead of preprint/
   - test .home methods with .md homepage.
   - finish testing pages.txt (see card)
   - use __truediv__ isntead of validpath(). remove .write().
@@ -35,9 +35,12 @@ README:
     5: quarto/apply style/doctoral target
 
 STYLES:
-  - check FAQ for line-width and font-size
-  - <aside> element: smaller font?
-  - elemental: ???
+  - col-oriented table colors?
+  - adrift: check example page
+  - burning: check example page
+  - celestial: check example page
+  - doctoral: check example page
+  - elemental: browser defaults
   - fatuous: ties the room together
   - graphic: graph gallery
 
