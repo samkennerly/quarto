@@ -1,8 +1,7 @@
 ASAP:
-  - edit ready/ directly instead of preprint/
   - test .home methods with .md homepage.
   - finish testing pages.txt (see card)
-  - use __truediv__ isntead of validpath(). remove .write().
+  - use __truediv__. remove validpath(). remove .write().
   - .apply() should input target file. default is target/style.css.
   - quarto/clean should not require a homepage?
   - multiple stylesheets for examples/
