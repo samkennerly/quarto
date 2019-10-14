@@ -7,8 +7,11 @@ body {
 }
 /* display main */
 main cite,
-main mark {
+main iframe {
   display: block;
+}
+main dl dd {
+  display: list-item;
 }
 /* display nav */
 nav a,

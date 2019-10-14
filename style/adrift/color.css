@@ -11,7 +11,7 @@ https://www.w3schools.com/css/css_colors.asp
   --color-main-link: steelblue;
   --color-main-text: black;
   --color-navbox: rgba(100,100,100,.5);
-  --text-shadow: 0px 1px 0px black;
+  --text-shadow: 1px 1px 0 black;
 }
 body {
   background-attachment: fixed;
@@ -56,19 +56,23 @@ main blockquote {
   background: white;
   color: black;
 }
+main hr {
+  border-color: var(--color-navbox);
+}
 main mark {
-  background: var(--color-active);
+  background: none;
+  color: #f00;
 }
 main pre {
   background: black;
   color: #ada;
 }
 main table {
-  background: #dadada;
+  background: white;
   color: black;
 }
-main table tr:nth-child(even){
-  background: white;
+main table tr:nth-child(odd){
+  background: #dadada;
 }
 /* color nav */
 nav a[href="#"] {

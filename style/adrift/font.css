@@ -8,7 +8,7 @@ html {
   font-style: normal;
   font-variant: normal;
   font-weight: normal;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 @media all and (max-width: 800px) {
   html {
@@ -30,8 +30,8 @@ main var {
   font-family:"Lucida Console", Monaco, monospace;
   font-size: .8rem;
 }
-main h1 {
-  font-size: 1.5rem;
+main dt {
+  font-weight: bolder;
 }
 /* font nav */
 nav a[rel="home"] {
@@ -41,5 +41,5 @@ nav a[rel="home"] {
 #icons,
 #jump,
 #klf {
-  font-size: .67rem;
+  font-size: .75rem;
 }

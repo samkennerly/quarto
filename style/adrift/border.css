@@ -3,23 +3,22 @@ Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
-  --border: 2px solid;
+  --border: thin solid;
   --radius: 1rem;
 }
-body a img {
+a img {
   border: var(--border);
   border-radius: var(--radius);
+}
+hr {
+  border-bottom: var(--border);
+  border-top: none;
 }
 /* border main */
 main,
 main blockquote,
-main mark,
-main pre,
-main table {
+main pre {
   border-radius: var(--radius);
-}
-main h2 {
-  border-bottom: var(--border);
 }
 /* border nav */
 nav details {
@@ -28,5 +27,5 @@ nav details {
 }
 /* border others */
 #icons img {
-  border-width: medium;
+  border-width: 2px;
 }
