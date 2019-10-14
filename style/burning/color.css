@@ -10,6 +10,18 @@ https://www.w3schools.com/css/css_colors.asp
   --text-shadow: 0 1px 1px black;
   --transition: 451ms;
 }
+a {
+  transition: var(--transition);
+}
+a:link,
+a:visited {
+  color: var(--color-link);
+}
+a:focus,
+a:hover,
+a:active {
+  color: var(--color-active);
+}
 body {
   background-attachment: fixed;
   background-blend-mode: lighten;
@@ -19,19 +31,7 @@ body {
   color: var(--color-text);
   text-shadow: var(--text-shadow);
 }
-body a {
-  transition: var(--transition);
-}
-body a:link,
-body a:visited {
-  color: var(--color-link);
-}
-body a:focus,
-body a:hover,
-body a:active {
-  color: var(--color-active);
-}
-body img {
+img {
   background: white;
 }
 /* color main */

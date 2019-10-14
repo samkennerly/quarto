@@ -27,5 +27,5 @@ nav details {
 }
 /* border others */
 #icons img {
-  border-width: 2px;
+  border: 2px solid;
 }

@@ -3,7 +3,7 @@ Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
-  --border: thin solid;
+  --border: thin groove;
 }
 a img {
   border: var(--border);
@@ -19,5 +19,5 @@ nav summary {
 }
 /* border others */
 #icons img {
-  border-width: 2px;
+  border: 2px solid;
 }

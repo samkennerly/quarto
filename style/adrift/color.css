@@ -13,6 +13,15 @@ https://www.w3schools.com/css/css_colors.asp
   --color-navbox: rgba(100,100,100,.5);
   --text-shadow: 1px 1px 0 black;
 }
+a:link,
+a:visited {
+  color: var(--color-link);
+}
+a:focus,
+a:hover,
+a:active {
+  color: var(--color-active);
+}
 body {
   background-attachment: fixed;
   background-image:
@@ -25,16 +34,7 @@ body {
   color: var(--color-text);
   text-shadow: var(--text-shadow);
 }
-body a:link,
-body a:visited {
-  color: var(--color-link);
-}
-body a:focus,
-body a:hover,
-body a:active {
-  color: var(--color-active);
-}
-body img {
+img {
   background: white;
 }
 /* color main */
