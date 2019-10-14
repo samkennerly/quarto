@@ -9,10 +9,14 @@ body {
 main {
   text-align: left;
 }
-main h1 {
-  text-align: center;
-}
-main .gallery {
+main figure,
+main .gallery,
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
   text-align: center;
 }
 /* align nav */
@@ -28,23 +32,22 @@ Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
-  --border: 2px solid;
+  --border: thin solid;
   --radius: 1rem;
 }
-body a img {
+a img {
   border: var(--border);
   border-radius: var(--radius);
+}
+hr {
+  border-bottom: var(--border);
+  border-top: none;
 }
 /* border main */
 main,
 main blockquote,
-main mark,
-main pre,
-main table {
+main pre {
   border-radius: var(--radius);
-}
-main h2 {
-  border-bottom: var(--border);
 }
 /* border nav */
 nav details {
@@ -53,7 +56,7 @@ nav details {
 }
 /* border others */
 #icons img {
-  border-width: medium;
+  border-width: 2px;
 }
 /*
 Color coordination for all elements.
@@ -68,7 +71,7 @@ https://www.w3schools.com/css/css_colors.asp
   --color-main-link: steelblue;
   --color-main-text: black;
   --color-navbox: rgba(100,100,100,.5);
-  --text-shadow: 0px 1px 0px black;
+  --text-shadow: 1px 1px 0 black;
 }
 body {
   background-attachment: fixed;
@@ -113,19 +116,23 @@ main blockquote {
   background: white;
   color: black;
 }
+main hr {
+  border-color: var(--color-navbox);
+}
 main mark {
-  background: var(--color-active);
+  background: none;
+  color: #f00;
 }
 main pre {
   background: black;
   color: #ada;
 }
 main table {
-  background: #dadada;
+  background: white;
   color: black;
 }
-main table tr:nth-child(even){
-  background: white;
+main table tr:nth-child(odd){
+  background: #dadada;
 }
 /* color nav */
 nav a[href="#"] {
@@ -148,8 +155,11 @@ body {
 }
 /* display main */
 main cite,
-main mark {
+main iframe {
   display: block;
+}
+main dl dd {
+  display: list-item;
 }
 /* display nav */
 nav a,
@@ -172,41 +182,50 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge: .5rem auto;
+  --marge-large: 1rem auto;
+  --marge-small: .5rem auto;
   --padme: .25rem .5rem;
-  --puffy: .75rem 1rem;
+  --puffy: .5rem 1rem;
   --size-icons: 1.5rem;
 }
 body {
   margin: 2vh auto 0 auto;
   max-width: 86rem;
   min-height: 98vh;
+  overflow-y: scroll;
 }
 /* embiggen main */
 main {
   padding: var(--puffy);
 }
 main blockquote,
-main mark,
 main pre {
-  margin: var(--marge);
+  margin: var(--marge-large);
   max-width: 100%;
   overflow: auto;
   padding: var(--puffy);
 }
-main cite {
-  margin-top: .5em;
+main dt,
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  margin: var(--marge-large);
 }
-main h1 {
-  margin: var(--marge);
+main hr,
+main iframe {
+  margin: var(--marge-small);
 }
 main table {
-  margin: var(--marge);
+  margin: var(--marge-large);
   overflow: auto;
   padding: 0;
   width: 100%;
 }
-main table td {
+main table td,
+main table th {
   padding: var(--padme);
 }
 /* embiggen nav */
@@ -215,7 +234,7 @@ nav {
 }
 nav a,
 nav details {
-  margin: var(--marge);
+  margin: var(--marge-small);
 }
 nav details {
   padding: var(--padme);
@@ -228,7 +247,7 @@ nav details {
 }
 #icons img {
   height: var(--size-icons);
-  margin: var(--marge);
+  margin: var(--marge-large);
   width: var(--size-icons);
 }
 #jump #updog {
@@ -247,7 +266,7 @@ html {
   font-style: normal;
   font-variant: normal;
   font-weight: normal;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 @media all and (max-width: 800px) {
   html {
@@ -269,18 +288,18 @@ main var {
   font-family:"Lucida Console", Monaco, monospace;
   font-size: .8rem;
 }
-main h1 {
-  font-size: 1.5rem;
+main dt {
+  font-weight: bolder;
 }
 /* font nav */
-nav #home {
+nav a[rel="home"] {
   font-size: 1.5rem;
 }
 /* font others */
 #icons,
 #jump,
 #klf {
-  font-size: .67rem;
+  font-size: .75rem;
 }
 /*
 Grid layout for each page.
@@ -291,7 +310,7 @@ body {
   grid-row-gap: 0;
   grid-template-areas:
     'nav main icons'
-    'nav klf  jump';
+    'klf klf  jump';
   grid-template-columns: 1fr 5fr auto;
   grid-template-rows: 1fr auto;
 }
