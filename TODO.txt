@@ -1,8 +1,11 @@
 ASAP:
-  - styles: update burning, celestial, doctoral to match adrift
   - .apply() should input target file. default is target/style.css.
-  - multiple stylesheets for examples/
-  - move site to neocities. update index.json.
+  - test multiple stylesheets for examples/
+  - finish boxes/can/be/nested.html
+  - finish index.html
+  - finish docs
+  - finish faq
+  - move site to neocities
   - quarto/export: sync target to neocities account?
 
 QUARTO:
