@@ -6,7 +6,8 @@ body {
   display: grid;
 }
 /* display main */
-main cite {
+main cite,
+main iframe {
   display: block;
 }
 /* display nav */

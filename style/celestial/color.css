@@ -4,40 +4,41 @@ https://www.w3schools.com/css/css_colors.asp
 */
 :root {
   --color-active: #fad;
-  --color-box: rgba(0,0,0,.666);
   --color-link: #abc;
   --color-text: #eee;
   --color-main-active: deeppink;
-  --color-main-box: #eee;
+  --color-main-back: #eee;
   --color-main-link: #789;
   --color-main-text: black;
+  --color-navbox: rgba(0,0,0,.5);
   --text-shadow: 1px 1px 0 black;
   --transition: 500ms;
 }
+a {
+  transition: var(--transition);
+}
+a:link,
+a:visited {
+  color: var(--color-link);
+}
+a:focus,
+a:hover,
+a:active {
+  color: var(--color-active);
+}
 body {
-  background-color: black;
   background-image: url("media/galaxy.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   color: var(--color-text);
   text-shadow: var(--text-shadow);
 }
-body a:link,
-body a:visited {
-  color: var(--color-link);
-}
-body a:focus,
-body a:hover,
-body a:active {
-  color: var(--color-active);
-  transition: var(--transition);
-}
-body img {
+img {
   background: white;
 }
 /* color main */
 main {
-  background: var(--color-main-box);
+  background: var(--color-main-back);
   color: var(--color-main-text);
   text-shadow: none;
 }
@@ -54,36 +55,42 @@ main blockquote {
   background: white;
   color: black;
 }
+main hr {
+  border-color: var(--color-navbox);
+}
 main mark {
   background: none;
-  color: var(--color-main-active);
+  color: #f00;
 }
 main pre {
   background: black;
   color: #ada;
 }
-main table {
-  background: #dadada;
+main table,
+main table thead {
+  background: white;
   color: black;
 }
-main table tr:nth-child(even){
-  background: white;
+main table tr:nth-child(odd){
+  background: #dadada;
 }
 /* color nav */
 nav {
-  background: var(--color-box);
+  background: var(--color-navbox);
 }
 nav a[href="#"] {
   color: var(--color-active);
 }
+nav summary {
+  transition: var(--transition);
+}
 nav summary:focus,
 nav summary:hover {
   border-color: var(--color-active);
-  transition: var(--transition);
 }
 /* color others */
 #icons,
 #jump,
 #klf {
-  background: var(--color-box);
+  background: var(--color-navbox);
 }
