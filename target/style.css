@@ -39,15 +39,15 @@ a img {
   border: var(--border);
   border-radius: var(--radius);
 }
-hr {
-  border-bottom: var(--border);
-  border-top: none;
-}
 /* border main */
 main,
 main blockquote,
 main pre {
   border-radius: var(--radius);
+}
+main hr {
+  border-bottom: var(--border);
+  border-top: none;
 }
 /* border nav */
 nav details {
@@ -56,7 +56,7 @@ nav details {
 }
 /* border others */
 #icons img {
-  border-width: 2px;
+  border: 2px solid;
 }
 /*
 Color coordination for all elements.
@@ -73,6 +73,15 @@ https://www.w3schools.com/css/css_colors.asp
   --color-navbox: rgba(100,100,100,.5);
   --text-shadow: 1px 1px 0 black;
 }
+a:link,
+a:visited {
+  color: var(--color-link);
+}
+a:focus,
+a:hover,
+a:active {
+  color: var(--color-active);
+}
 body {
   background-attachment: fixed;
   background-image:
@@ -85,16 +94,7 @@ body {
   color: var(--color-text);
   text-shadow: var(--text-shadow);
 }
-body a:link,
-body a:visited {
-  color: var(--color-link);
-}
-body a:focus,
-body a:hover,
-body a:active {
-  color: var(--color-active);
-}
-body img {
+img {
   background: white;
 }
 /* color main */
@@ -127,7 +127,8 @@ main pre {
   background: black;
   color: #ada;
 }
-main table {
+main table,
+main table thead {
   background: white;
   color: black;
 }
@@ -145,6 +146,12 @@ nav details {
 nav details:focus,
 nav details:hover {
   border-color: var(--color-active);
+}
+/* color others */
+#icons,
+#jump,
+#klf {
+  background: none;
 }
 /*
 Display behavior: block, inline, none, etc.
@@ -182,6 +189,7 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
+  --marge-icons: 1rem auto;
   --marge-large: 1rem auto;
   --marge-small: .5rem auto;
   --padme: .25rem .5rem;
@@ -214,6 +222,8 @@ main h5,
 main h6 {
   margin: var(--marge-large);
 }
+main figure,
+main .gallery,
 main hr,
 main iframe {
   margin: var(--marge-small);
@@ -247,10 +257,10 @@ nav details {
 }
 #icons img {
   height: var(--size-icons);
-  margin: var(--marge-large);
+  margin: var(--marge-icons);
   width: var(--size-icons);
 }
-#jump #updog {
+#jump a {
   width: 100%;
 }
 #klf address {
@@ -273,7 +283,7 @@ html {
     font-size: 2vw;
   }
 }
-body a {
+a {
   text-decoration: none;
 }
 /* font main */
@@ -289,7 +299,7 @@ main var {
   font-size: .8rem;
 }
 main dt {
-  font-weight: bolder;
+  font-weight: bold;
 }
 /* font nav */
 nav a[rel="home"] {
