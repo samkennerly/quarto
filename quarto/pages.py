@@ -2,7 +2,7 @@ from collections.abc import Mapping
 from json import load as jsonload
 from os.path import relpath
 from pathlib import Path
-from posixpath import join as urljoin
+from posixpath import join as posixjoin
 from subprocess import run
 from urllib.parse import quote, urlsplit
 
@@ -36,9 +36,7 @@ class Pages(Mapping):
     """
 
     def __init__(self, folder="."):
-        validpath = type(self).validpath
-
-        self.folder = validpath(folder)
+        self.folder = self.validpath(folder)
         self._home = None
         self._options = None
         self._paths = None
@@ -82,30 +80,24 @@ class Pages(Mapping):
 
     def build(self, target):
         """ None: Generate each page and write to target folder. """
-        items, validpath, write = self.items, self.validpath, self.write
-
-        target = validpath(target)
-        for path, text in items():
+        write = self.write
+        target = self.validpath(target)
+        for path, text in self.items():
             path = target / path.relative_to(self).with_suffix(".html")
-            path.parent.mkdir(exist_ok=True, parents=True)
             write(text, path)
 
     def clean(self, ready):
         """ None: Save cleaned page bodies to ready folder. """
-        validpath, tidycopy = self.validpath, self.tidycopy
-
-        ready = validpath(ready)
+        tidy = self.tidy
+        ready = self.validpath(ready)
         for dirty in self:
-            clean = ready / dirty.relative_to(self).with_suffix(".html")
-            clean.parent.mkdir(exist_ok=True, parents=True)
-            tidycopy(dirty, clean)
+            clean = ready / dirty.relative_to(self)
+            tidy(dirty, clean)
 
     @classmethod
     def delete(cls, suffix, target):
         """ None: Remove files with selected suffix and any empty folders. """
-        validpath = cls.validpath
-
-        target = validpath(target)
+        target = cls.validpath(target)
         pattern = "*." + suffix.lstrip(".")
         for path in target.rglob(pattern):
             print("Delete", path)
@@ -143,15 +135,16 @@ class Pages(Mapping):
     @property
     def home(self):
         """ Path: Absolute path to home page. """
-        folder, home = self.folder, self._home
+        home = self._home
 
         if home is None:
-            found = [ x for x in folder.glob('index.*') if x.suffix != '.json' ]
+            folder = self.folder
+            found = [x for x in folder.glob("index.*") if x.suffix != ".json"]
             if not found:
-                raise FileNotFoundError(folder / 'index.html')
-            elif len(found) > 1:
-                raise ValueError(f"multiple homepages: {found}")
+                raise FileNotFoundError(folder / "index.html")
             home = found.pop()
+            if found:
+                raise ValueError(f"multiple homepages: {found}")
 
             self._home = home
 
@@ -164,14 +157,12 @@ class Pages(Mapping):
         Iterator[str]: Links drawn with JPEGs, PNGs, ICOs or even GIFs.
         Consider SVGs so there's no scaling glitch. (I love it.)
         """
-        home, paths, urlpath = self.home, self.paths, self.urlpath
+        folder, paths, urlpath = self.folder, self.paths, self.urlpath
 
-        folder = home.parent
         page = folder / page
         i, n = paths.index(page), len(paths)
 
         yield '<section id="icons">'
-
         if prevlink:
             href = urlpath(page, (paths[(i - 1) % n]).with_suffix(".html"))
             yield f'<a href="{href}" rel="prev">{prevlink}</a>'
@@ -184,7 +175,6 @@ class Pages(Mapping):
         if nextlink:
             href = urlpath(page, (paths[(i + 1) % n]).with_suffix(".html"))
             yield f'<a href="{href}" rel="next">{nextlink}</a>'
-
         yield "</section>"
 
     def jump(self, page, javascripts=(), updog="", **kwargs):
@@ -224,8 +214,7 @@ class Pages(Mapping):
         link = '<link rel="{}" href="{}">'.format
 
         if base:
-            yield link("home", base)
-            yield link("canonical", urljoin(base, urlpath(home, page)))
+            yield link("canonical", posixjoin(base, urlpath(home, page)))
         if favicon:
             yield link("icon", urlpath(page, folder / favicon))
         for sheet in styles:
@@ -244,28 +233,27 @@ class Pages(Mapping):
         """ Iterator[str]: <nav> element with links to other pages. """
         home, paths, urlpath = self.home, self.paths, self.urlpath
 
-        page = (home.parent / page).with_suffix('.html')
+        page = home.parent / page
         opendirs = frozenset(page.parents)
         workdirs = frozenset(home.parents)
-        openbox = "<details open><summary>{}</summary>".format
-        shutbox = "<details><summary>{}</summary>".format
 
         yield "<nav>"
         for p in paths:
 
-            p = p.with_suffix('.html')
-            name = p.stem.replace("_", " ")
-            href = "#" if (p == page) else urlpath(page, p)
             context = workdirs
             workdirs = frozenset(p.parents)
-
             yield from ("</details>" for _ in (context - workdirs))
             for d in sorted(workdirs - context):
-                dname = d.stem.replace("_", " ")
-                yield openbox(dname) if d in opendirs else shutbox(dname)
+                name = d.stem.replace("_", " ")
+                if d in opendirs:
+                    yield f"<details open><summary>{name}</summary>"
+                else:
+                    yield f"<details><summary>{name}</summary>"
 
+            name = p.stem.replace("_", " ")
+            href = "#" if (p == page) else urlpath(page, p.with_suffix(".html"))
             if p == home:
-                yield f'<a href="{href}" id="home">{homelink}</a>'
+                yield f'<a href="{href}" rel="home">{homelink}</a>'
             else:
                 yield f'<a href="{href}">{name}</a>'
 
@@ -295,13 +283,13 @@ class Pages(Mapping):
 
             paths = folder / PAGEPATHS
             if paths.is_file():
-                print("Get page list from", paths)
-                paths = ( x.strip() for x in readlines(paths) )
-                paths = tuple( folder / x for x in paths if x )
+                print("Find pages from", paths)
+                paths = (x.strip() for x in readlines(paths))
+                paths = tuple(folder / x for x in paths if x)
             else:
                 print("Find pages in", folder)
-                paths = folder.rglob("*.html")
-                paths = (home, *sorted( x for x in paths if x != home ))
+                paths = (x for x in folder.rglob("*.html") if x != home)
+                paths = (home, *sorted(paths))
 
             self._paths = paths
 
@@ -332,38 +320,39 @@ class Pages(Mapping):
         return "".join(readlines(*sorted(validpath(style).rglob("*.css"))))
 
     @classmethod
-    def tidycopy(cls, dirty, clean):
+    def tidy(cls, dirty, clean):
         """ None: Clean raw HTML page and save. Requires HTML Tidy >= 5. """
         dirty, clean = Path(dirty), Path(clean)
+
+        cmds = ["tidy", "-ashtml", "-bare", "-clean", "-quiet", "-wrap", "0"]
+        cmds += ["--fix-style-tags", "n", "--vertical-space", "y"]
+        cmds += ["--show-body-only", "y", "-output", str(clean), str(dirty)]
 
         if not dirty.exists():
             raise FileNotFoundError(dirty)
 
-        cmds = ["tidy", "-ashtml", "-bare", "-clean", "-indent", "-quiet"]
-        cmds += ["--fix-style-tags", "n", "--vertical-space", "n", "-wrap", "0"]
-        cmds += ["--show-body-only", "y", "-output", str(clean), str(dirty)]
-
         print("Tidy", clean)
+        clean.parent.mkdir(exist_ok=True, parents=True)
         status = run(cmds).returncode
         if status and (status != 1):
             raise ChildProcessError("Tidy returned {}".format(status))
 
     @classmethod
-    def urlpath(cls, page, url):
+    def urlpath(cls, page, src):
         """
         str: URL from page to (local file or remote URL).
-        Inputs can be Path or str objects. Inputs must not be relative.
+        Inputs must be absolute path-like objects.
         """
-        page, url = Path(page), str(url)
+        page, src = Path(page), posixjoin(src)
 
-        if urlsplit(url).scheme:
-            return url
-        elif not url.startswith("/"):
+        if urlsplit(src).scheme:
+            return src
+        elif not src.startswith("/"):
             raise ValueError(f"ambiguous src: {src}")
         elif not page.is_absolute():
             raise ValueError(f"ambiguous page: {page}")
         else:
-            return quote(relpath(url, page.parent))
+            return quote(relpath(src, start=page.parent.as_posix()))
 
     @classmethod
     def validpath(cls, path):
@@ -377,6 +366,7 @@ class Pages(Mapping):
         """ None: Write text to selected path. """
         path = Path(path)
 
+        print("Write", path)
+        path.parent.mkdir(exist_ok=True, parents=True)
         with open(path, "w") as file:
-            print("Write", path)
             file.write(str(text))
