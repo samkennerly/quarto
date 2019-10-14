@@ -264,12 +264,12 @@ class Pages(Mapping):
 
     @property
     def options(self):
-        """ dict: Home page options from index.json file. """
+        """ dict: Default page options from JSON file. """
         options = self._options
 
         if options is None:
-            options = self.query(self.home)
-            self._options = options
+            options = self.query(self / OPTIONS)
+            self._options = options.copy()
 
         return options
 
