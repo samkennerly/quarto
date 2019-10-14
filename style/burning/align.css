@@ -6,7 +6,9 @@ body {
   text-align: center;
 }
 /* align main */
-main li {
+main dd,
+main li,
+main pre {
   text-align: left;
 }
 /* align nav */

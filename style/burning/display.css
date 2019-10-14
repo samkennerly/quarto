@@ -6,8 +6,12 @@ body {
   display: grid;
 }
 /* display main */
-main cite {
+main cite,
+main iframe {
   display: block;
+}
+main dl dd {
+  display: list-item;
 }
 /* display nav */
 nav a,
@@ -29,8 +33,7 @@ nav details summary ~ a {
   display: inline-block;
 }
 #jump {
-   position: sticky;
-   bottom: 0;
+   display: block;
 }
 #jump a {
   display: inline-block;

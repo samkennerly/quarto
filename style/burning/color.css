@@ -3,8 +3,8 @@ Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: firebrick;
-  --color-box: rgba(0,0,0,.911);
+  --color-active: #f40;
+  --color-back: rgba(0,0,0,.9);
   --color-link: #f6ad52;
   --color-text: whitesmoke;
   --text-shadow: 0 1px 1px black;
@@ -13,54 +13,61 @@ https://www.w3schools.com/css/css_colors.asp
 body {
   background-attachment: fixed;
   background-blend-mode: lighten;
-  background-color: var(--color-link);
+  background-color: #ea941d;
   background-image: url("media/tyger.svg");
   background-repeat: repeat-x;
   color: var(--color-text);
   text-shadow: var(--text-shadow);
 }
+body a {
+  transition: var(--transition);
+}
 body a:link,
 body a:visited {
   color: var(--color-link);
-  transition: var(--transition);
 }
 body a:focus,
 body a:hover,
 body a:active {
   color: var(--color-active);
-  transition: var(--transition);
 }
 body img {
   background: white;
 }
 /* color main */
 main {
-  background: var(--color-box);
+  background: var(--color-back);
   color: var(--color-text);
   text-shadow: none;
 }
 main blockquote {
-  background: var(--color-box);
-  color: var(--color-text);
+  background: white;
+  color: black;
+}
+main hr {
+  border-color: #555;
 }
 main mark {
   background: none;
-  color: var(--color-active);
+  color: #f00;
 }
 main pre {
   background: black;
   color: #ada;
 }
 main table {
-  background: #dadada;
+  background: white;
   color: black;
 }
-main table tr:nth-child(even){
-  background: white;
+main table tr:nth-child(odd){
+  background: #dadada;
 }
 /* color nav */
 nav {
-  background: var(--color-box);
+  background: var(--color-back);
+}
+nav a {
+  border-color: transparent;
 }
 nav a[href="#"] {
   color: var(--color-active);
@@ -71,11 +78,10 @@ nav summary {
 nav summary:focus,
 nav summary:hover {
   color: var(--color-active);
-  transition: var(--transition);
 }
 /* color others */
 #icons,
 #jump,
 #klf {
-  background: var(--color-box);
+  background: var(--color-back);
 }
