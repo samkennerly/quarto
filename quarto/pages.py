@@ -119,10 +119,10 @@ class Pages(Mapping):
         yield from self.meta(page, **kwargs)
         yield "</head>"
         yield "<body>"
+        yield from self.nav(page, **kwargs)
         yield "<main>"
         yield from map(str.rstrip, self.readlines(page))
         yield "</main>"
-        yield from self.nav(page, **kwargs)
         yield from self.icons(page, **kwargs)
         yield from self.jump(page, **kwargs)
         yield from self.klf(page, **kwargs)
