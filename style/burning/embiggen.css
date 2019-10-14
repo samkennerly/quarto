@@ -3,12 +3,12 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge-icons: .2rem .5rem;
+  --marge-icons: .25rem .5rem;
   --marge-large: 1rem auto;
   --marge-small: .5rem auto;
   --padme: 0 .5rem;
   --puffy: .5rem 1rem;
-  --size-icons: 1.2rem;
+  --size-icons: 1.25rem;
 }
 body {
   background-size: auto 100%;
@@ -38,6 +38,8 @@ main h5,
 main h6 {
   margin: var(--marge-large);
 }
+main figure,
+main .gallery,
 main hr,
 main iframe {
   margin: var(--marge-small);

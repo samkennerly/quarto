@@ -8,10 +8,6 @@ https://www.w3schools.com/css/css_border.asp
 a img {
   border: var(--border);
 }
-hr {
-  border-bottom: var(--border);
-  border-top: none;
-}
 /* border main */
 main {
   border: none;
@@ -20,6 +16,10 @@ main blockquote,
 main pre,
 main table {
   border: var(--border);
+}
+main hr {
+  border-bottom: var(--border);
+  border-top: none;
 }
 /* border nav */
 nav a,
