@@ -6,9 +6,9 @@ from posixpath import join as posixjoin
 from subprocess import run
 from urllib.parse import quote, urlsplit
 
+OPTIONS = "index.json"
 PAGEPATHS = "pages.txt"
 QUARTOHOME = "https://github.com/samkennerly/quarto"
-STYLESHEET = "style.css"
 
 
 class Pages(Mapping):
@@ -74,9 +74,9 @@ class Pages(Mapping):
     # Commands
 
     @classmethod
-    def apply(cls, style, target):
-        """ None: Cat stylesheets from style folder to target folder. """
-        cls.write(cls.stylecat(style), cls.validpath(target) / STYLESHEET)
+    def apply(cls, style, sheet):
+        """ None: Cat CSS files from style folder and write to one file. """
+        cls.write(''.join(cls.stylecat(style)), sheet)
 
     def build(self, target):
         """ None: Generate each page and write to target folder. """
@@ -314,10 +314,8 @@ class Pages(Mapping):
 
     @classmethod
     def stylecat(cls, style):
-        """ str: Concatenated CSS files from style folder. """
-        readlines, validpath = cls.readlines, cls.validpath
-
-        return "".join(readlines(*sorted(validpath(style).rglob("*.css"))))
+        """ Iterator[str]: Concatenate CSS files in style folder. """
+        return cls.readlines(*sorted(cls.validpath(style).glob("*.css")))
 
     @classmethod
     def tidy(cls, dirty, clean):

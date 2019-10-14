@@ -2,18 +2,18 @@
 
 from argparse import ArgumentParser
 
-from pages import Pages, STYLESHEET
+from pages import Pages
 
 opt = ArgumentParser()
 opt.description = "Apply selected style to built pages."
 opt.add_argument("STYLE", default="style", nargs="?",
     help="read CSS files from this folder"
 )
-opt.add_argument("TARGET", default="target", nargs="?",
-    help=f"save {STYLESHEET} to this folder"
+opt.add_argument("SHEET", default="target/style.css", nargs="?",
+    help=f"save CSS to this file path"
 )
 opt = opt.parse_args()
 
-print(opt.STYLE, "by any other name would style as sheet.")
-Pages.apply(opt.STYLE, opt.TARGET)
+print(opt.STYLE, "by any other name would style as", opt.SHEET)
+Pages.apply(opt.STYLE, opt.SHEET)
 print("Exeunt.")
