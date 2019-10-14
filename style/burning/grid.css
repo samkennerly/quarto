@@ -20,6 +20,8 @@ nav {
 }
 #icons {
   grid-area: icons;
+  position: sticky;
+  top: 0;
 }
 #jump {
   grid-area: jump;

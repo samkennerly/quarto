@@ -25,15 +25,8 @@ nav details summary ~ a {
   display: block;
 }
 /* display others */
-#icons {
-  position: sticky;
-  top: 0;
-}
 #icons img {
   display: inline-block;
-}
-#jump {
-   display: block;
 }
 #jump a {
   display: inline-block;
