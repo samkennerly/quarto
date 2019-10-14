@@ -67,7 +67,8 @@ main pre {
   background: black;
   color: #ada;
 }
-main table {
+main table,
+main table thead {
   background: white;
   color: black;
 }
@@ -85,4 +86,10 @@ nav details {
 nav details:focus,
 nav details:hover {
   border-color: var(--color-active);
+}
+/* color others */
+#icons,
+#jump,
+#klf {
+  background: none;
 }

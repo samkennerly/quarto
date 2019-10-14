@@ -15,7 +15,7 @@ html {
     font-size: 2vw;
   }
 }
-body a {
+a {
   text-decoration: none;
 }
 /* font main */
@@ -31,7 +31,7 @@ main var {
   font-size: .8rem;
 }
 main dt {
-  font-weight: bolder;
+  font-weight: bold;
 }
 /* font nav */
 nav a[rel="home"] {

@@ -10,15 +10,15 @@ a img {
   border: var(--border);
   border-radius: var(--radius);
 }
-hr {
-  border-bottom: var(--border);
-  border-top: none;
-}
 /* border main */
 main,
 main blockquote,
 main pre {
   border-radius: var(--radius);
+}
+main hr {
+  border-bottom: var(--border);
+  border-top: none;
 }
 /* border nav */
 nav details {
