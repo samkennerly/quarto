@@ -4,30 +4,30 @@ https://www.w3schools.com/css/css_colors.asp
 */
 :root {
   --color-active: darkturquoise;
-  --color-back: #042;
-  --color-box: black;
+  --color-back: #040;
   --color-link: #ada;
-  --color-text: mintcream;
+  --color-text: white;
   --color-main-box: white;
   --color-main-link: forestgreen;
   --color-main-text: black;
-  --transition: 125ms;
+  --color-navbox: #010;
+  --transition: 250ms;
+}
+a:link,
+a:visited {
+  color: var(--color-link);
+}
+a:focus,
+a:hover,
+a:active {
+  color: var(--color-active);
+  transition: var(--transition);
 }
 body {
   background: var(--color-back);
   color: var(--color-text);
 }
-body a:link,
-body a:visited {
-  color: var(--color-link);
-}
-body a:focus,
-body a:hover,
-body a:active {
-  color: var(--color-active);
-  transition: var(--transition);
-}
-body img {
+img {
   background: white;
 }
 /* color main */
@@ -48,27 +48,28 @@ main blockquote {
   background: white;
   color: black;
 }
-main h2 {
-  border-color: var(--color-back);
+main hr {
+  border-color: var(--color-navbox);
 }
 main mark {
   background: none;
-  color: var(--color-active);
+  color: #f00;
 }
 main pre {
   background: black;
   color: #ada;
 }
-main table {
-  background: #dadada;
+main table,
+main table thead {
+  background: white;
   color: black;
 }
-main table tr:nth-child(even){
-  background: white;
+main table tr:nth-child(odd){
+  background: #dadada;
 }
 /* color nav */
 nav {
-  background: var(--color-box);
+  background: var(--color-navbox);
 }
 nav a[href="#"] {
   color: var(--color-active);
@@ -86,5 +87,5 @@ nav summary:hover {
 #icons,
 #jump,
 #klf {
-  background: var(--color-box);
+  background: var(--color-navbox);
 }

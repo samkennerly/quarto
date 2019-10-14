@@ -6,8 +6,12 @@ body {
   display: grid;
 }
 /* display main */
-main cite {
+main cite,
+main iframe {
   display: block;
+}
+main dl dd {
+  display: list-item;
 }
 /* display nav */
 nav a,

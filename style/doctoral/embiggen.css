@@ -4,7 +4,7 @@ https://www.w3schools.com/css/css_units.asp
 */
 :root {
   --marge-icons: 0 .5rem;
-  --marge-large: .5rem auto 1rem;
+  --marge-large: 1rem auto;
   --marge-small: .2rem 0;
   --padme: .2rem .5rem;
   --puffy: .5rem 1rem;
@@ -26,11 +26,20 @@ main pre {
   overflow: auto;
   padding: var(--puffy);
 }
-main cite {
-  margin: var(--marge-small);
-}
-main h1 {
+main dt,
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
   margin: var(--marge-large);
+}
+main figure,
+main .gallery,
+main hr,
+main iframe {
+  margin: var(--marge-small);
 }
 main table {
   margin: var(--marge-large);
@@ -38,7 +47,8 @@ main table {
   padding: 0;
   width: 100%;
 }
-main table td {
+main table td,
+main table th {
   padding: var(--padme);
 }
 /* embiggen nav */
@@ -47,6 +57,7 @@ nav {
 }
 nav a,
 nav summary {
+  margin: var(--marge-small);
   padding: var(--padme);
 }
 nav a[rel="home"] {
@@ -75,5 +86,5 @@ nav summary ~ a {
   padding: var(--puffy)
 }
 #klf address {
-  margin: var(--marge-icons);
+  margin: 0 1em;
 }

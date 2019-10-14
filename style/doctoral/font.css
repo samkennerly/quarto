@@ -15,31 +15,31 @@ html {
     font-size: 2vw;
   }
 }
-body a {
+a {
   text-decoration: none;
 }
 /* font main */
 main blockquote {
-  font-family: "Times", serif;
+  font-family: Times, serif;
 }
 main code,
 main kbd,
 main samp,
 main pre,
 main var {
-  font-family: "Courier", monospace;
+  font-family: Courier, monospace;
   font-size: .8rem;
 }
-main h1 {
-  font-size: 1.75rem;
+main dt {
+  font-weight: bold;
 }
 /* font nav */
 nav a[rel="home"] {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 /* font others */
 #icons,
 #jump,
 #klf {
-  font-size: .75rem;
+  font-size: .8rem;
 }
