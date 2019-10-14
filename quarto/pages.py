@@ -6,11 +6,6 @@ from posixpath import join as posixjoin
 from subprocess import run
 from urllib.parse import quote, urlsplit
 
-OPTIONS = "index.json"
-PAGEPATHS = "pages.txt"
-QUARTOHOME = "https://github.com/samkennerly/quarto"
-
-
 class Pages(Mapping):
     """
     Pages(folder=".")
@@ -34,6 +29,9 @@ class Pages(Mapping):
 
     Call help(Pages) for more information.
     """
+    OPTIONS = "index.json"
+    PATHS = "pages.txt"
+    QURL = "https://github.com/samkennerly/quarto"
 
     def __init__(self, folder="."):
         self.folder = self.validpath(folder)
@@ -194,6 +192,8 @@ class Pages(Mapping):
         Iterator[str]: Copyright, license, and final elements.
         They're justified, and they're ancient. I hope you understand.
         """
+        QURL = self.QURL
+
         yield '<section id="klf">'
         if copyright:
             yield f'<span id="copyright">{copyright}</span>'
@@ -202,7 +202,7 @@ class Pages(Mapping):
         if email:
             yield f"<address>{email}</address>"
         if qlink:
-            yield f'<a href="{QUARTOHOME}" rel="generator">{qlink}</a>'
+            yield f'<a href="{QURL}" rel="generator">{qlink}</a>'
         yield "</section>"
 
     def links(self, page, base="", favicon="", styles=(), **kwargs):
@@ -268,7 +268,7 @@ class Pages(Mapping):
         options = self._options
 
         if options is None:
-            options = self.query(self / OPTIONS)
+            options = self.query(self.folder / self.OPTIONS)
             self._options = options.copy()
 
         return options
@@ -279,14 +279,15 @@ class Pages(Mapping):
         paths = self._paths
 
         if paths is None:
-            folder, home, readlines = self.folder, self.home, self.readlines
-
-            paths = folder / PAGEPATHS
+            folder = self.folder
+            paths = folder / self.PATHS
             if paths.is_file():
+                readlines = self.readlines
                 print("Find pages from", paths)
                 paths = (x.strip() for x in readlines(paths))
                 paths = tuple(folder / x for x in paths if x)
             else:
+                home = self.home
                 print("Find pages in", folder)
                 paths = (x for x in folder.rglob("*.html") if x != home)
                 paths = (home, *sorted(paths))
