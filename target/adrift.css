@@ -1,0 +1,341 @@
+/*
+Alignment, text indentation, etc.
+https://www.w3schools.com/css/css_text.asp
+*/
+body {
+  text-align: center;
+}
+/* align main */
+main {
+  text-align: left;
+}
+main figure,
+main .gallery,
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  text-align: center;
+}
+/* align nav */
+nav {
+  text-align: center;
+}
+/* align others */
+#klf {
+  text-align: right;
+}
+/*
+Border type, thickness, radius, etc.
+https://www.w3schools.com/css/css_border.asp
+*/
+:root {
+  --border: thin solid;
+  --radius: 1rem;
+}
+a img {
+  border: var(--border);
+  border-radius: var(--radius);
+}
+/* border main */
+main,
+main blockquote,
+main pre {
+  border-radius: var(--radius);
+}
+main hr {
+  border-bottom: var(--border);
+  border-top: none;
+}
+/* border nav */
+nav details {
+  border: var(--border);
+  border-radius: var(--radius);
+}
+/* border others */
+#icons img {
+  border: 2px solid;
+}
+/*
+Color coordination for all elements.
+https://www.w3schools.com/css/css_colors.asp
+*/
+:root {
+  --color-active: #ffde57;
+  --color-back: #002;
+  --color-link: lightsteelblue;
+  --color-text: aliceblue;
+  --color-main-back: aliceblue;
+  --color-main-link: steelblue;
+  --color-main-text: black;
+  --color-navbox: rgba(100,100,100,.5);
+  --text-shadow: 1px 1px 0 black;
+}
+a:link,
+a:visited {
+  color: var(--color-link);
+}
+a:focus,
+a:hover,
+a:active {
+  color: var(--color-active);
+}
+body {
+  background-attachment: fixed;
+  background-image:
+    radial-gradient(
+      circle farthest-corner at 0% 0%,
+      var(--color-back) 42%,
+      var(--color-main-link) 86%,
+      var(--color-main-text)
+    );
+  color: var(--color-text);
+  text-shadow: var(--text-shadow);
+}
+img {
+  background: white;
+}
+/* color main */
+main {
+  background: var(--color-main-back);
+  color: var(--color-main-text);
+  text-shadow: none;
+}
+main a:link,
+main a:visited {
+  color: var(--color-main-link);
+}
+main a:focus,
+main a:hover,
+main a:active {
+  color: var(--color-active);
+}
+main blockquote {
+  background: white;
+  color: black;
+}
+main hr {
+  border-color: var(--color-navbox);
+}
+main mark {
+  background: none;
+  color: #f00;
+}
+main pre {
+  background: black;
+  color: #ada;
+}
+main table,
+main table thead {
+  background: white;
+  color: black;
+}
+main table tr:nth-child(odd){
+  background: #dadada;
+}
+/* color nav */
+nav a[href="#"] {
+  color: var(--color-active);
+}
+nav details {
+  background: var(--color-navbox);
+  border-color: var(--color-navbox);
+}
+nav details:focus,
+nav details:hover {
+  border-color: var(--color-active);
+}
+/* color others */
+#icons,
+#jump,
+#klf {
+  background: none;
+}
+/*
+Display behavior: block, inline, none, etc.
+https://www.w3schools.com/css/css_display_visibility.asp
+*/
+body {
+  display: grid;
+}
+/* display main */
+main cite,
+main iframe {
+  display: block;
+}
+main dl dd {
+  display: list-item;
+}
+/* display nav */
+nav a,
+nav details,
+nav summary {
+  display: block;
+}
+/* display others */
+#icons img {
+  display: block;
+}
+#jump a {
+  display: inline-block;
+}
+#klf address {
+  display: inline-block;
+}
+/*
+Margin, padding, and size in relative units: em, rem, vh, etc.
+https://www.w3schools.com/css/css_units.asp
+*/
+:root {
+  --marge-icons: 1rem auto;
+  --marge-large: 1rem auto;
+  --marge-small: .5rem auto;
+  --padme: .25rem .5rem;
+  --puffy: .5rem 1rem;
+  --size-icons: 1.5rem;
+}
+body {
+  margin: 2vh auto 0 auto;
+  max-width: 86rem;
+  min-height: 98vh;
+  overflow-y: scroll;
+}
+/* embiggen main */
+main {
+  padding: var(--puffy);
+}
+main blockquote,
+main pre {
+  margin: var(--marge-large);
+  max-width: 100%;
+  overflow: auto;
+  padding: var(--puffy);
+}
+main dt,
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  margin: var(--marge-large);
+}
+main figure,
+main .gallery,
+main hr,
+main iframe {
+  margin: var(--marge-small);
+}
+main table {
+  margin: var(--marge-large);
+  overflow: auto;
+  padding: 0;
+  width: 100%;
+}
+main table td,
+main table th {
+  padding: var(--padme);
+}
+/* embiggen nav */
+nav {
+  padding: var(--puffy);
+}
+nav a,
+nav details {
+  margin: var(--marge-small);
+}
+nav details {
+  padding: var(--padme);
+}
+/* embiggen others */
+#icons,
+#jump,
+#klf {
+  padding: var(--puffy);
+}
+#icons img {
+  height: var(--size-icons);
+  margin: var(--marge-icons);
+  width: var(--size-icons);
+}
+#jump a {
+  width: 100%;
+}
+#klf address {
+  margin: 0 1em;
+}
+/*
+Font family, size, weight, etc.
+https://www.w3schools.com/css/css_font.asp
+*/
+html {
+  font-family: Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1.25;
+}
+@media all and (max-width: 800px) {
+  html {
+    font-size: 2vw;
+  }
+}
+a {
+  text-decoration: none;
+}
+/* font main */
+main blockquote {
+  font-family: Palatino, serif;
+}
+main code,
+main kbd,
+main samp,
+main pre,
+main var {
+  font-family:"Lucida Console", Monaco, monospace;
+  font-size: .8rem;
+}
+main dt {
+  font-weight: bold;
+}
+/* font nav */
+nav a[rel="home"] {
+  font-size: 1.5rem;
+}
+/* font others */
+#icons,
+#jump,
+#klf {
+  font-size: .75rem;
+}
+/*
+Grid layout for each page.
+https://www.w3schools.com/css/css_grid.asp
+*/
+body {
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  grid-template-areas:
+    'nav main icons'
+    'klf klf  jump';
+  grid-template-columns: 1fr 5fr auto;
+  grid-template-rows: 1fr auto;
+}
+main {
+  grid-area: main;
+}
+nav {
+  grid-area: nav;
+}
+#icons {
+  grid-area: icons;
+}
+#jump {
+  grid-area: jump;
+}
+#klf {
+  grid-area: klf;
+}

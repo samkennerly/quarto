@@ -1,0 +1,5 @@
+{
+  "meta": {"description": "CSS style test for Quarto's \"adrift\" style."},
+  "styles": ["adrift.css"],
+  "title": "Adrift style"
+}

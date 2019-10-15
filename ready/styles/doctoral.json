@@ -1,0 +1,5 @@
+{
+  "meta": {"description": "CSS style test for Quarto's \"doctoral\" style."},
+  "styles": ["doctoral.css"],
+  "title": "Doctoral style"
+}
