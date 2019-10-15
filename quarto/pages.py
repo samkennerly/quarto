@@ -12,20 +12,19 @@ class Pages(Mapping):
 
     Generate web pages from HTML fragments.
 
-    Pages is a callable, ordered, immutable Mapping.
-    Keys are absolute Path objects to text files with .html suffix.
-    Values are HTML strings generated lazily and never cached.
+    Pages is an ordered, immutable { pathlib.Path: str } Mapping.
+    Each key is an absolute path to the <main> element of a web page.
+    Each value is a finished web page. Values are generated lazily.
 
-    Initialize Pages with a folder containing .html files.
-    Pages searches recursively for .html files in that folder.
-    Each file is used as the <main> element of one HTML page.
+    Initialize a Pages object with a base folder.
+    Pages accepts absolute or relative path-like objects.
 
-    Pages accepts absolute or relative paths as str or pathlib.Path objects.
-    An index.html file must exist. All other files are optional.
+    Pages looks for newline-separated raw page paths in "pages.txt".
+    If that file does not exist, then it finds .html files recursively.
 
     Page options (title, description, etc.) may be stored in JSON files.
-    Options must have the same path as their page, but with a .json suffix.
-    If index.json exists, its values are defaults for all missing page options.
+    If index.json exists, then its values are defaults for all page options.
+    Each JSON file must have the same path as its page, but with a .json suffix.
 
     Call help(Pages) for more information.
     """
