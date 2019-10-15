@@ -1,5 +1,6 @@
 ASAP:
   - finish pages (see preprint/outline.txt)
+  - rename target -> test ?
   - move site to neocities
   - quarto/export: sync target to neocities account?
 
