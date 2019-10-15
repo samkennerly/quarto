@@ -32,7 +32,7 @@ class Pages(Mapping):
 
     OPTIONS = "index.json"
     PATHS = "pages.txt"
-    QURL = "https://github.com/samkennerly/quarto"
+    QHOME = "https://github.com/samkennerly/quarto"
 
     def __init__(self, folder="."):
         self.folder = self.validpath(folder)
@@ -193,7 +193,7 @@ class Pages(Mapping):
         Iterator[str]: Copyright, license, and final elements.
         They're justified, and they're ancient. I hope you understand.
         """
-        QURL = self.QURL
+        QHOME = self.QHOME
 
         yield '<section id="klf">'
         if copyright:
@@ -203,7 +203,7 @@ class Pages(Mapping):
         if email:
             yield f"<address>{email}</address>"
         if qlink:
-            yield f'<a href="{QURL}" rel="generator">{qlink}</a>'
+            yield f'<a href="{QHOME}" rel="generator">{qlink}</a>'
         yield "</section>"
 
     def links(self, page, base="", favicon="", styles=(), **kwargs):
