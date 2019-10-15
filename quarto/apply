@@ -6,11 +6,11 @@ from pages import Pages
 
 opt = ArgumentParser()
 opt.description = "Apply selected style to built pages."
-opt.add_argument("STYLE", default="style", nargs="?",
-    help="read CSS files from this folder"
+opt.add_argument(
+    "STYLE", default="style", nargs="?", help="Read CSS files from this folder."
 )
-opt.add_argument("SHEET", default="target/style.css", nargs="?",
-    help=f"save CSS to this file path"
+opt.add_argument(
+    "SHEET", default="target/style.css", nargs="?", help=f"Save CSS to this file."
 )
 opt = opt.parse_args()
 

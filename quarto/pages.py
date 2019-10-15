@@ -6,6 +6,7 @@ from posixpath import join as posixjoin
 from subprocess import run
 from urllib.parse import quote, urlsplit
 
+
 class Pages(Mapping):
     """
     Pages(folder=".")
@@ -28,6 +29,7 @@ class Pages(Mapping):
 
     Call help(Pages) for more information.
     """
+
     OPTIONS = "index.json"
     PATHS = "pages.txt"
     QURL = "https://github.com/samkennerly/quarto"
@@ -73,7 +75,7 @@ class Pages(Mapping):
     @classmethod
     def apply(cls, style, sheet):
         """ None: Cat CSS files from style folder and write to one file. """
-        cls.write(''.join(cls.stylecat(style)), sheet)
+        cls.write("".join(cls.stylecat(style)), sheet)
 
     def build(self, target):
         """ None: Generate each page and write to target folder. """

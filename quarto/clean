@@ -6,11 +6,11 @@ from pages import Pages
 
 opt = ArgumentParser()
 opt.description = "Clean HTML files and extract <body> elements."
-opt.add_argument("DIRTY", default="ready", nargs="?",
-    help="read dirty HTML files from this folder"
+opt.add_argument(
+    "DIRTY", default="ready", nargs="?", help="Read dirty pages from this folder."
 )
-opt.add_argument("CLEAN", default="ready", nargs="?",
-    help="save clean HTML files to this folder"
+opt.add_argument(
+    "CLEAN", default="ready", nargs="?", help="Save clean pages to this folder."
 )
 opt = opt.parse_args()
 
