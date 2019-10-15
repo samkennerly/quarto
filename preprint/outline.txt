@@ -1,0 +1,43 @@
+index:
+  - Quarto builds websites.
+  - get repo. requires Python3. optional Tidy 5.
+  - build this website
+  - build your own website
+
+about:
+  - like a book
+  - behind the scenes
+  - quartos are:
+    - : few dependencies
+    - clean: no frameworks, few dependencies. (link 500 Lines Bootstrap)
+    - small: small files, less code. (get from FAQ)
+    - quick:
+  - about me
+
+boxes:
+  - <nav> menu
+  - flat <nav>
+  - nested <nav>
+  - page names
+  - relative paths
+  - you are here
+
+cat_pics:
+  octocats:
+    - gallery (no thumbnails)
+  penelope:
+    - gallery (yes thumbnails)
+
+docs:
+  options:
+  Pages_class:
+  scripts:
+
+examples:
+  - adrift (gradient)
+  - burning (vector image)
+  - celestial (bitmap image)
+  - doctoral (solid)
+
+faq:
+  - <dl> or <details> boxes?

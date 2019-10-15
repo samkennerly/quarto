@@ -1,12 +1,9 @@
 ASAP:
-  - finish boxes/can/be/nested.html
-  - finish index.html
-  - finish docs
-  - finish faq
+  - finish pages (see preprint/outline.txt)
   - move site to neocities
   - quarto/export: sync target to neocities account?
 
-QUARTO:
+CODE:
   - Google search bar?
   - markdown: use mistune.py ?
   - three.js example script
@@ -15,7 +12,7 @@ QUARTO:
   - tidylib C bindings (not subprocess)
   - Bottle or Flask demo app?
 
-README:
+DOCS:
   - no install required
   - no __init__.py, __main__.py, setup.py, sys.path, PYTHONPATH, pip, venv
   - folders: { quarto: code, HTML: ready, CSS: style, media: target }
@@ -23,13 +20,9 @@ README:
   - gotcha: spaces & weird chars in filenames
   - gotcha: can't delete empty folders because .DS_Store
   - gotcha: Tidy deletes head elements (including <style> tag(s)?)
-  - standard workflow:
-    0: quarto/delete
-    1: quarto/clean
-    2: quarto/build
-    3: quarto/apply style/doctoral
 
 STYLES:
+  - style all <details> boxes, not just nav details
   - <div class="waffle"> for square galleries?
   - elemental: browser defaults
   - fatuous: ties the room together
