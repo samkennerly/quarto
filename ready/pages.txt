@@ -6,8 +6,8 @@ cat_pics/penelope.html
 docs/quickstart.html
 docs/scripts.html
 docs/options.html
-styles/adrift.html
-styles/burning.html
-styles/celestial.html
-styles/doctoral.html
+examples/adrift.html
+examples/burning.html
+examples/celestial.html
+examples/doctoral.html
 faq.html
