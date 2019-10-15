@@ -1,5 +1,4 @@
 ASAP:
-  - test multiple stylesheets for examples/
   - finish boxes/can/be/nested.html
   - finish index.html
   - finish docs
