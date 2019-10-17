@@ -2,28 +2,21 @@ ASAP:
   - finish pages (see preprint/outline.txt)
   - rename target -> test ?
   - move site to neocities
-  - quarto/export: sync target to neocities account?
+  - quarto image to DockerHub
 
 CODE:
+  - quarto/export: sync target to neocities account?
   - Google search bar?
   - markdown: use mistune.py ?
   - three.js example script
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
   - tidylib C bindings (not subprocess)
-  - Bottle or Flask demo app?
-
-DOCS:
-  - no install required
-  - no __init__.py, __main__.py, setup.py, sys.path, PYTHONPATH, pip, venv
-  - folders: { quarto: code, HTML: ready, CSS: style, media: target }
-  - delete Dockerfile, kitchen if you don't want Docker
-  - gotcha: spaces & weird chars in filenames
-  - gotcha: can't delete empty folders because .DS_Store
-  - gotcha: Tidy deletes head elements (including <style> tag(s)?)
+  - Bottle or Flask demo app? Caddy?
 
 STYLES:
   - style all <details> boxes, not just nav details
+  - dl, ul, ol {list-style-type: "⟳🐈Ⓠ";} or li:before {content: ""⟳🐈Ⓠ"}
   - <div class="waffle"> for square galleries?
   - elemental: browser defaults
   - fatuous: ties the room together
