@@ -85,13 +85,12 @@ class Pages(Mapping):
             path = target / path.relative_to(self).with_suffix(".html")
             write(text, path)
 
-    def clean(self, ready):
-        """ None: Save cleaned page bodies to ready folder. """
-        tidy = self.tidy
-        ready = self.validpath(ready)
+    def clean(self, target):
+        """ None: Save clean page <body> contents to target folder. """
+        target = self.validpath(target)
+        tidybody = self.tidybody
         for dirty in self:
-            clean = ready / dirty.relative_to(self)
-            tidy(dirty, clean)
+            tidybody(dirty, target / dirty.relative_to(self))
 
     @classmethod
     def delete(cls, suffix, target):
@@ -320,7 +319,7 @@ class Pages(Mapping):
         return cls.readlines(*sorted(cls.validpath(style).glob("*.css")))
 
     @classmethod
-    def tidy(cls, dirty, clean):
+    def tidybody(cls, dirty, clean):
         """ None: Clean raw HTML page and save. Requires HTML Tidy >= 5. """
         dirty, clean = Path(dirty), Path(clean)
 
@@ -335,7 +334,7 @@ class Pages(Mapping):
         clean.parent.mkdir(exist_ok=True, parents=True)
         status = run(cmds).returncode
         if status and (status != 1):
-            raise ChildProcessError("Tidy returned {}".format(status))
+            raise ChildProcessError("Tidy error status {}".format(status))
 
     @classmethod
     def urlpath(cls, page, src):
@@ -364,9 +363,9 @@ class Pages(Mapping):
     @classmethod
     def write(cls, text, path):
         """ None: Write text to selected path. """
-        path = Path(path)
+        path, text = Path(path), str(text)
 
         print("Write", path)
         path.parent.mkdir(exist_ok=True, parents=True)
         with open(path, "w") as file:
-            file.write(str(text))
+            file.write(text)
