@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Quarto builds websites.
+</title>
+<link rel="canonical" href="https://quarto.neocities.org/boxes/can/be/nested.html">
+<link rel="icon" href="../../../favicon.ico">
+<link rel="stylesheet" href="../../../style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Sam Kennerly">
+<meta name="description" content="Build websites with Python 3 and Tidy.">
+<meta name="keywords" content="html, css, lean web, python, static website, tidy">
+</head>
+<body>
+<nav>
+<a href="../../../index.html" rel="home">Quarto</a>
+<a href="../../../about.html">about</a>
+<details open><summary>boxes</summary>
+<details open><summary>can</summary>
+<details open><summary>be</summary>
+<a href="#">nested</a>
+</details>
+</details>
+</details>
+<details><summary>cat pics</summary>
+<a href="../../../cat_pics/octocats.html">octocats</a>
+<a href="../../../cat_pics/penelope.html">penelope</a>
+</details>
+<details><summary>docs</summary>
+<a href="../../../docs/quickstart.html">quickstart</a>
+<a href="../../../docs/scripts.html">scripts</a>
+<a href="../../../docs/options.html">options</a>
+</details>
+<details><summary>examples</summary>
+<a href="../../../examples/adrift.html">adrift</a>
+<a href="../../../examples/burning.html">burning</a>
+<a href="../../../examples/celestial.html">celestial</a>
+<a href="../../../examples/doctoral.html">doctoral</a>
+</details>
+<a href="../../../faq.html">faq</a>
+</nav>
+<main>
+<h1>Navigation</h1>
+Quarto builds a &lt;nav&gt; menu on each page. Each element inside &lt;nav&gt; is either:
+<ol>
+<li>a link to a page, or</li>
+
+<li>a &lt;details&gt; box representing a folder.</li>
+</ol>
+Click on a box to open or close it. Refreshing a page closes all boxes except that page's parents.
+
+<hr>
+
+<hr>
+
+<hr>
+
+<hr>
+
+<hr>
+
+<hr>
+
+<h2>flat &lt;nav&gt;</h2>
+Quarto respects your site's <a href="https://en.wikipedia.org/wiki/Directory_structure">folder structure</a>. If your <code>ready</code> folder looks like this:
+
+<pre>
+ready
+├── eggs.html
+├── grail.html
+├── index.html
+└── spam.html
+</pre>
+then the pages on your site will be:
+
+<pre>
+https://your-domain.org/eggs.html
+https://your-domain.org/grail.html
+https://your-domain.org/index.html
+https://your-domain.org/spam.html
+</pre>
+Each page will have a <q>flat</q> &lt;nav&gt; menu with no boxes:
+<ul>
+<li>an <mark>index</mark> link to <code>index.html</code></li>
+
+<li>an <mark>eggs</mark> link to <code>eggs.html</code></li>
+
+<li>a <mark>grail</mark> link to <code>grail.html</code></li>
+
+<li>a <mark>spam</mark> link to <code>spam.html</code></li>
+</ul>
+
+<details>
+<summary>Q TIP: Page Order</summary>
+Quarto sorts page paths <a href="https://en.wikipedia.org/wiki/Lexicographical_order">lexicographically</a> and moves <code>index.html</code> to the front of the queue. You can manually override this behavior with a <a href="#pages.txt">pages.txt</a> file.</details>
+
+<hr>
+
+<hr>
+
+<hr>
+
+<hr>
+
+<hr>
+
+<hr>
+
+<hr>
+
+<h2>nested &lt;nav&gt;</h2>
+If the same pages are organized into folders like this:
+
+<pre>
+ready
+├── index.html
+└── quests
+    ├── breakfast
+    │   ├── eggs.html
+    │   └── spam.html
+    └── grail.html
+</pre>
+then Quarto will build these pages in the <code>target</code> folder:
+
+<pre>
+target/index.html
+target/quests/breakfast/eggs.html
+target/quests/breakfast/spam.html
+target/quests/grail.html
+</pre>
+The pages on the actual website will be:
+
+<pre>
+https://your-domain.org/index.html
+https://your-domain.org/quests/breakfast/eggs.html
+https://your-domain.org/quests/breakfast/spam.html
+https://your-domain.org/quests/grail.html
+</pre>
+and each page with have a <q>nested</q> &lt;nav&gt; menu with:
+<ul>
+<li>a link to <code>index.html</code></li>
+
+<li>a box labeled <code>quests</code> containing:
+
+<ul>
+<li>a box labeled <code>breakfast</code> containing:
+
+<ul>
+<li>a link to <code>quests/breakfast/eggs.html</code></li>
+
+<li>a link to <code>quests/breakfast/spam.html</code></li>
+</ul></li>
+
+<li>a link to <code>quests/grail.html</code></li>
+</ul></li>
+</ul>
+
+<h2>file and folder names</h2>
+<a href="https://docs.python.org/3/library/urllib.parse.html#urllib.parse.quote">quoted</a>
+<h2>intermission</h2>
+Here is a video for nested-box enthusiasts:
+<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/bQmli3Y760Q" allowfullscreen="true">DIY Outdoor Cat Shelter</iframe>
+<figcaption>from <a href="https://www.alleycat.org/">Alley Cat Allies</a></figcaption>
+</figure>
+The rest of this page is mostly boring technical details.
+<h2 id="pages.txt">pages.txt</h2>
+To build &lt;nav&gt; menus, Quarto needs to know the path to every page in your site. Quarto looks for a <code>pages.txt</code> file in the <code>ready</code> folder. Quarto finds pages <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob">recursively</a>, so it will look inside subfolders of (subfolders of (subfolders of ( ... ))) if necessary.
+<h2>relative paths</h2>
+To avoid <a href="https://github.com/jekyll/jekyll/issues/5482">difficulties</a> <a href="https://github.com/jekyll/jekyll/issues/5488">with</a> <a href="https://github.com/jekyll/jekyll/issues/5743">previewing</a> <a href="https://github.com/jekyll/jekyll/issues/5895">websites</a> <a href="https://github.com/jekyll/jekyll/issues/6034">before</a> <a href="https://github.com/jekyll/jekyll/issues/6360">uploading</a> <a href="https://github.com/jekyll/jekyll/issues/7621">them</a>, Quarto builds &lt;nav&gt; menus with <a href="https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2">relative URLs</a>. Links that work when you preview files <a href="https://www.lifewire.com/how-to-preview-web-pages-3469885">locally</a> <del>will</del> should not break when you upload them to a web server.
+<h2>you are here</h2>
+Each &lt;nav&gt; menu includes one link from the current page to itself. Quarto replaces the <a href="https://en.wikipedia.org/wiki/URL">URL</a> for that link with a <code>#</code> symbol. This <a href="https://stackoverflow.com/questions/4855168/what-is-href-and-why-is-it-used">blank anchor</a> is not a true
+</main>
+<section id="icons">
+<a href="../../../about.html" rel="prev">◄◄</a>
+<a href="https://github.com/samkennerly/quarto/"><img alt="GitHub" src="../../../media/icons/github.svg" height="32" title="GitHub"></a>
+<a href="https://neocities.org/"><img alt="Neocities" src="../../../media/icons/neocities.svg" height="32" title="Neocities"></a>
+<a href="https://www.python.org/"><img alt="Python" src="../../../media/icons/python.svg" height="32" title="Python"></a>
+<a href="http://www.html-tidy.org/"><img alt="Tidy" src="../../../media/icons/tidy.png" height="32" title="Tidy"></a>
+<a href="../../../cat_pics/octocats.html" rel="next">►►</a>
+</section>
+<section id="jump">
+<a href="#" id="updog">⇪</a>
+</section>
+<section id="klf">
+<span id="copyright">© Sam Kennerly 2019.</span>
+<a href="https://creativecommons.org/licenses/by/4.0" rel="license">Licensed under a CC BY 4.0 license.</a>
+<address>samkennerly@gmail.com</address>
+<a href="https://github.com/samkennerly/quarto" rel="generator">Built by a Quarto.</a>
+</section>
+</body>
+</html>
