@@ -1,43 +1,88 @@
-index:
-  - Quarto builds websites.
-  - get repo. requires Python3. optional Tidy 5.
-  - build this website
-  - build your own website
+# Quarto builds websites.
 
-about:
-  - like a book
-  - behind the scenes
-  - quartos are:
-    - : few dependencies
-    - clean: no frameworks, few dependencies. (link 500 Lines Bootstrap)
-    - small: small files, less code. (get from FAQ)
-    - quick:
-  - about me
+What problem does this solve?
 
-boxes:
-  - <nav> menu
-  - flat <nav>
-  - nested <nav>
-  - page names
-  - relative paths
-  - you are here
+## Copy this website.
 
-cat_pics:
-  octocats:
-    - gallery (no thumbnails)
-  penelope:
-    - gallery (yes thumbnails)
+How do I get Quarto?
+delete Dockerfile, kitchen if you don't want Docker
+open target/index.html in a browser
+There are many like it, but this one is yours.
 
-docs:
-  options:
-  Pages_class:
-  scripts:
+## Edit this website.
 
-examples:
-  - adrift (gradient)
-  - burning (vector image)
-  - celestial (bitmap image)
-  - doctoral (solid)
+### Edit the style
+Try all the styles at once.
+Oops. Try style/celestial.
 
-faq:
-  - <dl> or <details> boxes?
+### Edit the options
+Replace my name with yours (or William Shakespeare)
+Don't want to show email? Delete it.
+Delete the whole file if you want to.
+
+### Edit the home page
+Delete everything from index.html.
+Add this tag: <img src="media/quarto.svg">
+Clean all pages. Tidy will warn that <img> is missing "alt".
+Edit the tag: <img alt="Quarto logo" src="media/quarto.svg">
+
+### Edit all the pages
+Delete everything from the ready/ folder except index.html and index.json.
+Add hamlet.html with this text: To be or not to be? Ay, there’s the point.
+Add hamlet.json with a title and description.
+Update pages.txt, or delete it and use auto pages.
+
+## Build a new website.
+
+### quarto/delete
+Q TIP: can't delete empty folders because .DS_Store
+
+### quarto/clean
+Q TIP: Tidy deletes <head> elements
+
+### quarto/build
+
+### quarto/apply
+
+## Publish your website.
+
+Upload to Neocities or some other host.
+
+
+# About Quarto (see FAQ)
+
+## Quartos are lazy
+- Apply style once. No "compiling" CSS.
+- Build site once. No server.
+- Clean pages once. No caches.
+- Delete pages once. No busy loops.
+- Export large files once: when you upload them.
+
+## Quartos are small
+- see FAQ
+
+## Quartos are clean
+- No install, shims, .bash_profile, ENV.
+- no __init__.py, __main__.py, setup.py, sys.path, PYTHONPATH, pip, venv
+- No state except files.
+
+## Quartos are independent
+- Quarto does not read or write outside its folder.
+- No frameworks, packages, external styles, scripts.
+- No languages except HTML5, CSS, Python, ANSI C.
+
+
+# <nav> boxes
+
+## flat <nav>
+## nested <nav>
+## relative paths
+## you are here
+## file and folder names
+- Q TIP: Unsafe Characters
+
+# cat_pics / Octocats gallery
+# cat_pics / Penelope gallery
+# docs / options
+# docs / pages.py
+# docs / scripts
