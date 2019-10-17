@@ -1,50 +1,50 @@
-# Quarto builds websites.
+# Build websites quickly.
 
 What problem does this solve?
 
-## Copy this website.
+## Copy this quarto.
 
-How do I get Quarto?
-delete Dockerfile, kitchen if you don't want Docker
-open target/index.html in a browser
+GitHub template OR download ZIP
 There are many like it, but this one is yours.
+delete Dockerfile, kitchen if you don't want Docker
+open test/index.html in a browser
 
-## Edit this website.
+## Edit your quarto.
 
-### Edit the style
+### Change the style
 Try all the styles at once.
 Oops. Try style/celestial.
 
-### Edit the options
-Replace my name with yours (or William Shakespeare)
+### Update the options
+Replace my name with yours (or Will Shakespeare)
 Don't want to show email? Delete it.
 Delete the whole file if you want to.
 
-### Edit the home page
+### Rewrite the home page
 Delete everything from index.html.
 Add this tag: <img src="media/quarto.svg">
 Clean all pages. Tidy will warn that <img> is missing "alt".
 Edit the tag: <img alt="Quarto logo" src="media/quarto.svg">
 
-### Edit all the pages
+### Delete all the pages
 Delete everything from the ready/ folder except index.html and index.json.
 Add hamlet.html with this text: To be or not to be? Ay, there’s the point.
 Add hamlet.json with a title and description.
-Update pages.txt, or delete it and use auto pages.
+Update pages.txt, or delete it and use automatic pages.
 
-## Build a new website.
+## Write a new quarto.
 
-### quarto/delete
+### quire/delete
 Q TIP: can't delete empty folders because .DS_Store
 
-### quarto/clean
+### quire/clean
 Q TIP: Tidy deletes <head> elements
 
-### quarto/build
+### quire/build
 
-### quarto/apply
+### quire/apply
 
-## Publish your website.
+## Publish your quarto.
 
 Upload to Neocities or some other host.
 
@@ -60,6 +60,7 @@ Upload to Neocities or some other host.
 
 ## Quartos are small
 - see FAQ
+- no Ten-Ton Widgets https://css-tricks.com/ten-ton-widgets/
 
 ## Quartos are clean
 - No install, shims, .bash_profile, ENV.
@@ -67,7 +68,7 @@ Upload to Neocities or some other host.
 - No state except files.
 
 ## Quartos are independent
-- Quarto does not read or write outside its folder.
+- Quartos do not read or write outside its folder unless you tell them to.
 - No frameworks, packages, external styles, scripts.
 - No languages except HTML5, CSS, Python, ANSI C.
 
@@ -79,10 +80,6 @@ Upload to Neocities or some other host.
 ## relative paths
 ## you are here
 ## file and folder names
-- Q TIP: Unsafe Characters
-
-# cat_pics / Octocats gallery
-# cat_pics / Penelope gallery
-# docs / options
-# docs / pages.py
-# docs / scripts
+Underscores -> spaces
+Quoted URLs and special characters
+Quartos preserve caps, but your computer might not.
