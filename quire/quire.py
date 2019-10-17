@@ -82,14 +82,14 @@ class Quire(Mapping):
 
         target = validpath(target)
         for path, text in items():
-            write(text, target / path.relative_to(self).with_suffix('.html'))
+            write(text, target / path.relative_to(self).with_suffix(".html"))
 
     @classmethod
     def clean(cls, source, target):
         """ None: Save clean page <body> contents to target folder. """
         tidybody, validpath = cls.tidybody, cls.validpath
 
-        source, target = map(validpath, (source,target))
+        source, target = map(validpath, (source, target))
         for dirty in source.rglob("*.html"):
             tidybody(dirty, target / dirty.relative_to(source))
 
