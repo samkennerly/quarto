@@ -8,7 +8,7 @@ opt = ArgumentParser()
 opt.description = "Apply selected style to built pages."
 arg = opt.add_argument
 arg("STYLE", default="style", nargs="?", help="Read CSS files from this folder.")
-arg("SHEET", default="test/style.css", nargs="?", help=f"Save CSS to this file.")
+arg("SHEET", default="proof/style.css", nargs="?", help=f"Save CSS to this file.")
 opt = opt.parse_args()
 
 print(f"A {opt.STYLE} by any other name would style as {opt.SHEET}.")

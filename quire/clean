@@ -12,5 +12,5 @@ arg("CLEAN", default="ready", nargs="?", help="Write pages to this folder.")
 opt = opt.parse_args()
 
 print(f"This above all: in thine {opt.CLEAN} folder be Tidy.")
-Quire(opt.DIRTY).clean(opt.CLEAN)
+Quire.clean(opt.DIRTY,opt.CLEAN)
 print("Exeunt.")
