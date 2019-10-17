@@ -34,7 +34,7 @@ class Quire(Mapping):
     QHOME = "https://github.com/samkennerly/quarto"
 
     def __init__(self, folder="."):
-        self.folder = self.validpath(folder)
+        self.folder = Path(folder).resolve()
         self._home = None
         self._options = None
         self._pages = None
@@ -78,26 +78,28 @@ class Quire(Mapping):
 
     def build(self, target):
         """ None: Generate each page and write to target folder. """
-        write = self.write
-        target = self.validpath(target)
-        for path, text in self.items():
-            write(text, target / path.relative_to(self).with_suffix(".html"))
+        items, validpath, write = self.items, self.validpath, self.write
+
+        target = validpath(target)
+        for path, text in items():
+            write(text, target / path.relative_to(self).with_suffix('.html'))
 
     @classmethod
     def clean(cls, source, target):
         """ None: Save clean page <body> contents to target folder. """
-        source = cls.validpath(source)
-        target = cls.validpath(target)
-        tidybody = cls.tidybody
+        tidybody, validpath = cls.tidybody, cls.validpath
+
+        source, target = map(validpath, (source,target))
         for dirty in source.rglob("*.html"):
             tidybody(dirty, target / dirty.relative_to(source))
 
     @classmethod
     def delete(cls, suffix, target):
         """ None: Remove files with selected suffix and any empty folders. """
-        target = cls.validpath(target)
-        pattern = "*." + suffix.lstrip(".")
-        for path in target.rglob(pattern):
+        validpath = cls.validpath
+
+        target = validpath(target)
+        for path in target.rglob("*." + suffix.lstrip(".")):
             print("Delete", path)
             path.unlink()
 
@@ -316,7 +318,7 @@ class Quire(Mapping):
     @classmethod
     def stylecat(cls, style):
         """ Iterator[str]: Concatenate CSS files in style folder. """
-        return cls.readlines(*sorted(cls.validpath(style).glob("*.css")))
+        return cls.readlines(*sorted(Path(style).rglob("*.css")))
 
     @classmethod
     def tidybody(cls, dirty, clean):
@@ -356,9 +358,7 @@ class Quire(Mapping):
     @classmethod
     def validpath(cls, path):
         """ Path: Absolute path. Raise error if path does not exist. """
-        path = Path(path)
-
-        return path if path.is_absolute() else path.resolve(strict=True)
+        return Path(path).resolve(strict=True)
 
     @classmethod
     def write(cls, text, path):

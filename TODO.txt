@@ -1,5 +1,4 @@
 ASAP:
-  - remove validpath, write
   - finish pages (see preprint/outline.txt)
   - rename target -> test ?
   - move site to neocities
