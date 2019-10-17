@@ -6,6 +6,7 @@ from posixpath import join as posixjoin
 from subprocess import run
 from urllib.parse import quote, urlsplit
 
+
 class Quire(Mapping):
     """
     Quire(folder=".")
@@ -27,6 +28,7 @@ class Quire(Mapping):
 
     Call help(Quire) for more information.
     """
+
     OPTIONS = "index.json"
     PAGES = "pages.txt"
     QHOME = "https://github.com/samkennerly/quarto"
@@ -87,7 +89,7 @@ class Quire(Mapping):
         source = cls.validpath(source)
         target = cls.validpath(target)
         tidybody = cls.tidybody
-        for dirty in source.rglob('*.html'):
+        for dirty in source.rglob("*.html"):
             tidybody(dirty, target / dirty.relative_to(source))
 
     @classmethod
