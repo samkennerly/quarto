@@ -2,7 +2,7 @@
 
 from argparse import ArgumentParser
 
-from pages import Pages
+from quire import Quire
 
 opt = ArgumentParser()
 opt.description = "Apply selected style to built pages."
@@ -12,5 +12,5 @@ arg("SHEET", default="test/style.css", nargs="?", help=f"Save CSS to this file."
 opt = opt.parse_args()
 
 print(f"A {opt.STYLE} by any other name would style as {opt.SHEET}.")
-Pages.apply(opt.STYLE, opt.SHEET)
+Quire.apply(opt.STYLE, opt.SHEET)
 print("Exeunt.")

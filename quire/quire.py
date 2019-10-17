@@ -6,39 +6,36 @@ from posixpath import join as posixjoin
 from subprocess import run
 from urllib.parse import quote, urlsplit
 
-
-class Pages(Mapping):
+class Quire(Mapping):
     """
-    Pages(folder=".")
+    Quire(folder=".")
 
     Generate web pages from HTML fragments.
 
-    Pages is an ordered, immutable { pathlib.Path: str } Mapping.
+    Quire is an ordered, immutable { pathlib.Path: str } Mapping.
     Each key is an absolute path to the <main> element of a web page.
     Each value is a finished web page. Values are generated lazily.
 
-    Initialize a Pages object with a base folder.
-    Pages accepts absolute or relative path-like objects.
-
-    Pages looks for newline-separated raw page paths in "pages.txt".
-    If that file does not exist, then it finds .html files recursively.
+    Initialize a Quire with a base folder.
+    Quire accepts absolute or relative path-like objects as input.
+    Quire looks for a "pages.txt" file with newline-separated page paths.
+    If "pages.txt" does not exist, then it finds .html files recursively.
 
     Page options (title, description, etc.) may be stored in JSON files.
     If index.json exists, then its values are defaults for all page options.
     Each JSON file must have the same path as its page, but with a .json suffix.
 
-    Call help(Pages) for more information.
+    Call help(Quire) for more information.
     """
-
     OPTIONS = "index.json"
-    PATHS = "pages.txt"
+    PAGES = "pages.txt"
     QHOME = "https://github.com/samkennerly/quarto"
 
     def __init__(self, folder="."):
         self.folder = self.validpath(folder)
         self._home = None
         self._options = None
-        self._paths = None
+        self._pages = None
 
     # Magic methods
 
@@ -56,11 +53,11 @@ class Pages(Mapping):
 
     def __iter__(self):
         """ Iterable[Path]: Absolute Path to each main element. """
-        return iter(self.paths)
+        return iter(self.pages)
 
     def __len__(self):
         """ int: Number of main elements found. """
-        return len(self.paths)
+        return len(self.pages)
 
     def __repr__(self):
         """ str: Printable representation of self. """
@@ -82,8 +79,7 @@ class Pages(Mapping):
         write = self.write
         target = self.validpath(target)
         for path, text in self.items():
-            path = target / path.relative_to(self).with_suffix(".html")
-            write(text, path)
+            write(text, target / path.relative_to(self).with_suffix(".html"))
 
     def clean(self, target):
         """ None: Save clean page <body> contents to target folder. """
@@ -155,14 +151,14 @@ class Pages(Mapping):
         Iterator[str]: Links drawn with JPEGs, PNGs, ICOs or even GIFs.
         Consider SVGs so there's no scaling glitch. (I love it.)
         """
-        folder, paths, urlpath = self.folder, self.paths, self.urlpath
+        folder, pages, urlpath = self.folder, self.pages, self.urlpath
 
         page = folder / page
-        i, n = paths.index(page), len(paths)
+        i, n = pages.index(page), len(pages)
 
         yield '<section id="icons">'
         if prevlink:
-            href = urlpath(page, (paths[(i - 1) % n]).with_suffix(".html"))
+            href = urlpath(page, (pages[(i - 1) % n]).with_suffix(".html"))
             yield f'<a href="{href}" rel="prev">{prevlink}</a>'
 
         for alt, src, href in icons:
@@ -171,7 +167,7 @@ class Pages(Mapping):
             yield f'<a href="{href}">{alt}</a>'
 
         if nextlink:
-            href = urlpath(page, (paths[(i + 1) % n]).with_suffix(".html"))
+            href = urlpath(page, (pages[(i + 1) % n]).with_suffix(".html"))
             yield f'<a href="{href}" rel="next">{nextlink}</a>'
         yield "</section>"
 
@@ -231,14 +227,14 @@ class Pages(Mapping):
 
     def nav(self, page, homelink="home", **kwargs):
         """ Iterator[str]: <nav> element with links to other pages. """
-        home, paths, urlpath = self.home, self.paths, self.urlpath
+        home, pages, urlpath = self.home, self.pages, self.urlpath
 
         page = home.parent / page
         opendirs = frozenset(page.parents)
         workdirs = frozenset(home.parents)
 
         yield "<nav>"
-        for p in paths:
+        for p in pages:
 
             context = workdirs
             workdirs = frozenset(p.parents)
@@ -274,27 +270,27 @@ class Pages(Mapping):
         return options
 
     @property
-    def paths(self):
+    def pages(self):
         """ Tuple[Path]: Absolute path to each page in home folder. """
-        paths = self._paths
+        PAGES, pages = self.PAGES, self._pages
 
-        if paths is None:
+        if pages is None:
             folder = self.folder
-            paths = folder / self.PATHS
-            if paths.is_file():
+            pages = folder / PAGES
+            if pages.is_file():
                 readlines = self.readlines
-                print("Find pages from", paths)
-                paths = (x.strip() for x in readlines(paths))
-                paths = tuple(folder / x for x in paths if x)
+                print("Find pages from", pages)
+                pages = (x.strip() for x in readlines(pages))
+                pages = tuple(folder / x for x in pages if x)
             else:
                 home = self.home
                 print("Find pages in", folder)
-                paths = (x for x in folder.rglob("*.html") if x != home)
-                paths = (home, *sorted(paths))
+                pages = (x for x in folder.rglob("*.html") if x != home)
+                pages = (home, *sorted(pages))
 
-            self._paths = paths
+            self._pages = pages
 
-        return paths
+        return pages
 
     @classmethod
     def query(cls, page, **kwargs):

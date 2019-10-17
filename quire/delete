@@ -2,7 +2,7 @@
 
 from argparse import ArgumentParser
 
-from pages import Pages
+from quire import Quire
 
 opt = ArgumentParser()
 opt.description = "Delete files with selected suffix recursively."
@@ -12,5 +12,5 @@ arg("TARGET", default="test", nargs="?", help="Delete files from this folder.")
 opt = opt.parse_args()
 
 print("Out, {} {}! Out, I say!".format(opt.TARGET, opt.SUFFIX))
-Pages.delete(opt.SUFFIX, opt.TARGET)
+Quire.delete(opt.SUFFIX, opt.TARGET)
 print("Exeunt.")

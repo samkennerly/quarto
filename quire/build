@@ -2,15 +2,15 @@
 
 from argparse import ArgumentParser
 
-from pages import Pages
+from quire import Quire
 
 opt = ArgumentParser()
-opt.description = "Build pages from HTML fragments."
+opt.description = "Build pages from HTML <main> elements."
 arg = opt.add_argument
-arg("READY", default="ready", nargs="?", help="Read raw pages from this folder.")
-arg("TARGET", default="test", nargs="?", help="Save full pages to this folder.")
+arg("PAGES", default="ready", nargs="?", help="Read pages from this folder.")
+arg("SITE", default="proof", nargs="?", help="Save pages to this folder.")
 opt = opt.parse_args()
 
-print(f"O brave new {opt.TARGET} that has {opt.READY} pages in it!")
-Pages(opt.READY).build(opt.TARGET)
+print(f"O brave new {opt.SITE} that has {opt.PAGES} pages in it!")
+Quire(opt.PAGES).build(opt.SITE)
 print("Exeunt.")

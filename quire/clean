@@ -2,7 +2,7 @@
 
 from argparse import ArgumentParser
 
-from pages import Pages
+from quire import Quire
 
 opt = ArgumentParser()
 opt.description = "Clean HTML files and extract <body> elements."
@@ -12,5 +12,5 @@ arg("CLEAN", default="ready", nargs="?", help="Write pages to this folder.")
 opt = opt.parse_args()
 
 print(f"This above all: in thine {opt.CLEAN} folder be Tidy.")
-Pages(opt.DIRTY).clean(opt.CLEAN)
+Quire(opt.DIRTY).clean(opt.CLEAN)
 print("Exeunt.")
