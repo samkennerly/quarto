@@ -1,50 +1,115 @@
 <h1>Quarto builds websites.</h1>
+Quarto is:
 
+<hr>
+Quarto is designed to:
+<ul>
+<li>build lean websites quickly</li>
 
+<li>help beginners learn HTML and CSS</li>
 
+<li>be modified, extended, and included in other projects</li>
 
-<h2>get quarto</h2>
+<li>avoid installing <a href="https://chriswarrick.com/blog/2019/02/15/modern-web-development-where-you-need-500-packages-to-build-bootstrap/">500 packages</a> and a <a href="https://medium.com/@mattholt/its-2019-and-i-still-make-websites-with-my-bare-hands-73d4eec6b7">500MB framework</a> to build a <a href="https://motherfuckingwebsite.com/">5kB page</a></li>
+</ul>
+Quarto scripts require <a href="">Python 3.6+</a>. The <code>clean</code> script requires <a href="">Tidy 5+</a>.
+<h2>Copy this project.</h2>
 
-<h3>folders</h3>
+<h2>Change this project.</h2>
+
+<h2>Build a new project.</h2>
+
+<h2>Publish your website.</h2>
+
+<hr>
+Here's how to get one:
 <dl>
+<dt>with GitHub:</dt>
 
-<dt>preprint</dt>
-<dd>
-This folder is for drafts, notes, outlines, etc.
-<dd>
-Delete this folder if you don't want it.
-<dd>
-Quarto never looks here unless you say so.
+<dd>Login to GitHub and go to the <a href="https://github.com/samkennerly/quarto">quarto repo</a>.</dd>
 
-<dt>quarto</dt>
-<dd>
-Source code is here. Edit these files to customize Quarto itself.
-<dd>
-If you don't want to write Python code, that's OK! Don't edit these files.
-<dd>
-To use someone else's Quarto, copy their <code>quarto</code> folder here.
+<dd>Click the big green <q>Use this template</q> button.</dd>
 
-<dt>ready</dt>
-<dd>
-Pages go here. Quarto reads from this folder when it builds a site.
-<dd>
-Pages can be any
-<dd>
-The <code>clean</code> script <mark>overwrites</mark> files here.
+<dd>Create a new repo named <code>badquarto</code>.</dd>
 
+<dd>Clone the <code>badquarto</code> repo to your local machine.</dd>
 
+<dt>without GitHub:</dt>
 
-<dt>style</dt>
-<dt>target</dt>
+<dd>Go to the <a href="https://github.com/samkennerly/quarto">quarto repo</a>.</dd>
+
+<dd>Click the big green <q>Clone or download</q> button.</dd>
+
+<dd>Click <q>Download ZIP</q>, save the file, and unzip it to create a folder.</dd>
+
+<dd>Rename the folder <code>badquarto</code> and drag it to wherever you want it.</dd>
 </dl>
 
+<ul>
+<li>1 <a href="">static</a> website</li>
+
+<li>4 <a href="">CSS</a> styles</li>
+
+<li>4 Python <a href="">scripts</a></li>
+
+<li>1 Python <a href="">module</a></li>
+</ul>
+Quarto's pages, styles, and all other files are contained in one folder. Quarto never modifies files outside its folder unless you tell it to. Multiple Quartos can exist on one machine without conflicts. To <q>uninstall</q> Quarto, delete its folder.
+
+<hr>
 
 <h2>build a website</h2>
+Open a terminal and <code>cd</code> to wherever you put the Quarto folder.
+<details>
+<summary>Q TIP: Working Directory</summary>
+Quarto scripts accept optional command-line arguments. By default, scripts assume they have been called from</details>
+The <code>target</code> folder is now a <a href="">static website</a>. To publish it, copy that folder to a <a href="">web hosting service</a>. This site uses <a href="">neocities.org</a>, a non-profit which offers free and low-cost web hosting.
+<details>
+<summary>Q TIP: Dynamic Websites</summary>
+Pages can be served dynamically by calling a Quarto <code>Pages</code> object from a Python micro-framework like bottle or flask. Quarto reads files iteratively and generate pages lazily, one line at a time. If these lines are streamed directly to browsers, then it is possible to serve large websites from cheap cloud instances with limited RAM and/or disk space.</details>
 
-<h3>1. delete my pages</h3>
-<h3>2. clean your HTML</h3>
-<h3>3. build your site</h3>
-<h3>4. apply a style</h3>
+<hr>
 
-<h2>publish yourself</h2>
+<h2>folders</h2>
 
+<dl>
+<dt>preprint</dt>
+
+<dd>This folder is for drafts, notes, outlines, etc.</dd>
+
+<dd>Quarto never looks here unless you say so.</dd>
+
+<dd>Delete this folder if you don't want it.</dd>
+
+<dt>quarto</dt>
+
+<dd>Source code is here. Edit these files to customize Quarto.</dd>
+
+<dd>If you don't want to write Python code, that's OK! Don't edit these files.</dd>
+
+<dd>To use someone else's customized Quarto, copy their <code>quarto</code> folder here.</dd>
+
+<dt>ready</dt>
+
+<dd>Write <q>raw</q> pages (HTML files) and page options (JSON files) here.</dd>
+
+<dd>The <code>clean</code> script will <a href="">tidy</a> these files and extract the &lt;body&gt; of each page.</dd>
+
+<dd>The <code>build</code> script uses each HTML file as the &lt;main&gt; element of a page.</dd>
+
+<dt>style</dt>
+
+<dd>Stylesheets (CSS files) go here. Use the default styles or roll your own.</dd>
+
+<dd>The <code>apply</code> script will <a href="">cat</a> all CSS files in a folder into a single stylesheet.</dd>
+
+<dd>Each page can use zero or more stylesheets, including <a href="">external</a> CSS.</dd>
+
+<dt>target</dt>
+
+<dd>Quarto writes to this folder. Open <code>target/index.html</code> to preview a site.</dd>
+
+<dd>Upload this folder to a <a href="">hosting service</a> to publish your website.</dd>
+
+<dd>The <code>delete</code> script deletes all HTML files in this folder.</dd>
+</dl>
