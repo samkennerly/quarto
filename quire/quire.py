@@ -11,7 +11,7 @@ try:
     parsed = Markdown().parse
 except ImportError as err:
     def parsed(markdown, err=err):
-        raise err
+        raise ImportError(f"Cannot parse Markdown: {err}")
 
 
 class Quire(Mapping):
