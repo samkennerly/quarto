@@ -1,4 +1,5 @@
 index.html
+outline.md
 about.html
 boxes/can/be/nested.html
 cat_pics/octocats.html
