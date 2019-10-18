@@ -1,13 +1,15 @@
 ASAP:
-  - finish pages (see preprint/outline.txt)
-  - rename target -> test ?
+  - move outline.txt -> actual pages. delete temp/ folder.
+  - finish index.html, about.html, boxes/can/be/nested.html
+  - docs: folders, options, scripts, ???
+  - copy examples/ pages
   - move site to neocities
-  - quarto image to DockerHub
 
 CODE:
-  - quarto/export: sync target to neocities account?
-  - Google search bar?
   - markdown: use mistune.py ?
+  - quarto/export: sync target to neocities account?
+  - quarto image to DockerHub?
+  - Google search bar?
   - three.js example script
   - `gallerize` builds image galleries?
   - multithreading: one page per core?
