@@ -12,6 +12,7 @@ RUN apt-get -y update && apt-get -y install \
 
 # Install Python packages
 RUN pip install --upgrade pip && pip install \
-    black
+    black==19.3b0 \
+    mistune==0.8.4
 
 CMD ["/bin/bash"]

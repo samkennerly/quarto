@@ -6,6 +6,13 @@ from posixpath import join as posixjoin
 from subprocess import run
 from urllib.parse import quote, urlsplit
 
+try:
+    from mistune import Markdown
+    parsed = Markdown().parse
+except ImportError as err:
+    def parsed(markdown, err=err):
+        raise err
+
 
 class Quire(Mapping):
     """
@@ -121,7 +128,10 @@ class Quire(Mapping):
         yield "<body>"
         yield from self.nav(page, **kwargs)
         yield "<main>"
-        yield from map(str.rstrip, self.readlines(page))
+        if page.suffix == '.md':
+            yield parsed("".join(self.readlines(page)))
+        else:
+            yield from map(str.rstrip, self.readlines(page))
         yield "</main>"
         yield from self.icons(page, **kwargs)
         yield from self.jump(page, **kwargs)

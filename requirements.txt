@@ -1,5 +1,6 @@
 appdirs==1.4.3
-attrs==19.2.0
+attrs==19.3.0
 black==19.3b0
 Click==7.0
+mistune==0.8.4
 toml==0.10.0
