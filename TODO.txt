@@ -1,23 +1,25 @@
 ASAP:
+  - fix credits
   - extract about_OLD.md
-  - extract faq.html
+  - outlines: index, about, boxes, docs. use FAQ.
   - finish example pages
-  - docs: folders, options, scripts, sections, ...
+  - docs: options, page sections, quire.py, scripts
   - copy examples/ pages
   - move site to neocities
 
 CODE:
+  - Docker delegated bind mount?
   - auto-detect .md, not just .html
   - quarto/export: sync target to neocities account?
+  - type hints?
   - misfire: fork mistune-contrib. make racing version
   - quarto image to DockerHub?
   - Google search bar?
   - three.js example script
-  - `gallerize` builds image galleries?
+  - galley: build an image gallery. see https://github.com/Jack000/Expose
   - multithreading: one page per core?
   - tidylib C bindings (not subprocess)
   - Bottle or Flask demo app? Caddy?
-
 
 STYLES:
   - style all <details> boxes, not just nav details
