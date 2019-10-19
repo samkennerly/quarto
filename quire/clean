@@ -11,6 +11,6 @@ arg("DIRTY", default="ready", nargs="?", help="Read pages from this folder.")
 arg("CLEAN", default="ready", nargs="?", help="Write pages to this folder.")
 opt = opt.parse_args()
 
-print(f"This above all: in thine {opt.CLEAN} folder be Tidy.")
+print(f"{opt.DIRTY} is foul, and {opt.CLEAN} is fair.")
 Quire.clean(opt.DIRTY, opt.CLEAN)
 print("Exeunt.")

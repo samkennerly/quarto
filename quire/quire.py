@@ -8,8 +8,10 @@ from urllib.parse import quote, urlsplit
 
 try:
     from mistune import Markdown
+
     parsed = Markdown().parse
 except ImportError as err:
+
     def parsed(markdown, err=err):
         raise ImportError(f"Cannot parse Markdown: {err}")
 
@@ -128,7 +130,7 @@ class Quire(Mapping):
         yield "<body>"
         yield from self.nav(page, **kwargs)
         yield "<main>"
-        if page.suffix == '.md':
+        if page.suffix == ".md":
             yield parsed("".join(self.readlines(page)))
         else:
             yield from map(str.rstrip, self.readlines(page))
