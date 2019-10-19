@@ -8,12 +8,9 @@ ASAP:
   - move site to neocities
 
 CODE:
-  - Docker delegated bind mount?
-  - auto-detect .md, not just .html
   - quarto/export: sync target to neocities account?
-  - type hints?
   - misfire: fork mistune-contrib. make racing version
-  - quarto image to DockerHub?
+  - type hints?
   - Google search bar?
   - three.js example script
   - galley: build an image gallery. see https://github.com/Jack000/Expose

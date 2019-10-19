@@ -12,7 +12,7 @@ try:
     parsed = Markdown().parse
 except ImportError as err:
 
-    def parsed(markdown, err=err):
+    def parsed(text, err=err):
         raise ImportError(f"Cannot parse Markdown: {err}")
 
 
@@ -114,7 +114,7 @@ class Quire(Mapping):
 
     # Page generator
 
-    def generate(self, page, title="", **kwargs):
+    def generate(self, page, parsed=parsed, title="", **kwargs):
         """ Iterator[str]: All lines in page. """
         page = self / page
 
@@ -290,20 +290,20 @@ class Quire(Mapping):
     @property
     def pages(self):
         """ Tuple[Path]: Absolute path to each page in home folder. """
-        PAGES, pages = self.PAGES, self._pages
+        pages = self._pages
 
         if pages is None:
             folder = self.folder
-            pages = folder / PAGES
+            pages = folder / self.PAGES
             if pages.is_file():
                 readlines = self.readlines
-                print("Find pages from", pages)
                 pages = (x.strip() for x in readlines(pages))
                 pages = tuple(folder / x for x in pages if x)
             else:
                 home = self.home
-                print("Find pages in", folder)
-                pages = (x for x in folder.rglob("*.html") if x != home)
+                pages = folder.rglob("*")
+                pages = set(x for x in pages if x.suffix in (".html", ".md"))
+                pages.discard(home)
                 pages = (home, *sorted(pages))
 
             self._pages = pages
