@@ -337,8 +337,8 @@ class Quire(Mapping):
         """ None: Clean raw HTML page and save. Requires HTML Tidy >= 5. """
         dirty, clean = Path(dirty), Path(clean)
 
-        cmds = ["tidy", "-ashtml", "-bare", "-clean", "-quiet", "-wrap", "0"]
-        cmds += ["--fix-style-tags", "n", "--vertical-space", "y"]
+        cmds = ["tidy", "-ashtml", "-bare", "-clean", "-indent", "-quiet"]
+        cmds += ["--fix-style-tags", "n", "--vertical-space", "n", "-wrap", "0"]
         cmds += ["--show-body-only", "y", "-output", str(clean), str(dirty)]
 
         if not dirty.exists():
