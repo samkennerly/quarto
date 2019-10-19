@@ -1,11 +1,15 @@
 ASAP:
-  - finish index.html, about.html, boxes/can/be/nested.html
-  - docs: folders, options, scripts, ???
+  - extract about_OLD.md
+  - extract faq.html
+  - finish example pages
+  - docs: folders, options, scripts, sections, ...
   - copy examples/ pages
   - move site to neocities
 
 CODE:
+  - auto-detect .md, not just .html
   - quarto/export: sync target to neocities account?
+  - misfire: fork mistune-contrib. make racing version
   - quarto image to DockerHub?
   - Google search bar?
   - three.js example script
@@ -13,7 +17,7 @@ CODE:
   - multithreading: one page per core?
   - tidylib C bindings (not subprocess)
   - Bottle or Flask demo app? Caddy?
-  - quicktune: fork mintune, make stripped version ?
+
 
 STYLES:
   - style all <details> boxes, not just nav details
