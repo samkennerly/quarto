@@ -1,11 +1,10 @@
 ASAP:
-  - fix credits
-  - extract about_OLD.md
-  - outlines: index, about, boxes, docs. use FAQ.
-  - finish example pages
-  - docs: options, page sections, quire.py, scripts
-  - copy examples/ pages
+  - copy examples/adrift.html -> other examples
+  - convert index.html -> index.md
+  - finish index, about, boxes, docs, faq
+  - bring back pages.txt as example
   - move site to neocities
+  - mistune: () needs to be encoded as %28%29 ?
 
 CODE:
   - quarto/export: sync target to neocities account?
@@ -15,7 +14,7 @@ CODE:
   - three.js example script
   - galley: build an image gallery. see https://github.com/Jack000/Expose
   - multithreading: one page per core?
-  - tidylib C bindings (not subprocess)
+  - tidylib C bindings (see https://github.com/nijel/utidylib)
   - Bottle or Flask demo app? Caddy?
 
 STYLES:
