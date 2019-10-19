@@ -29,15 +29,15 @@ main pre {
 }
 main dt,
 main h1,
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
+main h2 {
   margin: var(--marge-large);
 }
 main figure,
 main .gallery,
+main h3,
+main h4,
+main h5,
+main h6,
 main hr,
 main iframe {
   margin: var(--marge-small);
