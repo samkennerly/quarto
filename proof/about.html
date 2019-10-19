@@ -16,7 +16,6 @@ Quarto builds websites.
 <body>
 <nav>
 <a href="index.html" rel="home">Quarto</a>
-<a href="outline.html">outline</a>
 <a href="#">about</a>
 <details><summary>boxes</summary>
 <details><summary>can</summary>
@@ -30,9 +29,9 @@ Quarto builds websites.
 <a href="cat_pics/penelope.html">penelope</a>
 </details>
 <details><summary>docs</summary>
-<a href="docs/quickstart.html">quickstart</a>
-<a href="docs/scripts.html">scripts</a>
 <a href="docs/options.html">options</a>
+<a href="docs/quire.py.html">quire.py</a>
+<a href="docs/scripts.html">scripts</a>
 </details>
 <details><summary>examples</summary>
 <a href="examples/adrift.html">adrift</a>
@@ -43,82 +42,125 @@ Quarto builds websites.
 <a href="faq.html">faq</a>
 </nav>
 <main>
-<h1>About Quartos</h1>
-
-<hr>
-Quarto's pages, styles, and all other files are contained in one folder. Quarto never modifies files outside its folder unless you tell it to.
-
-<hr>
-Multiple Quartos can exist on one machine without conflicts.
-
-<hr>
-
-<h2>peek behind the curtains</h2>
-See the real HTML for any web page:
-<dl>
-<dt>Chrome</dt>
-
-<dd>View &gt; Developer &gt; View Source (<kbd>Ctrl+U, ⌥⌘U</kbd>)</dd>
-
-<dd>View &gt; Developer &gt; Developer Tools (<kbd>Ctrl+Shift+I, ⌥⌘I</kbd>)</dd>
-
-<dt>Firefox</dt>
-
-<dd>Tools &gt; Web Developer &gt; Page Source (<kbd>Ctrl+U, ⌘U</kbd>)</dd>
-
-<dd>Tools &gt; Web Developer &gt; Toggle Tools (<kbd>Ctrl+Shift+I, ⌥⌘I</kbd>)</dd>
-</dl>
-It should look something like this:
-
-<pre>
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;title&gt;
-Quarto builds websites.
-&lt;/title&gt;
-&lt;link rel="canonical" href="https://quarto.neocities.org/index.html"&gt;
-...
-</pre>
-
-<h2>help wanted</h2>
-
-<h3>cascading stylist</h3>
-Want to show off your CSS?
-<ol>
-<li><a href="https://help.github.com/en/articles/fork-a-repo">Fork this repo</a> and make your own stylesheet(s) in the <code>style</code> folder.</li>
-
-<li>Run <code>quarto/apply style/your_style_name</code> to apply your style.</li>
-
-<li>View the <a href="examples/adrift.html">example pages</a> on your machine to test your style.</li>
-
-<li><a href="https://github.com/samkennerly/quarto/pulls">Create a pull request</a> and/or publish it yourself.</li>
-</ol>
-Rules:
-<ol>
-<li>Nobody should have to install anything to use your style.</li>
-
-<li>Try not to <a href="https://help.github.com/en/articles/working-with-large-files">inflate the repo</a> with files that are bigger than a <a href="media/galaxy.jpg">galaxy</a>.</li>
-
-<li>Styles can include non-CSS files like <code>LICENSE</code>. Quarto ignores them.</li>
-
-<li>If you use someone else's work, give credit and respect any licenses.</li>
-</ol>
-Quarto's default styles were made by a CSS rookie: <a href="https://samkennerly.github.io/">me</a>. Surely you can do better!
-<h2>credits</h2>
-
+<h1>Much Ado About Quartos</h1>
+<h2>Self-promotion is not so vile a sin.</h2>
+<h3>Quartos are small</h3>
 <ul>
-<li>source code: <cite><a href="https://samkennerly.github.io/">Sam Kennerly</a></cite></li>
-
-<li>this website: <cite><a href="https://samkennerly.github.io/">Sam Kennerly</a>, <a href="https://jennifer-blair.com/">Jennifer Blair</a></cite></li>
-
-<li>Quarto <a href="media/quarto.svg">logo</a>: <cite><a href="https://www.mollyeblair.com/">Molly Blair</a></cite></li>
-
-<li><a href="media/galaxy.jpg">galaxy.jpg</a>: <cite><a href="https://commons.wikimedia.org/wiki/File:Hubble_view_of_barred_spiral_galaxy_Messier_83.jpg">NASA and ESA</a></cite></li>
+<li>fewer than 500 lines of code</li>
+<li>no busy loops</li>
+<li>no Ten-Ton Widgets <a href="https://css-tricks.com/ten-ton-widgets/">https://css-tricks.com/ten-ton-widgets/</a></li>
+<li>No server. Static websites do not need servers.</li>
 </ul>
+<h3>Quartos are clean</h3>
+<p><code>Quire</code> class</p>
+<ul>
+<li>A quarto never reads or writes outside its folder unless you insist.</li>
+<li>no side effects</li>
+<li>no caches</li>
+<li>minimal state</li>
+</ul>
+<h3>Quartos are lazy</h3>
+<ul>
+<li>Apply style only when you call <code>quire/apply</code>, not every time you fix a typo.</li>
+<li>Clean pages only when you call <code>quire/clean</code>, not every time you fix a typo.</li>
+<li>Delete pages only when you call <code>quire/delete</code>, not every time you fix a typo.</li>
+<li>Don't copy images, audio, video, or other large files. Don't even look at them.</li>
+</ul>
+<h3>Quartos are independent</h3>
+<p><a href="https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a></p>
+<ul>
+<li>Packages in Quarto's
+<a href="https://github.com/samkennerly/quarto/blob/master/requirements.txt">requirements.txt</a>
+file are <strong>not required</strong>. The file is used to build Quarto's <a href="https://en.wikipedia.org/wiki/Deployment_environment#Development">dev sandbox</a>.</li>
+<li>Multiple quartos can exist on the same computer without conflicts.</li>
+<li>The stock quarto does not require any packages, plugins, templates, frameworks, templates, configuration files, custom exceptions, custom loggers, custom file formats, shims, stylesheets, <code>.bash_profile</code> edits, ENV variables, <code>__init__.py</code>, <code>__main__.py</code>, <code>setup.py</code>, <code>sys.path</code> hacks, virtualenvs, wrappers, bundlers, <code>pip</code> installs, <code>npm</code> installs, <code>gem</code> installs, or any other dependencies except Python 3.</li>
+</ul>
+<h2>We will draw the curtain and show you the HTML.</h2>
+<p>See the real HTML for any web page:</p>
+<dl>
+  <dt>Chrome</dt>
+  <dd>View &gt; Developer &gt; View Source (<kbd>Ctrl+U, ⌥⌘U</kbd>)</dd>
+  <dd>View &gt; Developer &gt; Developer Tools (<kbd>Ctrl+Shift+I, ⌥⌘I</kbd>)</dd>
+  <dt>Firefox</dt>
+  <dd>Tools &gt; Web Developer &gt; Page Source (<kbd>Ctrl+U, ⌘U</kbd>)</dd>
+  <dd>Tools &gt; Web Developer &gt; Toggle Tools (<kbd>Ctrl+Shift+I, ⌥⌘I</kbd>)</dd>
+</dl><p>It should look something like this:</p>
+<pre><code>&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;title&amp;gt;
+Quarto builds websites.
+&amp;lt;/title&amp;gt;
+&amp;lt;link rel="canonical" href="https://quarto.neocities.org/index.html"&amp;gt;
+...
+</code></pre>
+<h2>Is this a PR I see before me?</h2>
+<p><a href="https://github.com/samkennerly/quarto/pulls">pull request</a></p>
+<h3>True it is that we have seen better styles.</h3>
+<ul>
+<li>Most of the stock styles were made by a design
+<a href="https://samkennerly.github.io/">rookie</a>.
+Surely you can do better!</li>
+<li>Create a new folder in the <code>style</code> folder and an
+<a href="examples/adrift.html">example</a>
+to show off your style.</li>
+<li>Styles can include non-CSS files, but <code>quire/apply</code> will ignore them.</li>
+<li>CSS files need not be named <code>align.css</code>, <code>border.css</code>, etc.</li>
+</ul>
+<h3>Neither a rebaser nor a merger be.</h3>
+<ul>
+<li><a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">merge</a></li>
+<li><a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">rebase</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Software_entropy">entropy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Feature_creep">feature creep</a></li>
+<li><a href="https://help.github.com/en/articles/fork-a-repo">fork</a></li>
+</ul>
+<h3>Files of few bytes are the best files.</h3>
+<ul>
+<li>Large files in GitHub repos can cause
+<a href="https://help.github.com/en/articles/working-with-large-files">problems</a>.</li>
+<li>Try to avoid uploading any file larger than a
+<a href="media/galaxy.jpg">galaxy</a>.</li>
+<li>Text files (HTML, CSS, MD, etc.) are rarely too big, but...</li>
+<li>Code that resembles
+<a href="https://en.wikipedia.org/wiki/Spaghetti_code">pasta</a>
+should probably be
+<a href="https://en.wikipedia.org/wiki/Code_refactoring">refactored</a>.</li>
+</ul>
+<h3>No legacy is so rich as honesty.</h3>
+<ul>
+<li>If you use someone else's work, then
+<a href="https://en.wikipedia.org/wiki/Attribution_%28copyright%29">make it obvious</a>.</li>
+<li>Copypasting from Quarto is OK <strong>if you respect the licenses</strong>.</li>
+<li>The license for Quarto code is in the
+<a href="https://github.com/samkennerly/quarto/blob/master/LICENSE">LICENSE</a>
+file.</li>
+<li>The license for this website is <a href="#klf">on this page</a>.</li>
+</ul>
+<h2>Give the devs their due.</h2>
+<h3><code>proof</code> images</h3>
+<ul>
+<li><a href="media/galaxy.jpg">galaxy.jpg</a> by <a href="https://commons.wikimedia.org/wiki/File:Hubble_view_of_barred_spiral_galaxy_Messier_83.jpg">NASA and ESA</a></li>
+<li><a href="media/quarto.svg">quarto.svg</a> by <a href="https://mollyeblair.com/">Molly Blair</a></li>
+</ul>
+<h3><code>quire</code> code</h3>
+<ul>
+<li><a href="https://samkennerly.github.io/">Sam Kennerly</a></li>
+</ul>
+<h3><code>ready</code> pages</h3>
+<ul>
+<li><a href="https://samkennerly.github.io/">Sam Kennerly</a></li>
+</ul>
+<h3><code>style</code> sheets</h3>
+<ul>
+<li><code>adrift</code>, <code>burning</code>, <code>doctoral</code> by <a href="https://samkennerly.github.io/">Sam Kennerly</a></li>
+<li><code>celestial</code> by <a href="https://jennifer-blair.com/">Jennifer Blair</a>
+and <a href="https://samkennerly.github.io/">Sam Kennerly</a></li>
+</ul>
+
 </main>
 <section id="icons">
-<a href="outline.html" rel="prev">◄◄</a>
+<a href="index.html" rel="prev">◄◄</a>
 <a href="https://github.com/samkennerly/quarto/"><img alt="GitHub" src="media/icons/github.svg" height="32" title="GitHub"></a>
 <a href="https://neocities.org/"><img alt="Neocities" src="media/icons/neocities.svg" height="32" title="Neocities"></a>
 <a href="https://www.python.org/"><img alt="Python" src="media/icons/python.svg" height="32" title="Python"></a>
