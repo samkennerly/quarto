@@ -13,6 +13,7 @@ RUN apt-get -y update && apt-get -y install \
 # Install Python packages
 RUN pip install --upgrade pip && pip install \
     black==19.3b0 \
+    Cython==0.29.13 \
     mistune==0.8.4
 
 CMD ["/bin/bash"]
