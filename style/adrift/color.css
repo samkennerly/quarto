@@ -5,11 +5,11 @@ https://www.w3schools.com/css/css_colors.asp
 :root {
   --color-active: #ffde57;
   --color-boxes: rgba(100,100,100,.125);
-  --color-head: darkgray;
-  --color-link: lightsteelblue;
+  --color-head: #999;
+  --color-link: #ace;
   --color-mark: deeppink;
   --color-text: azure;
-  --text-shadow: 1px 1px 0 black;
+  --text-shadow: 1px 1px 1px black;
 }
 a:link,
 a:visited {
@@ -46,9 +46,10 @@ main h2,
 main h3,
 main h4,
 main h5,
-main h6 {
-  color: var(--color-head);
+main h6,
+main hr {
   border-color: var(--color-boxes);
+  color: var(--color-head);
 }
 main mark {
   background: none;
@@ -62,6 +63,7 @@ main table,
 main table thead {
   background: white;
   color: black;
+  text-shadow: none;
 }
 main table tr:nth-child(odd){
   background: #dadada;
@@ -78,11 +80,9 @@ nav details {
 nav details:focus,
 nav details:hover {
   border-color: var(--color-active);
-  box-shadow: 0 0 2px var(--color-active);
 }
 /* color others */
-#icons,
-#jump,
 #klf {
-  background: none;
+  background: var(--color-boxes);
+  border-color: var(--color-boxes);
 }

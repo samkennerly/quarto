@@ -19,9 +19,6 @@ nav summary {
 #icons img {
   display: block;
 }
-#jump a {
-  display: inline-block;
-}
-#klf address {
-  display: inline-block;
+#jump {
+  display: flex;
 }
