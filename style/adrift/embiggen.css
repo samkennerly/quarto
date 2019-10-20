@@ -5,15 +5,15 @@ https://www.w3schools.com/css/css_units.asp
 :root {
   --marge-icons: 1rem auto;
   --marge-large: 1rem auto;
-  --marge-small: .5rem auto;
-  --padme: .25rem .5rem;
-  --puffy: .5rem 1rem;
+  --marge-small: .25rem auto;
+  --padme: .125rem .5rem;
+  --puffy: .25rem 1rem;
   --size-icons: 1.5rem;
 }
 body {
-  margin: 2vh auto 0 auto;
+  margin: 1vh auto 0 auto;
   max-width: 86rem;
-  min-height: 98vh;
+  min-height: 99vh;
   overflow-y: scroll;
 }
 /* embiggen main */
@@ -27,20 +27,13 @@ main pre {
   overflow: auto;
   padding: var(--puffy);
 }
+main details,
 main dt,
-main h1,
-main h2 {
-  margin: var(--marge-large);
-}
 main figure,
 main .gallery,
-main h3,
-main h4,
-main h5,
-main h6,
 main hr,
 main iframe {
-  margin: var(--marge-small);
+  margin: var(--marge-large);
 }
 main table {
   margin: var(--marge-large);
@@ -56,11 +49,14 @@ main table th {
 nav {
   padding: var(--puffy);
 }
-nav a,
+nav a {
+  margin: var(--marge-small);
+  padding: var(--padme);
+}
 nav details {
   margin: var(--marge-small);
 }
-nav details {
+nav details summary {
   padding: var(--padme);
 }
 /* embiggen others */

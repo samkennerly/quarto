@@ -4,13 +4,11 @@ https://www.w3schools.com/css/css_colors.asp
 */
 :root {
   --color-active: #ffde57;
-  --color-back: #002;
+  --color-boxes: rgba(100,100,100,.125);
+  --color-head: darkgray;
   --color-link: lightsteelblue;
-  --color-text: aliceblue;
-  --color-main-back: aliceblue;
-  --color-main-link: steelblue;
-  --color-main-text: black;
-  --color-navbox: rgba(100,100,100,.5);
+  --color-mark: deeppink;
+  --color-text: azure;
   --text-shadow: 1px 1px 0 black;
 }
 a:link,
@@ -27,9 +25,7 @@ body {
   background-image:
     radial-gradient(
       circle farthest-corner at 0% 0%,
-      var(--color-back) 42%,
-      var(--color-main-link) 86%,
-      var(--color-main-text)
+      #001 75%, steelblue 87%, black 94%
     );
   color: var(--color-text);
   text-shadow: var(--text-shadow);
@@ -39,29 +35,24 @@ img {
 }
 /* color main */
 main {
-  background: var(--color-main-back);
-  color: var(--color-main-text);
-  text-shadow: none;
-}
-main a:link,
-main a:visited {
-  color: var(--color-main-link);
-}
-main a:focus,
-main a:hover,
-main a:active {
-  color: var(--color-active);
+  background: var(--color-boxes);
 }
 main blockquote {
-  background: white;
-  color: black;
+  background: var(--color-boxes);
 }
-main hr {
-  border-color: var(--color-navbox);
+main dt,
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  color: var(--color-head);
+  border-color: var(--color-boxes);
 }
 main mark {
   background: none;
-  color: #f00;
+  color: var(--color-mark);
 }
 main pre {
   background: black;
@@ -80,12 +71,14 @@ nav a[href="#"] {
   color: var(--color-active);
 }
 nav details {
-  background: var(--color-navbox);
-  border-color: var(--color-navbox);
+  background: var(--color-boxes);
+  border-color: var(--color-boxes);
+  box-shadow: 0 0 2px;
 }
 nav details:focus,
 nav details:hover {
   border-color: var(--color-active);
+  box-shadow: 0 0 2px var(--color-active);
 }
 /* color others */
 #icons,

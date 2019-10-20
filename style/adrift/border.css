@@ -3,7 +3,7 @@ Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
-  --border: thin solid;
+  --border: 2px solid;
   --radius: 1rem;
 }
 a img {
@@ -16,9 +16,14 @@ main blockquote,
 main pre {
   border-radius: var(--radius);
 }
+main h2,
+main h3,
+main h4,
+main h5,
+main h6,
 main hr {
+  border: none;
   border-bottom: var(--border);
-  border-top: none;
 }
 /* border nav */
 nav details {
@@ -27,5 +32,5 @@ nav details {
 }
 /* border others */
 #icons img {
-  border: 2px solid;
+  border: 3px solid;
 }

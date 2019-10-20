@@ -10,12 +10,8 @@ main cite,
 main iframe {
   display: block;
 }
-main dl dd {
-  display: list-item;
-}
 /* display nav */
 nav a,
-nav details,
 nav summary {
   display: block;
 }
