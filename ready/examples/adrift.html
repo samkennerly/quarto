@@ -1,17 +1,22 @@
 <h1>adrift</h1>
 <p>Run <code>quarto/apply style/adrift</code> to apply this style.</p>
-<h2>basic</h2>
+<h2 id="basic">basic</h2>
 <hr>
 &lt;a&gt; is for <a href="https://en.wikipedia.org/wiki/Quarto">links</a>, &lt;br&gt; breaks lines.<br>
 &lt;hr&gt; still rules, though its use has declined.
 <hr>
-<h2>boxes</h2>
+<h2 id="boxes">boxes</h2>
 <hr>
 &lt;address&gt;
 <address>
   Rock Down<br>
   2 Electric Ave.<br>
 </address>
+<hr>
+&lt;aside&gt;
+<aside>
+  There is the theory of the Möbius: a twist in the fabric of space where time becomes a loop.
+</aside>
 <hr>
 &lt;blockquote&gt;
 <blockquote>
@@ -43,6 +48,21 @@
 <div>
   1 + ½ + ⅓ + ¼ + ... → ∞
 </div>
+<hr>
+&lt;footer&gt;
+<footer>
+  A footer is approximately 0.305 meterer.
+</footer>
+<hr>
+&lt;form&gt;
+<form>
+  You must be shapeless, formless, like water.
+</form>
+<hr>
+&lt;header&gt;
+<header>
+  This is a header, not a heading.
+</header>
 <hr>
 &lt;p&gt;
 <p>A paragraph is a distinct section of a piece of writing, usually dealing with a single theme and indicated by a new line, indentation, or numbering.</p>
@@ -87,11 +107,11 @@ so 1337
   </tfoot>
 </table>
 <hr>
-<h2>formatting</h2>
+<h2 id="formatting">formatting</h2>
 <hr>
 &lt;abbr&gt; <abbr title="abbreviations and acronyms">A&amp;A</abbr>
 <hr>
-&lt;code&gt; <code>code</code>
+&lt;code&gt; <code>source code</code>
 <hr>
 &lt;del&gt; <del>deleted text</del>
 <hr>
@@ -117,7 +137,11 @@ so 1337
 <hr>
 &lt;var&gt; <var>variable</var>
 <hr>
-<h2>headings</h2>
+<h2 id="headings">headings</h2>
+<hr>
+<h1>&lt;h1&gt; heading 1</h1>
+<hr>
+<h2>&lt;h2&gt; heading 2</h2>
 <hr>
 <h3>&lt;h3&gt; heading 3</h3>
 <hr>
@@ -127,7 +151,35 @@ so 1337
 <hr>
 <h6>&lt;h6&gt; heading 6</h6>
 <hr>
-<h2>lists</h2>
+<h2 id="io">io</h2>&lt;button&gt; <button type="button">Jenson</button>
+<hr>
+&lt;input type=number&gt; <input type="number" id="number" name="number" value="42">
+<hr>
+&lt;input type=radio&gt; <input type="radio" name="radio" value="video">video <input type="radio" name="radio" value="killed the">killed the <input type="radio" name="radio" value="radio" checked>radio <input type="radio" name="radio" value="star">star
+<hr>
+&lt;input type=range&gt; <input type="range" name="range" value="42">
+<hr>
+&lt;input type=submit&gt; <input type="submit" name="submit" value="Give up.">
+<hr>
+&lt;input type=text&gt; <input type="text" name="text" value="The quick brown fox jumps over the lazy dog.">
+<hr>
+&lt;select&gt; <select name="select" size="2" multiple>
+  <option value="option">
+    &lt;option&gt; 1
+  </option>
+  <option value="option">
+    &lt;option&gt; 2
+  </option>
+  <option value="option">
+    &lt;option&gt; 3
+  </option>
+</select>
+<hr>
+&lt;textarea&gt; 
+<textarea name="textarea" rows="4" cols="32">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+<hr>
+<h2 id="lists">lists</h2>
 <hr>
 &lt;dl&gt; description list
 <dl>
@@ -148,7 +200,7 @@ so 1337
   <li>&lt;li&gt; list item</li>
 </ul>
 <hr>
-<h2>media</h2>
+<h2 id="media">media</h2>
 <hr>
 &lt;figure&gt;
 <figure>
@@ -160,5 +212,5 @@ so 1337
 <hr>
 &lt;iframe&gt; <iframe height="200" width="300" src="https://threejs.org/examples/css3d_periodictable" allowfullscreen="true">three.js</iframe>
 <hr>
-&lt;img&gt; <a href="https://idlewords.com/talks/website_obesity.htm"><img alt="fnord" src="../media/fnord.jpg" width="100%" title="fnord"></a>
+&lt;img width="100%"&gt; <a href="https://idlewords.com/talks/website_obesity.htm"><img alt="fnord" src="../media/fnord.jpg" width="100%" title="fnord"></a>
 <hr>
