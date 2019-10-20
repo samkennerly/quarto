@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+quire/delete && quire/clean && quire/build
