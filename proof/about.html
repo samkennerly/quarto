@@ -40,6 +40,7 @@ Quarto builds websites.
 <a href="examples/doctoral.html">doctoral</a>
 </details>
 <a href="faq.html">faq</a>
+<a href="test.html">test</a>
 </nav>
 <main>
 <h1>Much Ado About Quartos</h1>
@@ -75,7 +76,7 @@ file are <strong>not required</strong>. The file is used to build Quarto's <a hr
 <li>Multiple quartos can exist on the same computer without conflicts.</li>
 <li>The stock quarto does not require any packages, plugins, templates, frameworks, templates, configuration files, custom exceptions, custom loggers, custom file formats, shims, stylesheets, <code>.bash_profile</code> edits, ENV variables, <code>__init__.py</code>, <code>__main__.py</code>, <code>setup.py</code>, <code>sys.path</code> hacks, virtualenvs, wrappers, bundlers, <code>pip</code> installs, <code>npm</code> installs, <code>gem</code> installs, or any other dependencies except Python 3.</li>
 </ul>
-<h2>We will draw the curtain and show you the HTML.</h2>
+<h2>Draw the curtain and inspect the page source.</h2>
 <p>See the real HTML for any web page:</p>
 <dl>
   <dt>Chrome</dt>
@@ -85,13 +86,13 @@ file are <strong>not required</strong>. The file is used to build Quarto's <a hr
   <dd>Tools &gt; Web Developer &gt; Page Source (<kbd>Ctrl+U, ⌘U</kbd>)</dd>
   <dd>Tools &gt; Web Developer &gt; Toggle Tools (<kbd>Ctrl+Shift+I, ⌥⌘I</kbd>)</dd>
 </dl><p>It should look something like this:</p>
-<pre><code>&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-&amp;lt;head&amp;gt;
-&amp;lt;title&amp;gt;
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;
 Quarto builds websites.
-&amp;lt;/title&amp;gt;
-&amp;lt;link rel="canonical" href="https://quarto.neocities.org/index.html"&amp;gt;
+&lt;/title&gt;
+&lt;link rel="canonical" href="https://quarto.neocities.org/index.html"&gt;
 ...
 </code></pre>
 <h2>Is this a PR I see before me?</h2>

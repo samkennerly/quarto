@@ -21,6 +21,9 @@ nav {
   text-align: center;
 }
 /* align others */
+#jump {
+  align-items: center;
+}
 #klf {
   text-align: right;
 }
@@ -29,7 +32,7 @@ Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
-  --border: thin solid;
+  --border: 2px solid;
   --radius: 1rem;
 }
 a img {
@@ -37,14 +40,18 @@ a img {
   border-radius: var(--radius);
 }
 /* border main */
-main,
 main blockquote,
 main pre {
   border-radius: var(--radius);
 }
+main h2,
+main h3,
+main h4,
+main h5,
+main h6,
 main hr {
+  border: none;
   border-bottom: var(--border);
-  border-top: none;
 }
 /* border nav */
 nav details {
@@ -53,7 +60,10 @@ nav details {
 }
 /* border others */
 #icons img {
-  border: 2px solid;
+  border: var(--border);
+}
+#klf {
+  border-top: var(--border);
 }
 /*
 Color coordination for all elements.
@@ -61,14 +71,12 @@ https://www.w3schools.com/css/css_colors.asp
 */
 :root {
   --color-active: #ffde57;
-  --color-back: #002;
-  --color-link: lightsteelblue;
-  --color-text: aliceblue;
-  --color-main-back: aliceblue;
-  --color-main-link: steelblue;
-  --color-main-text: black;
-  --color-navbox: rgba(100,100,100,.5);
-  --text-shadow: 1px 1px 0 black;
+  --color-boxes: rgba(100,100,100,.125);
+  --color-head: #999;
+  --color-link: #ace;
+  --color-mark: deeppink;
+  --color-text: azure;
+  --text-shadow: 1px 1px 1px black;
 }
 a:link,
 a:visited {
@@ -84,9 +92,7 @@ body {
   background-image:
     radial-gradient(
       circle farthest-corner at 0% 0%,
-      var(--color-back) 42%,
-      var(--color-main-link) 86%,
-      var(--color-main-text)
+      #001 75%, steelblue 87%, black 94%
     );
   color: var(--color-text);
   text-shadow: var(--text-shadow);
@@ -96,29 +102,25 @@ img {
 }
 /* color main */
 main {
-  background: var(--color-main-back);
-  color: var(--color-main-text);
-  text-shadow: none;
-}
-main a:link,
-main a:visited {
-  color: var(--color-main-link);
-}
-main a:focus,
-main a:hover,
-main a:active {
-  color: var(--color-active);
+  background: var(--color-boxes);
 }
 main blockquote {
-  background: white;
-  color: black;
+  background: var(--color-boxes);
 }
+main dt,
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6,
 main hr {
-  border-color: var(--color-navbox);
+  border-color: var(--color-boxes);
+  color: var(--color-head);
 }
 main mark {
   background: none;
-  color: #f00;
+  color: var(--color-mark);
 }
 main pre {
   background: black;
@@ -128,6 +130,7 @@ main table,
 main table thead {
   background: white;
   color: black;
+  text-shadow: none;
 }
 main table tr:nth-child(odd){
   background: #dadada;
@@ -137,18 +140,18 @@ nav a[href="#"] {
   color: var(--color-active);
 }
 nav details {
-  background: var(--color-navbox);
-  border-color: var(--color-navbox);
+  background: var(--color-boxes);
+  border-color: var(--color-boxes);
+  box-shadow: 0 0 2px;
 }
 nav details:focus,
 nav details:hover {
   border-color: var(--color-active);
 }
 /* color others */
-#icons,
-#jump,
 #klf {
-  background: none;
+  background: var(--color-boxes);
+  border-color: var(--color-boxes);
 }
 /*
 Display behavior: block, inline, none, etc.
@@ -162,12 +165,8 @@ main cite,
 main iframe {
   display: block;
 }
-main dl dd {
-  display: list-item;
-}
 /* display nav */
 nav a,
-nav details,
 nav summary {
   display: block;
 }
@@ -175,28 +174,24 @@ nav summary {
 #icons img {
   display: block;
 }
-#jump a {
-  display: inline-block;
-}
-#klf address {
-  display: inline-block;
+#jump {
+  display: flex;
 }
 /*
 Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge-icons: 1rem auto;
   --marge-large: 1rem auto;
   --marge-small: .5rem auto;
-  --padme: .25rem .5rem;
+  --padme: .125rem .5rem;
   --puffy: .5rem 1rem;
   --size-icons: 1.5rem;
 }
 body {
-  margin: 2vh auto 0 auto;
-  max-width: 86rem;
-  min-height: 98vh;
+  margin: 0 auto;
+  max-width: 83rem;
+  min-height: 100vh;
   overflow-y: scroll;
 }
 /* embiggen main */
@@ -207,23 +202,16 @@ main blockquote,
 main pre {
   margin: var(--marge-large);
   max-width: 100%;
-  overflow: auto;
+  overflow-x: auto;
   padding: var(--puffy);
 }
+main details,
 main dt,
-main h1,
-main h2 {
-  margin: var(--marge-large);
-}
 main figure,
 main .gallery,
-main h3,
-main h4,
-main h5,
-main h6,
 main hr,
 main iframe {
-  margin: var(--marge-small);
+  margin: var(--marge-large);
 }
 main table {
   margin: var(--marge-large);
@@ -239,11 +227,14 @@ main table th {
 nav {
   padding: var(--puffy);
 }
-nav a,
+nav a {
+  margin: var(--marge-small);
+  padding: var(--padme);
+}
 nav details {
   margin: var(--marge-small);
 }
-nav details {
+nav details summary {
   padding: var(--padme);
 }
 /* embiggen others */
@@ -254,14 +245,11 @@ nav details {
 }
 #icons img {
   height: var(--size-icons);
-  margin: var(--marge-icons);
+  margin: var(--marge-large);
   width: var(--size-icons);
 }
 #jump a {
-  width: 100%;
-}
-#klf address {
-  margin: 0 1em;
+  margin: auto;
 }
 /*
 Font family, size, weight, etc.
@@ -317,8 +305,8 @@ body {
   grid-row-gap: 0;
   grid-template-areas:
     'nav main icons'
-    'klf klf  jump';
-  grid-template-columns: 1fr 5fr auto;
+    'nav klf  jump';
+  grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr auto;
 }
 main {
