@@ -1,8 +1,8 @@
 ASAP:
-  - copy examples/adrift.html -> other examples
-  - convert index.html -> index.md
-  - finish index, about, boxes, docs, faq
+  - finish pages (see paper)
+  - convert all pages -> HTML (no dependencies)
   - bring back pages.txt as example
+  - synchronize styles
   - move site to neocities
   - mistune: () needs to be encoded as %28%29 ?
 
@@ -19,6 +19,7 @@ CODE:
 
 STYLES:
   - style all <details> boxes, not just nav details
+  - <table><caption> needs text color
   - dl, ul, ol {list-style-type: "⟳🐈Ⓠ";} or li:before {content: ""⟳🐈Ⓠ"}
   - <div class="waffle"> for square galleries?
   - elemental: browser defaults
