@@ -1,7 +1,7 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-quire/apply style/"$1" &&
+quire/apply style/adrift &&
 quire/apply style/adrift proof/adrift.css &&
-quire/apply style/burning proof/adrift.css &&
+quire/apply style/burning proof/burning.css &&
 quire/apply style/celestial proof/celestial.css &&
 quire/apply style/doctoral proof/doctoral.css
