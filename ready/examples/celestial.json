@@ -1,5 +1,5 @@
 {
-  "meta": {"description": "CSS style test for Quarto's \"celestial\" style."},
+  "meta": {"description": "Quarto style example: celestial"},
   "styles": ["celestial.css"],
   "title": "Celestial style"
 }
