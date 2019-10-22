@@ -40,135 +40,159 @@ Quarto builds websites.
 <a href="examples/doctoral.html">doctoral</a>
 </details>
 <a href="faq.html">faq</a>
-<a href="test.html">test</a>
 </nav>
 <main>
-<h1>Build websites quickly.</h1>
-<p>A <dfn>quarto</dfn> is a</p><a href="">folder</a>
-<p>containing:</p>
-<dl>
-  <dt>proof</dt>
-  <dd>
-    This is a <a href="">proof</a> of the finished website.
-  </dd>
-  <dd>Open <code>proof/index.html</code> in a browser to see it.</dd>
-  <dd></dd>
-  <dd></dd>
-  <dt>quire</dt>
-  <dd>Source code is here.</dd>
-  <dd>[4 scripts + 1 module]</dd>
-  <dd>[quire folders can be swapped]</dd>
-  <dd>[see other forks: quartune, quaich, ...]</dd>
-  <dt>ready</dt>
-  <dd>Pages go here when they're ready to build.</dd>
-  <dd>Pages options go here too.</dd>
-  <dd></dd>
-  <dd></dd>
-  <dt>style</dt>
-  <dd>Stylesheets go here.</dd>
-  <dd>Use the default styles or roll your own.</dd>
-  <dd></dd>
-  <dd></dd>
-</dl>
-<p>Quarto is designed to:</p>
+<h1>Build websites with Python.</h1>
+<p>Quartos build websites. (This site is one.) Scroll through these stanzas to see how it's done.</p>
+<hr>
+<h2>Copy this quarto.</h2>
+<p>A <dfn>quarto</dfn> is four <a href="">folders</a> in a fifth folder:</p>
 <ul>
-  <li>build lean websites quickly</li>
-  <li>help beginners learn HTML and CSS</li>
-  <li>be modified, extended, and included in other projects</li>
-  <li>avoid installing <a href="https://chriswarrick.com/blog/2019/02/15/modern-web-development-where-you-need-500-packages-to-build-bootstrap/">500 packages</a> and a <a href="https://medium.com/@mattholt/its-2019-and-i-still-make-websites-with-my-bare-hands-73d4eec6b7">500MB framework</a> to build a <a href="https://motherfuckingwebsite.com/">5kB page</a>
+  <li>
+    <strong>proof</strong> is a <a href="">proof copy</a> of a <a href="">static website</a>.
+  </li>
+  <li>
+    <strong>quire</strong> is a <a href="">Python package</a> which builds the proof.
+  </li>
+  <li>
+    <strong>ready</strong> stores HTML or <a href="">Markdown</a> pages and page <a href="docs/options.html">options</a>.
+  </li>
+  <li>
+    <strong>style</strong> stores <a href="">stylesheets</a>. Use the <a href="examples/adrift.html">four</a> <a href="examples/burning.html">stock</a> <a href="examples/celestial.html">quarto</a> <a href="examples/doctoral.html">styles</a> or create your own.
   </li>
 </ul>
-<h2>Copy this quarto.</h2>
-<p>Quarto scripts require</p><a href="">Python 3.6+</a>
-<p>. The <code>clean</code> script requires</p><a href="">Tidy 5+</a>
-<p>.</p>
+<p>Download a ZIP or <a href="">generate a repo</a> from the original <q>stock</q> quarto:</p>
+<h3><a href="https://github.com/samkennerly/quarto">github.com/samkennerly/quarto</a></h3>
+<p>Choose any name you want for your first quarto. Mine is <a href="https://badquarto.neocities.org">badquarto</a>.</p>
+<hr>
+<h2>Install extras?</h2>
+<p><strong>Python 3.6+</strong> is required. Some features require <a href="">extras</a>:</p>
+<ul>
+  <li><strong><a href="">Tidy 5+</a></strong> to clean HTML files with <code>quire/clean</code></li>
+  <li>
+    <strong><a href="">Mistune</a></strong> to build pages from <a href="">Markdown</a> files
+  </li>
+  <li>
+    <del>Bottle to run a web server</del> <mark>under construction</mark>
+  </li>
+  <li>
+    <del>ImageMagick to build galleries</del> <mark>under construction</mark>
+  </li>
+</ul>
+<p>Quartos do not need to be installed. To remove a quarto, delete it.</p>
+<hr>
+<h2>Rewrite the pages.</h2>
+<p>Any <a href="">plain text</a> editor can read and write pages, options, styles, and code.</p>
 <dl>
-  <dt>with GitHub:</dt>
+  <dt>Remove the stock pages.</dt>
+  <dd>Delete everything in the <code>ready</code> folder except these files:</dd>
   <dd>
-    Login to GitHub and go to the <a href="https://github.com/samkennerly/quarto">quarto repo</a>.
+    <pre><code>ready/index.html
+ready/index.json
+</code></pre>
   </dd>
-  <dd>Click the big green <q>Use this template</q> button.</dd>
-  <dd>Create a new repo named <code>badquarto</code>.</dd>
-  <dd>Clone the <code>badquarto</code> repo to your local machine.</dd>
-  <dt>without GitHub:</dt>
   <dd>
-    Go to the <a href="https://github.com/samkennerly/quarto">quarto repo</a>.
+    Any change you might regret can be undone with <a href="https://git-scm.com/docs/git-reset">git reset</a>.
   </dd>
-  <dd>Click the big green <q>Clone or download</q> button.</dd>
-  <dd>Click <q>Download ZIP</q>, save the file, and unzip it to create a folder.</dd>
-  <dd>Rename the folder <code>badquarto</code> and drag it to wherever you want it.</dd>
+  <dt>Write a new page.</dt>
+  <dd>Create <code>ready/bad.html</code> with this text:</dd>
+  <dd>
+    <pre><code>&lt;h1&gt;Bad Quarto&lt;/h1&gt;
+
+&lt;p&gt;To be, or not to be?&lt;br&gt;Aye, there's the point.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img alt="Quarto logo" src="media/quarto.svg" width="100%"&gt;
+  &lt;figcaption&gt;
+    This page was not built by a
+    &lt;a href="https://github.com/samkennerly/quarto"&gt;quarto&lt;a&gt;.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+  </dd>
+  <dd>
+    The image <code>src</code> is a <a href="https://www.w3schools.com/html/html_filepaths.asp">relative path</a> to a file in the <code>proof</code> folder.
+  </dd>
+  <dt>Edit the home options.</dt>
+  <dd>Replace <code>ready/index.json</code> with this text:</dd>
+  <dd>
+    <pre><code>{
+  "base": "https://quarto.test/",
+  "email": "",
+  "homelink": "Bad Quarto",
+  "meta": {
+    "author": "Wm. Shakespeare",
+    "description": "But, src! What links in yonder website break?",
+  },
+  "nextlink": "fore",
+  "prevlink": "aft",
+  "qlink": "Fouled by a quarto.",
+  "styles": ["style.css"],
+  "title": "Quarto test website."
+}
+</code></pre>
+  </dd>
+  <dd>Options are optional. If you don't want it, delete it or leave it blank.</dd>
+  <dt>Add some page options.</dt>
+  <dd>Create <code>ready/bad.json</code> with this text:</dd>
+  <dd>
+    <pre><code>{
+  "meta": {
+    "description": "No is the status of your GET request."
+  },
+  "title": "The Tragedy of Errors",
+}
+</code></pre>
+  </dd>
+  <dd>Page options files are optional. Home options are used to fill missing values.</dd>
 </dl>
-<p><br>
-You now have a copy of the <dfn>stock</dfn> quarto. There are many like it, but this one is yours.<br>
-To <q>uninstall</q> the stock quarto, delete its folder.<br>
-[open proof/index.html in a browser]<br>
-[delete Dockerfile, kitchen if you don't want Docker]</p>
-<h2>Edit your quarto.</h2>
-<p>Open a terminal and <code>cd</code> to wherever you put the Quarto folder.</p>
-<dl>
-  <dt>Change the style.</dt>
-  <dd><code>quire/apply</code></dd>
-  <dd>[oops, that was all the styles]</dd>
-  <dd><code>quire/apply style/celestial</code></dd>
-  <dd>[or some other folder with CSS files]</dd>
-  <dt>Update the options.</dt>
-  <dd>Replace <q>author</q> with <q>Wm. Shakespeare?</q>.</dd>
-  <dd>Leave <q>email</q> blank. The Bard did not have email.</dd>
-  <dd>Options are optional. Don't want it? Leave it blank.</dd>
-  <dd>Any page can have an options file. See the <code>examples</code> folder for examples.</dd>
-  <dt>Rewrite a page.</dt>
-  <dd>Delete everything from index.html.</dd>
-  <dd>Add this tag: <code>&lt;img src="media/quarto.svg"&gt;</code></dd>
-  <dd></dd>
-  <dd></dd>
-  <dt>Delete the old pages.</dt>
-  <dd>Delete everything from the ready/ folder except index.html and index.json.</dd>
-  <dd>Add hamlet.html with this text: To be or not to be? Ay, there's the point.</dd>
-  <dd>Add hamlet.json with a title and description.</dd>
-  <dd>Update pages.txt, or delete it and use automatic pages.</dd>
-</dl>
-<h2>Write a new quarto.</h2>
+<hr>
+<h2>Build your new quarto.</h2>
+<p>Open a <a href="">terminal</a> and <code>cd</code> to your quarto.</p>
 <dl>
   <dt>quire/delete</dt>
-  <dd></dd>
-  <dd></dd>
-  <dd></dd>
-  <dd>[can't delete empty folders because .DS_Store]</dd>
+  <dd>Delete all pages from the <code>proof</code> folder:</dd>
+  <dd>
+    <pre><code>quire/delete html
+</code></pre>
+  </dd>
+  <dd>This script will <em>not</em> delete any icons, stylesheets, or cat pictures.</dd>
+  <dd>Run <code>quire/delete --help</code> for more information.</dd>
   <dt>quire/clean</dt>
-  <dd>[caution: Tidy decapitates pages]</dd>
-  <dd>Tidy should warn you that, on page <code>index.html</code>, &lt;img&gt; is missing <q>alt</q>.</dd>
-  <dd>Add some alt text: <code>&lt;img alt="Quarto logo" src="media/quarto.svg"&gt;</code></dd>
-  <dd>[tidy again]</dd>
+  <dd>Clean and <mark>overwrite</mark> HTML files in the <code>ready</code> folder:</dd>
+  <dd>
+    <pre><code>quire/clean
+</code></pre>
+  </dd>
+  <dd>
+    Keep your <a href="https://en.wikipedia.org/wiki/Foul_papers">foul papers</a> in another folder if you want to preserve them.
+  </dd>
+  <dd>Run <code>quire/clean --help</code> for more information.</dd>
   <dt>quire/build</dt>
-  <dd></dd>
-  <dd></dd>
-  <dd></dd>
-  <dd></dd>
+  <dd>Build and <mark>overwrite</mark> pages in the <code>proof</code> folder:</dd>
+  <dd>
+    <pre><code>quire/build
+</code></pre>
+  </dd>
+  <dd>
+    This script uses each <code>ready</code> page as the <a href="">main element</a> of a proof page.
+  </dd>
+  <dd>Run <code>quire/build --help</code> for more information.</dd>
   <dt>quire/apply</dt>
-  <dd></dd>
-  <dd></dd>
-  <dd></dd>
-  <dd></dd>
+  <dd>Apply a style from the <code>style</code> folder:</dd>
+  <dd>
+    <pre><code>quire/apply style/celestial
+</code></pre>
+  </dd>
+  <dd>
+    This script finds CSS files recursively and <a href="">cats</a> them into one file.
+  </dd>
+  <dd>Run <code>quire/apply --help</code> for more information.</dd>
 </dl>
-<h2>Publish your quarto.</h2>
-<p>The <code>proof</code> folder is now a</p><a href="">static website</a>
-<p>. To publish it, copy that folder to a</p><a href="">web host</a>
-<p>. This site uses</p><a href="">neocities.org</a>
-<p>, a non-profit which offers free and low-cost web hosting.</p>
-<hr>
-<details>
-  <summary>
-    Q TIP: Working Directory
-  </summary>Quarto scripts accept optional command-line arguments. By default, scripts assume they have been called from [ ]
-</details>
-<details>
-  <summary>
-    Q TIP: Dynamic Websites
-  </summary>Pages can be served dynamically by calling a Quarto <code>Pages</code> object from a Python micro-framework like bottle or flask. Quarto reads files iteratively and generate pages lazily, one line at a time. If these lines are streamed directly to browsers, then it is possible to serve large websites from cheap cloud instances with limited RAM and/or disk space.
-</details>
+<p>Open <code>proof/index.html</code> in a browser to behold your brave new quarto.</p>
 </main>
 <section id="icons">
-<a href="test.html" rel="prev">◄◄</a>
+<a href="faq.html" rel="prev">◄◄</a>
 <a href="https://github.com/samkennerly/quarto/"><img alt="GitHub" src="media/icons/github.svg" height="32" title="GitHub"></a>
 <a href="https://neocities.org/"><img alt="Neocities" src="media/icons/neocities.svg" height="32" title="Neocities"></a>
 <a href="https://www.python.org/"><img alt="Python" src="media/icons/python.svg" height="32" title="Python"></a>
