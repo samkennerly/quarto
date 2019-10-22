@@ -19,13 +19,13 @@ main {
   padding: var(--puffy);
 }
 main blockquote,
+main details,
 main pre {
   box-sizing: border-box;
   margin: var(--marge);
   padding: var(--puffy);
   width: 100%;
 }
-main details,
 main dl,
 main figure,
 main .gallery,

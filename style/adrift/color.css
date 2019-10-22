@@ -38,6 +38,11 @@ main {
 main blockquote {
   background: var(--color-boxes);
 }
+main details,
+main hr {
+  background: var(--color-boxes);
+  border-color: var(--color-boxes);
+}
 main dt,
 main h1,
 main h2,
@@ -45,9 +50,8 @@ main h3,
 main h4,
 main h5,
 main h6,
-main hr {
+main summary {
   color: var(--color-head);
-  border-color: var(--color-boxes);
   text-shadow: var(--text-shadow);
 }
 main mark {

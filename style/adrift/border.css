@@ -15,6 +15,7 @@ main pre {
 main hr {
   border: var(--border);
 }
+main details,
 main .gallery img {
   border: var(--border);
   border-radius: var(--radius);
