@@ -7,7 +7,7 @@ body {
   grid-row-gap: 0;
   grid-template-areas:
     'nav main icons'
-    'nav klf  jump';
+    'klf klf  jump';
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr auto;
 }

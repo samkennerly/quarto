@@ -6,25 +6,24 @@ https://www.w3schools.com/css/css_border.asp
   --border: 2px solid;
   --radius: 1rem;
 }
-a img {
-  border: var(--border);
-  border-radius: var(--radius);
-}
 /* border main */
+main,
 main blockquote,
 main pre {
   border-radius: var(--radius);
 }
-main h2,
-main h3,
-main h4,
-main h5,
-main h6,
 main hr {
-  border: none;
-  border-bottom: var(--border);
+  border: var(--border);
+}
+main .gallery img {
+  border: var(--border);
+  border-radius: var(--radius);
 }
 /* border nav */
+nav img {
+  border: var(--border);
+  border-radius: var(--radius);
+}
 nav details {
   border: var(--border);
   border-radius: var(--radius);
@@ -32,7 +31,5 @@ nav details {
 /* border others */
 #icons img {
   border: var(--border);
-}
-#klf {
-  border-top: var(--border);
+  border-radius: var(--radius);
 }

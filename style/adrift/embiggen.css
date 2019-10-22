@@ -3,16 +3,15 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge-large: 1rem auto;
-  --marge-small: .5rem auto;
-  --padme: .125rem .5rem;
+  --marge: 1rem auto;
+  --padme: .25rem .5rem;
   --puffy: .5rem 1rem;
   --size-icons: 1.5rem;
 }
 body {
-  margin: 0 auto;
-  max-width: 83rem;
-  min-height: 100vh;
+  margin: .5rem auto 0;
+  max-width: 80rem;
+  min-height: 99vh;
   overflow-y: scroll;
 }
 /* embiggen main */
@@ -21,21 +20,21 @@ main {
 }
 main blockquote,
 main pre {
-  margin: var(--marge-large);
-  max-width: 100%;
-  overflow-x: auto;
+  margin: var(--marge);
+  overflow: auto;
   padding: var(--puffy);
+  width: 100%;
 }
 main details,
-main dt,
+main dl,
 main figure,
 main .gallery,
 main hr,
 main iframe {
-  margin: var(--marge-large);
+  margin: var(--marge);
 }
 main table {
-  margin: var(--marge-large);
+  margin: var(--marge);
   overflow: auto;
   padding: 0;
   width: 100%;
@@ -49,11 +48,7 @@ nav {
   padding: var(--puffy);
 }
 nav a {
-  margin: var(--marge-small);
   padding: var(--padme);
-}
-nav details {
-  margin: var(--marge-small);
 }
 nav details summary {
   padding: var(--padme);
@@ -66,9 +61,12 @@ nav details summary {
 }
 #icons img {
   height: var(--size-icons);
-  margin: var(--marge-large);
+  margin: var(--marge);
   width: var(--size-icons);
 }
 #jump a {
   margin: auto;
+}
+#klf address {
+  margin: 0 1rem;
 }
