@@ -15,16 +15,14 @@ main pre {
 main hr {
   border: var(--border);
 }
+main a img,
 main details,
 main .gallery img {
   border: var(--border);
   border-radius: var(--radius);
 }
 /* border nav */
-nav img {
-  border: var(--border);
-  border-radius: var(--radius);
-}
+nav img,
 nav details {
   border: var(--border);
   border-radius: var(--radius);
