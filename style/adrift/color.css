@@ -45,8 +45,7 @@ main h3,
 main h4,
 main h5,
 main h6,
-main hr,
-main strong {
+main hr {
   color: var(--color-head);
   border-color: var(--color-boxes);
   text-shadow: var(--text-shadow);
@@ -58,6 +57,10 @@ main mark {
 main pre {
   background: black;
   color: #ada;
+}
+main strong {
+  color: var(--color-active);
+  text-shadow: var(--text-shadow);
 }
 main table,
 main table thead {

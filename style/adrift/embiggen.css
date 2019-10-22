@@ -20,8 +20,8 @@ main {
 }
 main blockquote,
 main pre {
+  box-sizing: border-box;
   margin: var(--marge);
-  overflow: auto;
   padding: var(--puffy);
   width: 100%;
 }
@@ -34,8 +34,8 @@ main iframe {
   margin: var(--marge);
 }
 main table {
+  box-sizing: border-box;
   margin: var(--marge);
-  overflow: auto;
   padding: 0;
   width: 100%;
 }
