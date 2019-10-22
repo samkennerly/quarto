@@ -1,5 +1,19 @@
 # Much Ado About Quartos
 
+Quartos are designed to:
+
+- build
+  [lean](https://gomakethings.com/the-lean-web/)
+  websites quickly
+- help beginners [learn HTML and CSS](https://neocities.org/tutorials)
+- be modified and or copypasted into other projects
+- avoid installing
+  [500 packages](https://chriswarrick.com/blog/2019/02/15/modern-web-development-where-you-need-500-packages-to-build-bootstrap/)
+  and a
+  [500 MB framework](https://medium.com/@mattholt/its-2019-and-i-still-make-websites-with-my-bare-hands-73d4eec6b7)
+  to build
+  [5kB pages](https://motherfuckingwebsite.com/)
+
 ## Self-promotion is not so vile a sin.
 
 ### Quartos are small
@@ -10,8 +24,6 @@
 - No server. Static websites do not need servers.
 
 ### Quartos are clean
-
-`Quire` class
 
 - A quarto never reads or writes outside its folder unless you insist.
 - no side effects
@@ -24,6 +36,10 @@
 - Clean pages only when you call `quire/clean`, not every time you fix a typo.
 - Delete pages only when you call `quire/delete`, not every time you fix a typo.
 - Don't copy images, audio, video, or other large files. Don't even look at them.
+- `Quire` objects read files and generate HTML lazily, one line at a time.
+  Large websites can be served from RAM-limited cloud machines by streaming
+  lines directly to browsers from a Python micro-framework like
+  [bottle]().
 
 ### Quartos are independent
 
