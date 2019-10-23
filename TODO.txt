@@ -1,12 +1,14 @@
 ASAP:
   - finish pages (see paper)
-  - convert all pages -> HTML (no dependencies)
+  - convert all pages -> HTML
+  - repair all missing links
   - bring back pages.txt as example
   - synchronize styles
   - move site to neocities
   - mistune: () needs to be encoded as %28%29 ?
 
 CODE:
+  - convert test/ scripts to Python
   - quarto/export: sync target to neocities account?
   - misfire: fork mistune-contrib. make racing version
   - type hints?
