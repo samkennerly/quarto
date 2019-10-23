@@ -8,10 +8,12 @@ ASAP:
   - mistune: () needs to be encoded as %28%29 ?
 
 CODE:
+  - quire/* scripts should use main(), if __name__ == __main__
+  - try using new mistune
   - convert test/ scripts to Python
   - quarto/export: sync target to neocities account?
-  - misfire: fork mistune-contrib. make racing version
-  - type hints?
+  - misfire: fork mistune-contrib. make racing version.
+  - type hints? replace collections.abc ?
   - Google search bar?
   - three.js example script
   - galley: build an image gallery. see https://github.com/Jack000/Expose
