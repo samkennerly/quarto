@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module quire</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>quire</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/context/quire/quire.py">/context/quire/quire.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="collections.abc.html#Mapping">collections.abc.Mapping</a>(<a href="collections.abc.html#Collection">collections.abc.Collection</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="quire.html#Quire">Quire</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Quire">class <strong>Quire</strong></a>(<a href="collections.abc.html#Mapping">collections.abc.Mapping</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Quire">Quire</a>(folder=".")<br>
+&nbsp;<br>
+Generate&nbsp;web&nbsp;pages&nbsp;from&nbsp;HTML&nbsp;fragments.<br>
+&nbsp;<br>
+<a href="#Quire">Quire</a>&nbsp;is&nbsp;an&nbsp;ordered,&nbsp;immutable&nbsp;{&nbsp;pathlib.Path:&nbsp;str&nbsp;}&nbsp;<a href="collections.abc.html#Mapping">Mapping</a>.<br>
+Each&nbsp;key&nbsp;is&nbsp;an&nbsp;absolute&nbsp;path&nbsp;to&nbsp;the&nbsp;&lt;main&gt;&nbsp;element&nbsp;of&nbsp;a&nbsp;web&nbsp;page.<br>
+Each&nbsp;value&nbsp;is&nbsp;a&nbsp;finished&nbsp;web&nbsp;page.&nbsp;Values&nbsp;are&nbsp;generated&nbsp;lazily.<br>
+&nbsp;<br>
+Initialize&nbsp;a&nbsp;<a href="#Quire">Quire</a>&nbsp;with&nbsp;a&nbsp;base&nbsp;folder.<br>
+<a href="#Quire">Quire</a>&nbsp;accepts&nbsp;absolute&nbsp;or&nbsp;relative&nbsp;path-like&nbsp;objects&nbsp;as&nbsp;input.<br>
+<a href="#Quire">Quire</a>&nbsp;looks&nbsp;for&nbsp;a&nbsp;"pages.txt"&nbsp;file&nbsp;with&nbsp;newline-separated&nbsp;page&nbsp;paths.<br>
+If&nbsp;"pages.txt"&nbsp;does&nbsp;not&nbsp;exist,&nbsp;then&nbsp;it&nbsp;finds&nbsp;.html&nbsp;files&nbsp;recursively.<br>
+&nbsp;<br>
+Page&nbsp;options&nbsp;(title,&nbsp;description,&nbsp;etc.)&nbsp;may&nbsp;be&nbsp;stored&nbsp;in&nbsp;JSON&nbsp;files.<br>
+If&nbsp;index.json&nbsp;exists,&nbsp;then&nbsp;its&nbsp;values&nbsp;are&nbsp;defaults&nbsp;for&nbsp;all&nbsp;page&nbsp;options.<br>
+Each&nbsp;JSON&nbsp;file&nbsp;must&nbsp;have&nbsp;the&nbsp;same&nbsp;path&nbsp;as&nbsp;its&nbsp;page,&nbsp;but&nbsp;with&nbsp;a&nbsp;.json&nbsp;suffix.<br>
+&nbsp;<br>
+Call&nbsp;help(<a href="#Quire">Quire</a>)&nbsp;for&nbsp;more&nbsp;information.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="quire.html#Quire">Quire</a></dd>
+<dd><a href="collections.abc.html#Mapping">collections.abc.Mapping</a></dd>
+<dd><a href="collections.abc.html#Collection">collections.abc.Collection</a></dd>
+<dd><a href="collections.abc.html#Sized">collections.abc.Sized</a></dd>
+<dd><a href="collections.abc.html#Iterable">collections.abc.Iterable</a></dd>
+<dd><a href="collections.abc.html#Container">collections.abc.Container</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Quire-__call__"><strong>__call__</strong></a>(self, page)</dt><dd><tt>Iterator[str]:&nbsp;Lines&nbsp;of&nbsp;generated&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="Quire-__fspath__"><strong>__fspath__</strong></a>(self)</dt><dd><tt>str:&nbsp;String&nbsp;representation&nbsp;of&nbsp;base&nbsp;folder.</tt></dd></dl>
+
+<dl><dt><a name="Quire-__getitem__"><strong>__getitem__</strong></a>(self, page)</dt><dd><tt>str:&nbsp;Generated&nbsp;page&nbsp;as&nbsp;a&nbsp;single&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="Quire-__init__"><strong>__init__</strong></a>(self, folder='.')</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Quire-__iter__"><strong>__iter__</strong></a>(self)</dt><dd><tt>Iterable[Path]:&nbsp;Absolute&nbsp;Path&nbsp;to&nbsp;each&nbsp;main&nbsp;element.</tt></dd></dl>
+
+<dl><dt><a name="Quire-__len__"><strong>__len__</strong></a>(self)</dt><dd><tt>int:&nbsp;Number&nbsp;of&nbsp;main&nbsp;elements&nbsp;found.</tt></dd></dl>
+
+<dl><dt><a name="Quire-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>str:&nbsp;Printable&nbsp;representation&nbsp;of&nbsp;self.</tt></dd></dl>
+
+<dl><dt><a name="Quire-__truediv__"><strong>__truediv__</strong></a>(self, pathlike)</dt><dd><tt>Path:&nbsp;Absolute&nbsp;path.&nbsp;If&nbsp;input&nbsp;is&nbsp;relative,&nbsp;then&nbsp;append&nbsp;to&nbsp;base</tt></dd></dl>
+
+<dl><dt><a name="Quire-build"><strong>build</strong></a>(self, target)</dt><dd><tt>None:&nbsp;Generate&nbsp;each&nbsp;page&nbsp;and&nbsp;write&nbsp;to&nbsp;target&nbsp;folder.</tt></dd></dl>
+
+<dl><dt><a name="Quire-generate"><strong>generate</strong></a>(self, page, parsed=&lt;bound method Markdown.parse of &lt;mistune.Markdown object at 0x7fbef1348e80&gt;&gt;, title='', **kwargs)</dt><dd><tt>Iterator[str]:&nbsp;All&nbsp;lines&nbsp;in&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="Quire-icons"><strong>icons</strong></a>(self, page, icons=(), nextlink='', prevlink='', **kwargs)</dt><dd><tt>Iterator[str]:&nbsp;Links&nbsp;drawn&nbsp;with&nbsp;JPEGs,&nbsp;PNGs,&nbsp;ICOs&nbsp;or&nbsp;even&nbsp;GIFs.<br>
+Consider&nbsp;SVGs&nbsp;so&nbsp;there's&nbsp;no&nbsp;scaling&nbsp;glitch.&nbsp;(I&nbsp;love&nbsp;it.)</tt></dd></dl>
+
+<dl><dt><a name="Quire-jump"><strong>jump</strong></a>(self, page, javascripts=(), updog='', **kwargs)</dt><dd><tt>Iterator[str]:&nbsp;And&nbsp;I&nbsp;know,&nbsp;reader,&nbsp;just&nbsp;how&nbsp;you&nbsp;feel.<br>
+You&nbsp;got&nbsp;to&nbsp;scroll&nbsp;past&nbsp;the&nbsp;pop-ups&nbsp;to&nbsp;get&nbsp;to&nbsp;what's&nbsp;real.</tt></dd></dl>
+
+<dl><dt><a name="Quire-klf"><strong>klf</strong></a>(self, page, copyright='', email='', qlink='', license=(), **kwargs)</dt><dd><tt>Iterator[str]:&nbsp;Copyright,&nbsp;license,&nbsp;and&nbsp;final&nbsp;elements.<br>
+They're&nbsp;justified,&nbsp;and&nbsp;they're&nbsp;ancient.&nbsp;I&nbsp;hope&nbsp;you&nbsp;understand.</tt></dd></dl>
+
+<dl><dt><a name="Quire-links"><strong>links</strong></a>(self, page, base='', favicon='', styles=(), **kwargs)</dt><dd><tt>Iterator[str]:&nbsp;&lt;link&gt;&nbsp;tags&nbsp;in&nbsp;page&nbsp;&lt;head&gt;.</tt></dd></dl>
+
+<dl><dt><a name="Quire-meta"><strong>meta</strong></a>(self, page, meta=(), **kwargs)</dt><dd><tt>Iterator[str]:&nbsp;&lt;meta&gt;&nbsp;tags&nbsp;in&nbsp;page&nbsp;&lt;head&gt;.</tt></dd></dl>
+
+<dl><dt><a name="Quire-nav"><strong>nav</strong></a>(self, page, homelink='home', **kwargs)</dt><dd><tt>Iterator[str]:&nbsp;&lt;nav&gt;&nbsp;element&nbsp;with&nbsp;links&nbsp;to&nbsp;other&nbsp;pages.</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Quire-apply"><strong>apply</strong></a>(style, sheet)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>None:&nbsp;Cat&nbsp;CSS&nbsp;files&nbsp;from&nbsp;style&nbsp;folder&nbsp;and&nbsp;write&nbsp;to&nbsp;one&nbsp;file.</tt></dd></dl>
+
+<dl><dt><a name="Quire-clean"><strong>clean</strong></a>(source, target)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>None:&nbsp;Save&nbsp;clean&nbsp;page&nbsp;&lt;body&gt;&nbsp;contents&nbsp;to&nbsp;target&nbsp;folder.</tt></dd></dl>
+
+<dl><dt><a name="Quire-delete"><strong>delete</strong></a>(suffix, target)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>None:&nbsp;Remove&nbsp;files&nbsp;with&nbsp;selected&nbsp;suffix&nbsp;and&nbsp;any&nbsp;empty&nbsp;folders.</tt></dd></dl>
+
+<dl><dt><a name="Quire-query"><strong>query</strong></a>(page, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>dict:&nbsp;Page&nbsp;options,&nbsp;if&nbsp;any.&nbsp;Kwargs&nbsp;are&nbsp;default&nbsp;values.</tt></dd></dl>
+
+<dl><dt><a name="Quire-readlines"><strong>readlines</strong></a>(*paths)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Iterator[str]:&nbsp;Raw&nbsp;lines&nbsp;from&nbsp;text&nbsp;file(s).</tt></dd></dl>
+
+<dl><dt><a name="Quire-stylecat"><strong>stylecat</strong></a>(style)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Iterator[str]:&nbsp;Concatenate&nbsp;CSS&nbsp;files&nbsp;in&nbsp;style&nbsp;folder.</tt></dd></dl>
+
+<dl><dt><a name="Quire-tidybody"><strong>tidybody</strong></a>(dirty, clean)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>None:&nbsp;Clean&nbsp;raw&nbsp;HTML&nbsp;page&nbsp;and&nbsp;save.&nbsp;Requires&nbsp;HTML&nbsp;Tidy&nbsp;&gt;=&nbsp;5.</tt></dd></dl>
+
+<dl><dt><a name="Quire-urlpath"><strong>urlpath</strong></a>(page, src)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>str:&nbsp;URL&nbsp;from&nbsp;page&nbsp;to&nbsp;(local&nbsp;file&nbsp;or&nbsp;remote&nbsp;URL).<br>
+Inputs&nbsp;must&nbsp;be&nbsp;absolute&nbsp;path-like&nbsp;objects.</tt></dd></dl>
+
+<dl><dt><a name="Quire-validpath"><strong>validpath</strong></a>(path)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Path:&nbsp;Absolute&nbsp;path.&nbsp;Raise&nbsp;error&nbsp;if&nbsp;path&nbsp;does&nbsp;not&nbsp;exist.</tt></dd></dl>
+
+<dl><dt><a name="Quire-write"><strong>write</strong></a>(text, path)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>None:&nbsp;Write&nbsp;text&nbsp;to&nbsp;selected&nbsp;path.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>home</strong></dt>
+<dd><tt>Path:&nbsp;Absolute&nbsp;path&nbsp;to&nbsp;home&nbsp;page.</tt></dd>
+</dl>
+<dl><dt><strong>options</strong></dt>
+<dd><tt>dict:&nbsp;Default&nbsp;page&nbsp;options&nbsp;from&nbsp;JSON&nbsp;file.</tt></dd>
+</dl>
+<dl><dt><strong>pages</strong></dt>
+<dd><tt>Tuple[Path]:&nbsp;Absolute&nbsp;path&nbsp;to&nbsp;each&nbsp;page&nbsp;in&nbsp;home&nbsp;folder.</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>OPTIONS</strong> = 'index.json'</dl>
+
+<dl><dt><strong>PAGES</strong> = 'pages.txt'</dl>
+
+<dl><dt><strong>QHOME</strong> = 'https://github.com/samkennerly/quarto'</dl>
+
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Methods inherited from <a href="collections.abc.html#Mapping">collections.abc.Mapping</a>:<br>
+<dl><dt><a name="Quire-__contains__"><strong>__contains__</strong></a>(self, key)</dt></dl>
+
+<dl><dt><a name="Quire-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="Quire-get"><strong>get</strong></a>(self, key, default=None)</dt><dd><tt>D.<a href="#Quire-get">get</a>(k[,d])&nbsp;-&gt;&nbsp;D[k]&nbsp;if&nbsp;k&nbsp;in&nbsp;D,&nbsp;else&nbsp;d.&nbsp;&nbsp;d&nbsp;defaults&nbsp;to&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="Quire-items"><strong>items</strong></a>(self)</dt><dd><tt>D.<a href="#Quire-items">items</a>()&nbsp;-&gt;&nbsp;a&nbsp;set-like&nbsp;object&nbsp;providing&nbsp;a&nbsp;view&nbsp;on&nbsp;D's&nbsp;items</tt></dd></dl>
+
+<dl><dt><a name="Quire-keys"><strong>keys</strong></a>(self)</dt><dd><tt>D.<a href="#Quire-keys">keys</a>()&nbsp;-&gt;&nbsp;a&nbsp;set-like&nbsp;object&nbsp;providing&nbsp;a&nbsp;view&nbsp;on&nbsp;D's&nbsp;keys</tt></dd></dl>
+
+<dl><dt><a name="Quire-values"><strong>values</strong></a>(self)</dt><dd><tt>D.<a href="#Quire-values">values</a>()&nbsp;-&gt;&nbsp;an&nbsp;object&nbsp;providing&nbsp;a&nbsp;view&nbsp;on&nbsp;D's&nbsp;values</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="collections.abc.html#Mapping">collections.abc.Mapping</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+<dl><dt><strong>__reversed__</strong> = None</dl>
+
+<hr>
+Class methods inherited from <a href="collections.abc.html#Collection">collections.abc.Collection</a>:<br>
+<dl><dt><a name="Quire-__subclasshook__"><strong>__subclasshook__</strong></a>(C)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Abstract&nbsp;classes&nbsp;can&nbsp;override&nbsp;this&nbsp;to&nbsp;customize&nbsp;issubclass().<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;invoked&nbsp;early&nbsp;on&nbsp;by&nbsp;abc.ABCMeta.__subclasscheck__().<br>
+It&nbsp;should&nbsp;return&nbsp;True,&nbsp;False&nbsp;or&nbsp;NotImplemented.&nbsp;&nbsp;If&nbsp;it&nbsp;returns<br>
+NotImplemented,&nbsp;the&nbsp;normal&nbsp;algorithm&nbsp;is&nbsp;used.&nbsp;&nbsp;Otherwise,&nbsp;it<br>
+overrides&nbsp;the&nbsp;normal&nbsp;algorithm&nbsp;(and&nbsp;the&nbsp;outcome&nbsp;is&nbsp;cached).</tt></dd></dl>
+
+</td></tr></table></td></tr></table>
+</body></html>
