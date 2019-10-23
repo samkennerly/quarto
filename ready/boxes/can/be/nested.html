@@ -74,11 +74,6 @@ https://your-domain.org/quests/grail.html
     </ul>
   </li>
 </ul>
-<h2>file and folder names</h2>
-<p>[</p><a href="https://docs.python.org/3/library/urllib.parse.html#urllib.parse.quote">quoted URLs</a>
-<p>and special chars]<br>
-[underscore -&gt; space]<br>
-[quire preserves caps, but your computer might not]</p>
 <h2>intermission</h2>
 <p>Here is a video for nested-box enthusiasts:</p>
 <figure>
@@ -87,16 +82,3 @@ https://your-domain.org/quests/grail.html
     from <a href="https://www.alleycat.org/">Alley Cat Allies</a>
   </figcaption>
 </figure>
-<p>The rest of this page is mostly boring technical details.</p>
-<h2 id="pages.txt">pages.txt</h2>
-<p>To build &lt;nav&gt; menus, Quarto needs to know the path to every page in your site. Quarto looks for a <code>pages.txt</code> file in the <code>ready</code> folder. Quarto finds pages</p><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob">recursively</a>
-<p>, so it will look inside subfolders of (subfolders of (subfolders of ( ... ))) if necessary.</p>
-<h2>relative paths</h2>
-<p>To avoid</p><a href="https://github.com/jekyll/jekyll/issues/5482">difficulties</a> <a href="https://github.com/jekyll/jekyll/issues/5488">with</a> <a href="https://github.com/jekyll/jekyll/issues/5743">previewing</a> <a href="https://github.com/jekyll/jekyll/issues/5895">websites</a> <a href="https://github.com/jekyll/jekyll/issues/6034">before</a> <a href="https://github.com/jekyll/jekyll/issues/6360">uploading</a> <a href="https://github.com/jekyll/jekyll/issues/7621">them</a>
-<p>, Quarto builds &lt;nav&gt; menus with</p><a href="https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2">relative URLs</a>
-<p>. Links that work when you preview files</p><a href="https://www.lifewire.com/how-to-preview-web-pages-3469885">locally</a> <del>will</del>
-<p>should not break when you upload them to a web server.</p>
-<h2>you are here</h2>
-<p>Each &lt;nav&gt; menu includes one link from the current page to itself. Quarto replaces the</p><a href="https://en.wikipedia.org/wiki/URL">URL</a>
-<p>for that link with a <code>#</code> symbol. This</p><a href="https://stackoverflow.com/questions/4855168/what-is-href-and-why-is-it-used">blank anchor</a>
-<p>is not a true</p>
