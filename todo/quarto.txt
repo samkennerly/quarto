@@ -5,14 +5,12 @@ ASAP:
   - bring back pages.txt as example
   - synchronize styles
   - move site to neocities
-  - mistune: () needs to be encoded as %28%29 ?
 
 CODE:
   - quire/* scripts should use main(), if __name__ == __main__
   - try using new mistune
   - convert test/ scripts to Python
   - quarto/export: sync target to neocities account?
-  - misfire: fork mistune-contrib. make racing version.
   - type hints? replace collections.abc ?
   - Google search bar?
   - three.js example script
@@ -20,6 +18,12 @@ CODE:
   - multithreading: one page per core?
   - tidylib C bindings (see https://github.com/nijel/utidylib)
   - Bottle or Flask demo app? Caddy?
+
+REPOS:
+  - badquarto: first example
+  - bardquarto: speed benchmark from shakespeare.mit.edu
+  - docdown: Python docs from .py files. `docdown` script in other repo?
+  - misfire: racing mistune. fork mistune-contrib ?
 
 STYLES:
   - style all <details> boxes, not just nav details
