@@ -31,7 +31,6 @@ Quarto builds websites.
 <details><summary>docs</summary>
 <a href="docs/options.html">options</a>
 <a href="docs/quire.py.html">quire.py</a>
-<a href="docs/scripts.html">scripts</a>
 </details>
 <details><summary>examples</summary>
 <a href="examples/adrift.html">adrift</a>
@@ -50,13 +49,14 @@ Quarto builds websites.
 websites quickly</li>
 <li>help beginners <a href="https://neocities.org/tutorials">learn HTML and CSS</a></li>
 <li>be modified and or copypasted into other projects</li>
-<li>avoid installing
+<li>not install
 <a href="https://chriswarrick.com/blog/2019/02/15/modern-web-development-where-you-need-500-packages-to-build-bootstrap/">500 packages</a>
 and a
 <a href="https://medium.com/@mattholt/its-2019-and-i-still-make-websites-with-my-bare-hands-73d4eec6b7">500 MB framework</a>
 to build
 <a href="https://motherfuckingwebsite.com/">5kB pages</a></li>
 </ul>
+<p>See the <a href="index.html">home page</a> to build one of your own.</p>
 <h2>Self-promotion is not so vile a sin.</h2>
 <h3>Quartos are small</h3>
 <ul>
@@ -84,7 +84,9 @@ lines directly to browsers from a Python micro-framework like
 <a href="">bottle</a>.</li>
 </ul>
 <h3>Quartos are independent</h3>
-<p><a href="https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a></p>
+<p>Quartos attempt to avoid
+<a href="https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a>
+at almost all cost.</p>
 <ul>
 <li>Packages in Quarto's
 <a href="https://github.com/samkennerly/quarto/blob/master/requirements.txt">requirements.txt</a>
@@ -92,8 +94,12 @@ file are <strong>not required</strong>. The file is used to build Quarto's <a hr
 <li>Multiple quartos can exist on the same computer without conflicts.</li>
 <li>The stock quarto does not require any packages, plugins, templates, frameworks, templates, configuration files, custom exceptions, custom loggers, custom file formats, shims, stylesheets, <code>.bash_profile</code> edits, ENV variables, <code>__init__.py</code>, <code>__main__.py</code>, <code>setup.py</code>, <code>sys.path</code> hacks, virtualenvs, wrappers, bundlers, <code>pip</code> installs, <code>npm</code> installs, <code>gem</code> installs, or any other dependencies except Python 3.</li>
 </ul>
-<h2>Draw the curtain and inspect the page source.</h2>
-<p>See the real HTML for any web page:</p>
+<h2>We will draw the curtain and show you the HTML.</h2>
+<h3>The browser doth request too much, methinks.</h3>
+<h3>I cannot tell what the dickens this page is.</h3>
+<h3>I click to bury pop-ups, not engage them.</h3>
+<h3>Load all, host a few, do wrong to none.</h3>
+<p>See the <a href="">source code</a> for any web page:</p>
 <dl>
   <dt>Chrome</dt>
   <dd>View &gt; Developer &gt; View Source (<kbd>Ctrl+U, ⌥⌘U</kbd>)</dd>
@@ -124,7 +130,7 @@ to show off your style.</li>
 <li>Styles can include non-CSS files, but <code>quire/apply</code> will ignore them.</li>
 <li>CSS files need not be named <code>align.css</code>, <code>border.css</code>, etc.</li>
 </ul>
-<h3>Neither a rebaser nor a merger be.</h3>
+<h3>Neither a cloner nor a forker be.</h3>
 <ul>
 <li><a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">merge</a></li>
 <li><a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">rebase</a></li>
