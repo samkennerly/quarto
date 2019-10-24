@@ -11,6 +11,7 @@ ASAP:
 CODE:
   - quire/* scripts should use main(), if __name__ == __main__
   - try using new mistune
+  - parse reST with docutils?
   - convert test/ scripts to Python
   - quarto/export: sync target to neocities account?
   - type hints? replace collections.abc ?
