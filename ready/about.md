@@ -4,65 +4,76 @@ Quartos are designed to:
 
 - build
   [lean](https://gomakethings.com/the-lean-web/)
-  websites quickly
+  websites
 - help beginners [learn HTML and CSS](https://neocities.org/tutorials)
 - be modified and or copypasted into other projects
-- not install
+- avoid installing
   [500 packages](https://chriswarrick.com/blog/2019/02/15/modern-web-development-where-you-need-500-packages-to-build-bootstrap/)
-  and a
-  [500 MB framework](https://medium.com/@mattholt/its-2019-and-i-still-make-websites-with-my-bare-hands-73d4eec6b7)
-  to build
-  [5kB pages](https://motherfuckingwebsite.com/)
+  and
+  [500 MB frameworks](https://medium.com/@mattholt/its-2019-and-i-still-make-websites-with-my-bare-hands-73d4eec6b7)
+  to build a
+  [5kB page](https://motherfuckingwebsite.com/).
 
-See the [home page](index.html) to build one of your own.
+See the [home page](index.html) for a quick tutorial.
+
+## As You Like It
+
+Quartos are templates to be copied and modified,
+not frameworks to be installed and configured.
+(Whether that's good or bad is a matter of
+[taste](https://dhh.dk/2012/rails-is-omakase.html)).
+All core code's
+[one page](https://github.com/samkennerly/quarto/tree/master/quire/quire.py),
+and all the styles and content merely folders.
+If you don't like it, change it.
+
+<dl>
+<dt>Change the options</dt>
+<dt>Change the pages</dt>
+<dt>Change the styles</dt>
+<dt>Change the code</dt>
+</dl>
 
 ## Self-promotion is not so vile a sin.
 
-
 ### Quartos are small
 
-- fewer than 500 lines of code
-- no busy loops
-- no Ten-Ton Widgets https://css-tricks.com/ten-ton-widgets/
-- No server. Static websites do not need servers.
+- &nbsp; 1 Python module
+- \+ 4 Python scripts
+- \+ 0 [ten-ton widgets](https://css-tricks.com/ten-ton-widgets/)
+- ≈ 500 lines of code
 
 ### Quartos are clean
 
-- A quarto never reads or writes outside its folder unless you insist.
-- no side effects
-- no caches
-- minimal state
+- No installation.
+- No environment variables.
+- No files written outside its folder (unless you insist).
+- No plugins, templates, frameworks, loggers, shims, wrappers, ...
 
 ### Quartos are lazy
 
-- Apply style only when you call `quire/apply`, not every time you fix a typo.
-- Clean pages only when you call `quire/clean`, not every time you fix a typo.
-- Delete pages only when you call `quire/delete`, not every time you fix a typo.
-- Don't copy images, audio, video, or other large files. Don't even look at them.
-- `Quire` objects read files and generate HTML lazily, one line at a time.
-  Large websites can be served from RAM-limited cloud machines by streaming
-  lines directly to browsers from a Python micro-framework like
-  [bottle]().
+- [Cat](https://en.wikipedia.org/wiki/Concatenation) strings without [schlemieling](https://en.wikichip.org/wiki/schlemiel_the_painter%27s_algorithm).
+- Generate HTML
+[lazily](https://en.wikipedia.org/wiki/Lazy_evaluation),
+one line at a time.
+- Build pages without copying images, audio, video, or any other files.
+- Do not start any web servers, file watchers, event listeners, or any other
+[busy loops](https://en.wikipedia.org/wiki/Busy_waiting).
 
 ### Quartos are independent
 
-Quartos attempt to avoid
-[dependency hell](https://en.wikipedia.org/wiki/Dependency_hell)
-at almost all cost.
+- No [requirements](https://github.com/samkennerly/quarto/blob/master/requirements.txt).
+- Want to write pages in Markdown? In that case,
+[one requirement](https://github.com/lepture/mistune).
+- Build multiple quartos on the same machine without conflicts.
+- No `setup.py`, `virtualenv`, `pipenv`, `__init__.py`, `__main__.py`, `sys.path` hacks,
+dependency resolution trees, version conflicts, or upgrades.
 
-- Packages in Quarto's
-[requirements.txt](https://github.com/samkennerly/quarto/blob/master/requirements.txt)
-file are **not required**. The file is used to build Quarto's [dev sandbox](https://en.wikipedia.org/wiki/Deployment_environment#Development).
-- Multiple quartos can exist on the same computer without conflicts.
-- The stock quarto does not require any packages, plugins, templates, frameworks, templates, configuration files, custom exceptions, custom loggers, custom file formats, shims, stylesheets, `.bash_profile` edits, ENV variables, `__init__.py`, `__main__.py`, `setup.py`, `sys.path` hacks, virtualenvs, wrappers, bundlers, `pip` installs, `npm` installs, `gem` installs, or any other dependencies except Python 3.
+To upgrade a quarto, copy the `quire` folder from a newer quarto.
+There is no code outside the `quire` folder.
+
 
 ## We will draw the curtain and show you the HTML.
-
-### The browser doth request too much, methinks.
-### I cannot tell what the dickens this page is.
-### I click to bury pop-ups, not engage them.
-### Load all, host a few, do wrong to none.
-
 
 See the [source code]() for any web page:
 
@@ -87,50 +98,12 @@ Quarto builds websites.
 ...
 ```
 
-## Is this a PR I see before me?
+### The browser doth request too much, methinks.
+### I cannot tell what the dickens this page is.
+### I click to bury pop-ups, not to raise them.
+### Load all, host a few, do wrong to none.
 
-[pull request](https://github.com/samkennerly/quarto/pulls)
 
-### True it is that we have seen better styles.
-
--  Most of the stock styles were made by a design
-[rookie](https://samkennerly.github.io/).
-Surely you can do better!
--  Create a new folder in the `style` folder and an
-[example](examples/adrift.html)
-to show off your style.
--  Styles can include non-CSS files, but `quire/apply` will ignore them.
--  CSS files need not be named `align.css`, `border.css`, etc.
-
-### Neither a cloner nor a forker be.
-
-- [merge](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-- [rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
-- [entropy](https://en.wikipedia.org/wiki/Software_entropy)
-- [feature creep](https://en.wikipedia.org/wiki/Feature_creep)
-- [fork](https://help.github.com/en/articles/fork-a-repo)
-
-### Files of few bytes are the best files.
-
-- Large files in GitHub repos can cause
-[problems](https://help.github.com/en/articles/working-with-large-files).
-- Try to avoid uploading any file larger than a
-[galaxy](media/galaxy.jpg).
-- Text files (HTML, CSS, MD, etc.) are rarely too big, but...
-- Code that resembles
-[pasta](https://en.wikipedia.org/wiki/Spaghetti_code)
-should probably be
-[refactored](https://en.wikipedia.org/wiki/Code_refactoring).
-
-### No legacy is so rich as honesty.
-
-- If you use someone else's work, then
-[make it obvious]( https://en.wikipedia.org/wiki/Attribution_%28copyright%29).
-- Copypasting from Quarto is OK **if you respect the licenses**.
-- The license for Quarto code is in the
-[LICENSE](https://github.com/samkennerly/quarto/blob/master/LICENSE)
-file.
-- The license for this website is [on this page](#klf).
 
 
 ## Give the devs their due.
