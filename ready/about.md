@@ -6,72 +6,58 @@ Quartos are designed to:
   [lean](https://gomakethings.com/the-lean-web/)
   websites
 - help beginners [learn HTML and CSS](https://neocities.org/tutorials)
-- be modified and or copypasted into other projects
-- avoid installing
-  [500 packages](https://chriswarrick.com/blog/2019/02/15/modern-web-development-where-you-need-500-packages-to-build-bootstrap/)
-  and
-  [500 MB frameworks](https://medium.com/@mattholt/its-2019-and-i-still-make-websites-with-my-bare-hands-73d4eec6b7)
-  to build a
-  [5kB page](https://motherfuckingwebsite.com/).
+- be modified by [Python](https://www.python.org/) programmers
+- be copied, pasted, and shared with anyone
 
 See the [home page](index.html) for a quick tutorial.
 
-## As You Like It
-
-Quartos are templates to be copied and modified,
-not frameworks to be installed and configured.
-(Whether that's good or bad is a matter of
-[taste](https://dhh.dk/2012/rails-is-omakase.html)).
-All core code's
-[one page](https://github.com/samkennerly/quarto/tree/master/quire/quire.py),
-and all the styles and content merely folders.
-If you don't like it, change it.
-
-<dl>
-<dt>Change the options</dt>
-<dt>Change the pages</dt>
-<dt>Change the styles</dt>
-<dt>Change the code</dt>
-</dl>
-
 ## Self-promotion is not so vile a sin.
 
-### Quartos are small
+Quartos build
+[5k pages](https://motherfuckingwebsite.com/)
+with
+[500 lines of code](https://github.com/samkennerly/quarto/tree/master/quire),
+not
+[500M frameworks](https://medium.com/@mattholt/its-2019-and-i-still-make-websites-with-my-bare-hands-73d4eec6b7)
+with
+[500 packages](https://chriswarrick.com/blog/2019/02/15/modern-web-development-where-you-need-500-packages-to-build-bootstrap/).
 
-- &nbsp; 1 Python module
-- \+ 4 Python scripts
+### Brevity is the soul of `git`.
+
+- &nbsp; 1 module
+- \+ 4 scripts
 - \+ 0 [ten-ton widgets](https://css-tricks.com/ten-ton-widgets/)
-- ≈ 500 lines of code
+- = 1 `quire` folder
 
-### Quartos are clean
+### Run cleanly, as a simple script should do.
 
-- No installation.
-- No environment variables.
+- No
+[hidden variables](https://virtualenvwrapper.readthedocs.io/en/latest/install.html#shell-startup-file).
 - No files written outside its folder (unless you insist).
-- No plugins, templates, frameworks, loggers, shims, wrappers, ...
+- No plugins, templates, frameworks, loggers, shims, wrappers, or
+[dinguses](https://en.wiktionary.org/wiki/dingus).
+- Scripts are in the `quire` folder, not the `/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/quarto/quire/bin/scripts` folder.
 
-### Quartos are lazy
+### Write out thy lines with stateless lazy-lists.
 
 - [Cat](https://en.wikipedia.org/wiki/Concatenation) strings without [schlemieling](https://en.wikichip.org/wiki/schlemiel_the_painter%27s_algorithm).
 - Generate HTML
 [lazily](https://en.wikipedia.org/wiki/Lazy_evaluation),
 one line at a time.
 - Build pages without copying images, audio, video, or any other files.
-- Do not start any web servers, file watchers, event listeners, or any other
+- Do not start any web servers, file watchers, event listeners, or
 [busy loops](https://en.wikipedia.org/wiki/Busy_waiting).
 
-### Quartos are independent
+### What can be happier than to despise all package installs?
 
-- No [requirements](https://github.com/samkennerly/quarto/blob/master/requirements.txt).
-- Want to write pages in Markdown? In that case,
-[one requirement](https://github.com/lepture/mistune).
+- No installation.
+- [Extras](https://www.python.org/dev/peps/pep-0508/#extras),
+not [requirements](https://github.com/samkennerly/quarto/blob/master/requirements.txt).
+- No
+[combinatorial explosions](https://en.wikipedia.org/wiki/Combinatorial_explosion)
+of
+[implicit dependencies](https://www.davidhaney.io/npm-left-pad-have-we-forgotten-how-to-program/).
 - Build multiple quartos on the same machine without conflicts.
-- No `setup.py`, `virtualenv`, `pipenv`, `__init__.py`, `__main__.py`, `sys.path` hacks,
-dependency resolution trees, version conflicts, or upgrades.
-
-To upgrade a quarto, copy the `quire` folder from a newer quarto.
-There is no code outside the `quire` folder.
-
 
 ## We will draw the curtain and show you the HTML.
 
@@ -106,22 +92,49 @@ Quarto builds websites.
 
 
 
+
+## Use as much of this code as please you.
+
+Quartos are templates to be copied and modified,
+not frameworks to be installed and configured.
+(Whether that's good or bad is a matter of
+[taste](https://dhh.dk/2012/rails-is-omakase.html)).
+All core code's
+[one page](https://github.com/samkennerly/quarto/tree/master/quire/quire.py),
+and all the styles and content merely folders.
+
+
+To <q>install</q> a quarto,
+[copy it](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
+To <q>upgrade</q> a quarto, copy the `quire` folder from a newer quarto.
+To <q>uninstall</q> a quarto, delete it.
+
+If you don't like it, change it.
+
+<dl>
+<dt>Change the options</dt>
+<dt>Change the pages</dt>
+<dt>Change the styles</dt>
+<dt>Change the code</dt>
+</dl>
+
+
 ## Give the devs their due.
 
-### `proof` images
+### code
+
+- [Sam Kennerly](https://samkennerly.github.io/)
+
+### media
 
 - [galaxy.jpg](media/galaxy.jpg) by [NASA and ESA](https://commons.wikimedia.org/wiki/File:Hubble_view_of_barred_spiral_galaxy_Messier_83.jpg)
 - [quarto.svg](media/quarto.svg) by [Molly Blair](https://mollyeblair.com/)
 
-### `quire` code
+### pages
 
 - [Sam Kennerly](https://samkennerly.github.io/)
 
-### `ready` pages
-
-- [Sam Kennerly](https://samkennerly.github.io/)
-
-### `style` sheets
+### styles
 
 - `adrift`, `burning`, `doctoral` by [Sam Kennerly](https://samkennerly.github.io/)
 - `celestial` by [Jennifer Blair](https://jennifer-blair.com/)
