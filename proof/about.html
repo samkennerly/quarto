@@ -30,7 +30,8 @@ Quarto builds websites.
 </details>
 <details><summary>docs</summary>
 <a href="docs/options.html">options</a>
-<a href="docs/quire.py.html">quire.py</a>
+<a href="docs/paths.html">paths</a>
+<a href="docs/quire.html">quire</a>
 </details>
 <details><summary>examples</summary>
 <a href="examples/adrift.html">adrift</a>
@@ -44,143 +45,117 @@ Quarto builds websites.
 <h1>Much Ado About Quartos</h1>
 <p>Quartos are designed to:</p>
 <ul>
-<li>build
-<a href="https://gomakethings.com/the-lean-web/">lean</a>
-websites quickly</li>
-<li>help beginners <a href="https://neocities.org/tutorials">learn HTML and CSS</a></li>
-<li>be modified and or copypasted into other projects</li>
-<li>not install
-<a href="https://chriswarrick.com/blog/2019/02/15/modern-web-development-where-you-need-500-packages-to-build-bootstrap/">500 packages</a>
-and a
-<a href="https://medium.com/@mattholt/its-2019-and-i-still-make-websites-with-my-bare-hands-73d4eec6b7">500 MB framework</a>
-to build
-<a href="https://motherfuckingwebsite.com/">5kB pages</a></li>
+  <li>build <a href="https://gomakethings.com/the-lean-web/">lean</a> websites
+  </li>
+  <li>help people <a href="https://neocities.org/tutorials">learn HTML and CSS</a>
+  </li>
+  <li>be modified by <a href="https://www.python.org/">Python</a> programmers
+  </li>
+  <li>be copied, pasted, and shared with anyone.</li>
 </ul>
-<p>See the <a href="index.html">home page</a> to build one of your own.</p>
-<h2>Self-promotion is not so vile a sin.</h2>
-<h3>Quartos are small</h3>
-<ul>
-<li>fewer than 500 lines of code</li>
-<li>no busy loops</li>
-<li>no Ten-Ton Widgets <a href="https://css-tricks.com/ten-ton-widgets/">https://css-tricks.com/ten-ton-widgets/</a></li>
-<li>No server. Static websites do not need servers.</li>
-</ul>
-<h3>Quartos are clean</h3>
-<ul>
-<li>A quarto never reads or writes outside its folder unless you insist.</li>
-<li>no side effects</li>
-<li>no caches</li>
-<li>minimal state</li>
-</ul>
-<h3>Quartos are lazy</h3>
-<ul>
-<li>Apply style only when you call <code>quire/apply</code>, not every time you fix a typo.</li>
-<li>Clean pages only when you call <code>quire/clean</code>, not every time you fix a typo.</li>
-<li>Delete pages only when you call <code>quire/delete</code>, not every time you fix a typo.</li>
-<li>Don't copy images, audio, video, or other large files. Don't even look at them.</li>
-<li><code>Quire</code> objects read files and generate HTML lazily, one line at a time.
-Large websites can be served from RAM-limited cloud machines by streaming
-lines directly to browsers from a Python micro-framework like
-<a href="">bottle</a>.</li>
-</ul>
-<h3>Quartos are independent</h3>
-<p>Quartos attempt to avoid
-<a href="https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a>
-at almost all cost.</p>
-<ul>
-<li>Packages in Quarto's
-<a href="https://github.com/samkennerly/quarto/blob/master/requirements.txt">requirements.txt</a>
-file are <strong>not required</strong>. The file is used to build Quarto's <a href="https://en.wikipedia.org/wiki/Deployment_environment#Development">dev sandbox</a>.</li>
-<li>Multiple quartos can exist on the same computer without conflicts.</li>
-<li>The stock quarto does not require any packages, plugins, templates, frameworks, templates, configuration files, custom exceptions, custom loggers, custom file formats, shims, stylesheets, <code>.bash_profile</code> edits, ENV variables, <code>__init__.py</code>, <code>__main__.py</code>, <code>setup.py</code>, <code>sys.path</code> hacks, virtualenvs, wrappers, bundlers, <code>pip</code> installs, <code>npm</code> installs, <code>gem</code> installs, or any other dependencies except Python 3.</li>
-</ul>
-<h2>We will draw the curtain and show you the HTML.</h2>
-<h3>The browser doth request too much, methinks.</h3>
-<h3>I cannot tell what the dickens this page is.</h3>
-<h3>I click to bury pop-ups, not engage them.</h3>
-<h3>Load all, host a few, do wrong to none.</h3>
-<p>See the <a href="">source code</a> for any web page:</p>
+<p>See the <a href="index.html">home page</a> to get started quickly.</p>
+<hr>
+<h2>Self-promotion is not so vile a sin.</h2>Quartos build <a href="https://motherfuckingwebsite.com/">5k pages</a> with <a href="https://github.com/samkennerly/quarto/tree/master/quire">500 lines</a> of code, not <a href="https://medium.com/@mattholt/its-2019-and-i-still-make-websites-with-my-bare-hands-73d4eec6b7">500M monoliths</a> with <a href="https://chriswarrick.com/blog/2019/02/15/modern-web-development-where-you-need-500-packages-to-build-bootstrap/">500 dependencies.</a>
 <dl>
-  <dt>Chrome</dt>
+  <dt>Brevity is the soul of git.</dt>
+  <dd>1 module</dd>
+  <dd>+ 4 scripts</dd>
+  <dd>
+    + 0 <a href="https://css-tricks.com/ten-ton-widgets/">ten-ton widgets</a>
+  </dd>
+  <dd>= 1 <code>quire</code> folder</dd>
+  <dt>Run cleanly, as a simple script should do.</dt>
+  <dd>
+    No <a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html#shell-startup-file">hidden variables</a>.
+  </dd>
+  <dd>No files written outside its folder (unless you insist).</dd>
+  <dd>
+    No plugins, servers, templates, wrappers, or <a href="https://en.wiktionary.org/wiki/dingus">dinguses</a>.
+  </dd>
+  <dd>Scripts are in the <code>quire</code> folder, not the <code>/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/quarto/quire/bin/scripts</code> folder.</dd>
+  <dt>Write out thy lines with stateless lazy-lists.</dt>
+  <dd>
+    <a href="https://en.wikipedia.org/wiki/Concatenation">Cat</a> strings without <a href="https://en.wikichip.org/wiki/schlemiel_the_painter%27s_algorithm">schlemieling</a>.
+  </dd>
+  <dd>
+    Generate HTML <a href="https://en.wikipedia.org/wiki/Lazy_evaluation">lazily</a> one line at a time.
+  </dd>
+  <dd>Build pages without copying images or large media files.</dd>
+  <dd>
+    Do not start any web servers, file watchers, event listeners, or <a href="https://en.wikipedia.org/wiki/Busy_waiting">busy loops</a>.
+  </dd>
+  <dt>What can be happier than to despise all package installs?</dt>
+  <dd>No installation.</dd>
+  <dd>
+    <a href="https://www.python.org/dev/peps/pep-0508/#extras">Extras</a>, not <a href="https://github.com/samkennerly/quarto/blob/master/requirements.txt">requirements</a>.
+  </dd>
+  <dd>
+    No <a href="https://en.wikipedia.org/wiki/Combinatorial_explosion">combinatorial explosions</a> of <a href="https://www.davidhaney.io/npm-left-pad-have-we-forgotten-how-to-program/">implicit dependencies</a>.
+  </dd>
+  <dd>Build multiple quartos on the same machine without conflicts.</dd>
+</dl>
+<hr>
+<h2>Draw the curtain and inspect the page source.</h2>
+<p>View the <a href="https://en.wikipedia.org/wiki/Source_code">source</a> for this page. It's not full of scripts and frameworks, sacrificing bandwidth.</p>
+<dl>
+  <dt>Chrome source</dt>
   <dd>View &gt; Developer &gt; View Source (<kbd>Ctrl+U, ⌥⌘U</kbd>)</dd>
+  <dt>Chrome tools</dt>
   <dd>View &gt; Developer &gt; Developer Tools (<kbd>Ctrl+Shift+I, ⌥⌘I</kbd>)</dd>
-  <dt>Firefox</dt>
+  <dt>Firefox source</dt>
   <dd>Tools &gt; Web Developer &gt; Page Source (<kbd>Ctrl+U, ⌘U</kbd>)</dd>
+  <dt>Firefox tools</dt>
   <dd>Tools &gt; Web Developer &gt; Toggle Tools (<kbd>Ctrl+Shift+I, ⌥⌘I</kbd>)</dd>
-</dl><p>It should look something like this:</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;title&gt;
-Quarto builds websites.
-&lt;/title&gt;
-&lt;link rel="canonical" href="https://quarto.neocities.org/index.html"&gt;
-...
-</code></pre>
-<h2>Is this a PR I see before me?</h2>
-<p><a href="https://github.com/samkennerly/quarto/pulls">pull request</a></p>
-<h3>True it is that we have seen better styles.</h3>
-<ul>
-<li>Most of the stock styles were made by a design
-<a href="https://samkennerly.github.io/">rookie</a>.
-Surely you can do better!</li>
-<li>Create a new folder in the <code>style</code> folder and an
-<a href="examples/adrift.html">example</a>
-to show off your style.</li>
-<li>Styles can include non-CSS files, but <code>quire/apply</code> will ignore them.</li>
-<li>CSS files need not be named <code>align.css</code>, <code>border.css</code>, etc.</li>
-</ul>
-<h3>Neither a cloner nor a forker be.</h3>
-<ul>
-<li><a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">merge</a></li>
-<li><a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">rebase</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Software_entropy">entropy</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Feature_creep">feature creep</a></li>
-<li><a href="https://help.github.com/en/articles/fork-a-repo">fork</a></li>
-</ul>
-<h3>Files of few bytes are the best files.</h3>
-<ul>
-<li>Large files in GitHub repos can cause
-<a href="https://help.github.com/en/articles/working-with-large-files">problems</a>.</li>
-<li>Try to avoid uploading any file larger than a
-<a href="media/galaxy.jpg">galaxy</a>.</li>
-<li>Text files (HTML, CSS, MD, etc.) are rarely too big, but...</li>
-<li>Code that resembles
-<a href="https://en.wikipedia.org/wiki/Spaghetti_code">pasta</a>
-should probably be
-<a href="https://en.wikipedia.org/wiki/Code_refactoring">refactored</a>.</li>
-</ul>
-<h3>No legacy is so rich as honesty.</h3>
-<ul>
-<li>If you use someone else's work, then
-<a href="https://en.wikipedia.org/wiki/Attribution_%28copyright%29">make it obvious</a>.</li>
-<li>Copypasting from Quarto is OK <strong>if you respect the licenses</strong>.</li>
-<li>The license for Quarto code is in the
-<a href="https://github.com/samkennerly/quarto/blob/master/LICENSE">LICENSE</a>
-file.</li>
-<li>The license for this website is <a href="#klf">on this page</a>.</li>
-</ul>
+</dl>
+<p>The browser doth <a href="https://beta.httparchive.org/reports/page-weight#reqTotal">request</a> too much, methinks. (I click to bury <a href="https://support.mozilla.org/en-US/kb/pop-blocker-settings-exceptions-troubleshooting">pop-ups</a>, not engage them.)</p>
+<hr>
+<h2>Use as much of this code as please you.</h2>
+<p>Delete a section, add a search bar, or create a style. Customize your quarto as you like it.</p>
+<dl>
+  <dt>Installing:</dt>
+  <dd>
+    Don't. <a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template">Create a new repo</a>.
+  </dd>
+  <dt>Uninstalling:</dt>
+  <dd>
+    Delete it. Out, out, brief quarto! It's but a <a href="https://en.wikipedia.org/wiki/Working_directory">working folder</a>.
+  </dd>
+  <dt>Upgrading:</dt>
+  <dd>
+    Copy and paste. <code>Quire</code> code's <a href="https://github.com/samkennerly/quarto/tree/master/quire/quire.py">one page</a>, and all the scripts are stored in the same <a href="https://github.com/samkennerly/quarto/tree/master/quire">folder</a>.
+  </dd>
+  <dt>Requesting features:</dt>
+  <dd>
+    <a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template">Create a new repo</a> and <a href="https://en.wikipedia.org/wiki/Do_it_yourself">DIY</a>. One <a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-template-repository">template repo</a> makes the whole world kin.
+  </dd>
+</dl>
+<p>Quartos are made to be copied and modified, not to be installed and configured. (Whether that's good or bad is a matter of <a href="https://dhh.dk/2012/rails-is-omakase.html">taste</a>.)</p>
+<hr>
 <h2>Give the devs their due.</h2>
-<h3><code>proof</code> images</h3>
-<ul>
-<li><a href="media/galaxy.jpg">galaxy.jpg</a> by <a href="https://commons.wikimedia.org/wiki/File:Hubble_view_of_barred_spiral_galaxy_Messier_83.jpg">NASA and ESA</a></li>
-<li><a href="media/quarto.svg">quarto.svg</a> by <a href="https://mollyeblair.com/">Molly Blair</a></li>
-</ul>
-<h3><code>quire</code> code</h3>
-<ul>
-<li><a href="https://samkennerly.github.io/">Sam Kennerly</a></li>
-</ul>
-<h3><code>ready</code> pages</h3>
-<ul>
-<li><a href="https://samkennerly.github.io/">Sam Kennerly</a></li>
-</ul>
-<h3><code>style</code> sheets</h3>
-<ul>
-<li><code>adrift</code>, <code>burning</code>, <code>doctoral</code> by <a href="https://samkennerly.github.io/">Sam Kennerly</a></li>
-<li><code>celestial</code> by <a href="https://jennifer-blair.com/">Jennifer Blair</a>
-and <a href="https://samkennerly.github.io/">Sam Kennerly</a></li>
-</ul>
-
+<dl>
+  <dt>code</dt>
+  <dd>
+    <a href="https://samkennerly.github.io/">Sam Kennerly</a>
+  </dd>
+  <dt>media</dt>
+  <dd>
+    <a href="media/quarto.svg">quarto.svg</a> by <a href="https://mollyeblair.com/">Molly Blair</a>
+  </dd>
+  <dd>
+    <a href="media/galaxy.jpg">galaxy.jpg</a> by <a href="https://commons.wikimedia.org/wiki/File:Hubble_view_of_barred_spiral_galaxy_Messier_83.jpg">NASA and ESA</a>
+  </dd>
+  <dt>pages</dt>
+  <dd>
+    <a href="https://samkennerly.github.io/">Sam Kennerly</a>
+  </dd>
+  <dt>styles</dt>
+  <dd>
+    <a href="examples/adrift.html">adrift</a>, <a href="examples/burning.html">burning</a>, <a href="examples/doctoral.html">doctoral</a> by <a href="https://samkennerly.github.io/">Sam Kennerly</a>
+  </dd>
+  <dd>
+    <a href="examples/celestial.html">celestial</a> by <a href="https://www.instagram.com/ladybotjenblair/">Jennifer Blair</a> and <a href="https://samkennerly.github.io/">Sam Kennerly</a>
+  </dd>
+</dl>
 </main>
 <section id="icons">
 <a href="index.html" rel="prev">◄◄</a>

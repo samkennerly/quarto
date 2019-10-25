@@ -1,8 +1,7 @@
 ASAP:
-  - check links in about.html
   - finish docs, faq
-  - check links in faq
   - convert all pages -> HTML
+  - check all links
   - synchronize styles
   - update quarto.neocities.org
   - create badquarto.neocities.org

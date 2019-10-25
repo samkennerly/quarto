@@ -30,7 +30,8 @@ Quarto builds websites.
 </details>
 <details><summary>docs</summary>
 <a href="../../../docs/options.html">options</a>
-<a href="../../../docs/quire.py.html">quire.py</a>
+<a href="../../../docs/paths.html">paths</a>
+<a href="../../../docs/quire.html">quire</a>
 </details>
 <details><summary>examples</summary>
 <a href="../../../examples/adrift.html">adrift</a>
@@ -42,15 +43,13 @@ Quarto builds websites.
 </nav>
 <main>
 <h1>Navigation</h1>
-<p>Quarto builds a &lt;nav&gt; menu on each page. Each element inside &lt;nav&gt; is either:</p>
-<ol>
-  <li>a link to a page, or</li>
-  <li>a &lt;details&gt; box representing a folder.</li>
-</ol>
-<p>Click on a box to open or close it. Refreshing a page closes all boxes except that page's parents.</p>
-<h2>flat &lt;nav&gt;</h2>
-<p>Quarto respects your site's</p><a href="https://en.wikipedia.org/wiki/Directory_structure">folder structure</a>
-<p>. If your <code>ready</code> folder looks like this:</p>
+<p>The <code>quire/build</code> script generates a &lt;nav&gt; element on each page.</p>
+<h2>&lt;nav&gt; is a sitemap</h2>
+<p>Each page's &lt;nav&gt; is a <a href="https://en.wikipedia.org/wiki/Site_map">sitemap</a> with one link to each page.</p>
+<p>Folders are represented by &lt;details&gt; boxes. Each box can contain links, boxes, or a mix of both.</p>
+<p>Quarto sitemaps respect the <a href="https://en.wikipedia.org/wiki/Directory_structure">structure</a> of the <code>ready</code> folder. If pages are organized in subfolders, then the &lt;nav&gt; element will be similarly organized in boxes.</p>
+<p>Click on an open box to close it, and vice versa. By default, each box is open if and only if it contains the current page. Refresh a page to reset boxes to their default states.</p>
+<h2>&lt;nav&gt; can be flat</h2>If the <code>ready</code> folder looks like this:
 <pre>
 ready
 ├── eggs.html
@@ -58,26 +57,30 @@ ready
 ├── index.html
 └── spam.html
 </pre>
-<p>then the pages on your site will be:</p>
+<p>and the site's <a href="https://en.wikipedia.org/wiki/Domain_name">domain name</a> is <code>fakedomain.test</code>, then its pages will be:</p>
 <pre>
-https://your-domain.org/eggs.html
-https://your-domain.org/grail.html
-https://your-domain.org/index.html
-https://your-domain.org/spam.html
+https://fakedomain.test/eggs.html
+https://fakedomain.test/grail.html
+https://fakedomain.test/index.html
+https://fakedomain.test/spam.html
 </pre>
-<p>Each page will have a <q>flat</q> &lt;nav&gt; menu with no boxes:</p>
+<p>and each page will have a <q>flat</q> &lt;nav&gt; like this:</p>
 <ul>
-  <li>an <mark>index</mark> link to <code>index.html</code></li>
-  <li>an <mark>eggs</mark> link to <code>eggs.html</code></li>
-  <li>a <mark>grail</mark> link to <code>grail.html</code></li>
-  <li>a <mark>spam</mark> link to <code>spam.html</code></li>
+  <li>
+    <a>index</a>
+  </li>
+  <li>
+    <a>eggs</a>
+  </li>
+  <li>
+    <a>grail</a>
+  </li>
+  <li>
+    <a>spam</a>
+  </li>
 </ul>
-<details>
-  <summary>
-    Q TIP: Page Order
-  </summary>Quarto sorts page paths <a href="https://en.wikipedia.org/wiki/Lexicographical_order">lexicographically</a> and moves <code>index.html</code> to the front of the queue. You can manually override this behavior with a <a href="#pages.txt">pages.txt</a> file.
-</details>
-<h2>nested &lt;nav&gt;</h2>
+<p>Links in the &lt;nav&gt; are sorted automatically. (Create a <a href="../../../docs/paths.html#pages.txt">pages.txt</a> file to sort them yourself.)</p>
+<h2>&lt;nav&gt; can be nested</h2>
 <p>If the same pages are organized into folders like this:</p>
 <pre>
 ready
@@ -88,61 +91,50 @@ ready
     │   └── spam.html
     └── grail.html
 </pre>
-<p>then Quarto will build these pages in the <code>target</code> folder:</p>
+<p>and the site's <a href="https://en.wikipedia.org/wiki/Domain_name">domain name</a> is <code>fakedomain.test</code>, then its pages will be:</p>
 <pre>
-target/index.html
-target/quests/breakfast/eggs.html
-target/quests/breakfast/spam.html
-target/quests/grail.html
+https://fakedomain.test/index.html
+https://fakedomain.test/quests/breakfast/eggs.html
+https://fakedomain.test/quests/breakfast/spam.html
+https://fakedomain.test/quests/grail.html
 </pre>
-<p>The pages on the actual website will be:</p>
-<pre>
-https://your-domain.org/index.html
-https://your-domain.org/quests/breakfast/eggs.html
-https://your-domain.org/quests/breakfast/spam.html
-https://your-domain.org/quests/grail.html
-</pre>
-<p>and each page with have a <q>nested</q> &lt;nav&gt; menu with:</p>
+<p>and each page with have a <q>nested</q> &lt;nav&gt; like this:</p>
 <ul>
-  <li>a link to <code>index.html</code></li>
-  <li>a box labeled <code>quests</code> containing:
+  <li>
+    <a>index</a>
+  </li>
+  <li>
+    <summary>
+      quests
+    </summary>
     <ul>
-      <li>a box labeled <code>breakfast</code> containing:
+      <li>
+        <summary>
+          breakfast
+        </summary>
         <ul>
-          <li>a link to <code>quests/breakfast/eggs.html</code></li>
-          <li>a link to <code>quests/breakfast/spam.html</code></li>
+          <li>
+            <a>eggs</a>
+          </li>
+          <li>
+            <a>spam</a>
+          </li>
         </ul>
       </li>
-      <li>a link to <code>quests/grail.html</code></li>
+      <li>
+        <a>grail</a>
+      </li>
     </ul>
   </li>
 </ul>
-<h2>file and folder names</h2>
-<p>[</p><a href="https://docs.python.org/3/library/urllib.parse.html#urllib.parse.quote">quoted URLs</a>
-<p>and special chars]<br>
-[underscore -&gt; space]<br>
-[quire preserves caps, but your computer might not]</p>
-<h2>intermission</h2>
-<p>Here is a video for nested-box enthusiasts:</p>
+<h2>boxes within boxes</h2>
+<p>Here is a video for nested box enthusiasts:</p>
 <figure>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/bQmli3Y760Q" allowfullscreen="true">DIY Outdoor Cat Shelter</iframe>
   <figcaption>
     from <a href="https://www.alleycat.org/">Alley Cat Allies</a>
   </figcaption>
 </figure>
-<p>The rest of this page is mostly boring technical details.</p>
-<h2 id="pages.txt">pages.txt</h2>
-<p>To build &lt;nav&gt; menus, Quarto needs to know the path to every page in your site. Quarto looks for a <code>pages.txt</code> file in the <code>ready</code> folder. Quarto finds pages</p><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob">recursively</a>
-<p>, so it will look inside subfolders of (subfolders of (subfolders of ( ... ))) if necessary.</p>
-<h2>relative paths</h2>
-<p>To avoid</p><a href="https://github.com/jekyll/jekyll/issues/5482">difficulties</a> <a href="https://github.com/jekyll/jekyll/issues/5488">with</a> <a href="https://github.com/jekyll/jekyll/issues/5743">previewing</a> <a href="https://github.com/jekyll/jekyll/issues/5895">websites</a> <a href="https://github.com/jekyll/jekyll/issues/6034">before</a> <a href="https://github.com/jekyll/jekyll/issues/6360">uploading</a> <a href="https://github.com/jekyll/jekyll/issues/7621">them</a>
-<p>, Quarto builds &lt;nav&gt; menus with</p><a href="https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2">relative URLs</a>
-<p>. Links that work when you preview files</p><a href="https://www.lifewire.com/how-to-preview-web-pages-3469885">locally</a> <del>will</del>
-<p>should not break when you upload them to a web server.</p>
-<h2>you are here</h2>
-<p>Each &lt;nav&gt; menu includes one link from the current page to itself. Quarto replaces the</p><a href="https://en.wikipedia.org/wiki/URL">URL</a>
-<p>for that link with a <code>#</code> symbol. This</p><a href="https://stackoverflow.com/questions/4855168/what-is-href-and-why-is-it-used">blank anchor</a>
-<p>is not a true</p>
 </main>
 <section id="icons">
 <a href="../../../about.html" rel="prev">◄◄</a>
