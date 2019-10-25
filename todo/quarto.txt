@@ -1,4 +1,5 @@
 ASAP:
+  - index.html should start with 4-line overview
   - finish docs, faq
   - convert all pages -> HTML
   - check all links

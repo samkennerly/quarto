@@ -9,10 +9,10 @@ from urllib.parse import quote, urlsplit
 try:
     from mistune import Markdown
 
-    parsed = Markdown().parse
+    mdparse = Markdown().parse
 except ImportError as err:
 
-    def parsed(text, err=err):
+    def mdparse(text, err=err):
         raise ImportError(f"Cannot parse Markdown: {err}")
 
 
@@ -114,7 +114,7 @@ class Quire(Mapping):
 
     # Page generator
 
-    def generate(self, page, parsed=parsed, title="", **kwargs):
+    def generate(self, page, title="", **kwargs):
         """ Iterator[str]: All lines in page. """
         page = self / page
 
@@ -131,7 +131,7 @@ class Quire(Mapping):
         yield from self.nav(page, **kwargs)
         yield "<main>"
         if page.suffix == ".md":
-            yield parsed("".join(self.readlines(page)))
+            yield mdparse("".join(self.readlines(page)))
         else:
             yield from map(str.rstrip, self.readlines(page))
         yield "</main>"
@@ -147,16 +147,15 @@ class Quire(Mapping):
     @property
     def home(self):
         """ Path: Absolute path to home page. """
-        home = self._home
+        folder, home = self.folder, self._home
 
         if home is None:
-            folder = self.folder
-            found = [x for x in folder.glob("index.*") if x.suffix != ".json"]
-            if not found:
+            found = (x for x in folder.glob("index.*") if x.suffix != ".json")
+            home = next(found, None)
+            if not home:
                 raise FileNotFoundError(folder / "index.html")
-            home = found.pop()
-            if found:
-                raise ValueError(f"multiple homepages: {found}")
+            if any(found):
+                raise ValueError("Multiple homepages")
 
             self._home = home
 
@@ -201,7 +200,7 @@ class Quire(Mapping):
             yield f'<script src="{src}" async></script>'
         yield "</section>"
 
-    def klf(self, page, copyright="", email="", qlink="", license=(), **kwargs):
+    def klf(self, page, copyright="", email="", license=(), qlink="", **kwargs):
         """
         Iterator[str]: Copyright, license, and final elements.
         They're justified, and they're ancient. I hope you understand.
@@ -283,7 +282,7 @@ class Quire(Mapping):
 
         if options is None:
             options = self.query(self.folder / self.OPTIONS)
-            self._options = options.copy()
+            self._options = options
 
         return options
 
@@ -296,15 +295,13 @@ class Quire(Mapping):
             folder = self.folder
             pages = folder / self.PAGES
             if pages.is_file():
-                readlines = self.readlines
-                pages = (x.strip() for x in readlines(pages))
+                pages = map(str.strip, self.readlines(pages))
                 pages = tuple(folder / x for x in pages if x)
             else:
                 home = self.home
-                pages = folder.rglob("*")
-                pages = set(x for x in pages if x.suffix in (".html", ".md"))
-                pages.discard(home)
-                pages = (home, *sorted(pages))
+                pages = folder.rglob("*.*")
+                pages = (x for x in pages if x.suffix in (".html", ".md"))
+                pages = (home, *sorted(x for x in pages if x != home))
 
             self._pages = pages
 
