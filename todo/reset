@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
-quire/delete css &&
-quire/apply style/adrift &&
-cp proof/style.css proof/adrift.css &&
-quire/apply style/burning proof/burning.css &&
-quire/apply style/celestial proof/celestial.css &&
+quire/delete html && quire/clean && quire/build
+
+quire/delete css && quire/apply style/adrift
+quire/apply style/adrift proof/adrift.css
+quire/apply style/burning proof/burning.css
+quire/apply style/celestial proof/celestial.css
 quire/apply style/doctoral proof/doctoral.css
-quire/delete html &&
-quire/clean &&
-quire/build
