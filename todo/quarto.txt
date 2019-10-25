@@ -1,10 +1,10 @@
 ASAP:
-  - move contribution from about -> README
-  - finish pages (see paper)
+  - check links in about.html
+  - finish docs, faq
+  - check links in faq
   - convert all pages -> HTML
-  - repair and test all missing links
   - synchronize styles
-  - move site to neocities
+  - update quarto.neocities.org
   - create badquarto.neocities.org
   - finish README
 
