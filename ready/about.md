@@ -1,28 +1,36 @@
-# Much Ado About Quartos
+<h1>Much Ado About Quartos</h1>
 
+<p>
 Quartos are designed to:
-
-- build
-  [lean](https://gomakethings.com/the-lean-web/)
-  websites
-- help beginners [learn HTML and CSS](https://neocities.org/tutorials)
-- be modified by [Python](https://www.python.org/) programmers
-- be copied, pasted, and shared with anyone
-
-See the [home page](index.html) for a quick tutorial.
+</p>
+<ul>
+<li>build
+<a href="https://gomakethings.com/the-lean-web/">lean</a>
+websites
+<li>help beginners
+<a href="learn HTML and CSS">https://neocities.org/tutorials</a>
+<li>be modified by
+<a href="https://www.python.org/">Python</a> programmers
+<li>be copied, pasted, and shared with anyone.
+</ul>
+<p>
+See the
+<a href="index.html">home page</a>
+to get started quickly.
+</p>
 
 <hr>
 
-## Self-promotion is not so vile a sin.
+<h2>Self-promotion is not so vile a sin.</h2>
 
 Quartos build
-[5k pages](https://motherfuckingwebsite.com/)
+<a href="https://motherfuckingwebsite.com/">5k pages</a>
 with
-[500 lines of code](https://github.com/samkennerly/quarto/tree/master/quire),
-not
-[500M frameworks](https://medium.com/@mattholt/its-2019-and-i-still-make-websites-with-my-bare-hands-73d4eec6b7)
+<a href="https://github.com/samkennerly/quarto/tree/master/quire">500 lines</a>
+of code, not
+<a href="https://medium.com/@mattholt/its-2019-and-i-still-make-websites-with-my-bare-hands-73d4eec6b7">500M monoliths</a>
 with
-[500 packages](https://chriswarrick.com/blog/2019/02/15/modern-web-development-where-you-need-500-packages-to-build-bootstrap/).
+<a href="https://chriswarrick.com/blog/2019/02/15/modern-web-development-where-you-need-500-packages-to-build-bootstrap/">500 dependencies.</a>
 
 <dl>
 <dt>Brevity is the soul of git.</dt>
@@ -84,39 +92,37 @@ Build multiple quartos on the same machine without conflicts.
 
 <hr>
 
-<h2>We will draw the curtain and show you the page source.</h2>
+<h2>Draw the curtain and inspect the page source.</h2>
 
 <p>
-See  (including this one):
+View the
+<a href="https://en.wikipedia.org/wiki/Source_code">source</a>
+for this page.
+It's not full of scripts and frameworks, sacrificing bandwidth.
 </p>
 
 <dl>
-<dt>Chrome</dt>
+<dt>Chrome source</dt>
 <dd>
 View &gt; Developer &gt; View Source (<kbd>Ctrl+U, ⌥⌘U</kbd>)</dd>
+<dt>Chrome tools</dt>
 <dd>
 View &gt; Developer &gt; Developer Tools (<kbd>Ctrl+Shift+I, ⌥⌘I</kbd>)</dd>
-<dt>Firefox</dt>
+<dt>Firefox source</dt>
 <dd>
 Tools &gt; Web Developer &gt; Page Source (<kbd>Ctrl+U, ⌘U</kbd>)</dd>
+<dt>Firefox tools</dt>
 <dd>
 Tools &gt; Web Developer &gt; Toggle Tools (<kbd>Ctrl+Shift+I, ⌥⌘I</kbd>)</dd>
 </dl>
 
 <p>
-The browser doth request too much, methinks.
+The browser doth
+<a href="https://beta.httparchive.org/reports/page-weight#reqTotal">request</a>
+too much, methinks. (I click to bury
+<a href="https://support.mozilla.org/en-US/kb/pop-blocker-settings-exceptions-troubleshooting">pop-ups</a>,
+not engage them.)
 </p>
-
-Is it a tale told by an idiot,
-full of scripts and frameworks,
-signifying nothing?
-
-### The browser doth request too much, methinks.
-### I cannot tell what the dickens this page is.
-### I click to bury pop-ups, not to raise them.
-### Load all, host a few, do wrong to none.
-
-
 
 <hr>
 
@@ -161,7 +167,7 @@ Quartos are templates to be copied and modified, not frameworks to be installed 
 
 <hr>
 
-<h2>Give the developers their due.</h2>
+<h2>Give the devs their due.</h2>
 
 <dl>
 <dt>code</dt>
