@@ -12,6 +12,7 @@ https://www.w3schools.com/css/css_colors.asp
   --color-text: azure;
   --text-shadow: 1px 0 1px black;
 }
+a,
 a:link,
 a:visited {
   color: var(--color-link);
