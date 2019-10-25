@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-quire/delete && quire/clean && quire/build
