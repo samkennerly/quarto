@@ -91,7 +91,9 @@ class Quire(Mapping):
 
         target = validpath(target)
         for path, text in items():
-            write(text, target / path.relative_to(self).with_suffix(".html"))
+            path = target / path.relative_to(self).with_suffix(".html")
+            print("Write", path)
+            write(text, path)
 
     @classmethod
     def clean(cls, source, target):
@@ -100,7 +102,9 @@ class Quire(Mapping):
 
         source, target = map(validpath, (source, target))
         for dirty in source.rglob("*.html"):
-            tidybody(dirty, target / dirty.relative_to(source))
+            clean = target / dirty.relative_to(source)
+            print("Tidy", clean)
+            tidybody(dirty, clean)
 
     @classmethod
     def delete(cls, suffix, target):
@@ -341,7 +345,6 @@ class Quire(Mapping):
         if not dirty.exists():
             raise FileNotFoundError(dirty)
 
-        print("Tidy", clean)
         clean.parent.mkdir(exist_ok=True, parents=True)
         status = run(cmds).returncode
         if status and (status != 1):
@@ -374,7 +377,6 @@ class Quire(Mapping):
         """ None: Write text to selected path. """
         path, text = Path(path), str(text)
 
-        print("Write", path)
         path.parent.mkdir(exist_ok=True, parents=True)
         with open(path, "w") as file:
             file.write(text)
