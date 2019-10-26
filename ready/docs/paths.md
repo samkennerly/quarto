@@ -1,29 +1,13 @@
 # Paths
 
-Links that work when you preview pages
-[locally](https://www.lifewire.com/how-to-preview-web-pages-3469885)
-should still work when you upload your site.
+Quartos try to automatically
+[wrangle]()
+file paths into valid URLs.
+Sometimes this
 
-To avoid
-[problems](https://github.com/jekyll/jekyll/issues/5482)
-[with](https://github.com/jekyll/jekyll/issues/5488)
-[viewing](https://github.com/jekyll/jekyll/issues/5743)
-[local](https://github.com/jekyll/jekyll/issues/5895)
-[files](https://github.com/jekyll/jekyll/issues/6034)
-[in](https://github.com/jekyll/jekyll/issues/6360)
-[browsers](https://github.com/jekyll/jekyll/issues/7621),
-quartos build &lt;nav&gt; menus with
-[relative paths](https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2).
-For example, this page's &lt;nav&gt; menu includes links like this:
+When something goes wrong, check this page.
 
-```
-../index.html
-../about.html
-../boxes/can/be/nested.html
-../cat_pics/octocats.html
-```
-Each page also has one link to itself which is a
-[blank anchor](https://stackoverflow.com/questions/4855168/what-is-href-and-why-is-it-used).
+
 
 ---
 
@@ -49,8 +33,39 @@ about.html
 
 ---
 
-## UNDER CONSTRUCTION
-
 ## Quoted URLs
+
+---
+
 ## Relative URLs
+
+To avoid
+[problems](https://github.com/jekyll/jekyll/issues/5482)
+[with](https://github.com/jekyll/jekyll/issues/5488)
+[viewing](https://github.com/jekyll/jekyll/issues/5743)
+[local](https://github.com/jekyll/jekyll/issues/5895)
+[files](https://github.com/jekyll/jekyll/issues/6034)
+[in](https://github.com/jekyll/jekyll/issues/6360)
+[browsers](https://github.com/jekyll/jekyll/issues/7621),
+quartos use
+[relative paths](https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2)
+to build &lt;nav&gt; menus.
+
+Links that work when you preview pages
+[locally](https://www.lifewire.com/how-to-preview-web-pages-3469885)
+should still work when you upload your site.
+
+For example, this page's &lt;nav&gt; menu includes links to:
+
+```
+../index.html
+../about.html
+../boxes/can/be/nested.html
+../cat_pics/octocats.html
+```
+Each page also has one link to itself which is a
+[blank anchor](https://stackoverflow.com/questions/4855168/what-is-href-and-why-is-it-used).
+
+---
+
 ## Spaces and Caps
