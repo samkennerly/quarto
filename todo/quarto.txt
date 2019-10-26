@@ -1,5 +1,9 @@
 ASAP:
-  - index.html should start with 4-line overview
+  - first lines of index.html:
+    - Write pages in HTML (or Markdown)
+    - Add images, audio, or other files.
+    - Choose a style (or make your own).
+    - Build a website and upload it.
   - finish docs, faq
   - convert all pages -> HTML
   - check all links
@@ -10,11 +14,10 @@ ASAP:
 
 CODE:
   - quire/* scripts should use main(), if __name__ == __main__
+  - quarto/export doctoral docs: delete, clean, build, apply
   - try using new mistune
-  - parse reST with docutils?
-  - convert test/ scripts to Python
-  - quarto/export: sync target to neocities account?
   - type hints? replace collections.abc ?
+  - parse reST with docutils?
   - Google search bar?
   - three.js example script
   - galley: build an image gallery. see https://github.com/Jack000/Expose
