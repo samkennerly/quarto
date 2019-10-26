@@ -43,27 +43,11 @@ Quarto builds websites.
 </nav>
 <main>
 <h1>Paths</h1>
-<p>Links that work when you preview pages
-<a href="https://www.lifewire.com/how-to-preview-web-pages-3469885">locally</a>
-should still work when you upload your site.</p>
-<p>To avoid
-<a href="https://github.com/jekyll/jekyll/issues/5482">problems</a>
-<a href="https://github.com/jekyll/jekyll/issues/5488">with</a>
-<a href="https://github.com/jekyll/jekyll/issues/5743">viewing</a>
-<a href="https://github.com/jekyll/jekyll/issues/5895">local</a>
-<a href="https://github.com/jekyll/jekyll/issues/6034">files</a>
-<a href="https://github.com/jekyll/jekyll/issues/6360">in</a>
-<a href="https://github.com/jekyll/jekyll/issues/7621">browsers</a>,
-quartos build &lt;nav&gt; menus with
-<a href="https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2">relative paths</a>.
-For example, this page's &lt;nav&gt; menu includes links like this:</p>
-<pre><code>../index.html
-../about.html
-../boxes/can/be/nested.html
-../cat_pics/octocats.html
-</code></pre>
-<p>Each page also has one link to itself which is a
-<a href="https://stackoverflow.com/questions/4855168/what-is-href-and-why-is-it-used">blank anchor</a>.</p>
+<p>Quartos try to automatically
+<a href="">wrangle</a>
+file paths into valid URLs.
+Sometimes this</p>
+<p>When something goes wrong, check this page.</p>
 <hr>
 <h2>pages.txt</h2>
 <p>By default, the <code>quire/build</code> script finds all HTML and MD files in the <code>ready</code> folder
@@ -81,9 +65,32 @@ cat_pics/octocats.html
 about.html
 </code></pre>
 <hr>
-<h2>UNDER CONSTRUCTION</h2>
 <h2>Quoted URLs</h2>
+<hr>
 <h2>Relative URLs</h2>
+<p>To avoid
+<a href="https://github.com/jekyll/jekyll/issues/5482">problems</a>
+<a href="https://github.com/jekyll/jekyll/issues/5488">with</a>
+<a href="https://github.com/jekyll/jekyll/issues/5743">viewing</a>
+<a href="https://github.com/jekyll/jekyll/issues/5895">local</a>
+<a href="https://github.com/jekyll/jekyll/issues/6034">files</a>
+<a href="https://github.com/jekyll/jekyll/issues/6360">in</a>
+<a href="https://github.com/jekyll/jekyll/issues/7621">browsers</a>,
+quartos use
+<a href="https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2">relative paths</a>
+to build &lt;nav&gt; menus.</p>
+<p>Links that work when you preview pages
+<a href="https://www.lifewire.com/how-to-preview-web-pages-3469885">locally</a>
+should still work when you upload your site.</p>
+<p>For example, this page's &lt;nav&gt; menu includes links to:</p>
+<pre><code>../index.html
+../about.html
+../boxes/can/be/nested.html
+../cat_pics/octocats.html
+</code></pre>
+<p>Each page also has one link to itself which is a
+<a href="https://stackoverflow.com/questions/4855168/what-is-href-and-why-is-it-used">blank anchor</a>.</p>
+<hr>
 <h2>Spaces and Caps</h2>
 
 </main>

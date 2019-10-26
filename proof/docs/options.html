@@ -43,126 +43,113 @@ Quarto builds websites.
 </nav>
 <main>
 <h1>Options files</h1>
-<p>Quartos use <dfn>options files</dfn> to answer questions like:</p>
+<p>Options files are optional. See <a href="#all-options">below</a> for a complete list of all options.</p>
+<hr>
+<h2>The keys have values for those who JSON.</h2>
+<p>Page options are answers to questions like:</p>
 <ul>
-<li>Who wrote this page?</li>
-<li>Where is the <a href="">favicon</a>?</li>
-<li>Which icons should be in the <code>#icons</code> section?</li>
-<li>Do you want to reveal your email to the entire internet?</li>
+  <li>Who wrote this page?</li>
+  <li>Where are the stylesheet(s) and <a href="https://en.wikipedia.org/wiki/Favicon">favicon</a>?
+  </li>
+  <li>Which icons should be in the <code>#icons</code> section?</li>
+  <li>Do you want to reveal your email to the entire internet?</li>
 </ul>
-<p>Options files must be valid <a href="">JSON</a> files.</p>
+<p>Each page's options (if any) must be in a valid <a href="https://www.json.org/">JSON</a> file.</p>
 <hr>
 <h2>What's in a name?</h2>
 <p>If the path to a page is:</p>
-<pre><code>ready/examples/doctoral.html
-</code></pre>
-<p>then that page's options file must be:</p>
-<pre><code>ready/examples/doctoral.json
-</code></pre>
-<p>if the file exists. Options files are optional.</p>
+<pre><code>ready/examples/adrift.html</code></pre>
+<p>then that page's options (if any) must be in a file named:</p>
+<pre><code>ready/examples/adrift.json</code></pre>
 <hr>
 <h2>Sites are merriest when they have a home.</h2>
 <ul>
-<li>Every site <mark>must</mark> have a home page.</li>
-<li>The home page path must be <code>ready/index.html</code> or...</li>
-<li><code>ready/index.md</code> or any other suffix except <code>.json</code>.</li>
-<li>Home options (if any) must be in <code>ready/index.json</code>.</li>
+  <li>The <code>ready</code> folder <mark>must</mark> have a page named <code>index.html</code> or ...</li>
+  <li><code>index.md</code>, <code>index.rst</code>, <code>index.htm</code>, or any other suffix except <code>.json</code>.</li>
+  <li>If <code>index.json</code> exists, then its values are defaults for any missing options.</li>
+  <li>If a page has no options file, then all its values will be filled with default values.</li>
 </ul>
 <hr>
-<h2>Each defaults toward its home.</h2>
-<ul>
-<li>Each page in the <code>ready</code> folder <em>may</em> have an options file.</li>
-<li>Omitting the home options file is allowed but not recommended.</li>
-<li>Home options are used as default values for any missing page options.</li>
-<li>If a page has no options file, then all its values will be default values.</li>
-</ul>
-<hr>
-<h2>Complete Options of Quarto</h2>
+<h2 id="all-options">Complete Options of Quarto</h2>
 <dl>
-<dt>base</dt>
-<dd>The
-<a href="">canonical URL</a>
-for your site with the
-<a href="">path component</a> removed.
-<dd><code>"https://quarto.neocities.org/"</code>
-
-
-<dt>copyright</dt>
-<dd>Copyright statement, if any.
-<dd><code>"© Sam Kennerly 2019."</code>
-
-<dt>email</dt>
-<dd>Email address to display, if any.
-<dd><code>"samkennerly@gmail.com"</code>
-
-<dt>favicon</dt>
-<dd>Icon file. Can be absolute URL or path from home page.
-<dd><code>"favicon.ico"</code>
-
-<dt>homelink</dt>
-<dd>Label for link to home page in &lt;nav&gt; menu.
-<dd><code>"Quarto"</code>
-
-<dt>icons</dt>
-<dd>List of [alt text, image source, link URL] for <code>#icons</code> section.
-<dd>Image source can be absolute URL or path from home page.
-<dd><pre><code>[
+  <dt>base</dt>
+  <dd>
+    The <a href="https://en.wikipedia.org/wiki/Canonical_link_element">canonical URL</a> for your site with the <a href="https://www.w3.org/TR/WD-html40-970917/htmlweb.html#relative-urls">path component</a> removed.
+  </dd>
+  <dd><code>"https://quarto.neocities.org/"</code></dd>
+  <dt>copyright</dt>
+  <dd>Copyright statement, if any.</dd>
+  <dd><code>"© Sam Kennerly 2019."</code></dd>
+  <dt>email</dt>
+  <dd>Email address to display, if any.</dd>
+  <dd><code>"samkennerly@gmail.com"</code></dd>
+  <dt>favicon</dt>
+  <dd>Icon file. Can be an absolute URL or relative path from home page.</dd>
+  <dd><code>"favicon.ico"</code></dd>
+  <dt>homelink</dt>
+  <dd>Label for link to home page in &lt;nav&gt; menu.</dd>
+  <dd><code>"Quarto"</code></dd>
+  <dt>icons</dt>
+  <dd>List of [alt text, image source, link URL] for <code>#icons</code> section.</dd>
+  <dd>Image sources can be absolute URLs and/or relative paths from home page.</dd>
+  <dd>
+    <pre><code>[
   [ "GitHub", "media/icons/github.svg", "https://github.com/samkennerly" ],
   [ "Twitter", "media/icons/twitter.png", "https://twitter.com/data_lore/" ]
 ]
 </code></pre>
-
-<dt>javascripts</dt>
-<dd>List of script sources, if any.
-<dd>Sources can be absolute URLs and/or paths from home page.
-<dd><pre><code>[
+  </dd>
+  <dt>javascripts</dt>
+  <dd>List of script sources, if any.</dd>
+  <dd>Sources can be absolute URLs and/or relative paths from home page.</dd>
+  <dd>
+    <pre><code>[
   "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js",
   "src/javascript/annoyEveryoneWith-IntrusiveDialogBoxes.js"
 ]
 </code></pre>
-
-<dt>license</dt>
-<dd>Source and text of license, if any.
-<dd>Source can be absolute URL or path from home page.
-<dd><pre><code>[
+  </dd>
+  <dt>license</dt>
+  <dd>Source and text of license, if any.</dd>
+  <dd>Source can be an absolute URL or relative path from home page.</dd>
+  <dd>
+    <pre><code>[
   "https://creativecommons.org/licenses/by/4.0",
   "Licensed under a CC BY 4.0 license."
 ]
 </code></pre>
-
-<dt>meta</dt>
-<dd>{ name: content } mapping for &lt;meta&gt; tags, if any.
-<dd><pre><code>{
+  </dd>
+  <dt>meta</dt>
+  <dd>{ name: content } mapping for &lt;meta&gt; tags, if any.</dd>
+  <dd>
+    <pre><code>{
   "author": "Wm. Shakespeare",
   "description": "In Scotland, no one can hear you scream."
 }
 </code></pre>
-
-<dt>nextlink</dt>
-<dd>Label for link to next page, if any.
-<dd><code>"fwd ⇢"</code>
-
-<dt>prevlink</dt>
-<dd>Label for link to previous page, if any.
-<dd><code>"⇠ rev"</code>
-
-<dt>qlink</dt>
-<dd>Label for link to quarto repository, if any.
-<dd><code>"Built by a Quarto."</code>
-
-<dt>styles</dt>
-<dd>Sources of stylesheet(s) for this page.
-<dd>Sources can be absolute URLs and/or paths from home page.
-<dd><pre><code>[
+  </dd>
+  <dt>nextlink</dt>
+  <dd>Label for link to next page, if any.</dd>
+  <dd><code>"fwd ⇢"</code></dd>
+  <dt>prevlink</dt>
+  <dd>Label for link to previous page, if any.</dd>
+  <dd><code>"⇠ rev"</code></dd>
+  <dt>qlink</dt>
+  <dd>Label for link to quarto repository, if any.</dd>
+  <dd><code>"Built by a Quarto."</code></dd>
+  <dt>styles</dt>
+  <dd>Sources of stylesheet(s) for this page.</dd>
+  <dd>Sources can be absolute URLs and/or relative paths from home page.</dd>
+  <dd>
+    <pre><code>[
   "https://www.w3schools.com/html/styles.css",
   "style.css"
 ]
 </code></pre>
-
-<dt>title</dt>
-<dd>Page &lt;title&gt; element.
-<dd><code>"Macbeth II: Toil and Trouble"</code>
-
+  </dd>
+  <dt>title</dt>
+  <dd>Page &lt;title&gt; element.</dd>
+  <dd><code>"Macbeth II: Toil and Trouble"</code></dd>
 </dl>
 </main>
 <section id="icons">
