@@ -197,11 +197,13 @@ class Quire(Mapping):
         Iterator[str]: And I know, reader, just how you feel.
         You got to scroll past the pop-ups to get to what's real.
         """
+        urlpath = self.urlpath
+
         yield '<section id="jump">'
         if updog:
             yield f'<a href="#" id="updog">{updog}</a>'
         for src in javascripts:
-            yield f'<script src="{src}" async></script>'
+            yield f'<script src="{urlpath(src)}" async></script>'
         yield "</section>"
 
     def klf(self, page, copyright="", email="", license=(), qlink="", **kwargs):
