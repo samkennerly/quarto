@@ -43,55 +43,97 @@ Quarto builds websites.
 </nav>
 <main>
 <h1>Paths</h1>
-<p>Quartos try to automatically
-<a href="">wrangle</a>
-file paths into valid URLs.
-Sometimes this</p>
-<p>When something goes wrong, check this page.</p>
+<p>Quartos try to wrangle file
+<a href="https://en.wikipedia.org/wiki/Path_%28computing%29">paths</a>
+into valid
+<a href="https://en.wikipedia.org/wiki/URL">URLs</a>,
+but sometimes they need help.</p>
 <hr>
 <h2>pages.txt</h2>
-<p>By default, the <code>quire/build</code> script finds all HTML and MD files in the <code>ready</code> folder
+<p>Quarto scripts find pages
 <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob">recursively</a>,
-sorts them
-<a href="">lexicographically</a>,
-and moves <code>index.html</code> to the front of the queue.</p>
-<p>To find and sort pages manually, create a <code>ready/pages.txt</code> file.
-Each line should be a relative path from the <code>ready</code> folder to a page.
-Blank lines and leading/trailing whitespace are ignored.</p>
+then
+<a href="https://en.wikipedia.org/wiki/Lexicographical_order">lexsort</a>
+them and move <code>index.html</code> to the front of the queue.
+If you don't like the result, you can find and sort pages yourself:</p>
+<ul>
+<li>Create a <code>pages.txt</code> file in the <code>ready</code> folder.</li>
+<li>On each line, type the
+<a href="https://en.wikipedia.org/wiki/Path_%28computing%29#Absolute_and_relative_paths">relative path</a>
+from the <code>ready</code> folder to a page.</li>
+<li>Sort pages in any order you want. Quarto scripts will respect it.</li>
+<li>Any blank lines and leading/trailing whitespace will be ignored.</li>
+</ul>
 <p>In this example, <code>about.html</code> will be the <em>last</em> link in each &lt;nav&gt; menu:</p>
 <pre><code>index.html
 boxes/can/be/nested.html
 cat_pics/octocats.html
 about.html
 </code></pre>
+<p>Sites with a huge number of pages will build faster with a <code>pages.txt</code> file.</p>
 <hr>
 <h2>Quoted URLs</h2>
+<p>Quarto scripts automatically
+<a href="https://docs.python.org/3/library/urllib.parse.html#urllib.parse.quote">quote</a>
+file paths when:</p>
+<ul>
+<li>building a &lt;nav&gt; menu</li>
+<li>generating &lt;img&gt; tags in an <code>#icons</code> section</li>
+<li>generating &lt;link&gt; tags in &lt;head&gt; elements</li>
+<li>generating &lt;script&gt; tags</li>
+</ul>
+<p>If your <code>ready</code> pages include
+<a href="https://www.w3.org/Addressing/URL/4_Recommentations.html">prohibited characters</a>,
+then you may need to quote them manually.</p>
 <hr>
-<h2>Relative URLs</h2>
-<p>To avoid
-<a href="https://github.com/jekyll/jekyll/issues/5482">problems</a>
-<a href="https://github.com/jekyll/jekyll/issues/5488">with</a>
-<a href="https://github.com/jekyll/jekyll/issues/5743">viewing</a>
-<a href="https://github.com/jekyll/jekyll/issues/5895">local</a>
-<a href="https://github.com/jekyll/jekyll/issues/6034">files</a>
-<a href="https://github.com/jekyll/jekyll/issues/6360">in</a>
-<a href="https://github.com/jekyll/jekyll/issues/7621">browsers</a>,
-quartos use
+<h2>Relative paths</h2>
+<p>Quartos use
 <a href="https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2">relative paths</a>
-to build &lt;nav&gt; menus.</p>
-<p>Links that work when you preview pages
+to avoid
+<a href="https://github.com/jekyll/jekyll/issues/5482">problems</a>
+<a href="https://github.com/jekyll/jekyll/issues/5488">when</a>
+<a href="https://github.com/jekyll/jekyll/issues/5743">previewing</a>
+<a href="https://github.com/jekyll/jekyll/issues/5895">pages</a>
+<a href="https://github.com/jekyll/jekyll/issues/6034">from</a>
+<a href="https://github.com/jekyll/jekyll/issues/6360">local</a>
+<a href="https://github.com/jekyll/jekyll/issues/7621">files</a>.
+Links which work
 <a href="https://www.lifewire.com/how-to-preview-web-pages-3469885">locally</a>
-should still work when you upload your site.</p>
-<p>For example, this page's &lt;nav&gt; menu includes links to:</p>
+should still work when you upload your site - but test them to be sure!</p>
+<p>For example, this page's &lt;nav&gt; menu links to:</p>
 <pre><code>../index.html
 ../about.html
 ../boxes/can/be/nested.html
 ../cat_pics/octocats.html
 </code></pre>
-<p>Each page also has one link to itself which is a
+<p>Each &lt;nav&gt; also has one link to itself which is a
 <a href="https://stackoverflow.com/questions/4855168/what-is-href-and-why-is-it-used">blank anchor</a>.</p>
 <hr>
-<h2>Spaces and Caps</h2>
+<h2>Spaces and Cases</h2>
+<p>Links in the &lt;nav&gt; menu use page filenames as labels.
+To avoid problems with
+<a href="https://stackoverflow.com/questions/497908/is-a-url-allowed-to-contain-a-space">whitespace</a>
+and/or
+<a href="https://en.wikipedia.org/wiki/Case_sensitivity">capitalization</a>
+in file names, consider these alternatives:</p>
+<ul>
+<li><p>spaces</p>
+<ul>
+<li>Use underscores instead of spaces in file and folder names.</li>
+<li>Quarto scripts automatically replace each <code>_</code> with a space in &lt;nav&gt; labels.</li>
+</ul>
+</li>
+<li><p>cases</p>
+<ul>
+<li>Use lowercase file and folder names.</li>
+<li>Use
+<a href="https://css-tricks.com/almanac/properties/t/text-transform/">CSS text-transform</a>
+in stylesheets to capitalize &lt;nav&gt; labels.</li>
+</ul>
+</li>
+</ul>
+<p>Quarto scripts do <mark>not</mark> enforce these rules.
+Break them if you want to.</p>
 
 </main>
 <section id="icons">
