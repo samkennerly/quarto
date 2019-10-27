@@ -4,7 +4,7 @@ ASAP:
   - check all links
   - synchronize styles
   - update quarto.neocities.org
-  - create badquarto.neocities.org
+  - redo badquarto and upload to badquarto.neocities.org
   - finish README
 
 CODE:
