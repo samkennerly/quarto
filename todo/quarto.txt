@@ -1,8 +1,10 @@
 ASAP:
-  - finish docs, faq
+  - upload without docs/quire.html ?
+  - finish faq
   - convert all pages -> HTML
   - check all links
   - synchronize styles
+  - merge develop -> master
   - update quarto.neocities.org
   - redo badquarto and upload to badquarto.neocities.org
   - finish README
@@ -37,6 +39,7 @@ STYLES:
   - graphic: graph gallery
 
 TESTING:
+  - are f-strings slowing everything down?
   - test caps, spaces, underscores in page paths
   - what happens if old tidy is called?
   - nav: arrow keys, disability access OK?
