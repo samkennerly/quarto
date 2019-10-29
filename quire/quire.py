@@ -18,16 +18,14 @@ except ImportError as err:
 
 class Quire(Mapping):
     """
-    Quire(folder=".")
-
-    Generate web pages from HTML fragments.
+    Generate web pages from HTML fragments and/or Markdown files.
 
     Quire is an ordered, immutable { pathlib.Path: str } Mapping.
     Each key is an absolute path to the <main> element of a web page.
-    Each value is a finished web page. Values are generated lazily.
+    Each value is a web page as an HTML string. Values are generated lazily.
 
-    Initialize a Quire with a base folder.
-    Quire accepts absolute or relative path-like objects as input.
+    Initialize a Quire with the path to a folder containing raw pages.
+    Quire accepts absolute or relative Path objects or strings as input.
     Quire looks for a "pages.txt" file with newline-separated page paths.
     If "pages.txt" does not exist, then it finds .html files recursively.
 
@@ -169,8 +167,9 @@ class Quire(Mapping):
 
     def icons(self, page, icons=(), nextlink="", prevlink="", **kwargs):
         """
-        Iterator[str]: Links drawn with JPEGs, PNGs, ICOs or even GIFs.
-        Consider SVGs so there's no scaling glitch. (I love it.)
+        Iterator[str]: #icons section for links to social media, etc.
+        Links can be JPEGs, PNGs, ICOs or even GIFs.
+        Consider SVG so there's no scaling glitch. (I love it.)
         """
         folder, pages, urlpath = self.folder, self.pages, self.urlpath
 
@@ -194,7 +193,8 @@ class Quire(Mapping):
 
     def jump(self, page, javascripts=(), updog="", **kwargs):
         """
-        Iterator[str]: And I know, reader, just how you feel.
+        Iterator[str]: #jump section for scripts and back-to-top link.
+        And I know, reader, just how you feel.
         You got to scroll past the pop-ups to get to what's real.
         """
         urlpath = self.urlpath
@@ -208,7 +208,7 @@ class Quire(Mapping):
 
     def klf(self, page, copyright="", email="", license=(), qlink="", **kwargs):
         """
-        Iterator[str]: Copyright, license, and final elements.
+        Iterator[str]: #klf section for copyright, license, and final elements.
         They're justified, and they're ancient. I hope you understand.
         """
         QHOME = self.QHOME
@@ -249,7 +249,7 @@ class Quire(Mapping):
             yield mtag(k, v)
 
     def nav(self, page, homelink="home", **kwargs):
-        """ Iterator[str]: <nav> element with links to other pages. """
+        """ Iterator[str]: <nav> element with links to other pages in site. """
         home, pages, urlpath = self.home, self.pages, self.urlpath
 
         page = home.parent / page
@@ -283,7 +283,7 @@ class Quire(Mapping):
 
     @property
     def options(self):
-        """ dict: Default page options from JSON file. """
+        """ dict: Home page options from JSON file. """
         options = self._options
 
         if options is None:
