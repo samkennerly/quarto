@@ -43,82 +43,140 @@ Quarto builds websites.
 </nav>
 <main>
 <h1>Frequently Asked Questions</h1>
-<h2>UNDER CONSTRUCTION</h2>
+<h2 id="getting_started">Getting started</h2>
 <dl>
-  <dt>Shall I compare thee to a static website generator?</dt>
   <dt>How do I install Quarto?</dt>
-  <dt>How do I publish a website?</dt>
   <dd>
-    Upload the files in your <code>proof</code> folder to a <a href="">web host</a>. Be careful not to upload anything private!
+    Don't. Download the <a href="https://github.com/samkennerly/quarto">stock quarto</a> or <a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template">use it as a template</a>.
   </dd>
+  <dt>Why is <code>requirements.txt</code> blank?</dt>
   <dd>
-    This site uses <a href="https://neocities.org/">Neocities</a>, a non-profit which offers free hosting and <a href="">tutorials</a>.
-  </dd>
-  <dd>
-    Some hosts may try to convince you to add frameworks, plugins, themes, databases, server-side scripts, and other appendages to your site. These might be useful if your site <em>receives</em> data from visitors. You don't need it to <em>transmit</em> data. Anyone who says otherwise is <a href="https://en.wikipedia.org/wiki/Upselling">selling something</a>.
-  </dd>
-  <dd>
-    If you want a custom <a href="">domain name</a>, then you probably need to <a href="">register</a> it. Many web hosts will do this for you if you pay them.
+    Quarto has no requirements, only <a href="https://www.python.org/dev/peps/pep-0508/#extras">extras</a>.
   </dd>
   <dt>What are the <code>Dockerfile</code> and <code>kitchen</code> files?</dt>
   <dd>
-    Quarto is less <a href="https://en.wikipedia.org/wiki/Static_web_page">static</a> and more <a href="https://docs.python.org/3/reference/expressions.html#generator-expressions">generator</a>.
+    These files are used to build <a href="https://docs.docker.com/develop/">containers</a> for development and testing.
   </dd>
+</dl>
+<h2 id="setting_options">Setting options</h2>
+<dl>
+  <dt>How do I set page options?</dt>
   <dd>
-    Go: <a href="https://gohugo.io/">Hugo</a>
+    See <a href="docs/options.html">docs/options</a> for details.
   </dd>
+  <dt>Where are the site options?</dt>
+  <dd>Quartos have no site options. Use the home page options in <code>index.json</code>.</dd>
+  <dt>Can I build a site without icons, an email, a license, ...?</dt>
   <dd>
-    JavaScript: <a href="https://hexo.io/">Hexo</a>, <a href="https://vuepress.vuejs.org/">VuePress</a>, <a href="https://metalsmith.io/">Metalsmith</a>, <a href="https://www.11ty.io/">Eleventy</a>
+    Yes. Leave those options blank. See <a href="docs/options.html">docs/options</a> for details.
   </dd>
+  <dt>What are the <code>meta</code> things in options files?</dt>
   <dd>
-    Python: <a href="https://www.mkdocs.org/">MkDocs</a> <a href="https://www.getlektor.com/">Lektor</a> <a href="https://blog.getpelican.com/">Pelican</a> <a href="http://www.sphinx-doc.org/en/master/">Sphinx</a> <a href="https://getnikola.com/">Nikola</a> <a href="https://github.com/hyde/hyde">Hyde</a>
+    The <code>meta</code> option specifies &lt;meta&gt; tags for the &lt;head&gt; element of each page. There is some debate about which tags are useful <a href="https://en.wikipedia.org/wiki/Metadata">metadata</a> and which are <a href="https://twobithistory.org/2018/05/27/semantic-web.html#semweb-hucksters-and-their-metacrap">metacrap</a>.
   </dd>
+</dl>
+<h2 id="changing_styles">Changing styles</h2>
+<dl>
+  <dt>How do I change colors, fonts, ... ?</dt>
   <dd>
-    Ruby: <a href="https://middlemanapp.com/">Middleman</a> <a href="https://jekyllrb.com/">Jekyll</a> <a href="https://nanoc.ws/">Nanoc</a>
+    Edit the <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS files</a> in the <code>style</code> folder.
   </dd>
-  <dt>Can Quarto use external stylesheets?</dt>
-  <dt>Can I build my site without icons, an email, a license, ...?</dt>
+  <dt>Can I use my own stylesheets?</dt>
+  <dd>
+    Yes. Add any <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS files</a> you want to the <code>style</code> folder.
+  </dd>
+  <dt>Can I use external stylesheets?</dt>
+  <dd>
+    Yes. Add <a href="https://en.wikipedia.org/wiki/URL">absolute URLs</a> to the list of <code>styles</code> in your <a href="docs/options.html">options file(s)</a>.
+  </dd>
+</dl>
+<h2 id="publishing_a_website">Publishing a website</h2>
+<dl>
+  <dt>How do I publish a website?</dt>
+  <dd>
+    Upload your <code>proof</code> folder to a <a href="https://en.wikipedia.org/wiki/Web_hosting_service">web host</a>. Don't upload anything private!
+  </dd>
+  <dt>Who is the host for this site?</dt>
+  <dd>
+    <a href="https://neocities.org/">Neocities</a> is a nonprofit which offers free and low-cost hosting.
+  </dd>
+  <dt>What address do people use to find my site?</dt>
+  <dd>
+    Hosts usually assign a default address like <a href="https://quarto.neocities.org/">quarto.neocities.org</a>. You can change it if you have a <a href="https://en.wikipedia.org/wiki/Domain_Name_System#Domain_name_registration">registered domain name</a>. Some hosts will do this for you if you pay them.
+  </dd>
+  <dt>What do I do if someone else has the domain I want?</dt>
+  <dd>
+    You can <a href="http://llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogochuchaf.com/">buy a domain</a> if the registrant(s) are willing to sell, or sue them for <a href="https://en.wikipedia.org/wiki/Cybersquatting">squatting</a>. If the domain is used <a href="https://en.wikipedia.org/wiki/Michael_Urvan">in good faith</a>, then you must choose another name.
+  </dd>
+  <dt>My host is telling me to buy a bunch of stuff. Do I need it?</dt>
+  <dd>
+    Buy it if you want it, but you don't need <a href="https://en.wikipedia.org/wiki/Upselling">frameworks, plugins, databases, server-side scripts, nor template languages</a> to publish a website. HTML and CSS files are enough.
+  </dd>
+</dl>
+<h2 id="software_features">Software features</h2>
+<dl>
+  <dt>Shall I compare thee to a static website generator?</dt>
+  <dd>Quartos are more lazy and more transparent.</dd>
+  <dt>What are some other static website generators?</dt>
+  <dd>
+    <ul>
+      <li>Go: <a href="https://gohugo.io/">Hugo</a>
+      </li>
+      <li>JavaScript: <a href="https://hexo.io/">Hexo</a>, <a href="https://vuepress.vuejs.org/">VuePress</a>, <a href="https://metalsmith.io/">Metalsmith</a>, <a href="https://www.11ty.io/">Eleventy</a>
+      </li>
+      <li>Python: <a href="https://www.mkdocs.org/">MkDocs</a>, <a href="https://www.getlektor.com/">Lektor</a>, <a href="https://blog.getpelican.com/">Pelican</a>, <a href="https://getnikola.com/">Nikola</a>, <a href="https://github.com/hyde/hyde">Hyde</a>
+      </li>
+      <li>Ruby: <a href="https://middlemanapp.com/">Middleman</a>, <a href="https://jekyllrb.com/">Jekyll</a>, <a href="https://nanoc.ws/">Nanoc</a>
+      </li>
+    </ul>
+  </dd>
+  <dt>Do quartos build dynamic websites?</dt>
+  <dd>
+    The stock quarto does not, but you could use the <code>Quire</code> class as a <a href="https://en.wikipedia.org/wiki/Dynamic_web_page#Server-side_scripting">server-side</a> page generator for something like <a href="http://bottlepy.org/docs/dev/">bottle</a> or <a href="https://palletsprojects.com/p/flask/">flask</a> or <a href="https://www.tornadoweb.org/en/stable/">tornado</a>.
+  </dd>
   <dt>Why doesn't Quarto have {x}?</dt>
   <dd>
-    Quarto is designed to minimize <a href="https://en.wikipedia.org/wiki/Dependency_hell">dependencies</a>.
+    Quarto design favors speed, <a href="https://en.wikipedia.org/wiki/KISS_principle">simplicity</a>, and <a href="https://en.wikipedia.org/wiki/Dependency_hell">independence</a> over <a href="https://en.wikipedia.org/wiki/Feature_creep">completeness</a>.
   </dd>
+  <dt>How do I request a feature?</dt>
   <dd>
-    Quarto is intended to be customized by <a href="https://en.wikipedia.org/wiki/Do_it_yourself">DIY</a> users.
+    <a href="https://en.wikipedia.org/wiki/Do_it_yourself">DIY</a>. We'll consider adding it to the <a href="https://github.com/samkennerly/quarto">stock quarto</a> if your license allows it.
   </dd>
+</dl>
+<h2 id="design_principles">Design principles</h2>
+<dl>
+  <dt>Is Quarto a framework?</dt>
   <dd>
-    Quarto favors speed and <a href="https://en.wikipedia.org/wiki/KISS_principle">simplicity</a> over <a href="https://en.wikipedia.org/wiki/Feature_creep">completeness</a>.
+    No. Quartos avoid <a href="https://en.wikipedia.org/wiki/Inversion_of_control">inversion of control</a>, <a href="https://en.wikipedia.org/wiki/Spaghetti_code#Lasagna_code">abstraction layers</a>, and intentional <a href="https://en.wikipedia.org/wiki/Obfuscation_(software)">obfuscation</a>.
   </dd>
-  <dt>Is Quarto a web development framework?</dt>
+  <dt>Where are all the modal windows?</dt>
+  <dd>I click to bury pop-ups, not engage them.</dd>
+  <dt>Why does the logo have cat ears?</dt>
   <dd>
-    No. Quarto builds <a href="https://en.wikipedia.org/wiki/Static_web_page">static</a> <a href="https://motherfuckingwebsite.com/">websites</a>, but...
-  </dd>
-  <dd>
-    you could modify Quarto to act as a <a href="https://en.wikipedia.org/wiki/Dynamic_web_page#Server-side_scripting">server-side</a> HTML generator and serve dynamic pages with something like <a href="http://bottlepy.org/docs/dev/">bottle</a> or <a href="https://palletsprojects.com/p/flask/">flask</a> or <a href="https://www.tornadoweb.org/en/stable/">tornado</a>.
-  </dd>
-  <dt>Why does the Quarto icon have cat ears?</dt>
-  <dd>
-    Quarto is <a href="https://en.wikipedia.org/wiki/Lazy_evaluation">lazy</a>. It uses cached <a href="https://docs.python.org/3/library/functions.html#property">properties</a> and <a href="https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/">generators</a> to avoid <a href="https://en.wikichip.org/wiki/schlemiel_the_painter%27s_algorithm">schlemieling</a>.
-  </dd>
-  <dd>
-    Quarto is <a href="https://twitter.com/arr/status/774855950070972417?lang=en">small</a>. It has &lt; 500 lines of code, mostly in <a href="https://github.com/samkennerly/quarto/blob/master/quarto/pages.py">one file</a>.
-  </dd>
-  <dd>
-    Quarto spends much of its time <a href="https://en.wikipedia.org/wiki/Cat_(Unix)">concatenating</a> strings.
+    Quartos are meant to be <a href="https://en.wikipedia.org/wiki/Software_bloat">small</a>, <a href="https://en.wikipedia.org/wiki/Installation_(computer_programs)#Clean_installation">clean</a>, <a href="https://en.wikipedia.org/wiki/Lazy_evaluation">lazy</a>, <a href="https://en.wikipedia.org/wiki/Dependency_hell">independent</a> string <a href="https://en.wikipedia.org/wiki/Cat_(Unix)">concatenators</a>.
   </dd>
   <dt>Wherefore art thou Quarto?</dt>
+  <dd>
+    <blockquote>
+      The more complex your systems become, the more you need a human to look at the bigger picture and make decisions. <cite><a href="http://sysadvent.blogspot.com/2016/12/day-6-no-more-on-call-martyrs.html">Alice Goldfuss</a></cite>
+    </blockquote>
+  </dd>
+  <dd>
+    <blockquote>
+      There will come a point where the accumulated complexity of our existing systems is greater than the complexity of creating a new one. <cite><a href="https://tinyclouds.org/rant.html">Ryan Dahl</a></cite>
+    </blockquote>
+  </dd>
+  <dd>
+    <blockquote>
+      It is time to unmask the computing community as a Secret Society for the Creation and Preservation of Artificial Complexity. <cite><a href="https://www.cs.utexas.edu/users/EWD/transcriptions/EWD12xx/EWD1243a.html">Edsger W. Dijkstra</a></cite>
+    </blockquote>
+  </dd>
+  <dd>
+    <blockquote>
+      Give the game away. <cite><a href="https://www.enoshop.co.uk/product/oblique-strategies.html">Brian Eno and Peter Schmidt</a></cite>
+    </blockquote>
+  </dd>
 </dl>
-<blockquote>
-  The more complex your systems become, the more you need a human to look at the bigger picture and make decisions. <cite><a href="http://sysadvent.blogspot.com/2016/12/day-6-no-more-on-call-martyrs.html">Alice Goldfuss</a></cite>
-</blockquote>
-<blockquote>
-  There will come a point where the accumulated complexity of our existing systems is greater than the complexity of creating a new one. <cite><a href="https://tinyclouds.org/rant.html">Ryan Dahl</a></cite>
-</blockquote>
-<blockquote>
-  It is time to unmask the computing community as a Secret Society for the Creation and Preservation of Artificial Complexity. <cite><a href="https://www.cs.utexas.edu/users/EWD/transcriptions/EWD12xx/EWD1243a.html">Edsger W. Dijkstra</a></cite>
-</blockquote>
-<blockquote>
-  Give the game away. <cite><a href="https://www.enoshop.co.uk/product/oblique-strategies.html">Brian Eno and Peter Schmidt</a></cite>
-</blockquote>
 </main>
 <section id="icons">
 <a href="examples/doctoral.html" rel="prev">◄◄</a>

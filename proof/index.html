@@ -45,11 +45,11 @@ Quarto builds websites.
 <h1>Build websites with Python.</h1>
 <p>Quartos build websites. (This site is one.)</p>
 <ul>
-  <li>Write page <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main">main elements</a> in <a href="https://neocities.org/tutorials">HTML</a> or <a href="https://daringfireball.net/projects/markdown/">Markdown</a>.
+  <li>Write <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main">&lt;main&gt;</a> elements in <a href="https://neocities.org/tutorials">HTML</a> or <a href="https://daringfireball.net/projects/markdown/">Markdown</a>.
   </li>
-  <li>Apply one of <a href="examples/adrift.html">the</a> <a href="examples/burning.html">four</a> <a href="examples/celestial.html">example</a> <a href="examples/doctoral.html">styles</a> or bring your own <a href="https://www.w3.org/standards/webdesign/htmlcss#whatcss">CSS</a>.
+  <li>Choose one of <a href="examples/adrift.html">the</a> <a href="examples/burning.html">four</a> <a href="examples/celestial.html">stock</a> <a href="examples/doctoral.html">styles</a> or bring your own <a href="https://www.w3.org/standards/webdesign/htmlcss#whatcss">CSS</a>.
   </li>
-  <li>Quarto scripts <a href="#build-your-new-quarto">build</a> each page's <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML">&lt;head&gt;</a>, <a href="boxes/can/be/nested.html">&lt;nav&gt;</a>, icons, and <a href="https://en.wikipedia.org/wiki/Boilerplate_code#HTML">boilerplate</a>.
+  <li>Build each page's <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML">&lt;head&gt;</a>, <a href="boxes/can/be/nested.html">&lt;nav&gt;</a>, and other <a href="https://en.wikipedia.org/wiki/Boilerplate_code#HTML">boilerplate</a> automatically.
   </li>
   <li>Preview your site <a href="https://www.lifewire.com/how-to-preview-web-pages-3469885">locally</a> and upload it to a <a href="https://en.wikipedia.org/wiki/Web_hosting_service">host</a>. (This site uses <a href="https://neocities.org/">Neocities</a>.)
   </li>
@@ -57,27 +57,25 @@ Quarto builds websites.
 <p>Scroll through these stanzas to see how it's done.</p>
 <hr>
 <h2 id="copy-this-quarto">Copy this quarto.</h2>
-<p>A <dfn>quarto</dfn> is four <a href="https://en.wikipedia.org/wiki/Directory_(computing)">folders</a> in a fifth folder:</p>
+<p>A <dfn>quarto project</dfn> is four <a href="https://en.wikipedia.org/wiki/Directory_(computing)">folders</a> in a fifth folder:</p>
 <ul>
   <li>
     <code>proof</code> is a <a href="https://en.wikipedia.org/wiki/Prepress_proofing">proof copy</a> of a <a href="https://en.wikipedia.org/wiki/Static_web_page">static website</a>.
   </li>
-  <li>
-    <code>quire</code> is 4 Python scripts + 1 <a href="https://docs.python.org/3/tutorial/modules.html">module</a>.
-  </li>
+  <li><code>quarto</code> stores code used to build the site.</li>
   <li><code>ready</code> stores pages ready to be built.</li>
   <li>
     <code>style</code> stores <a href="https://www.w3.org/standards/webdesign/htmlcss#whatcss">stylesheets</a>.
   </li>
 </ul>
-<p>Download a ZIP from the original <dfn>stock quarto</dfn> or <a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template">use it as a template</a>:</p>
+<p>Download the original <dfn>stock quarto</dfn> as a ZIP file or <a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template">use it as a template</a>:</p>
 <h3><a href="https://github.com/samkennerly/quarto">github.com/samkennerly/quarto</a></h3>
 <p>Choose any name you want for your first quarto. Mine is <a href="https://badquarto.neocities.org">badquarto</a>.</p>
 <hr>
 <h2 id="install-extras">Install extras?</h2>
 <p><strong>Python 3.6+</strong> is required. Some features require <a href="https://www.python.org/dev/peps/pep-0508/#extras">extras</a>:</p>
 <ul>
-  <li><strong><a href="http://www.html-tidy.org/">Tidy 5+</a></strong> to run the <code>quire/clean</code> script</li>
+  <li><strong><a href="http://www.html-tidy.org/">Tidy 5+</a></strong> to run the <code>quarto/clean</code> script</li>
   <li>
     <strong><a href="https://mistune.readthedocs.io/en/latest/">Mistune</a></strong> to build pages from <a href="https://daringfireball.net/projects/markdown/">Markdown</a> files
   </li>
@@ -116,7 +114,7 @@ ready/index.json
 </code></pre>
   </dd>
   <dd>
-    This page has a <a href="https://www.w3schools.com/tags/tag_hn.asp">heading</a>, a <a href="https://www.w3schools.com/tags/tag_p.asp">paragraph</a>, and an <a href="https://www.w3schools.com/tags/tag_img.asp">image</a> which <a href="https://www.w3schools.com/tags/tag_a.asp">links</a> to the original quarto.
+    This page has a <a href="https://www.w3schools.com/tags/tag_hn.asp">heading</a>, a <a href="https://www.w3schools.com/tags/tag_p.asp">paragraph</a>, and an <a href="https://www.w3schools.com/tags/tag_img.asp">image</a> which <a href="https://www.w3schools.com/tags/tag_a.asp">links</a> to the stock quarto.
   </dd>
   <dt>Edit the home options.</dt>
   <dd>Replace <code>ready/index.json</code> with this text:</dd>
@@ -131,9 +129,9 @@ ready/index.json
   },
   "nextlink": "fore",
   "prevlink": "aft",
-  "qlink": "Fouled by a quarto.",
+  "qlink": "Built badly by a quarto.",
   "styles": ["style.css"],
-  "title": "Quarto test site."
+  "title": "Foul papers."
 }
 </code></pre>
   </dd>
@@ -149,39 +147,39 @@ ready/index.json
 }
 </code></pre>
   </dd>
-  <dd>If some options are missing (or a page has no options file at all), then the missing values will be replaced with values from <code>index.json</code>.</dd>
+  <dd>Missing values will be replaced with values from <code>index.json</code>.</dd>
 </dl>
 <hr>
 <h2 id="build-your-new-quarto">Build your new quarto.</h2>
 <p>Open a <a href="https://en.wikipedia.org/wiki/Command-line_interface">terminal</a>, <a href="https://en.wikipedia.org/wiki/Cd_(command)">cd</a> to your quarto, and run these commands:</p>
 <dl>
-  <dt>quire/delete</dt>
+  <dt>quarto/delete</dt>
   <dd>Delete all pages and styles from the <code>proof</code> folder:</dd>
   <dd>
-    <pre><code>quire/delete html &amp;& quire/delete css
+    <pre><code>quarto/delete html &amp;& quarto/delete css
 </code></pre>
   </dd>
-  <dd>This script will <em>not</em> delete any folders, icons, or cat pictures.</dd>
-  <dt>quire/clean</dt>
+  <dd>This will <em>not</em> delete any folders, icons, or cat pictures.</dd>
+  <dt>quarto/clean</dt>
   <dd>Clean and <mark>overwrite</mark> HTML files in the <code>ready</code> folder:</dd>
   <dd>
-    <pre><code>quire/clean
+    <pre><code>quarto/clean
 </code></pre>
   </dd>
   <dd>
     Keep your <a href="https://en.wikipedia.org/wiki/Foul_papers">foul papers</a> in another folder if you want to preserve them.
   </dd>
-  <dt>quire/build</dt>
+  <dt>quarto/build</dt>
   <dd>Read <code>ready</code> pages and write <code>proof</code> pages:</dd>
   <dd>
-    <pre><code>quire/build
+    <pre><code>quarto/build
 </code></pre>
   </dd>
   <dd>This script does <em>not</em> copy, delete, or move any files.</dd>
-  <dt>quire/apply</dt>
+  <dt>quarto/apply</dt>
   <dd>Apply a style from the <code>style</code> folder:</dd>
   <dd>
-    <pre><code>quire/apply style/celestial
+    <pre><code>quarto/apply style/celestial
 </code></pre>
   </dd>
   <dd>

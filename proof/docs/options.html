@@ -45,7 +45,7 @@ Quarto builds websites.
 <h1>Options files</h1>
 <p>Options files are optional. See <a href="#all-options">below</a> for a complete list of all options.</p>
 <hr>
-<h2>The keys have values for those who JSON.</h2>
+<h2 id="the_keys_have_values">The keys have values for those who JSON.</h2>
 <p>Page options are answers to questions like:</p>
 <ul>
   <li>Who wrote this page?</li>
@@ -56,21 +56,24 @@ Quarto builds websites.
 </ul>
 <p>Each page's options (if any) must be in a valid <a href="https://www.json.org/">JSON</a> file.</p>
 <hr>
-<h2>What's in a name?</h2>
+<h2 id="whats_in_a_name">What's in a name?</h2>
 <p>If the path to a page is:</p>
 <pre><code>ready/examples/adrift.html</code></pre>
 <p>then that page's options (if any) must be in a file named:</p>
 <pre><code>ready/examples/adrift.json</code></pre>
 <hr>
-<h2>Sites are merriest when they have a home.</h2>
+<h2 id="sites_are_merriest">Sites are merriest when they have a home.</h2>
+<p>Quarto sites <mark>must</mark> have a home page.</p>
 <ul>
-  <li>The <code>ready</code> folder <mark>must</mark> have a page named <code>index.html</code> or ...</li>
+  <li>The home page must be named <code>index.html</code> or ...</li>
   <li><code>index.md</code>, <code>index.rst</code>, <code>index.htm</code>, or any other suffix except <code>.json</code>.</li>
   <li>If <code>index.json</code> exists, then its values are defaults for any missing options.</li>
   <li>If a page has no options file, then all its values will be filled with default values.</li>
 </ul>
+<p>Any <a href="https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2">relative paths</a> in options files should be <em>from the site's home page</em>.</p>
 <hr>
-<h2 id="all-options">Complete Options of Quarto</h2>
+<h2 id="complete_options">Complete Options of Quarto</h2>
+<p>Leave an option blank if you don't want it. Quartos do not <a href="https://www.urbandictionary.com/define.php?term=autocarrot">autocarrot</a> blank options.</p>
 <dl>
   <dt>base</dt>
   <dd>
@@ -78,20 +81,21 @@ Quarto builds websites.
   </dd>
   <dd><code>"https://quarto.neocities.org/"</code></dd>
   <dt>copyright</dt>
-  <dd>Copyright statement, if any.</dd>
+  <dd>Copyright statement.</dd>
   <dd><code>"© Sam Kennerly 2019."</code></dd>
   <dt>email</dt>
-  <dd>Email address to display, if any.</dd>
+  <dd>Email address to display.</dd>
   <dd><code>"samkennerly@gmail.com"</code></dd>
   <dt>favicon</dt>
-  <dd>Icon file. Can be an absolute URL or relative path from home page.</dd>
+  <dd>
+    Path to the site's <a href="https://en.wikipedia.org/wiki/Favicon">favicon</a>.
+  </dd>
   <dd><code>"favicon.ico"</code></dd>
   <dt>homelink</dt>
-  <dd>Label for link to home page in &lt;nav&gt; menu.</dd>
+  <dd>Text label for link to home page in &lt;nav&gt; menu.</dd>
   <dd><code>"Quarto"</code></dd>
   <dt>icons</dt>
-  <dd>List of [alt text, image source, link URL] for <code>#icons</code> section.</dd>
-  <dd>Image sources can be absolute URLs and/or relative paths from home page.</dd>
+  <dd>List of [alt text, image path, link target] for each icon in the <code>#icons</code> section.</dd>
   <dd>
     <pre><code>[
   [ "GitHub", "media/icons/github.svg", "https://github.com/samkennerly" ],
@@ -100,8 +104,7 @@ Quarto builds websites.
 </code></pre>
   </dd>
   <dt>javascripts</dt>
-  <dd>List of script sources, if any.</dd>
-  <dd>Sources can be absolute URLs and/or relative paths from home page.</dd>
+  <dd>List of paths to scripts.</dd>
   <dd>
     <pre><code>[
   "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js",
@@ -110,8 +113,7 @@ Quarto builds websites.
 </code></pre>
   </dd>
   <dt>license</dt>
-  <dd>Source and text of license, if any.</dd>
-  <dd>Source can be an absolute URL or relative path from home page.</dd>
+  <dd>Path to license and text label.</dd>
   <dd>
     <pre><code>[
   "https://creativecommons.org/licenses/by/4.0",
@@ -120,7 +122,7 @@ Quarto builds websites.
 </code></pre>
   </dd>
   <dt>meta</dt>
-  <dd>{ name: content } mapping for &lt;meta&gt; tags, if any.</dd>
+  <dd>{ name: content } for each &lt;meta&gt; tag.</dd>
   <dd>
     <pre><code>{
   "author": "Wm. Shakespeare",
@@ -129,17 +131,18 @@ Quarto builds websites.
 </code></pre>
   </dd>
   <dt>nextlink</dt>
-  <dd>Label for link to next page, if any.</dd>
+  <dd>Text label for link to next page.</dd>
   <dd><code>"fwd ⇢"</code></dd>
   <dt>prevlink</dt>
-  <dd>Label for link to previous page, if any.</dd>
+  <dd>Text label for link to previous page.</dd>
   <dd><code>"⇠ rev"</code></dd>
   <dt>qlink</dt>
-  <dd>Label for link to quarto repository, if any.</dd>
+  <dd>
+    Text label for link to the <a href="https://github.com/samkennerly/quarto/">stock quarto</a>.
+  </dd>
   <dd><code>"Built by a Quarto."</code></dd>
   <dt>styles</dt>
-  <dd>Sources of stylesheet(s) for this page.</dd>
-  <dd>Sources can be absolute URLs and/or relative paths from home page.</dd>
+  <dd>Paths to stylesheet(s) for this page.</dd>
   <dd>
     <pre><code>[
   "https://www.w3schools.com/html/styles.css",
@@ -148,7 +151,7 @@ Quarto builds websites.
 </code></pre>
   </dd>
   <dt>title</dt>
-  <dd>Page &lt;title&gt; element.</dd>
+  <dd>Text of page &lt;title&gt; element.</dd>
   <dd><code>"Macbeth II: Toil and Trouble"</code></dd>
 </dl>
 </main>

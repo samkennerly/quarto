@@ -102,6 +102,7 @@ main {
   text-shadow: none;
 }
 main b,
+main dfn,
 main dt,
 main strong,
 main summary {
@@ -283,16 +284,21 @@ a {
 main blockquote {
   font-family: Palatino, serif;
 }
+main b,
+main dfn,
+main dt,
+main strong,
+main summary {
+  font-style: normal;
+  font-weight: bold;
+}
 main code,
 main kbd,
 main samp,
 main pre,
 main var {
   font-family:"Lucida Console", Monaco, monospace;
-  font-size: .875rem;
-}
-main dt {
-  font-weight: bold;
+  font-size: .875em;
 }
 /* font nav */
 nav a[rel="home"] {
