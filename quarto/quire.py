@@ -13,6 +13,7 @@ try:
 except ImportError as err:
 
     def mdparse(text, err=err):
+        """ None: Show error caused by trying to import Markdown parser. """
         raise ImportError(f"Cannot parse Markdown: {err}")
 
 
@@ -21,8 +22,8 @@ class Quire(Mapping):
     Generate web pages from HTML fragments and/or Markdown files.
 
     Quire is an ordered, immutable { pathlib.Path: str } Mapping.
-    Each key is an absolute path to the <main> element of a web page.
-    Each value is a web page as an HTML string. Values are generated lazily.
+    .keys() are absolute pathlib.Path objects for unfinished pages.
+    .values() are HTML pages as strings. Values are generated lazily.
 
     Initialize a Quire with the path to a folder containing raw pages.
     Quire accepts absolute or relative Path objects or strings as input.
