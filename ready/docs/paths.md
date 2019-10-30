@@ -31,7 +31,7 @@ boxes/can/be/nested.html
 cat_pics/octocats.html
 about.html
 ```
-Sites with a huge number of pages will build faster with a `pages.txt` file.
+Sites will build slightly faster if `pages.txt` exists.
 
 ---
 
@@ -42,9 +42,9 @@ Quarto scripts automatically
 file paths when:
 
 - building a &lt;nav&gt; menu
-- generating &lt;img&gt; tags in an `#icons` section
-- generating &lt;link&gt; tags in &lt;head&gt; elements
 - generating &lt;script&gt; tags
+- generating &lt;img&gt; tags in an `#icons` section
+- generating &lt;link&gt; tags in a &lt;head&gt; element
 
 If your `ready` pages include
 [prohibited characters](https://www.w3.org/Addressing/URL/4_Recommentations.html),
