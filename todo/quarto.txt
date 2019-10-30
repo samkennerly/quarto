@@ -1,5 +1,5 @@
 ASAP:
-  - upload without docs/quire.html ?
+  - update docs for name change
   - finish faq
   - convert all pages -> HTML
   - check all links
@@ -8,6 +8,7 @@ ASAP:
   - update quarto.neocities.org
   - redo badquarto and upload to badquarto.neocities.org
   - finish README
+  - finish docs
 
 CODE:
   - quire/* scripts should use main(), if __name__ == __main__
