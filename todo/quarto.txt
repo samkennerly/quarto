@@ -1,46 +1,39 @@
 ASAP:
   - check all links
-  - synchronize styles
+  - update and sync styles
   - merge develop -> master
   - update quarto.neocities.org
   - redo badquarto and upload to badquarto.neocities.org
   - finish README
-  - finish docs
 
 CODE:
   - try using new mistune
-  - quire/* scripts should use __name__ == __main__ trap?
-  - quarto/export doctoral docs: delete, clean, build, apply
-  - type hints? replace collections.abc ?
-  - parse reST with docutils?
+  - type hints?
   - Google search bar?
   - three.js example script
-  - galley: build an image gallery. see https://github.com/Jack000/Expose
+  - gallery: build an image gallery. see https://github.com/Jack000/Expose
   - multithreading: one page per core?
   - tidylib C bindings (see https://github.com/nijel/utidylib)
   - Bottle or Flask demo app? Caddy?
 
 REPOS:
-  - badquarto: first example
   - bardquarto: speed benchmark from shakespeare.mit.edu
-  - docdown: Python docs from .py files. `docdown` script in other repo?
   - misfire: racing mistune. fork mistune-contrib ?
 
 STYLES:
-  - capitalize <nav> labels
-  - style all <details> boxes, not just nav details
+  - capitalize <nav> labels with text-transform
   - <table><caption> needs text color
-  - dl, ul, ol {list-style-type: "⟳🐈Ⓠ";} or li:before {content: ""⟳🐈Ⓠ"}
-  - text-transform for caps in <nav>
+  - style all <details> boxes, not just nav details
+  - dl, ul, ol {list-style-type: "🐈";} or li:before {content: ""🐈"}
   - <div class="waffle"> for square galleries?
   - elemental: browser defaults
   - fatuous: ties the room together
   - graphic: graph gallery
 
 TESTING:
+  - test caps, spaces, underscores in page paths
   - are f-strings slowing everything down?
   - does chain() generate pages faster?
-  - test caps, spaces, underscores in page paths
   - what happens if old tidy is called?
   - nav: arrow keys, disability access OK?
-  - speed tests: compare to Hugo, Jekyll, Middleman?
+  - race against Hugo, Jekyll, Middleman?
