@@ -1,5 +1,4 @@
 ASAP:
-  - manual <hr> for each <h2>
   - check all links
   - synchronize styles
   - merge develop -> master
