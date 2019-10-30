@@ -8,6 +8,7 @@ ASAP:
 
 CODE:
   - try using new mistune
+  - try with older Pythons (no black)
   - type hints?
   - Google search bar?
   - three.js example script

@@ -12,12 +12,8 @@ RUN apt-get -y update && apt-get -y install \
 
 # Install Python packages
 RUN pip install --upgrade pip && pip install \
-  appdirs==1.4.3 \
-  attrs==19.3.0 \
   black==19.3b0 \
-  Click==7.0 \
   Cython==0.29.13 \
-  mistune==0.8.4 \
-  toml==0.10.0
+  mistune==0.8.4
 
 CMD ["/bin/bash"]
