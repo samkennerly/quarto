@@ -38,6 +38,7 @@ main {
   text-shadow: none;
 }
 main b,
+main dfn,
 main dt,
 main strong,
 main summary {
