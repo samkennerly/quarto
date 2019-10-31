@@ -1,7 +1,6 @@
 ASAP:
-  - merge develop -> master
-  - update and sync styles
   - check all links
+  - update and sync styles
   - finish README
   - merge develop -> master
   - update quarto.neocities.org
