@@ -3,7 +3,7 @@ Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: #ffde57;
+  --color-active: #ffe873;
   --color-boxes: rgba(64,64,64,.125);
   --color-code: #ada;
   --color-head: #aaa;
