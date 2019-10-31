@@ -67,7 +67,7 @@ Color coordination for all elements.
 https://www.w3schools.com/css/css_colors.asp
 */
 :root {
-  --color-active: #ffde57;
+  --color-active: #ffe873;
   --color-boxes: rgba(64,64,64,.125);
   --color-code: #ada;
   --color-head: #aaa;
@@ -173,6 +173,12 @@ main cite,
 main iframe {
   display: block;
 }
+main .gallery {
+  display: flex;
+  flex-basis: 100%;
+  flex-flow: row wrap;
+  justify-content: center;
+}
 /* display nav */
 nav a,
 nav summary {
@@ -193,7 +199,7 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge: 1em auto;
+  --marge: .75em auto;
   --padme: .25em .5em;
   --puffy: .75rem 1.25rem;
   --size-icons: 2rem;
