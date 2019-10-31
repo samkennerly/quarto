@@ -24,6 +24,11 @@
       "Tidy",
       "media/icons/tidy.png",
       "http://www.html-tidy.org/"
+    ],
+    [
+      "Twitter",
+      "media/icons/twitter.svg",
+      "https://twitter.com/quartosites/"
     ]
   ],
   "javascripts": [
