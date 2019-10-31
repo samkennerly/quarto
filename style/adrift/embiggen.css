@@ -6,7 +6,7 @@ https://www.w3schools.com/css/css_units.asp
   --marge: 1em auto;
   --padme: .25em .5em;
   --puffy: .75rem 1.25rem;
-  --size-icons: 1.5rem;
+  --size-icons: 2rem;
 }
 body {
   margin: .5rem auto 0;
@@ -60,6 +60,7 @@ nav details summary {
   padding: var(--puffy);
 }
 #icons img {
+  box-sizing: border-box;
   height: var(--size-icons);
   margin: 1rem 0;
   width: var(--size-icons);
