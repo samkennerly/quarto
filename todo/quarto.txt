@@ -2,9 +2,11 @@ ASAP:
   - check all links
   - update and sync styles
   - merge develop -> master
-  - update quarto.neocities.org
-  - redo badquarto and upload to badquarto.neocities.org
   - finish README
+  - update quarto.neocities.org
+  - redo badquarto
+  - upload badquarto.neocities.org
+  - check badquarto link on index.html
 
 CODE:
   - try using new mistune
