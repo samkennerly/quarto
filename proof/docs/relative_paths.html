@@ -46,13 +46,12 @@ Quartos build websites.
 <p>Quartos try to wrangle file <a href="https://en.wikipedia.org/wiki/Path_%28computing%29">paths</a> into valid <a href="https://en.wikipedia.org/wiki/URL">URLs</a>, but sometimes they need help.</p>
 <hr>
 <h2 id="pages">pages.txt</h2>
-<p>Quarto scripts find pages <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob">recursively</a>, then <a href="https://en.wikipedia.org/wiki/Lexicographical_order">lexsort</a> them and move <code>index.html</code> to the front of the queue. If you don't like the result, you can find and sort pages yourself:</p>
+<p>Quartos find pages <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob">recursively</a>, then <a href="https://en.wikipedia.org/wiki/Lexicographical_order">lexsort</a> them and move <code>index.html</code> to the front of the queue. If you don't like the result, you can find and sort pages yourself:</p>
 <ul>
   <li>Create a <code>pages.txt</code> file in the <code>ready</code> folder.</li>
-  <li>On each line, type the <a href="https://en.wikipedia.org/wiki/Path_%28computing%29#Absolute_and_relative_paths">relative path</a> from the <code>ready</code> folder to a page.
-  </li>
-  <li>Sort pages in any order you want. Quarto scripts will respect it.</li>
+  <li>On each line, type the path from the <code>ready</code> folder to a page.</li>
   <li>Any blank lines and leading/trailing whitespace will be ignored.</li>
+  <li>Sort pages in whatever order you want. Quartos will respect it.</li>
 </ul>
 <p>In this example, <code>about.html</code> will be the <em>last</em> link in each &lt;nav&gt; menu:</p>
 <pre><code>index.html
@@ -63,18 +62,18 @@ about.html
 <p>Sites will build slightly faster if <code>pages.txt</code> exists.</p>
 <hr>
 <h2 id="quoted_urls">Quoted URLs</h2>
-<p>Quarto scripts automatically <a href="https://docs.python.org/3/library/urllib.parse.html#urllib.parse.quote">quote</a> file paths when:</p>
+<p>Quartos <a href="https://docs.python.org/3/library/urllib.parse.html#urllib.parse.quote">quote</a> any <a href="https://www.w3.org/Addressing/URL/4_Recommentations.html">prohibited characters</a> in file paths whenever they:</p>
 <ul>
-  <li>building a &lt;nav&gt; menu</li>
-  <li>generating &lt;script&gt; tags</li>
-  <li>generating &lt;img&gt; tags in an <code>#icons</code> section</li>
-  <li>generating &lt;link&gt; tags in a &lt;head&gt; element</li>
+  <li>build a &lt;nav&gt; menu</li>
+  <li>generate &lt;script&gt; tags</li>
+  <li>generate &lt;img&gt; tags in an <code>#icons</code> section</li>
+  <li>generate &lt;link&gt; tags in a &lt;head&gt; element</li>
 </ul>
-<p>If your <code>ready</code> pages include <a href="https://www.w3.org/Addressing/URL/4_Recommentations.html">prohibited characters</a>, then you may need to quote them manually.</p>
+<p>Quartos do <mark>not</mark> modify links in page &lt;main&gt; elements.</p>
 <hr>
 <h2 id="relative_urls">Relative URLs</h2>
 <p>Quartos use <a href="https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2">relative URLs</a> to avoid <a href="https://github.com/jekyll/jekyll/issues/5482">problems</a> <a href="https://github.com/jekyll/jekyll/issues/5488">when</a> <a href="https://github.com/jekyll/jekyll/issues/5743">previewing</a> <a href="https://github.com/jekyll/jekyll/issues/5895">pages</a> <a href="https://github.com/jekyll/jekyll/issues/6034">from</a> <a href="https://github.com/jekyll/jekyll/issues/6360">local</a> <a href="https://github.com/jekyll/jekyll/issues/7621">files</a>. Links which work <a href="https://www.lifewire.com/how-to-preview-web-pages-3469885">locally</a> should still work when you upload your site - but test them to be sure!</p>
-<p>For example, this page's &lt;nav&gt; menu links to:</p>
+<p>Here are some example links from this page's &lt;nav&gt; menu:</p>
 <pre><code>../index.html
 ../about.html
 ../boxes/can/be/nested.html
