@@ -7,14 +7,9 @@ body {
 }
 /* display main */
 main cite,
-main iframe {
-  display: block;
-}
+main iframe,
 main .gallery {
-  display: flex;
-  flex-basis: 100%;
-  flex-flow: row wrap;
-  justify-content: center;
+  display: block;
 }
 /* display nav */
 nav a,
