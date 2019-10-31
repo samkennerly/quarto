@@ -1,14 +1,16 @@
 ASAP:
-  - check all links
-  - update and sync styles
   - merge develop -> master
+  - update and sync styles
+  - check all links
   - finish README
+  - merge develop -> master
   - update quarto.neocities.org
   - redo badquarto
   - upload badquarto.neocities.org
   - check badquarto link on index.html
 
 CODE:
+  - "free space" in klf() section?
   - try using new mistune
   - try with older Pythons (no black)
   - type hints?
