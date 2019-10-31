@@ -10,6 +10,12 @@ main cite,
 main iframe {
   display: block;
 }
+main .gallery {
+  display: flex;
+  flex-basis: 100%;
+  flex-flow: row wrap;
+  justify-content: center;
+}
 /* display nav */
 nav a,
 nav summary {
