@@ -10,17 +10,25 @@ html {
   font-weight: lighter;
   line-height: 1.5;
 }
-@media all and (max-width: 800px) {
+@media all and (max-width: 50rem) {
   html {
     font-size: 2vw;
   }
 }
-a {
+body a {
   text-decoration: none;
 }
 /* font main */
 main blockquote {
   font-family: Georgia, serif;
+}
+main b,
+main dfn,
+main dt,
+main strong,
+main summary {
+  font-style: normal;
+  font-weight: bold;
 }
 main code,
 main kbd,
@@ -28,12 +36,16 @@ main samp,
 main pre,
 main var {
   font-family: "Lucida Console", Monaco, monospace;
-  font-size: .8rem;
+  font-size: .875rem;
 }
 main dl dt {
   font-weight: bold;
 }
 /* font nav */
+nav a,
+nav summary {
+  text-transform: capitalize;
+}
 nav a[rel="home"] {
   font-size: 1.5rem;
 }
@@ -41,5 +53,5 @@ nav a[rel="home"] {
 #icons,
 #jump,
 #klf {
-  font-size: .7rem;
+  font-size: .75rem;
 }

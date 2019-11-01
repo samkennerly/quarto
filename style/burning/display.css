@@ -7,11 +7,15 @@ body {
 }
 /* display main */
 main cite,
-main iframe {
+main iframe,
+main .gallery {
   display: block;
 }
-main dl dd {
-  display: list-item;
+main ul {
+  list-style: none;
+}
+main ul li::before {
+  content: "🐈 ";
 }
 /* display nav */
 nav a,

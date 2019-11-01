@@ -3,12 +3,10 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge-icons: .25rem .5rem;
-  --marge-large: 1rem auto;
-  --marge-small: .5rem auto;
+  --marge: 1.5rem auto;
   --padme: 0 .5rem;
   --puffy: .5rem 1rem;
-  --size-icons: 1.25rem;
+  --size-icons: 1.5rem;
 }
 body {
   background-size: auto 100%;
@@ -23,8 +21,9 @@ main {
   padding: var(--puffy);
 }
 main blockquote,
+main details,
 main pre {
-  margin: var(--marge-large);
+  margin: var(--marge);
   max-width: 100%;
   overflow: auto;
   padding: var(--puffy);
@@ -35,16 +34,15 @@ main h2,
 main h3,
 main h4,
 main h5,
-main h6 {
-  margin: var(--marge-large);
-}
+main h6,
+main hr,
 main figure,
 main .gallery,
-main hr,
 main iframe {
-  margin: var(--marge-small);
+  margin: var(--marge);
 }
 main table {
+  box-sizing: border-box;
   margin: var(--marge-large);
   overflow: auto;
   padding: 0;
@@ -68,7 +66,7 @@ nav summary {
 /* embiggen others */
 #icons img {
   height: var(--size-icons);
-  margin: var(--marge-icons);
+  margin: .25rem .75rem;
   width: var(--size-icons);
 }
 #jump a {

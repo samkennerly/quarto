@@ -3,27 +3,20 @@ Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
-  --border: 2px ridge;
+  --border: thin ridge;
 }
-a img {
+body a img,
+body details {
   border: var(--border);
 }
 /* border main */
-main {
-  border: none;
-}
 main blockquote,
 main pre,
-main table {
+main hr {
   border: var(--border);
 }
-main hr {
-  border-bottom: var(--border);
-  border-top: none;
-}
 /* border nav */
-nav a,
-nav details {
+nav a {
   border: var(--border);
 }
 nav details > details {
