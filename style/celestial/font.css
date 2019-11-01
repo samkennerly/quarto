@@ -10,12 +10,12 @@ html {
   font-weight: normal;
   line-height: 1.25;
 }
-@media all and (max-width: 800px) {
+@media all and (max-width: 50rem) {
   html {
     font-size: 2vw;
   }
 }
-a {
+body a {
   text-decoration: none;
 }
 /* font main */
@@ -25,21 +25,27 @@ main {
 main blockquote {
   font-family: "Times New Roman", Times, serif;
 }
+main b,
+main dfn,
+main dt,
+main strong,
+main summary {
+  font-style: normal;
+  font-weight: bolder;
+}
 main code,
 main kbd,
 main samp,
 main pre,
+main table,
 main var {
   font-family: "Courier New", Courier, monospace;
-  font-size: .8rem;
-}
-main dt {
-  font-weight: bold;
+  font-size: .875rem;
+  font-weight: normal;
 }
 /* font nav */
 nav {
-  font-size: 1.2rem;
-  font-variant: small-caps;
+  text-transform: uppercase;
 }
 nav a[rel="home"] {
   font-size: 2rem;

@@ -5,19 +5,16 @@ https://www.w3schools.com/css/css_border.asp
 :root {
   --border: thin groove;
 }
-a img {
+body a img {
   border: var(--border);
 }
 /* border main */
+main details,
+main .gallery img,
 main hr {
-  border-bottom: var(--border);
-  border-top: none;
+  border: var(--border);
 }
 /* border nav */
 nav summary {
   border-bottom: var(--border);
-}
-/* border others */
-#icons img {
-  border: 2px solid;
 }

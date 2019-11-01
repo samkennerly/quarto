@@ -3,12 +3,9 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge-icons: 0 .5rem;
-  --marge-large: 1rem auto;
-  --marge-small: .25rem .5rem;
+  --marge: 1.75rem auto .75rem;
   --padme: .25rem .5rem;
-  --puffy: .5rem 2rem;
-  --size-icons: 1.25rem;
+  --puffy: .5rem 1.5rem;
 }
 body {
   margin: 0;
@@ -25,27 +22,24 @@ main {
   }
 }
 main blockquote,
+main details,
 main pre {
-  margin: var(--marge-large);
-  max-width: 100%;
+  box-sizing: border-box;
+  margin: var(--marge);
   overflow: auto;
   padding: var(--puffy);
+  width: 100%;
 }
 main dt,
 main figure,
 main .gallery,
-main h1,
-main h2,
-main h3,
-main h4,
-main h5,
-main h6,
 main hr,
 main iframe {
-  margin: var(--marge-large);
+  margin: var(--marge);
 }
 main table {
-  margin: var(--marge-large);
+  box-sizing: border-box;
+  margin: var(--marge);
   overflow: auto;
   padding: 0;
   width: 100%;
@@ -55,12 +49,10 @@ main table th {
   padding: var(--padme);
 }
 /* embiggen nav */
-nav {
-  padding: var(--puffy);
-}
+nav,
 nav a,
 nav details {
-  margin: var(--marge-small);
+  padding: var(--padme);
 }
 nav summary {
   width: 100%;
@@ -69,12 +61,12 @@ nav summary {
 #icons,
 #jump,
 #klf {
-  padding: var(--padme);
+  padding: var(--puffy);
 }
 #icons img {
-  height: var(--size-icons);
-  margin: var(--marge-icons);
-  width: var(--size-icons);
+  height: 1.5rem;
+  margin: 0 .75rem;
+  width: 1.5rem;
 }
 #jump a {
   width: 100%;

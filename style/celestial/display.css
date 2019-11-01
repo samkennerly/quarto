@@ -5,9 +5,13 @@ https://www.w3schools.com/css/css_display_visibility.asp
 body {
   display: grid;
 }
+body ul {
+  list-style: square;
+}
 /* display main */
 main cite,
-main iframe {
+main iframe,
+main .gallery {
   display: block;
 }
 /* display nav */
