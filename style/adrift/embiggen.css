@@ -36,6 +36,7 @@ main iframe {
 main table {
   box-sizing: border-box;
   margin: var(--marge);
+  overflow: auto;
   padding: 0;
   width: 100%;
 }
