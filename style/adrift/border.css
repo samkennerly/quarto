@@ -3,7 +3,7 @@ Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
-  --border: 2px solid;
+  --border: thin solid;
   --radius: 1rem;
 }
 /* border main */

@@ -1,4 +1,5 @@
 ASAP:
+  - see STYLES
   - update and sync styles
   - finish README
   - merge develop -> master
@@ -24,11 +25,11 @@ REPOS:
   - misfire: racing mistune. fork mistune-contrib ?
 
 STYLES:
-  - capitalize <nav> labels with text-transform
   - <table><caption> needs text color
   - style all <details> boxes, not just nav details
+  - capitalize <nav> labels with text-transform
   - dl, ul, ol {list-style-type: "🐈";} or li:before {content: ""🐈"}
-  - <div class="waffle"> for square galleries?
+  - waffle layout for galleries?
   - elemental: browser defaults
   - fatuous: ties the room together
   - graphic: graph gallery

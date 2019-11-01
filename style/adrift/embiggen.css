@@ -4,7 +4,7 @@ https://www.w3schools.com/css/css_units.asp
 */
 :root {
   --marge: .75em auto;
-  --padme: .25em .5em;
+  --padme: .25em .75em;
   --puffy: .75rem 1.25rem;
   --size-icons: 2rem;
 }
@@ -47,10 +47,8 @@ main table th {
 nav {
   padding: var(--puffy);
 }
-nav a {
-  padding: var(--padme);
-}
-nav details summary {
+nav a,
+nav summary {
   padding: var(--padme);
 }
 /* embiggen others */

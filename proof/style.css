@@ -33,7 +33,7 @@ Border type, thickness, radius, etc.
 https://www.w3schools.com/css/css_border.asp
 */
 :root {
-  --border: 2px solid;
+  --border: thin solid;
   --radius: 1rem;
 }
 /* border main */
@@ -76,16 +76,6 @@ https://www.w3schools.com/css/css_colors.asp
   --color-text: azure;
   --text-shadow: 1px 0 1px black;
 }
-a,
-a:link,
-a:visited {
-  color: var(--color-link);
-}
-a:focus,
-a:hover,
-a:active {
-  color: var(--color-active);
-}
 body {
   background-attachment: fixed;
   background-image:
@@ -96,6 +86,26 @@ body {
   color: var(--color-text);
   text-shadow: var(--text-shadow);
 }
+body a,
+body a:link,
+body a:visited {
+  color: var(--color-link);
+}
+body a:focus,
+body a:hover,
+body a:active {
+  color: var(--color-active);
+}
+body details {
+  background: var(--color-boxes);
+  border-color: var(--color-boxes);
+  box-shadow: 0 0 4px var(--color-head);
+}
+body summary:focus,
+body summary:hover,
+body summary:active {
+  color: var(--color-active);
+}
 /* color main */
 main {
   background: var(--color-boxes);
@@ -104,8 +114,7 @@ main {
 main b,
 main dfn,
 main dt,
-main strong,
-main summary {
+main strong {
   color: var(--color-active);
 }
 main blockquote,
@@ -119,7 +128,6 @@ main pre,
 main var {
   color: var(--color-code);
 }
-main details,
 main hr {
   border-color: var(--color-boxes);
 }
@@ -137,24 +145,17 @@ main mark {
   color: var(--color-mark);
 }
 main table,
-main table thead {
-  background: white;
-  color: black;
-}
-main table tr:nth-child(odd){
-  background: #dadada;
+main table thead,
+main table tr:nth-child(odd) {
+  background: var(--color-boxes);
 }
 /* color nav */
 nav a[href="#"] {
   color: var(--color-active);
 }
-nav details {
-  background: var(--color-boxes);
-  border-color: var(--color-boxes);
-  box-shadow: 0 0 2px;
-}
 nav details:focus,
-nav details:hover {
+nav details:hover,
+nav details:active {
   border-color: var(--color-active);
 }
 /* color others */
@@ -167,6 +168,9 @@ https://www.w3schools.com/css/css_display_visibility.asp
 */
 body {
   display: grid;
+}
+body ul {
+  list-style: circle;
 }
 /* display main */
 main cite,
@@ -195,7 +199,7 @@ https://www.w3schools.com/css/css_units.asp
 */
 :root {
   --marge: .75em auto;
-  --padme: .25em .5em;
+  --padme: .25em .75em;
   --puffy: .75rem 1.25rem;
   --size-icons: 2rem;
 }
@@ -238,10 +242,8 @@ main table th {
 nav {
   padding: var(--puffy);
 }
-nav a {
-  padding: var(--padme);
-}
-nav details summary {
+nav a,
+nav summary {
   padding: var(--padme);
 }
 /* embiggen others */
@@ -303,6 +305,9 @@ main var {
   font-size: .875em;
 }
 /* font nav */
+nav {
+  text-transform: none;
+}
 nav a[rel="home"] {
   font-size: 1.5rem;
 }

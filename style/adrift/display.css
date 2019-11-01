@@ -5,6 +5,9 @@ https://www.w3schools.com/css/css_display_visibility.asp
 body {
   display: grid;
 }
+body ul {
+  list-style: circle;
+}
 /* display main */
 main cite,
 main iframe,
