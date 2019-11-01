@@ -6,7 +6,6 @@ https://www.w3schools.com/css/css_units.asp
   --marge: .75em auto;
   --padme: .25em .75em;
   --puffy: .75rem 1.25rem;
-  --size-icons: 2rem;
 }
 body {
   margin: .5rem auto 0;
@@ -23,6 +22,7 @@ main details,
 main pre {
   box-sizing: border-box;
   margin: var(--marge);
+  overflow: auto;
   padding: var(--puffy);
   width: 100%;
 }
@@ -60,9 +60,9 @@ nav summary {
 }
 #icons img {
   box-sizing: border-box;
-  height: var(--size-icons);
+  height: 2rem;
   margin: 1rem 0;
-  width: var(--size-icons);
+  width: 2rem;
 }
 #jump a {
   margin: auto;

@@ -19,7 +19,6 @@ main pre {
 main hr {
   border: var(--border);
 }
-main a img,
 main details,
 main .gallery img {
   border: var(--border);
