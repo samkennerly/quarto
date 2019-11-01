@@ -82,7 +82,7 @@ class Quire(Mapping):
     @classmethod
     def apply(cls, style, sheet):
         """ None: Cat CSS files from style folder and write to one file. """
-        cls.write("".join(cls.stylecat(style)), sheet)
+        cls.write("".join(map(str.strip,cls.stylecat(style))), sheet)
 
     def build(self, target):
         """ None: Generate each page and write to target folder. """
