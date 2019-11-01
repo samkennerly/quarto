@@ -6,7 +6,6 @@ https://www.w3schools.com/css/css_units.asp
   --marge: 1.5rem auto;
   --padme: 0 .5rem;
   --puffy: .5rem 1rem;
-  --size-icons: 1.5rem;
 }
 body {
   background-size: auto 100%;
@@ -65,9 +64,9 @@ nav summary {
 }
 /* embiggen others */
 #icons img {
-  height: var(--size-icons);
+  height: 1.5rem;
   margin: .25rem .75rem;
-  width: var(--size-icons);
+  width: 1.5rem;
 }
 #jump a {
   box-sizing: border-box;
