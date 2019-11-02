@@ -39,9 +39,6 @@ main var {
   font-size: .875em;
 }
 /* font nav */
-nav {
-  text-transform: none;
-}
 nav a[rel="home"] {
   font-size: 1.5rem;
 }
