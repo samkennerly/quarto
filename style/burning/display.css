@@ -5,6 +5,10 @@ https://www.w3schools.com/css/css_display_visibility.asp
 body {
   display: grid;
 }
+/* Chrome hack */
+summary::-webkit-details-marker {
+  display: none;
+}
 /* display main */
 main cite,
 main iframe,

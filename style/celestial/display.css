@@ -8,6 +8,10 @@ body {
 body ul {
   list-style: square;
 }
+/* Chrome hack */
+summary::-webkit-details-marker {
+  display: none;
+}
 /* display main */
 main cite,
 main iframe,
