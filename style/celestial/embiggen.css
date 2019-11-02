@@ -58,9 +58,7 @@ nav summary {
   width: 100%;
 }
 /* embiggen others */
-#icons,
-#jump,
-#klf {
+#icons {
   padding: var(--puffy);
 }
 #icons img {
@@ -69,7 +67,10 @@ nav summary {
   width: 1.5rem;
 }
 #jump a {
-  width: 100%;
+  padding: var(--puffy);
+}
+#klf {
+  padding: var(--puffy);
 }
 #klf address {
   margin: 0 1em;
