@@ -35,6 +35,7 @@ main samp,
 main pre,
 main var {
   font-family: monospace;
+  font-size: .8rem;
 }
 main dt {
   font-weight: bold;

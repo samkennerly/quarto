@@ -13,6 +13,9 @@ body {
   min-height: 99vh;
   overflow-y: scroll;
 }
+body dd {
+  margin-left: 2em;
+}
 /* embiggen main */
 main {
   padding: var(--puffy);

@@ -9,8 +9,12 @@ https://www.w3schools.com/css/css_units.asp
 }
 body {
   margin: .5vh .5vw;
+  max-width: 99vw;
   min-height: 99vh;
   overflow-y: scroll;
+}
+body dd {
+  margin-left: 2em;
 }
 body summary {
   padding: var(--padme);

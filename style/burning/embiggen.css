@@ -15,6 +15,9 @@ body {
   overflow-y: scroll;
   padding: 0;
 }
+body dd {
+  margin-left: 2em;
+}
 /* embiggen main */
 main {
   padding: var(--puffy);
@@ -22,6 +25,7 @@ main {
 main blockquote,
 main details,
 main pre {
+  box-sizing: border-box;
   margin: var(--marge);
   max-width: 100%;
   overflow: auto;
