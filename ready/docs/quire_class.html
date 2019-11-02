@@ -1,5 +1,8 @@
 <h1>Quire class</h1>
 <p>Quarto scripts parse arguments, then build a <code>Quire</code> object to do the actual work.</p>
+<p>For interactive help, <code>cd</code> to your project and run:</p>
+<pre>python3 -m pydoc quarto.quire
+</pre>
 <hr>
 <h2>This be Mapping, yet there are methods in it.</h2>
 <p><code>Quire</code> inherits several <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionary</a> methods from <a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping">collections.abc.Mapping</a>:</p>
@@ -34,9 +37,10 @@
 <p>Lines are joined only after the entire page has been generated.</p>
 <hr>
 <h2>The &lt;nav&gt; is come full circle: I am home.</h2>
-<p>The <code>next</code> and <code>prev</code> links in the <code>#icons</code> section <q>wrap around</q> endlessly: the next page after the last page is the first page again.</p>
-<p><code>Quire</code> objects do not wrap. Iterating over a <code>Quire</code> returns each key, in order, exactly once.</p>
-<p><code>Quire</code> sorts pages automatically. See <a href="relative_paths.html">docs/relative paths</a> to set the page order manually.</p>
-<p>For interactive help, <code>cd</code> to your project and run:</p>
-<pre><code>python3 -m pydoc quarto.quire
-</code></pre>
+<ul>
+  <li>Links in the <code>#jump</code> section wrap: the next page after the last page is the first page.</li>
+  <li><code>Quire</code> objects do not wrap. Iterating over a <code>Quire</code> returns each key exactly once.</li>
+  <li><code>Quire</code> objects sort pages automatically and retain the sort order.</li>
+  <li>See <a href="relative_paths.html">docs/relative paths</a> to set the page order manually.
+  </li>
+</ul>
