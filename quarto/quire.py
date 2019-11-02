@@ -166,7 +166,7 @@ class Quire(Mapping):
 
     # Tag generators
 
-    def icons(self, page, icons=(), nextlink="", prevlink="", **kwargs):
+    def icons(self, page, icons=(), **kwargs):
         """
         Iterator[str]: #icons section for links to social media, etc.
         Links can be JPEGs, PNGs, ICOs or even GIFs.
@@ -178,32 +178,32 @@ class Quire(Mapping):
         i, n = pages.index(page), len(pages)
 
         yield '<section id="icons">'
-        if prevlink:
-            href = urlpath(page, (pages[(i - 1) % n]).with_suffix(".html"))
-            yield f'<a href="{href}" rel="prev">{prevlink}</a>'
-
         for alt, src, href in icons:
             src = urlpath(page, folder / src)
             alt = f'<img alt="{alt}" src="{src}" height="32" title="{alt}">'
             yield f'<a href="{href}">{alt}</a>'
-
-        if nextlink:
-            href = urlpath(page, (pages[(i + 1) % n]).with_suffix(".html"))
-            yield f'<a href="{href}" rel="next">{nextlink}</a>'
         yield "</section>"
 
-    def jump(self, page, javascripts=(), updog="", **kwargs):
+    def jump(self, page, jscripts=(), nextlink="", prevlink="", updog="", **kwargs):
         """
         Iterator[str]: #jump section for scripts and back-to-top link.
         And I know, reader, just how you feel.
         You got to scroll past the pop-ups to get to what's real.
         """
-        urlpath = self.urlpath
+        path, pages, urlpath = self / page, self.pages, self.urlpath
+
+        i, n = pages.index(path), len(pages)
+        urlprev = urlpath(path, pages[(i - 1) % n].with_suffix('.html'))
+        urlnext = urlpath(path, pages[(i + 1) % n].with_suffix('.html'))
 
         yield '<section id="jump">'
+        if prevlink:
+            yield f'<a href="{urlprev}" rel="prev">{prevlink}</a>'
         if updog:
             yield f'<a href="#" id="updog">{updog}</a>'
-        for src in javascripts:
+        if nextlink:
+            yield f'<a href="{urlnext}" rel="next">{nextlink}</a>'
+        for src in jscripts:
             yield f'<script src="{urlpath(src)}" async></script>'
         yield "</section>"
 
