@@ -9,8 +9,8 @@ https://www.w3schools.com/css/css_colors.asp
   --color-link: #ada;
   --color-mark: crimson;
   --color-text: #fafafa;
-  --color-main-active: #151;
-  --color-main-link: teal;
+  --color-main-active: darkcyan;
+  --color-main-link: darkgreen;
   --color-main-text: black;
   --transition: 250ms;
 }
