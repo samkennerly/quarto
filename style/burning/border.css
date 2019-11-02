@@ -29,6 +29,3 @@ nav details > details {
 #klf {
   border: none;
 }
-#jump a {
-  border: var(--border);
-}

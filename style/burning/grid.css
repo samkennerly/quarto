@@ -5,11 +5,11 @@ https://www.w3schools.com/css/css_grid.asp
 body {
   grid-row-gap: .25rem;
   grid-template-areas:
-    'icons'
+    'jump'
     'nav'
     'main'
-    'klf'
-    'jump';
+    'icons'
+    'klf';
   grid-template-rows: auto auto 1fr auto auto;
 }
 main {
@@ -20,11 +20,11 @@ nav {
 }
 #icons {
   grid-area: icons;
-  position: sticky;
-  top: 0;
 }
 #jump {
   grid-area: jump;
+  position: sticky;
+  top: 0;
 }
 #klf {
   grid-area: klf;

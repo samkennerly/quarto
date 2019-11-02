@@ -4,7 +4,7 @@ https://www.w3schools.com/css/css_units.asp
 */
 :root {
   --marge: 1.5rem auto;
-  --padme: 0 .5rem;
+  --padme: .1rem .5rem;
   --puffy: .5rem 1rem;
 }
 body {
@@ -63,6 +63,9 @@ nav summary {
   width: 100%;
 }
 /* embiggen others */
+#icons {
+  padding: var(--padme);
+}
 #icons img {
   height: 1.5rem;
   margin: .25rem .75rem;
@@ -71,7 +74,6 @@ nav summary {
 #jump a {
   box-sizing: border-box;
   padding: var(--puffy);
-  width: 100%;
 }
 #klf {
   padding: var(--puffy);

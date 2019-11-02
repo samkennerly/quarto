@@ -4,7 +4,7 @@ https://www.w3schools.com/css/css_colors.asp
 */
 :root {
   --color-active: #f44;
-  --color-boxes: rgba(0,0,0,.9);
+  --color-boxes: rgba(0,0,0,.8);
   --color-code: #bbb;
   --color-head: white;
   --color-link: #f6ad52;
