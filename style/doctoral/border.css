@@ -4,7 +4,7 @@ https://www.w3schools.com/css/css_border.asp
 */
 :root {
   --border: thin inset;
-  --radius: .4rem;
+  --radius: .2rem;
 }
 body a img,
 body summary {
@@ -12,17 +12,17 @@ body summary {
   border-radius: var(--radius);
 }
 /* border main */
-main blockquote,
-main pre {
+main blockquote {
   border: var(--border);
   border-radius: var(--radius);
 }
-main hr {
+main pre {
   border: none;
-  border-top: var(--border);
+  border-radius: var(--radius);
 }
 main table {
   border: var(--border);
+  border-radius: 0;
 }
 /* border nav */
 nav {
@@ -37,10 +37,6 @@ nav a {
   border-radius: var(--radius) var(--radius) 0 0;
 }
 #jump {
-  border-radius: var(--radius);
-}
-#jump a {
-  border: var(--border);
   border-radius: var(--radius);
 }
 #klf {
