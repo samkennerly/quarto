@@ -11,19 +11,14 @@
       "https://github.com/samkennerly/quarto/"
     ],
     [
+      "Gmail",
+      "media/icons/gmail.svg",
+      "mailto:quarto.sites@gmail.com"
+    ],
+    [
       "Neocities",
       "media/icons/neocities.svg",
       "https://neocities.org/"
-    ],
-    [
-      "Python",
-      "media/icons/python.svg",
-      "https://www.python.org/"
-    ],
-    [
-      "Tidy",
-      "media/icons/tidy.png",
-      "http://www.html-tidy.org/"
     ],
     [
       "Twitter",
