@@ -4,31 +4,37 @@ https://www.w3schools.com/css/css_font.asp
 */
 html {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-variant: normal;
   font-weight: normal;
   line-height: 1.2;
 }
-@media all and (max-width: 800px) {
+@media all and (max-width: 50rem) {
   html {
     font-size: 2vw;
   }
 }
-a {
+body a {
   text-decoration: none;
 }
 /* font main */
 main blockquote {
   font-family: Times, serif;
 }
+main dfn,
+main dt,
+main strong,
+main summary {
+  font-style: normal;
+  font-weight: bold;
+}
 main code,
 main kbd,
 main samp,
 main pre,
 main var {
-  font-family: Courier, monospace;
-  font-size: .8rem;
+  font-family: monospace;
 }
 main dt {
   font-weight: bold;

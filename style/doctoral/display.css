@@ -5,13 +5,20 @@ https://www.w3schools.com/css/css_display_visibility.asp
 body {
   display: grid;
 }
+body ol {
+  list-style: decimal-leading-zero;
+}
+body ul {
+  list-style: none;
+}
+body ul li:before {
+  content: "⁃ ";
+}
 /* display main */
 main cite,
-main iframe {
+main iframe,
+main .gallery {
   display: block;
-}
-main dl dd {
-  display: list-item;
 }
 /* display nav */
 nav a,
@@ -20,12 +27,8 @@ nav summary {
   display: block;
 }
 /* display others */
-#icons img {
-  display: inline-block;
-}
-#jump a {
-  display: inline-block;
-}
+#icons img,
+#jump a,
 #klf address {
   display: inline-block;
 }

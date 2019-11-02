@@ -4,9 +4,10 @@ https://www.w3schools.com/css/css_border.asp
 */
 :root {
   --border: thin inset;
-  --radius: .5rem;
+  --radius: .4rem;
 }
-a img {
+body a img,
+body summary {
   border: var(--border);
   border-radius: var(--radius);
 }
@@ -17,24 +18,23 @@ main pre {
   border-radius: var(--radius);
 }
 main hr {
-  border-bottom: var(--border);
-  border-top: none;
+  border: none;
+  border-top: var(--border);
+}
+main table {
+  border: var(--border);
 }
 /* border nav */
-nav,
-nav a {
+nav {
   border-radius: var(--radius);
 }
-nav summary {
+nav a {
   border: var(--border);
   border-radius: var(--radius);
 }
 /* border others */
 #icons {
   border-radius: var(--radius) var(--radius) 0 0;
-}
-#icons img {
-  border: 2px solid;
 }
 #jump {
   border-radius: var(--radius);
