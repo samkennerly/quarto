@@ -1,4 +1,5 @@
 ASAP:
+  - move prev, next links into jump. restyle sites.
   - finish README
   - upload to quarto.neocities.org
   - redo badquarto
