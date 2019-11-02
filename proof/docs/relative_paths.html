@@ -83,23 +83,16 @@ about.html
 <hr>
 <h2 id="spaces_and_cases">Spaces and Cases</h2>
 <p>Links in the &lt;nav&gt; menu use page filenames as labels. To avoid problems with <a href="https://stackoverflow.com/questions/497908/is-a-url-allowed-to-contain-a-space">whitespace</a> and/or <a href="https://en.wikipedia.org/wiki/Case_sensitivity">capitalization</a> in file names, consider these alternatives:</p>
-<ul>
-  <li>
-    <p>spaces</p>
-    <ul>
-      <li>Use underscores instead of spaces in file and folder names.</li>
-      <li>Quarto scripts automatically replace each <code>_</code> with a space in &lt;nav&gt; labels.</li>
-    </ul>
-  </li>
-  <li>
-    <p>cases</p>
-    <ul>
-      <li>Use lowercase file and folder names.</li>
-      <li>Use <a href="https://css-tricks.com/almanac/properties/t/text-transform/">CSS text-transform</a> in stylesheets to capitalize &lt;nav&gt; labels.
-      </li>
-    </ul>
-  </li>
-</ul>
+<dl>
+  <dt>spaces</dt>
+  <dd>Use underscores instead of spaces in file and folder names.</dd>
+  <dd>Quarto scripts automatically replace each <code>_</code> with a space in &lt;nav&gt; labels.</dd>
+  <dt>cases</dt>
+  <dd>Use lowercase file and folder names.</dd>
+  <dd>
+    Use <a href="https://css-tricks.com/almanac/properties/t/text-transform/">CSS text-transform</a> in stylesheets to capitalize &lt;nav&gt; labels.
+  </dd>
+</dl>
 <p>Quarto scripts do <mark>not</mark> enforce these rules. Break them if you want to.</p>
 </main>
 <section id="icons">
