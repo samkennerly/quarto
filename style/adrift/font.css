@@ -4,15 +4,15 @@ https://www.w3schools.com/css/css_font.asp
 */
 html {
   font-family: Geneva, Verdana, sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-style: normal;
   font-variant: normal;
   font-weight: normal;
   line-height: 1.25;
 }
-@media all and (max-width: 48rem) {
+@media all and (max-width: 64rem) {
   html {
-    font-size: 2vw;
+    font-size: 1.6vw;
   }
 }
 body a {
@@ -43,7 +43,6 @@ nav a[rel="home"] {
   font-size: 1.5rem;
 }
 /* font others */
-#icons,
 #jump,
 #klf {
   font-size: .75rem;

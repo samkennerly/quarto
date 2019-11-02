@@ -9,7 +9,7 @@ https://www.w3schools.com/css/css_units.asp
 }
 body {
   margin: .5rem auto 0;
-  max-width: 80rem;
+  max-width: 64rem;
   min-height: 99vh;
   overflow-y: scroll;
 }
@@ -46,14 +46,16 @@ main table th {
 }
 /* embiggen nav */
 nav {
-  padding: var(--puffy);
+  padding: var(--padme);
 }
 nav a,
 nav summary {
   padding: var(--padme);
 }
 /* embiggen others */
-#icons,
+#icons {
+  padding: var(--padme);
+}
 #jump,
 #klf {
   padding: var(--puffy);
@@ -61,7 +63,7 @@ nav summary {
 #icons img {
   box-sizing: border-box;
   height: 2rem;
-  margin: 1.5rem 0;
+  margin: 0 0 1.5rem;
   width: 2rem;
 }
 #jump a {
