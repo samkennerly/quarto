@@ -9,7 +9,7 @@ https://www.w3schools.com/css/css_colors.asp
   --color-head: white;
   --color-link: #f6ad52;
   --color-text: whitesmoke;
-  --text-shadow: 0px -1px 3px firebrick;
+  --text-shadow: 0px -2px 5px firebrick;
   --transition: 451ms;
 }
 body {
@@ -64,9 +64,6 @@ main h5,
 main h6 {
   color: var(--color-head);
   text-shadow: var(--text-shadow);
-}
-main hr {
-  border-color: var(--color-boxes);
 }
 main mark {
   background: none;
