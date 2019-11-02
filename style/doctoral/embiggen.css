@@ -3,9 +3,9 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge: .8rem auto;
-  --padme: .2rem .5rem;
-  --puffy: .4rem 1rem;
+  --marge: .4rem auto;
+  --padme: .2rem .4rem;
+  --puffy: .6rem 1.2rem;
 }
 body {
   margin: .5vh .5vw;
@@ -61,20 +61,19 @@ nav summary ~ a {
   margin-left: .4rem;
 }
 /* embiggen others */
-#icons,
-#klf {
+#icons {
   padding: var(--puffy);
 }
 #icons img {
-  height: 1.5rem;
-  margin: 0 1rem;
-  width: 1.5rem;
+  height: 1.6rem;
+  margin: 0 .8rem;
+  width: 1.6rem;
 }
 #jump a {
-  box-sizing: border-box;
-  height: 100%;
-  padding: var(--padme);
-  width: 100%;
+  padding: var(--puffy);
+}
+#klf {
+  padding: var(--puffy);
 }
 #klf address {
   margin: 0 1em;
