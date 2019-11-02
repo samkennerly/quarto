@@ -1,6 +1,4 @@
 ASAP:
-  - merge README. check all links.
-  - icons: GitHub, Gmail, Neocities, Twitter
   - move prev, next links into jump. restyle sites.
   - upload to quarto.neocities.org
   - redo badquarto
