@@ -1,16 +1,14 @@
 ASAP:
-  - update and sync styles
   - finish README
-  - merge develop -> master
-  - update quarto.neocities.org
+  - upload to quarto.neocities.org
   - redo badquarto
-  - upload badquarto.neocities.org
+  - upload badquarto
   - check badquarto link on index.html
+  - try using new mistune
+  - try with older Pythons (no black)
 
 CODE:
   - "free space" in klf() section?
-  - try using new mistune
-  - try with older Pythons (no black)
   - type hints?
   - Google search bar?
   - three.js example script
@@ -30,7 +28,6 @@ STYLES:
   - graphic: graph gallery
 
 TESTING:
-  - test caps, spaces, underscores in page paths
   - are f-strings slowing everything down?
   - does chain() generate pages faster?
   - what happens if old tidy is called?
