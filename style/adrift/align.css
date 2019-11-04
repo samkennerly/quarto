@@ -29,3 +29,7 @@ nav {
 #klf {
   text-align: left;
 }
+#jump {
+  align-items: center;
+  justify-content: space-around;
+}

@@ -5,7 +5,7 @@ https://www.w3schools.com/css/css_units.asp
 :root {
   --marge: .75em auto;
   --padme: .25em .5em;
-  --puffy: .5rem 1rem;
+  --puffy: .75rem 1.5rem;
 }
 body {
   margin: 0 auto;
@@ -65,10 +65,7 @@ nav summary {
   width: 2rem;
 }
 #jump {
-  padding: var(--puffy);
-}
-#jump a {
-  margin: auto;
+  padding: var(--padme);
 }
 #klf {
   padding: var(--puffy);
