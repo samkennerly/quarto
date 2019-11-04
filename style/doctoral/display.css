@@ -5,15 +5,6 @@ https://www.w3schools.com/css/css_display_visibility.asp
 body {
   display: grid;
 }
-body ol {
-  list-style: decimal-leading-zero;
-}
-body ul {
-  list-style: none;
-}
-body ul li:before {
-  content: "⁃ ";
-}
 /* Chrome hack */
 summary::-webkit-details-marker {
   display: none;
@@ -23,6 +14,15 @@ main cite,
 main iframe,
 main .gallery {
   display: block;
+}
+main ol {
+  list-style: decimal-leading-zero;
+}
+main ul {
+  list-style: none;
+}
+main ul li::before {
+  content: "⁃ ";
 }
 /* display nav */
 nav a,

@@ -37,8 +37,8 @@ nav a {
   border-radius: var(--radius) var(--radius) 0 0;
 }
 #jump {
-  border-radius: var(--radius);
+  border-radius: 0 0 var(--radius) var(--radius);
 }
 #klf {
-  border-radius: 0 0 var(--radius) var(--radius);
+  border-radius: var(--radius);
 }

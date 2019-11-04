@@ -4,8 +4,8 @@ https://www.w3schools.com/css/css_units.asp
 */
 :root {
   --marge: .4rem auto;
-  --padme: .2rem .4rem;
-  --puffy: .6rem 1.2rem;
+  --padme: .2rem .6rem;
+  --puffy: .4rem .8rem;
 }
 body {
   margin: .5vh .5vw;
@@ -13,8 +13,11 @@ body {
   min-height: 99vh;
   overflow-y: scroll;
 }
-body dd {
-  margin-left: 2em;
+body dd,
+body ol,
+body ul {
+  margin-left: 4vw;
+  padding-left: 0;
 }
 body summary {
   padding: var(--padme);
@@ -26,11 +29,9 @@ main {
 main blockquote,
 main details,
 main pre {
-  box-sizing: border-box;
   margin: var(--marge);
-  overflow: auto;
+  overflow-x: auto;
   padding: var(--puffy);
-  width: 100%;
 }
 main dt,
 main figure,
@@ -42,7 +43,7 @@ main iframe {
 main table {
   box-sizing: border-box;
   margin: var(--marge);
-  overflow: auto;
+  overflow-x: auto;
   padding: 0;
   width: 100%;
 }
@@ -51,9 +52,7 @@ main table th {
   padding: var(--padme);
 }
 /* embiggen nav */
-nav {
-  padding: var(--puffy);
-}
+nav,
 nav a {
   padding: var(--padme);
 }
@@ -66,19 +65,17 @@ nav summary ~ a {
 }
 /* embiggen others */
 #icons {
-  padding: var(--puffy);
+  padding: var(--padme);
 }
 #icons img {
-  height: 1.6rem;
-  margin: 0 .8rem;
-  width: 1.6rem;
+  box-sizing: border-box;
+  height: 2rem;
+  margin: 0 1rem;
+  width: 2rem;
 }
 #jump a {
   padding: var(--puffy);
 }
 #klf {
   padding: var(--puffy);
-}
-#klf address {
-  margin: 0 1em;
 }

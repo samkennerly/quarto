@@ -62,7 +62,6 @@ main strong {
 }
 main blockquote {
   background: white;
-  color: black;
 }
 main hr {
   border-color: var(--color-edges);
