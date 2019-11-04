@@ -1,7 +1,6 @@
 ASAP:
-  - synchronize styles. update neocities.
-  - fix screen flicker when scrolling (Android + Chrome)
   - redo bad_quarto, upload, and fix index.html link.
+  - update neocities not_found.html
   - try using new mistune
   - try with older Pythons (no black)
   - neocities sync package?
@@ -21,6 +20,7 @@ REPOS:
   - misfire: racing mistune. fork mistune-contrib ?
 
 STYLES:
+  - fix screen flicker when scrolling (Android + Chrome)
   - waffle layout for galleries?
   - elemental: browser defaults
   - fatuous: ties the room together
