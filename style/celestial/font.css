@@ -4,15 +4,15 @@ https://www.w3schools.com/css/css_font.asp
 */
 html {
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-  font-size: 16px;
+  font-size: calc(8px + 1vw);
   font-style: normal;
   font-variant: normal;
   font-weight: normal;
   line-height: 1.25;
 }
-@media all and (max-width: 50rem) {
+@media all and (min-width: 800px) {
   html {
-    font-size: 2vw;
+    font-size: 16px;
   }
 }
 body a {
@@ -51,7 +51,6 @@ nav a[rel="home"] {
   font-size: 2rem;
 }
 /* font others */
-#jump,
 #klf {
   font-size: .75rem;
 }
