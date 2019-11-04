@@ -35,7 +35,7 @@ body a:active {
 body details {
   background: var(--color-boxes);
   border-color: var(--color-boxes);
-  box-shadow: 0 0 4px var(--color-head);
+  box-shadow: 0 0 2px var(--color-head);
 }
 body summary:focus,
 body summary:hover,
