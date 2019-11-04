@@ -1,5 +1,8 @@
 ASAP:
-  - redo bad_quarto, upload, and fix index.html link.
+  - bad-quarto:
+    - do tutorial (creates new repo)
+    - upload to bad-quarto.neocities.org
+    - fix ready/index.html on main site
   - update neocities not_found.html
   - try using new mistune
   - try with older Pythons (no black)
@@ -16,7 +19,7 @@ CODE:
   - Bottle or Flask demo app? Caddy?
 
 REPOS:
-  - bardquarto: speed benchmark from shakespeare.mit.edu
+  - bard-quarto: speed benchmark from shakespeare.mit.edu
   - misfire: racing mistune. fork mistune-contrib ?
 
 STYLES:
