@@ -6,10 +6,9 @@ https://www.w3schools.com/css/css_colors.asp
   --color-active: #f44;
   --color-boxes: rgba(0,0,0,.8);
   --color-code: #bbb;
-  --color-head: white;
   --color-link: #f6ad52;
   --color-text: whitesmoke;
-  --text-shadow: 0px -2px 5px firebrick;
+  --text-shadow: 0px -2px 3px firebrick;
   --transition: 451ms;
 }
 body {
@@ -45,9 +44,9 @@ main dt,
 main strong {
   color: var(--color-active);
 }
-main blockquote {
-  background: white;
-  color: black;
+main blockquote,
+main pre {
+  background: var(--color-boxes);
 }
 main code,
 main kbd,
@@ -62,20 +61,18 @@ main h3,
 main h4,
 main h5,
 main h6 {
-  color: var(--color-head);
   text-shadow: var(--text-shadow);
 }
 main mark {
   background: none;
   color: var(--color-active);
 }
-main table {
-  background: black;
-  color: white;
+main table thead {
+  background: white;
 }
 main table tr:nth-child(odd) {
-  background: white;
-  color: black;
+  background: var(--color-boxes);
+  border-color: var(--color-text);
 }
 /* color nav */
 nav {

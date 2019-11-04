@@ -23,9 +23,3 @@ nav details > details {
   border: none;
   border-top: var(--border);
 }
-/* border others */
-#icons,
-#jump,
-#klf {
-  border: none;
-}
