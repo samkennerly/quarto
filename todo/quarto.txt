@@ -1,7 +1,10 @@
 ASAP:
+  - fix screen flicker when scrolling (Android + Chrome)
+  - synchronize styles. update neocities.
   - redo bad_quarto, upload, and fix index.html link.
   - try using new mistune
   - try with older Pythons (no black)
+  - neocities sync package?
 
 CODE:
   - "free space" in klf() section?
