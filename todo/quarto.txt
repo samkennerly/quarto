@@ -1,8 +1,5 @@
 ASAP:
-  - bad-quarto:
-    - do tutorial (creates new repo)
-    - upload to bad-quarto.neocities.org
-    - fix ready/index.html on main site
+  - finish bad-quarto
   - update neocities not_found.html
   - try using new mistune
   - try with older Pythons (no black)
