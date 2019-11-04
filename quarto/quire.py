@@ -219,10 +219,10 @@ class Quire(Mapping):
             yield f'<span id="copyright">{copyright}</span>'
         if license:
             yield '<a href="{}" rel="license">{}</a>'.format(*license)
-        if email:
-            yield f"<address>{email}</address>"
         if qlink:
             yield f'<a href="{QHOME}" rel="generator">{qlink}</a>'
+        if email:
+            yield f"<address>{email}</address>"
         yield "</section>"
 
     def links(self, page, base="", favicon="", styles=(), **kwargs):
