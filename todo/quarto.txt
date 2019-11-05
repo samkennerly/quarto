@@ -1,8 +1,7 @@
 ASAP:
-  - delete this file from master branch only?
-  - try using new mistune
+  - try with new mistune. need MD files to test!
   - try with older Pythons (no black)
-  - neocities sync? see github.com/neocities/python-neocities
+  - see github.com/neocities/python-neocities
 
 CODE:
   - "free space" in klf() section?
@@ -16,10 +15,10 @@ CODE:
 
 REPOS:
   - bard-quarto: speed benchmark from shakespeare.mit.edu
-  - misfire: racing mistune. fork mistune-contrib ?
+  - misfire: racing mistune. fork or use mistune-contrib ?
 
 STYLES:
-  - fix screen flicker when scrolling (Android + Chrome)
+  - screen flicker when scrolling?
   - waffle layout for galleries?
   - elemental: browser defaults
   - fatuous: ties the room together
