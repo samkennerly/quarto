@@ -1,9 +1,9 @@
 ASAP:
-  - finish bad-quarto
-  - update neocities not_found.html
+  - upload quarto/proof -> quarto.neocities.org
+  - upload bad-quarto/proof -> bad-quarto.neocities.org
   - try using new mistune
   - try with older Pythons (no black)
-  - neocities sync package?
+  - neocities sync? see github.com/neocities/python-neocities
 
 CODE:
   - "free space" in klf() section?
