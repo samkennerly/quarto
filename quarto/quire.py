@@ -82,7 +82,7 @@ class Quire(Mapping):
     @classmethod
     def apply(cls, style, sheet):
         """ None: Cat CSS files from style folder and write to one file. """
-        cls.write("".join(map(str.strip,cls.stylecat(style))), sheet)
+        cls.write("".join(map(str.strip, cls.stylecat(style))), sheet)
 
     def build(self, target):
         """ None: Generate each page and write to target folder. """
@@ -193,8 +193,8 @@ class Quire(Mapping):
         path, pages, urlpath = self / page, self.pages, self.urlpath
 
         i, n = pages.index(path), len(pages)
-        urlprev = urlpath(path, pages[(i - 1) % n].with_suffix('.html'))
-        urlnext = urlpath(path, pages[(i + 1) % n].with_suffix('.html'))
+        urlprev = urlpath(path, pages[(i - 1) % n].with_suffix(".html"))
+        urlnext = urlpath(path, pages[(i + 1) % n].with_suffix(".html"))
 
         yield '<section id="jump">'
         if prevlink:
