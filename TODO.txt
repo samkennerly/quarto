@@ -1,7 +1,9 @@
 ASAP:
+  - update README
   - add Markdown tests
-  - try with new mistune
-  - try with older Pythons (no black)
+  - try with new mistune. update index.html?
+  - try with older Pythons (no black). update index.html?
+  - tag release v0.0.1
 
 CODE:
   - "free space" in klf() section?
