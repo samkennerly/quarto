@@ -1,15 +1,19 @@
 # quarto
 
-Quartos build websites with Python.
-See
+Quartos build websites with Python 3.
+
+Docs and examples are here:
 [quarto.neocities.org](https://quarto.neocities.org/)
-for examples.
+
+This repository is a
+[template](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-template-repository).
+It is meant to be copied and customized, not cloned and configured.
 
 ## Neither a cloner nor a forker be.
 
 - Create a new independent repo
 [from this template](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
-- Each quarto repo is a unique mixture of
+- Each quarto project is a unique mixture of
 [code](https://github.com/samkennerly/quarto/tree/master/quarto),
 [pages](https://github.com/samkennerly/quarto/tree/master/ready),
 and
@@ -19,7 +23,7 @@ and
 then `git pull` will pull this repo's pages and style into your repo.
 - If you
 [fork](https://help.github.com/en/articles/fork-a-repo),
-then your repo will include this repo's entire history. You don't need that.
+then your repo will include this repo's entire history. You don't need it.
 
 ## Is this a PR I see before me?
 

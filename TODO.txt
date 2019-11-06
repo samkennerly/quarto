@@ -1,5 +1,4 @@
 ASAP:
-  - update README
   - add Markdown tests
   - try with new mistune. update index.html?
   - try with older Pythons (no black). update index.html?
