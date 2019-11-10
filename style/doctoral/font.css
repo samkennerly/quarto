@@ -39,6 +39,9 @@ main var {
   font-size: .8rem;
 }
 /* font nav */
+nav {
+  text-transform: capitalize;
+}
 nav a[rel="home"] {
   font-size: 1.6rem;
 }

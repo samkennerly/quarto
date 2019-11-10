@@ -45,7 +45,8 @@ main var {
 }
 /* font nav */
 nav {
-  text-transform: uppercase;
+  font-variant: small-caps;
+  text-transform: capitalize;
 }
 nav a[rel="home"] {
   font-size: 2rem;
