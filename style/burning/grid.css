@@ -6,8 +6,8 @@ body {
   grid-column-gap: 0;
   grid-row-gap: .25rem;
   grid-template-areas:
-    'jump'
     'nav'
+    'jump'
     'main'
     'icons'
     'klf';
