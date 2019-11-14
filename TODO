@@ -1,6 +1,6 @@
 ASAP:
-  - add Markdown tests?
   - Mistune version: Dockerfile, index.html
+  - style/doctoral <nav> needs no min-height.
   - "free space" in klf() section?
   - check index.html for stale info
   - tag release v0.0.1
