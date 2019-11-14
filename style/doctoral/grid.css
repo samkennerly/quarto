@@ -8,11 +8,15 @@ body {
   grid-template-areas:
     'nav icons'
     'nav main'
-    'nav jump'
+    'nav klf'
     'nav .'
-    'nav klf';
-  grid-template-columns: auto minmax(0,1fr);
+    'nav jump';
+  grid-template-columns: 1fr minmax(0,5fr);
   grid-template-rows: auto 1fr auto .5vh auto;
+  margin: .5vh .5vw;
+  max-width: 99vw;
+  min-height: 99vh;
+  overflow-y: scroll;
 }
 main {
   grid-area: main;
