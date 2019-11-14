@@ -1,5 +1,5 @@
 {
-  "meta": {"description": "Quarto style example: adrift"},
+"description": "Quarto style: adrift",
   "styles": ["adrift.css"],
-  "title": "Adrift style"
+  "title": "style/adrift"
 }

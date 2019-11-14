@@ -1,5 +1,6 @@
 {
-  "meta": {"description": "Quarto style example: celestial"},
+  "author": "Sam Kennerly, Jennifer Blair",
+  "description": "Quarto style: celestial",
   "styles": ["celestial.css"],
   "title": "Celestial style"
 }

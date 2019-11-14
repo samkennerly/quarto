@@ -16,7 +16,6 @@ except ImportError as err:
         """ None: Show error caused by trying to import Markdown parser. """
         raise ImportError(f"Cannot parse Markdown: {err}")
 
-
 class Quire(Mapping):
     """
     Generate web pages from HTML fragments and/or Markdown files.
@@ -121,12 +120,8 @@ class Quire(Mapping):
         """ Iterator[str]: All lines in page. """
         page = self / page
 
-        yield "<!DOCTYPE html>"
-        yield "<html>"
-        yield "<head>"
-        yield "<title>"
-        yield title or page.stem.replace("_", " ")
-        yield "</title>"
+        yield "<!DOCTYPE html>\n<html>\n<head>"
+        yield f'<title>{title or page.stem.replace("_", " ")}</title>'
         yield from self.links(page, **kwargs)
         yield from self.meta(page, **kwargs)
         yield "</head>"
@@ -141,9 +136,7 @@ class Quire(Mapping):
         yield from self.icons(page, **kwargs)
         yield from self.jump(page, **kwargs)
         yield from self.klf(page, **kwargs)
-        yield "</body>"
-        yield "</html>"
-        yield ""
+        yield "</body>\n</html>\n"
 
     # Home page
 
@@ -186,7 +179,7 @@ class Quire(Mapping):
 
     def jump(self, page, jscripts=(), nextlink="", prevlink="", updog="", **kwargs):
         """
-        Iterator[str]: #jump section for scripts and back-to-top link.
+        Iterator[str]: #jump section for scripts and previous/up/next links.
         And I know, reader, just how you feel.
         You got to scroll past the pop-ups to get to what's real.
         """
@@ -207,22 +200,26 @@ class Quire(Mapping):
             yield f'<script src="{urlpath(src)}" async></script>'
         yield "</section>"
 
-    def klf(self, page, copyright="", email="", license=(), qlink="", **kwargs):
+    def klf(self, page, address="", copyright="", email="", klftext="", license=(), qlink="", **kwargs):
         """
-        Iterator[str]: #klf section for copyright, license, and final elements.
+        Iterator[str]: #klf section for copyright, license, and fine print.
         They're justified, and they're ancient. I hope you understand.
         """
-        QHOME = self.QHOME
 
         yield '<section id="klf">'
         if copyright:
             yield f'<span id="copyright">{copyright}</span>'
         if license:
             yield '<a href="{}" rel="license">{}</a>'.format(*license)
-        if qlink:
-            yield f'<a href="{QHOME}" rel="generator">{qlink}</a>'
+        if address:
+            yield f"<address>{address}</address>"
         if email:
             yield f"<address>{email}</address>"
+        if qlink:
+            yield f'<a href="{self.QHOME}">{qlink}</a>'
+        if klftext:
+            yield f'<span id="klftext">{klftext}</span>'
+
         yield "</section>"
 
     def links(self, page, base="", favicon="", styles=(), **kwargs):
@@ -240,14 +237,19 @@ class Quire(Mapping):
         for sheet in styles:
             yield link("stylesheet", urlpath(page, folder / sheet))
 
-    def meta(self, page, meta=(), **kwargs):
+    def meta(self, page, author="", description="", generator="", meta=(), **kwargs):
         """ Iterator[str]: <meta> tags in page <head>. """
-        mtag = '<meta name="{}" content="{}">'.format
 
         yield '<meta charset="utf-8">'
-        yield mtag("viewport", "width=device-width, initial-scale=1.0")
-        for k, v in dict(meta).items():
-            yield mtag(k, v)
+        yield '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
+        if author:
+            yield f'<meta name="author" content="{author}">'
+        if description:
+            yield f'<meta name="description" content="{description}">'
+        if generator:
+            yield f'<meta name="generator" content="{generator}">'
+        for key, val in dict(meta).items():
+            yield f'<meta name="{key}" content="{val}">'
 
     def nav(self, page, homelink="home", **kwargs):
         """ Iterator[str]: <nav> element with links to other pages in site. """

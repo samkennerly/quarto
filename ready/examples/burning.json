@@ -1,5 +1,5 @@
 {
-  "meta": {"description": "Quarto style example: burning"},
+  "description": "Quarto style: burning",
   "styles": ["burning.css"],
-  "title": "Burning style"
+  "title": "style/burning"
 }

@@ -1,8 +1,11 @@
 {
+  "author": "Sam Kennerly",
   "base": "https://quarto.neocities.org/",
   "copyright": "© Sam Kennerly 2019.",
+  "description": "Build lean websites with Python 3. No installation required.",
   "email": "quarto.sites@gmail.com",
   "favicon": "favicon.ico",
+  "generator": "https://github.com/samkennerly/quarto/",
   "homelink": "Quarto",
   "icons": [
     [
@@ -18,7 +21,7 @@
     [
       "Neocities",
       "media/icons/neocities.svg",
-      "https://neocities.org/site/quarto"
+      "https://neocities.org/site/quarto/"
     ],
     [
       "Twitter",
@@ -27,16 +30,14 @@
     ]
   ],
   "jscripts": [
-
   ],
+  "klftext": "Hosted by <a href=\"https://neocities.org/\">Neocities</a>.",
   "license": [
     "https://creativecommons.org/licenses/by/4.0",
     "Licensed under a CC BY 4.0 license."
   ],
   "meta": {
-    "author": "Sam Kennerly",
-    "description": "Build lean websites with Python 3. No installation required.",
-    "keywords": "HTML, CSS, fat web, python, static website, tidy"
+    "keywords": "CSS, HTML, lean web, markdown, python, static website, tidy"
   },
   "nextlink": "►►",
   "prevlink": "◄◄",
