@@ -16,6 +16,7 @@ except ImportError as err:
         """ None: Show error caused by trying to import Markdown parser. """
         raise ImportError(f"Cannot parse Markdown: {err}")
 
+
 class Quire(Mapping):
     """
     Generate web pages from HTML fragments and/or Markdown files.
@@ -81,7 +82,11 @@ class Quire(Mapping):
     @classmethod
     def apply(cls, style, sheet):
         """ None: Cat CSS files from style folder and write to one file. """
-        cls.write("".join(map(str.strip, cls.stylecat(style))), sheet)
+        stylecat, write = cls.stylecat, cls.write
+
+        style = "".join(map(str.strip, stylecat(style)))
+        print("Write", sheet)
+        write(style, sheet)
 
     def build(self, target):
         """ None: Generate each page and write to target folder. """
@@ -98,7 +103,7 @@ class Quire(Mapping):
         """ None: Save clean page <body> contents to target folder. """
         tidybody, validpath = cls.tidybody, cls.validpath
 
-        source, target = map(validpath, (source, target))
+        source, target = validpath(source), validpath(target)
         for dirty in source.rglob("*.html"):
             clean = target / dirty.relative_to(source)
             print("Tidy", clean)
@@ -118,14 +123,12 @@ class Quire(Mapping):
 
     def generate(self, page, title="", **kwargs):
         """ Iterator[str]: All lines in page. """
-        page = self / page
 
         yield "<!DOCTYPE html>\n<html>\n<head>"
         yield f'<title>{title or page.stem.replace("_", " ")}</title>'
         yield from self.links(page, **kwargs)
         yield from self.meta(page, **kwargs)
-        yield "</head>"
-        yield "<body>"
+        yield "</head>\n<body>"
         yield from self.nav(page, **kwargs)
         yield "<main>"
         if page.suffix == ".md":
@@ -143,9 +146,10 @@ class Quire(Mapping):
     @property
     def home(self):
         """ Path: Absolute path to home page. """
-        folder, home = self.folder, self._home
+        home = self._home
 
         if home is None:
+            folder = self.folder
             found = (x for x in folder.glob("index.*") if x.suffix != ".json")
             home = next(found, None)
             if not home:
@@ -165,10 +169,7 @@ class Quire(Mapping):
         Links can be JPEGs, PNGs, ICOs or even GIFs.
         Consider SVG so there's no scaling glitch. (I love it.)
         """
-        folder, pages, urlpath = self.folder, self.pages, self.urlpath
-
-        page = folder / page
-        i, n = pages.index(page), len(pages)
+        folder, urlpath = self.folder, self.urlpath
 
         yield '<section id="icons">'
         for alt, src, href in icons:
@@ -200,35 +201,35 @@ class Quire(Mapping):
             yield f'<script src="{urlpath(src)}" async></script>'
         yield "</section>"
 
-    def klf(self, page, address="", copyright="", email="", klftext="", license=(), qlink="", **kwargs):
+    def klf(
+        self, page, copyright="", email="", klftext="", license=(), qlink="", **kwargs
+    ):
         """
         Iterator[str]: #klf section for copyright, license, and fine print.
         They're justified, and they're ancient. I hope you understand.
         """
+        urlpath = self.urlpath
 
         yield '<section id="klf">'
         if copyright:
             yield f'<span id="copyright">{copyright}</span>'
         if license:
-            yield '<a href="{}" rel="license">{}</a>'.format(*license)
-        if address:
-            yield f"<address>{address}</address>"
-        if email:
-            yield f"<address>{email}</address>"
+            href, text = license
+            yield f'<a href="{urlpath(page, href)}" rel="license">{text}</a>'
         if qlink:
             yield f'<a href="{self.QHOME}">{qlink}</a>'
         if klftext:
             yield f'<span id="klftext">{klftext}</span>'
-
+        if email:
+            yield f"<address>{email}</address>"
         yield "</section>"
 
     def links(self, page, base="", favicon="", styles=(), **kwargs):
         """ Iterator[str]: <link> tags in page <head>. """
-        home, urlpath = self.home, self.urlpath
+        folder, home, urlpath = self.folder, self.home, self.urlpath
 
-        folder = home.parent
-        page = (folder / page).with_suffix(".html")
         link = '<link rel="{}" href="{}">'.format
+        page = (folder / page).with_suffix(".html")
 
         if base:
             yield link("canonical", posixjoin(base, urlpath(home, page)))
@@ -239,23 +240,22 @@ class Quire(Mapping):
 
     def meta(self, page, author="", description="", generator="", meta=(), **kwargs):
         """ Iterator[str]: <meta> tags in page <head>. """
+        mtag = '<meta name="{}" content="{}">'.format
 
         yield '<meta charset="utf-8">'
-        yield '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
+        yield mtag("viewport", "width=device-width, initial-scale=1.0")
         if author:
-            yield f'<meta name="author" content="{author}">'
+            yield mtag("author", author)
         if description:
-            yield f'<meta name="description" content="{description}">'
+            yield mtag("description", description)
         if generator:
-            yield f'<meta name="generator" content="{generator}">'
-        for key, val in dict(meta).items():
-            yield f'<meta name="{key}" content="{val}">'
+            yield mtag("generator", generator)
+        yield from (mtag(k, v) for k, v in dict(meta).items())
 
     def nav(self, page, homelink="home", **kwargs):
         """ Iterator[str]: <nav> element with links to other pages in site. """
         home, pages, urlpath = self.home, self.pages, self.urlpath
 
-        page = home.parent / page
         opendirs = frozenset(page.parents)
         workdirs = frozenset(home.parents)
 
