@@ -50,6 +50,9 @@ nav a[rel="home"] {
   font-size: 1.5rem;
 }
 /* font others */
+#jump {
+  font-size: .75rem;
+}
 #klf {
   font-size: .75rem;
 }

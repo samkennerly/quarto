@@ -4,7 +4,7 @@ https://www.w3schools.com/css/css_units.asp
 */
 :root {
   --marge: 1rem auto;
-  --padme: .1rem .2rem;
+  --padme: .2rem;
   --puffy: .5rem 1rem;
 }
 body {
@@ -44,7 +44,9 @@ main table th {
   padding: var(--padme);
 }
 /* embiggen nav */
-nav,
+nav {
+  padding: var(--puffy);
+}
 nav a,
 nav details {
   padding: var(--padme);
@@ -61,8 +63,11 @@ nav summary {
   margin: .25rem .75rem;
   width: 1.5rem;
 }
+#jump {
+  padding: var(--padme);
+}
 #jump a {
-  padding: var(--puffy);
+  margin: 0 1rem;
 }
 #klf {
   padding: var(--puffy);
