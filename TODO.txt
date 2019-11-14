@@ -1,11 +1,12 @@
 ASAP:
-  - add Markdown tests
-  - try with new mistune. update index.html?
-  - try with older Pythons (no black). update index.html?
+  - add Markdown tests?
+  - Mistune version: Dockerfile, index.html
+  - "free space" in klf() section?
+  - check index.html for stale info
   - tag release v0.0.1
 
 CODE:
-  - "free space" in klf() section?
+  - older Pythons: no black, f-strings?
   - type hints?
   - Google search bar?
   - three.js example script
@@ -27,7 +28,6 @@ STYLES:
   - graphic: graph gallery
 
 TESTING:
-  - are f-strings slowing everything down?
   - does chain() generate pages faster?
   - what happens if old tidy is called?
   - nav: arrow keys, disability access OK?
