@@ -1,7 +1,0 @@
-# Dotfiles and dotfolders
-**/.*
-
-# Yo dawg I herd U like Docker
-.dockerignore
-Dockerfile
-kitchen
