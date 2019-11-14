@@ -22,6 +22,8 @@ nav {
 }
 #jump {
   grid-area: jump;
+  position: sticky;
+  bottom: 0;
 }
 #klf {
   grid-area: klf;
