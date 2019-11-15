@@ -1,5 +1,4 @@
 ASAP:
-  - update docs/page_options.html
   - update index.html with Mistune version
   - check index.html for stale info
   - autoformat, rebuild, upload

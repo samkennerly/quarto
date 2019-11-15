@@ -31,6 +31,11 @@
 <h2 id="complete_options">Complete Options of Quarto</h2>
 <p>Leave an option blank if you don't want it. Quartos do not <a href="https://www.urbandictionary.com/define.php?term=autocarrot">autocarrot</a> blank options.</p>
 <dl>
+  <dt>author</dt>
+  <dd>Page author name(s).</dd>
+  <dd>
+    <pre>"Will Shakespeare, C. Marlowe"</pre>
+  </dd>
   <dt>base</dt>
   <dd>
     The <a href="https://en.wikipedia.org/wiki/Canonical_link_element">canonical URL</a> for your site with the <a href="https://www.w3.org/TR/WD-html40-970917/htmlweb.html#relative-urls">path component</a> removed.
@@ -41,12 +46,19 @@
   <dt>copyright</dt>
   <dd>Copyright statement.</dd>
   <dd>
-    <pre>"© Sam Kennerly 2019."</pre>
+    <pre>"© Will Shakespeare 2019."</pre>
+  </dd>
+  <dt>description</dt>
+  <dd>
+    Page description for <a href="https://moz.com/learn/seo/meta-description">search engines</a>.
+  </dd>
+  <dd>
+    <pre>"In Scotland, no one can hear you scream."</pre>
   </dd>
   <dt>email</dt>
   <dd>Email address to display.</dd>
   <dd>
-    <pre>"samkennerly@gmail.com"</pre>
+    <pre>"quarto.sites@gmail.com"</pre>
   </dd>
   <dt>favicon</dt>
   <dd>
@@ -54,6 +66,11 @@
   </dd>
   <dd>
     <pre>"favicon.ico"</pre>
+  </dd>
+  <dt>generator</dt>
+  <dd>Link to the code which built this page.</dd>
+  <dd>
+    <pre>"https://github.com/samkennerly/quarto/"</pre>
   </dd>
   <dt>homelink</dt>
   <dd>Text label for link to home page in &lt;nav&gt; menu.</dd>
@@ -64,8 +81,8 @@
   <dd>List of [alt text, image path, link target] for each icon in the <code>#icons</code> section.</dd>
   <dd>
     <pre>[
-  [ "GitHub", "media/icons/github.svg", "https://github.com/samkennerly" ],
-  [ "Twitter", "media/icons/twitter.png", "https://twitter.com/data_lore/" ]
+  ["Neocities", "media/icons/neocities.png", "https://neocities.org/site/quarto/"],
+  ["Twitter", "media/icons/twitter.svg", "https://twitter.com/quartosites/"]
 ]
 </pre>
   </dd>
@@ -78,6 +95,11 @@
 ]
 </pre>
   </dd>
+  <dt>klftext</dt>
+  <dd>Extra HTML in #klf section at the bottom of the page.</dd>
+  <dd>
+    <pre>"&lt;a href=\"https://neocities.org/\"&gt;Hosted by Neocities&lt;/a&gt;.",</pre>
+  </dd>
   <dt>license</dt>
   <dd>Path to license and text label.</dd>
   <dd>
@@ -88,11 +110,10 @@
 </pre>
   </dd>
   <dt>meta</dt>
-  <dd>{ name: content } for each &lt;meta&gt; tag.</dd>
+  <dd>{name: content} for any extra &lt;meta&gt; tags.</dd>
   <dd>
     <pre>{
-  "author": "Wm. Shakespeare",
-  "description": "In Scotland, no one can hear you scream."
+  "keywords": "airdrawndagger, cawdor, macduff, scottish play, spot"
 }
 </pre>
   </dd>
