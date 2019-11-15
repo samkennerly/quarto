@@ -7,12 +7,6 @@ https://www.w3schools.com/css/css_units.asp
   --padme: .25em .5em;
   --puffy: .75rem 1.5rem;
 }
-body {
-  margin: 0 auto;
-  max-width: 1024px;
-  min-height: 99vh;
-  overflow-y: scroll;
-}
 body dd,
 body ol,
 body ul {
@@ -64,9 +58,9 @@ nav summary {
   margin: .5rem 0 1.5rem;
   width: 2rem;
 }
-#jump {
-  padding: var(--padme);
+#jump a {
+  margin: 0 .5rem;
 }
 #klf {
-  padding: var(--puffy);
+  margin: var(--marge);
 }

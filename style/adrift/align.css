@@ -26,10 +26,9 @@ nav {
   text-align: center;
 }
 /* align others */
-#klf {
-  text-align: left;
-}
 #jump {
   align-items: center;
-  justify-content: space-around;
+}
+#klf {
+  text-align: left;
 }

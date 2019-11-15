@@ -7,9 +7,13 @@ body {
   grid-row-gap: 0;
   grid-template-areas:
     'nav  main icons'
-    'jump klf  klf';
+    'jump klf  .    ';
   grid-template-columns: auto minmax(0,1fr) auto;
   grid-template-rows: 1fr auto;
+  margin: 0 auto;
+  max-width: 1024px;
+  min-height: 100vh;
+  overflow-y: scroll;
 }
 main {
   grid-area: main;
@@ -22,8 +26,6 @@ nav {
 }
 #jump {
   grid-area: jump;
-  position: sticky;
-  bottom: 0;
 }
 #klf {
   grid-area: klf;
