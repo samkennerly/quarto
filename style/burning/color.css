@@ -17,6 +17,7 @@ body {
   background-color: #ea941d;
   background-image: url("media/tyger.svg");
   background-repeat: repeat-x;
+  background-size: auto 100%;
   color: var(--color-text);
 }
 body a,

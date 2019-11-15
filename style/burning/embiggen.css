@@ -7,13 +7,6 @@ https://www.w3schools.com/css/css_units.asp
   --padme: .2rem;
   --puffy: .5rem 1rem;
 }
-body {
-  background-size: auto 100%;
-  margin: 0 auto;
-  max-width: 800px;
-  min-height: 100vh;
-  overflow-y: scroll;
-}
 /* embiggen main */
 main {
   padding: var(--puffy);
