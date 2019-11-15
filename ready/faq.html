@@ -1,6 +1,6 @@
 <h1>Frequently Asked Questions</h1>
 <hr>
-<h2>Getting started</h2>
+<h2>Installing requirements</h2>
 <dl>
   <dt>How do I install Quarto?</dt>
   <dd>
@@ -10,37 +10,39 @@
   <dd>
     Quarto has no requirements, only <a href="https://www.python.org/dev/peps/pep-0508/#extras">extras</a>.
   </dd>
-  <dt>What are the <code>Dockerfile</code> and <code>kitchen</code> files?</dt>
+  <dt>What is the <code>Dockerfile</code>?</dt>
   <dd>
-    These files are used to build <a href="https://docs.docker.com/develop/">containers</a> for development and testing.
+    This file is only used to build <a href="https://docs.docker.com/develop/">dev containers</a>. Delete it if you don't want it.
   </dd>
 </dl>
 <hr>
 <h2>Setting options</h2>
 <dl>
-  <dt>How do I set page options?</dt>
-  <dd>
-    See <a href="docs/page_options.html">page options</a> for details.
-  </dd>
-  <dt>Where are the site options?</dt>
-  <dd>Quartos have no site options. Use the home page options in <code>index.json</code>.</dd>
   <dt>Can I build a site without icons, an email, a license, ...?</dt>
   <dd>
     Yes. Leave those options blank. See <a href="docs/page_options.html">page options</a> for details.
   </dd>
-  <dt>What are the <code>meta</code> things in options files?</dt>
+  <dt>How do I set page options?</dt>
   <dd>
-    The <code>meta</code> option specifies &lt;meta&gt; tags for the &lt;head&gt; element of each page. There is some debate about which tags are useful <a href="https://en.wikipedia.org/wiki/Metadata">metadata</a> and which are <a href="https://twobithistory.org/2018/05/27/semantic-web.html#semweb-hucksters-and-their-metacrap">metacrap</a>.
+    See the <a href="docs/page_options.html">page options docs</a> for details.
+  </dd>
+  <dt>Where are the site options?</dt>
+  <dd>
+    Quartos have no site options. Home options in <code>index.json</code> are applied to all pages except when they are overruled by <a href="docs/page_options.html">page options</a> files.
+  </dd>
+  <dt>Can I add my own <code>meta</code> tags?</dt>
+  <dd>
+    Yes. Add them to the <code>"meta"</code> field in <a href="docs/page_options.html">page options</a>. There is some debate about which tags are useful <a href="https://en.wikipedia.org/wiki/Metadata">metadata</a> and which are <a href="https://twobithistory.org/2018/05/27/semantic-web.html#semweb-hucksters-and-their-metacrap">metacrap</a>.
   </dd>
 </dl>
 <hr>
 <h2>Changing styles</h2>
 <dl>
-  <dt>How do I change colors, fonts, ... ?</dt>
+  <dt>How do I change background images, colors, fonts, ... ?</dt>
   <dd>
     Edit the <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS files</a> in the <code>style</code> folder.
   </dd>
-  <dt>Can I use my own stylesheets?</dt>
+  <dt>Can I add custom stylesheets?</dt>
   <dd>
     Yes. Add any <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS files</a> you want to the <code>style</code> folder.
   </dd>
@@ -50,7 +52,7 @@
   </dd>
 </dl>
 <hr>
-<h2>Publishing a website</h2>
+<h2>Publishing websites</h2>
 <dl>
   <dt>How do I publish a website?</dt>
   <dd>
@@ -80,16 +82,16 @@
   <dd>Quartos are more lazy and more transparent.</dd>
   <dt>What are some other static website generators?</dt>
   <dd>
-    <ul>
-      <li>Go: <a href="https://gohugo.io/">Hugo</a>
-      </li>
-      <li>JavaScript: <a href="https://www.11ty.io/">Eleventy</a>, <a href="https://hexo.io/">Hexo</a>, <a href="https://metalsmith.io/">Metalsmith</a>, <a href="https://vuepress.vuejs.org/">VuePress</a>
-      </li>
-      <li>Python: <a href="https://github.com/hyde/hyde">Hyde</a>, <a href="https://www.getlektor.com/">Lektor</a>, <a href="https://www.mkdocs.org/">MkDocs</a>, <a href="https://getnikola.com/">Nikola</a>, <a href="https://blog.getpelican.com/">Pelican</a>
-      </li>
-      <li>Ruby: <a href="https://jekyllrb.com/">Jekyll</a>, <a href="https://middlemanapp.com/">Middleman</a>, <a href="https://nanoc.ws/">Nanoc</a>, <a href="https://webgen.gettalong.org/">Webgen</a>
-      </li>
-    </ul>
+    Go: <a href="https://gohugo.io/">Hugo</a>
+  </dd>
+  <dd>
+    JavaScript: <a href="https://www.11ty.io/">Eleventy</a>, <a href="https://hexo.io/">Hexo</a>, <a href="https://metalsmith.io/">Metalsmith</a>, <a href="https://vuepress.vuejs.org/">VuePress</a>
+  </dd>
+  <dd>
+    Python: <a href="https://github.com/hyde/hyde">Hyde</a>, <a href="https://www.getlektor.com/">Lektor</a>, <a href="https://www.mkdocs.org/">MkDocs</a>, <a href="https://getnikola.com/">Nikola</a>, <a href="https://blog.getpelican.com/">Pelican</a>
+  </dd>
+  <dd>
+    Ruby: <a href="https://jekyllrb.com/">Jekyll</a>, <a href="https://middlemanapp.com/">Middleman</a>, <a href="https://nanoc.ws/">Nanoc</a>, <a href="https://webgen.gettalong.org/">Webgen</a>
   </dd>
   <dt>Do quartos build dynamic websites?</dt>
   <dd>
@@ -107,12 +109,12 @@
 <hr>
 <h2>Design principles</h2>
 <dl>
-  <dt>Is Quarto a framework?</dt>
-  <dd>
-    No. Quartos avoid <a href="https://en.wikipedia.org/wiki/Inversion_of_control">inversion of control</a>, <a href="https://en.wikipedia.org/wiki/Spaghetti_code#Lasagna_code">abstraction layers</a>, and <a href="https://en.wikipedia.org/wiki/Obfuscation_(software)">obfuscation</a>.
-  </dd>
   <dt>Where are all the modal windows?</dt>
   <dd>I click to bury pop-ups, not engage them.</dd>
+  <dt>Is Quarto a web application framework?</dt>
+  <dd>
+    No. Quartos avoid <a href="https://en.wikipedia.org/wiki/Inversion_of_control">control inversion</a>, <a href="https://en.wikipedia.org/wiki/Spaghetti_code#Lasagna_code">middleware layers</a>, and <a href="https://en.wikipedia.org/wiki/Obfuscation_(software)">abstraction</a>.
+  </dd>
   <dt>Why does the logo have cat ears?</dt>
   <dd>
     Quartos are meant to be <a href="https://en.wikipedia.org/wiki/Software_bloat">small</a>, <a href="https://en.wikipedia.org/wiki/Installation_(computer_programs)#Clean_installation">clean</a>, <a href="https://en.wikipedia.org/wiki/Lazy_evaluation">lazy</a>, <a href="https://en.wikipedia.org/wiki/Dependency_hell">independent</a> string <a href="https://en.wikipedia.org/wiki/Cat_(Unix)">concatenators</a>.
