@@ -15,18 +15,18 @@
 <h2 id="whats_in_a_name">What's in a name?</h2>
 <p>If the path to a page is:</p>
 <pre>ready/examples/adrift.html</pre>
-<p>then that page's options (if any) must be in a file named:</p>
+<p>then that page's option file (if it exists) must be named:</p>
 <pre>ready/examples/adrift.json</pre>
 <hr>
 <h2 id="sites_are_merriest">Sites are merriest when they have a home.</h2>
 <p>Quarto sites <mark>must</mark> have a home page.</p>
 <ul>
   <li>The home page must be named <code>index.html</code> or ...</li>
-  <li><code>index.md</code>, <code>index.rst</code>, <code>index.htm</code>, or any other suffix except <code>.json</code>.</li>
-  <li>If <code>index.json</code> exists, then its values are defaults for any missing options.</li>
-  <li>If a page has no options file, then all its values will be filled with default values.</li>
+  <li><code>index.md</code>, <code>index.rst</code>, <code>index.htm</code>, or any suffix but <code>.json</code>.</li>
+  <li>The name <code>index.json</code> is reserved for home page options.</li>
+  <li>Home page options are defaults for any missing page options.</li>
 </ul>
-<p>Any <a href="https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2">relative paths</a> in options files should be <em>from the site's home page</em>.</p>
+<p>Any <a href="https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2">relative URLs</a> in options files must be paths <em>from the home page</em>.</p>
 <hr>
 <h2 id="complete_options">Complete Options of Quarto</h2>
 <p>Leave an option blank if you don't want it. Quartos do not <a href="https://www.urbandictionary.com/define.php?term=autocarrot">autocarrot</a> blank options.</p>
@@ -41,7 +41,7 @@
     The <a href="https://en.wikipedia.org/wiki/Canonical_link_element">canonical URL</a> for your site with the <a href="https://www.w3.org/TR/WD-html40-970917/htmlweb.html#relative-urls">path component</a> removed.
   </dd>
   <dd>
-    <pre>"https://quarto.neocities.org/"</pre>
+    <pre>"https://bad-quarto.neocities.org/"</pre>
   </dd>
   <dt>copyright</dt>
   <dd>Copyright statement.</dd>
@@ -87,7 +87,9 @@
 </pre>
   </dd>
   <dt>jscripts</dt>
-  <dd>List of paths to scripts.</dd>
+  <dd>
+    List of <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> sources.
+  </dd>
   <dd>
     <pre>[
   "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js",
@@ -96,7 +98,7 @@
 </pre>
   </dd>
   <dt>klftext</dt>
-  <dd>Extra HTML in #klf section at the bottom of the page.</dd>
+  <dd>Extra HTML in <code>#klf</code> section at the bottom of the page.</dd>
   <dd>
     <pre>"&lt;a href=\"https://neocities.org/\"&gt;Hosted by Neocities&lt;/a&gt;.",</pre>
   </dd>
@@ -110,7 +112,7 @@
 </pre>
   </dd>
   <dt>meta</dt>
-  <dd>{name: content} for any extra &lt;meta&gt; tags.</dd>
+  <dd>Name and content for any extra &lt;meta&gt; tags.</dd>
   <dd>
     <pre>{
   "keywords": "airdrawndagger, cawdor, macduff, scottish play, spot"
@@ -144,7 +146,7 @@
 </pre>
   </dd>
   <dt>title</dt>
-  <dd>Text of page &lt;title&gt; element.</dd>
+  <dd>Page &lt;title&gt;.</dd>
   <dd>
     <pre>"Macbeth II: Toil and Trouble"</pre>
   </dd>
