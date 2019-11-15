@@ -1,6 +1,7 @@
 ASAP:
-  - check index.html for stale info
-  - autoformat, rebuild, upload
+  - upload
+  - update bad-quarto
+  - update not_found.html and upload
   - tag release v0.0.1
 
 CODE:
