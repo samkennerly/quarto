@@ -1,5 +1,4 @@
 ASAP:
-  - update index.html with Mistune version
   - check index.html for stale info
   - autoformat, rebuild, upload
   - tag release v0.0.1
