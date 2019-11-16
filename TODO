@@ -1,8 +1,8 @@
 ASAP:
-  - tag release v0.0.1
+  - check with phone. screen flicker when scrolling?
+  - bard-quarto: speed benchmark from shakespeare.mit.edu
 
 CODE:
-  - older Pythons: no black, f-strings?
   - javascript style selector? only one example.html needed.
   - use mypy type hints?
   - Google search bar? DuckDuckGo?
@@ -13,12 +13,10 @@ CODE:
   - Bottle or Flask demo app? Caddy?
 
 REPOS:
-  - bard-quarto: speed benchmark from shakespeare.mit.edu
   - misfire: racing mistune. fork or use mistune-contrib ?
   - neosync: Neocities uploader. see github.com/neocities/python-neocities
 
 STYLES:
-  - screen flicker when scrolling?
   - waffle layout for galleries?
   - elemental: browser defaults
   - fatuous: ties the room together
