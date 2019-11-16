@@ -1,7 +1,4 @@
 ASAP:
-  - upload
-  - update bad-quarto
-  - update not_found.html and upload
   - tag release v0.0.1
 
 CODE:
