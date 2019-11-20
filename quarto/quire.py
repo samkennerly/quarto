@@ -39,7 +39,7 @@ class Quire(Mapping):
 
     OPTIONS = "index.json"
     PAGES = "pages.txt"
-    QHOME = "https://github.com/samkennerly/quarto"
+    QHOME = "https://quarto.neocities.org/"
 
     def __init__(self, folder="."):
         self.folder = Path(folder).resolve()
