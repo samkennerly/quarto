@@ -1,4 +1,4 @@
-FROM python:3.6.9
+FROM python:3.8.0
 LABEL description="Python development sandbox"
 LABEL maintainer="samkennerly@gmail.com"
 
@@ -12,7 +12,6 @@ RUN apt-get -y update && apt-get -y install \
 
 # Install Python packages
 RUN pip install --upgrade pip && pip install \
-  black==19.3b0 \
   Cython==0.29.13 \
   mistune==0.8.4
 
