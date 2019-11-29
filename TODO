@@ -1,22 +1,18 @@
 ASAP:
-  - Android/Chrome screen flicker from background image?
   - bard-quarto: speed benchmark from shakespeare.mit.edu
 
 CODE:
+  - Google search bar? DuckDuckGo?
+  - gallery: build an image gallery. see https://github.com/Jack000/Expose
   - javascript style selector? only one example.html needed.
   - use mypy type hints?
-  - Google search bar? DuckDuckGo?
   - three.js example script
-  - gallery: build an image gallery. see https://github.com/Jack000/Expose
   - multithreading: one page per core?
   - tidylib C bindings (see https://github.com/nijel/utidylib)
   - Bottle or Flask demo app? Caddy?
 
-REPOS:
-  - misfire: racing mistune. fork or use mistune-contrib ?
-  - neosync: Neocities uploader. see github.com/neocities/python-neocities
-
 STYLES:
+  - Android/Chrome screen flicker from background image?
   - waffle layout for galleries?
   - elemental: browser defaults
   - fatuous: ties the room together
