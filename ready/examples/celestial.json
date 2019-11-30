@@ -1,6 +1,6 @@
 {
   "author": "Sam Kennerly, Jennifer Blair",
-  "description": "Quarto style: celestial",
+  "description": "Quarto example style.",
   "styles": ["celestial.css"],
-  "title": "Celestial style"
+  "title": "Quarto style: celestial"
 }
