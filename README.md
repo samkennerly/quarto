@@ -1,6 +1,6 @@
 # quarto
 
-Quartos build websites with Python 3.
+Quartos build websites.
 
 Docs and examples are here:
 [quarto.neocities.org](https://quarto.neocities.org/)
