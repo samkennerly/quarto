@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-# Delete, clean, and build all pages.
-
-quarto/delete html && quarto/clean && quarto/build

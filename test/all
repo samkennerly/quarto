@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+set -ex
+source kitchen
+
+for tag in 3.6.9 3.7.5 3.6.9
+do
+  serve $tag test/reset &&
+  serve $tag test/remark
+done

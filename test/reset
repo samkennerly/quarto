@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
-# Delete and reapply all styles.
+# Rebuild and restyle site.
 
+quarto/delete html &&
+quarto/clean &&
+quarto/build &&
 quarto/delete css && \
 quarto/apply style/adrift && \
 quarto/apply style/adrift proof/adrift.css &&  \
