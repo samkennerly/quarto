@@ -1,7 +1,7 @@
-<h1>Build lean websites with Python 3.</h1>
+<h1>Build lean websites with Python.</h1>
 <p>Quartos build websites. (This site is one.)</p>
 <ul>
-  <li>Write each page's <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main">&lt;main&gt;</a> element in <a href="https://en.wikipedia.org/wiki/HTML">HTML5</a> or <a href="https://daringfireball.net/projects/markdown/">Markdown</a>.
+  <li>Write each page's <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main">&lt;main&gt;</a> element in <a href="https://en.wikipedia.org/wiki/HTML5">HTML5</a> or <a href="https://daringfireball.net/projects/markdown/">Markdown</a>.
   </li>
   <li>Create <a href="docs/page_options.html">options files</a> for each page, or don't. Options are optional.
   </li>
@@ -26,26 +26,20 @@
 </ul>
 <p>Download the original <q>stock</q> quarto as a ZIP file or use it as a <a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template">template</a>:</p>
 <h3><a href="https://github.com/samkennerly/quarto">github.com/samkennerly/quarto</a></h3>
-<p>Choose any name you want for your first quarto. (Mine is <a href="https://github.com/samkennerly/bad-quarto/">bad-quarto</a>.)</p>
+<p>Rename the folder if you want to. Mine is <a href="https://github.com/samkennerly/bad-quarto/">bad-quarto</a>.</p>
 <hr>
 <h2 id="install_some_extras">Install extras?</h2>
-<p><strong>Python 3.6+</strong> is required. Some features require <a href="https://www.python.org/dev/peps/pep-0508/#extras">extras</a>:</p>
+<p>Quarto scripts require <strong>Python 3.6+</strong>. Some features require <a href="https://www.python.org/dev/peps/pep-0508/#extras">extras</a>:</p>
 <ul>
   <li><strong><a href="http://www.html-tidy.org/">Tidy 5.6+</a></strong> to run the <code>quarto/clean</code> script</li>
   <li>
     <strong><a href="https://mistune.readthedocs.io/en/latest/">Mistune 0.8</a></strong> to build pages from <a href="https://daringfireball.net/projects/markdown/">Markdown</a> files
   </li>
-  <li>
-    <del>Bottle to run a web server</del> <mark>under construction</mark>
-  </li>
-  <li>
-    <del>ImageMagick to build galleries</del> <mark>under construction</mark>
-  </li>
 </ul>
-<p>Quartos do not need to be installed. To remove a quarto, delete it.</p>
+<p>Quartos do not need to be installed. To remove a quarto project, delete it.</p>
 <hr>
 <h2 id="rewrite_the_pages">Rewrite the pages.</h2>
-<p>Any <a href="https://en.wikipedia.org/wiki/Plain_text">plain text</a> editor can read and write pages, options, styles, and code.</p>
+<p>Any <a href="https://en.wikipedia.org/wiki/Plain_text">plain text</a> editor can read and write quarto pages, options, styles, and code.</p>
 <dl>
   <dt>Remove the stock pages.</dt>
   <dd>Delete everything in the <code>ready</code> folder except these files:</dd>
@@ -54,7 +48,7 @@
 ready/index.json
 </code></pre>
   </dd>
-  <dd>Delete the <code>test</code> folder and files in the top-level folder if you want to.</dd>
+  <dd>Delete the <code>test</code> folder and loose files in the top-level folder if you want to.</dd>
   <dd>
     Any change you might regret can be undone with <a href="https://git-scm.com/docs/git-reset">git reset</a>.
   </dd>
@@ -73,7 +67,7 @@ ready/index.json
   <dd>
     This page has a <a href="https://www.w3schools.com/tags/tag_hn.asp">heading</a>, a <a href="https://www.w3schools.com/tags/tag_p.asp">paragraph</a>, and an <a href="https://www.w3schools.com/tags/tag_img.asp">image</a> inside a <a href="https://www.w3schools.com/tags/tag_a.asp">link</a>.
   </dd>
-  <dd>It's merely an example. Any other valid HTML5 or Markdown will do.</dd>
+  <dd>It's just an example. Any other valid HTML5 or Markdown will do.</dd>
   <dt>Edit the home options.</dt>
   <dd>Replace <code>ready/index.json</code> with this text:</dd>
   <dd>
@@ -103,7 +97,7 @@ ready/index.json
 </code></pre>
   </dd>
   <dd>Options in <code>not_found.json</code> are only used for the <code>not_found.html</code> page.</dd>
-  <dd>Missing values will be replaced with values from <code>index.json</code>.</dd>
+  <dd>Missing options will be replaced with values from <code>index.json</code>.</dd>
 </dl>
 <hr>
 <h2 id="rebuild_the_site">Rebuild the site.</h2>
@@ -115,10 +109,12 @@ ready/index.json
   <dd>
     <pre><code>quarto/delete html &amp;& quarto/delete css</code></pre>
   </dd>
-  <dd>Git ignores empty folders. You'll have to delete the cat pictures yourself.</dd>
+  <dd>You'll have to delete the empty folders and cat pictures yourself.</dd>
   <dt>clean</dt>
   <dd>Clean and <mark>overwrite</mark> HTML files in the <code>ready</code> folder.</dd>
-  <dd>(Skip this step if you only write Markdown or don't want to install Tidy.)</dd>
+  <dd>
+    (Skip this script if you only write <a href="https://daringfireball.net/projects/markdown/">Markdown</a> or don't have <a href="http://www.html-tidy.org/">Tidy</a> installed.)
+  </dd>
   <dd>
     <pre><code>quarto/clean
 </code></pre>
@@ -128,15 +124,17 @@ ready/index.json
   </dd>
   <dt>build</dt>
   <dd>Build <code>proof</code> pages and from <code>ready</code> pages.</dd>
-  <dd>(This does not copy, delete, or move files, but it can <mark>overwrite</mark> built pages.)</dd>
+  <dd>(This does not copy, delete, or move files, but it <mark>overwrites</mark> proof pages.)</dd>
   <dd>
     <pre><code>quarto/build
 </code></pre>
   </dd>
   <dd>Store any media files in the <code>proof</code> folder. Quarto scripts will not touch them.</dd>
   <dt>apply</dt>
-  <dd>Apply a style from a subfolder in the <code>style</code> folder.</dd>
-  <dd>(Use one of the stock styles, add your own CSS files, or both.)</dd>
+  <dd>Apply the <em>celestial</em> style from the <code>style</code> folder.</dd>
+  <dd>
+    (Choose another stock style or add your own <a href="https://www.w3.org/standards/webdesign/htmlcss#whatcss">stylesheets</a> if you want to.)
+  </dd>
   <dd>
     <pre><code>quarto/apply style/celestial
 </code></pre>
@@ -145,4 +143,4 @@ ready/index.json
     This script finds CSS files <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob">recursively</a> and <a href="https://en.wikipedia.org/wiki/Cat_(Unix)">cats</a> them into <code>proof/style.css</code>.
   </dd>
 </dl>
-<p>Open <code>proof/index.html</code> in a browser to behold your brave new website.</p>
+<p>Open <code>proof/index.html</code> in any browser to behold your brave new quarto.</p>
