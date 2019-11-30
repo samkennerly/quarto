@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+# Test with multiple Python versions.
+# Caution: Docker images must already exist.
 
 set -ex
 source kitchen
