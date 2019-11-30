@@ -44,7 +44,7 @@
 <h1>Build lean websites with Python 3.</h1>
 <p>Quartos build websites. (This site is one.)</p>
 <ul>
-  <li>Write each page's <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main">&lt;main&gt;</a> element in <a href="https://en.wikipedia.org/wiki/HTML">HTML</a> or <a href="https://daringfireball.net/projects/markdown/">Markdown</a>.
+  <li>Write each page's <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main">&lt;main&gt;</a> element in <a href="https://en.wikipedia.org/wiki/HTML">HTML5</a> or <a href="https://daringfireball.net/projects/markdown/">Markdown</a>.
   </li>
   <li>Create <a href="docs/page_options.html">options files</a> for each page, or don't. Options are optional.
   </li>
@@ -71,7 +71,7 @@
 <h3><a href="https://github.com/samkennerly/quarto">github.com/samkennerly/quarto</a></h3>
 <p>Choose any name you want for your first quarto. (Mine is <a href="https://github.com/samkennerly/bad-quarto/">bad-quarto</a>.)</p>
 <hr>
-<h2 id="install_some_extras">Install some extras?</h2>
+<h2 id="install_some_extras">Install extras?</h2>
 <p><strong>Python 3.6+</strong> is required. Some features require <a href="https://www.python.org/dev/peps/pep-0508/#extras">extras</a>:</p>
 <ul>
   <li><strong><a href="http://www.html-tidy.org/">Tidy 5.6+</a></strong> to run the <code>quarto/clean</code> script</li>
@@ -97,6 +97,7 @@
 ready/index.json
 </code></pre>
   </dd>
+  <dd>Delete the <code>test</code> folder and files in the top-level folder if you want to.</dd>
   <dd>
     Any change you might regret can be undone with <a href="https://git-scm.com/docs/git-reset">git reset</a>.
   </dd>
@@ -113,8 +114,9 @@ ready/index.json
 </code></pre>
   </dd>
   <dd>
-    This page has a <a href="https://www.w3schools.com/tags/tag_hn.asp">heading</a>, a <a href="https://www.w3schools.com/tags/tag_p.asp">paragraph</a>, and an <a href="https://www.w3schools.com/tags/tag_img.asp">image</a> which <a href="https://www.w3schools.com/tags/tag_a.asp">links</a> to the stock quarto.
+    This page has a <a href="https://www.w3schools.com/tags/tag_hn.asp">heading</a>, a <a href="https://www.w3schools.com/tags/tag_p.asp">paragraph</a>, and an <a href="https://www.w3schools.com/tags/tag_img.asp">image</a> inside a <a href="https://www.w3schools.com/tags/tag_a.asp">link</a>.
   </dd>
+  <dd>It's merely an example. Any other valid HTML5 or Markdown will do.</dd>
   <dt>Edit the home options.</dt>
   <dd>Replace <code>ready/index.json</code> with this text:</dd>
   <dd>
@@ -133,6 +135,7 @@ ready/index.json
   <dd>
     <a href="docs/page_options.html">Options</a> are optional. Omit an option or leave it blank if you don't want it.
   </dd>
+  <dd>This example has a blank <code>email</code> field. The Bard did not have Mail.</dd>
   <dt>Add some page options.</dt>
   <dd>Create <code>ready/not_found.json</code> with this text:</dd>
   <dd>
@@ -142,20 +145,23 @@ ready/index.json
 }
 </code></pre>
   </dd>
+  <dd>Options in <code>not_found.json</code> are only used for the <code>not_found.html</code> page.</dd>
   <dd>Missing values will be replaced with values from <code>index.json</code>.</dd>
 </dl>
 <hr>
 <h2 id="rebuild_the_site">Rebuild the site.</h2>
-<p>Open a <a href="https://en.wikipedia.org/wiki/Command-line_interface">terminal</a>, <a href="https://en.wikipedia.org/wiki/Cd_(command)">cd</a> to your quarto, and run these commands:</p>
+<p>Open a <a href="https://en.wikipedia.org/wiki/Command-line_interface">terminal</a>, <a href="https://en.wikipedia.org/wiki/Cd_(command)">cd</a> to your quarto project, and run these commands:</p>
 <dl>
   <dt>delete</dt>
-  <dd>Delete all HTML and CSS files from the <code>proof</code> folder:</dd>
+  <dd>Delete old pages and styles from the <code>proof</code> folder.</dd>
+  <dd>(For safety, this only deletes files with <code>HTML</code> and <code>CSS</code> suffixes.)</dd>
   <dd>
     <pre><code>quarto/delete html &amp;& quarto/delete css</code></pre>
   </dd>
-  <dd>For safety reasons, this will not delete any folders, icons, or cat pictures.</dd>
+  <dd>Git ignores empty folders. You'll have to delete the cat pictures yourself.</dd>
   <dt>clean</dt>
-  <dd>Clean and <mark>overwrite</mark> HTML files in the <code>ready</code> folder:</dd>
+  <dd>Clean and <mark>overwrite</mark> HTML files in the <code>ready</code> folder.</dd>
+  <dd>(Skip this step if you only write Markdown or don't want to install Tidy.)</dd>
   <dd>
     <pre><code>quarto/clean
 </code></pre>
@@ -164,14 +170,16 @@ ready/index.json
     Keep your <a href="https://en.wikipedia.org/wiki/Foul_papers">foul papers</a> in another folder if you want to preserve them.
   </dd>
   <dt>build</dt>
-  <dd>Build <code>proof</code> pages and from <code>ready</code> pages:</dd>
+  <dd>Build <code>proof</code> pages and from <code>ready</code> pages.</dd>
+  <dd>(This does not copy, delete, or move files, but it can <mark>overwrite</mark> built pages.)</dd>
   <dd>
     <pre><code>quarto/build
 </code></pre>
   </dd>
-  <dd>This script does not copy, delete, or move any files.</dd>
+  <dd>Store any media files in the <code>proof</code> folder. Quarto scripts will not touch them.</dd>
   <dt>apply</dt>
-  <dd>Apply a style from the <code>style</code> folder:</dd>
+  <dd>Apply a style from a subfolder in the <code>style</code> folder.</dd>
+  <dd>(Use one of the stock styles, add your own CSS files, or both.)</dd>
   <dd>
     <pre><code>quarto/apply style/celestial
 </code></pre>
