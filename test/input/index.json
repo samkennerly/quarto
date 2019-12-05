@@ -12,10 +12,10 @@
     "author": "Sam Kennerly",
     "description": "Quarto test site with Markdown inputs."
   },
-  "nextlink": "►►",
-  "prevlink": "◄◄",
+  "nextlink": "next",
+  "prevlink": "prev",
   "qlink": "Built by a Quarto.",
   "styles": ["style.css"],
   "title": "Quartos build websites.",
-  "updog": "⇪"
+  "updog": "up"
 }
