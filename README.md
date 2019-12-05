@@ -1,6 +1,6 @@
 # quarto
 
-Quartos build lean websites. [quarto.neocities.org]
+Quartos build websites. [quarto.neocities.org]
 
 <img alt="M83" src="proof/media/galaxy.jpg" height="320" width="640">
 
