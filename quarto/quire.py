@@ -121,10 +121,10 @@ class Quire(Mapping):
 
     # Page generator
 
-    def generate(self, page, title="", **kwargs):
+    def generate(self, page, language="", title="", **kwargs):
         """ Iterator[str]: All lines in page. """
 
-        yield "<!DOCTYPE html>\n<html>\n<head>"
+        yield f'<!DOCTYPE html>\n<html lang="{language}">\n<head>'
         yield f'<title>{title or page.stem.replace("_", " ")}</title>'
         yield from self.links(page, **kwargs)
         yield from self.meta(page, **kwargs)
