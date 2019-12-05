@@ -1,18 +1,29 @@
-<h1>Build lean websites with Python.</h1>
-<p>Quartos build websites. (This site is one.)</p>
+<h1>Quartos build websites.</h1>
+<p>This site is one. Scroll through these stanzas to see how it's done.</p>
 <ul>
   <li>Write each page's <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main">&lt;main&gt;</a> element in <a href="https://en.wikipedia.org/wiki/HTML5">HTML5</a> or <a href="https://daringfireball.net/projects/markdown/">Markdown</a>.
   </li>
-  <li>Create <a href="docs/page_options.html">options files</a> for each page, or don't. Options are optional.
+  <li>Create <a href="docs/page_options.html">options files</a> for pages if you want to. Options are optional.
   </li>
   <li>Choose one of <a href="examples/adrift.html">the</a> <a href="examples/burning.html">four</a> <a href="examples/celestial.html">stock</a> <a href="examples/doctoral.html">styles</a>, customize it, or bring your own <a href="https://www.w3.org/standards/webdesign/htmlcss#whatcss">CSS</a>.
   </li>
-  <li>Browse your site <a href="https://www.lifewire.com/how-to-preview-web-pages-3469885">locally</a> and upload it to a <a href="https://en.wikipedia.org/wiki/Web_hosting_service">host</a>. This site is hosted by <a href="https://neocities.org/">Neocities</a>.
+  <li>Browse your site <a href="https://www.lifewire.com/how-to-preview-web-pages-3469885">locally</a> and upload it to a <a href="https://en.wikipedia.org/wiki/Web_hosting_service">host</a>. (This site is hosted by <a href="https://neocities.org/">Neocities</a>.)
   </li>
 </ul>
-<p>Scroll through these stanzas to see how it's done.</p>
+<p>Follow the steps below to build a <a href="https://github.com/samkennerly/bad-quarto/">bad-quarto</a> in the privacy of your own hard disk.</p>
 <hr>
-<h2 id="copy_this_quarto">Copy this quarto.</h2>
+<h2 id="copy_this_quarto">Copy this quarto.</h2><!-- -->
+<p>Download the original <q>stock</q> quarto as a ZIP file or use it as a <a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template">template</a>:</p>
+<h3><a href="https://github.com/samkennerly/quarto">github.com/samkennerly/quarto</a></h3>
+<p>Quarto scripts require <strong>Python 3.6+</strong>. Some features need <a href="https://www.python.org/dev/peps/pep-0508/#extras">extras</a>:</p>
+<ul>
+  <li><strong><a href="http://www.html-tidy.org/">Tidy 5.6+</a></strong> to run the <code>quarto/clean</code> script</li>
+  <li>
+    <strong><a href="https://mistune.readthedocs.io/en/latest/">Mistune 0.8</a></strong> to build pages from <a href="https://daringfireball.net/projects/markdown/">Markdown</a> files
+  </li>
+</ul>
+<hr>
+<h2 id="install_some_extras">Take a quick look.</h2><!-- -->
 <p>A <dfn>quarto project</dfn> is a <a href="https://en.wikipedia.org/wiki/Directory_(computing)">folder</a> with these four subfolders:</p>
 <ul>
   <li>
@@ -24,21 +35,9 @@
     <code>style</code> contains one or more <a href="https://www.w3.org/standards/webdesign/htmlcss#whatcss">stylesheets</a>.
   </li>
 </ul>
-<p>Download the original <q>stock</q> quarto as a ZIP file or use it as a <a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template">template</a>:</p>
-<h3><a href="https://github.com/samkennerly/quarto">github.com/samkennerly/quarto</a></h3>
-<p>Rename the folder if you want to. Mine is <a href="https://github.com/samkennerly/bad-quarto/">bad-quarto</a>.</p>
+<p>To <q>uninstall</q> remove a quarto project, delete the folder.</p>
 <hr>
-<h2 id="install_some_extras">Install extras?</h2>
-<p>Quarto scripts require <strong>Python 3.6+</strong>. Some features require <a href="https://www.python.org/dev/peps/pep-0508/#extras">extras</a>:</p>
-<ul>
-  <li><strong><a href="http://www.html-tidy.org/">Tidy 5.6+</a></strong> to run the <code>quarto/clean</code> script</li>
-  <li>
-    <strong><a href="https://mistune.readthedocs.io/en/latest/">Mistune 0.8</a></strong> to build pages from <a href="https://daringfireball.net/projects/markdown/">Markdown</a> files
-  </li>
-</ul>
-<p>Quartos do not need to be installed. To remove a quarto project, delete it.</p>
-<hr>
-<h2 id="rewrite_the_pages">Rewrite the pages.</h2>
+<h2 id="rewrite_the_pages">Edit the content.</h2><!-- -->
 <p>Any <a href="https://en.wikipedia.org/wiki/Plain_text">plain text</a> editor can read and write quarto pages, options, styles, and code.</p>
 <dl>
   <dt>Remove the stock pages.</dt>
@@ -100,7 +99,7 @@ ready/index.json
   <dd>Missing options will be replaced with values from <code>index.json</code>.</dd>
 </dl>
 <hr>
-<h2 id="rebuild_the_site">Rebuild the site.</h2>
+<h2 id="rebuild_the_site">Rewrite the book.</h2><!-- -->
 <p>Open a <a href="https://en.wikipedia.org/wiki/Command-line_interface">terminal</a>, <a href="https://en.wikipedia.org/wiki/Cd_(command)">cd</a> to your quarto project, and run these commands:</p>
 <dl>
   <dt>delete</dt>
