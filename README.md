@@ -2,7 +2,12 @@
 
 Quartos build websites. [quarto.neocities.org]
 
-<img alt="M83" src="proof/media/galaxy.jpg" height="320" width="640">
+<img
+  alt="M83"
+  src="proof/media/galaxy.jpg"
+  height="320"
+  width="640"
+  title="Look at the horizon grow.">
 
 This repository is a [template].
 It is meant to be copied and customized, not cloned and configured.
