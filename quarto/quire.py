@@ -126,10 +126,10 @@ class Quire(Mapping):
         language = kwargs.setdefault("language", "en")
         title = kwargs.setdefault("title", page.stem.replace("_", ""))
 
-        yield '<!DOCTYPE html>'
+        yield "<!DOCTYPE html>"
         yield f'<html lang="{language}">'
-        yield '<head>'
-        yield f'<title>{title}</title>'
+        yield "<head>"
+        yield f"<title>{title}</title>"
         yield from self.links(page, **kwargs)
         yield from self.meta(page, **kwargs)
         yield "</head>"
@@ -244,7 +244,17 @@ class Quire(Mapping):
         for sheet in styles:
             yield link("stylesheet", urlpath(page, folder / sheet))
 
-    def meta(self, page, author="", base="", description="", meta=(), ogimage="", title="", **kwargs):
+    def meta(
+        self,
+        page,
+        author="",
+        base="",
+        description="",
+        meta=(),
+        ogimage="",
+        title="",
+        **kwargs,
+    ):
         """ Iterator[str]: <meta> tags in page <head>. """
         QHOME, folder, home, urlpath = self.QHOME, self.folder, self.home, self.urlpath
 
@@ -266,7 +276,7 @@ class Quire(Mapping):
             yield mtag("twitter:image:alt", Path(ogimage).stem)
         if title:
             yield ogtag("title", title)
-        yield from ( mtag(k, v) for k, v in dict(meta).items() )
+        yield from (mtag(k, v) for k, v in dict(meta).items())
         yield mtag("generator", QHOME)
 
     def nav(self, page, homelink="home", **kwargs):
