@@ -121,14 +121,19 @@ class Quire(Mapping):
 
     # Page generator
 
-    def generate(self, page, language="", title="", **kwargs):
+    def generate(self, page, language="", **kwargs):
         """ Iterator[str]: All lines in page. """
+        language = kwargs.setdefault("language", "en")
+        title = kwargs.setdefault("title", page.stem.replace("_", ""))
 
-        yield f'<!DOCTYPE html>\n<html lang="{language}">\n<head>'
-        yield f'<title>{title or page.stem.replace("_", " ")}</title>'
+        yield '<!DOCTYPE html>'
+        yield f'<html lang="{language}">'
+        yield '<head>'
+        yield f'<title>{title}</title>'
         yield from self.links(page, **kwargs)
         yield from self.meta(page, **kwargs)
-        yield "</head>\n<body>"
+        yield "</head>"
+        yield "<body>"
         yield from self.nav(page, **kwargs)
         yield "<main>"
         if page.suffix == ".md":
@@ -139,7 +144,8 @@ class Quire(Mapping):
         yield from self.icons(page, **kwargs)
         yield from self.jump(page, **kwargs)
         yield from self.klf(page, **kwargs)
-        yield "</body>\n</html>\n"
+        yield "</body>"
+        yield "</html>"
 
     # Home page
 
@@ -208,7 +214,7 @@ class Quire(Mapping):
         Iterator[str]: #klf section for copyright, license, and fine print.
         They're justified, and they're ancient. I hope you understand.
         """
-        urlpath = self.urlpath
+        QHOME, urlpath = self.QHOME, self.urlpath
 
         yield '<section id="klf">'
         if copyright:
@@ -217,7 +223,7 @@ class Quire(Mapping):
             href, text = license
             yield f'<a href="{urlpath(page, href)}" rel="license">{text}</a>'
         if qlink:
-            yield f'<a href="{self.QHOME}">{qlink}</a>'
+            yield f'<a href="{QHOME}">{qlink}</a>'
         if klftext:
             yield f'<span id="klftext">{klftext}</span>'
         if email:
@@ -238,19 +244,30 @@ class Quire(Mapping):
         for sheet in styles:
             yield link("stylesheet", urlpath(page, folder / sheet))
 
-    def meta(self, page, author="", description="", generator="", meta=(), **kwargs):
+    def meta(self, page, author="", base="", description="", meta=(), ogimage="", title="", **kwargs):
         """ Iterator[str]: <meta> tags in page <head>. """
+        QHOME, folder, home, urlpath = self.QHOME, self.folder, self.home, self.urlpath
+
         mtag = '<meta name="{}" content="{}">'.format
+        ogtag = '<meta property="og:{}" content="{}">'.format
 
         yield '<meta charset="utf-8">'
-        yield mtag("viewport", "width=device-width, initial-scale=1.0")
+        yield '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
         if author:
             yield mtag("author", author)
+        if base:
+            yield ogtag("url", posixjoin(base, urlpath(home, page)))
         if description:
             yield mtag("description", description)
-        if generator:
-            yield mtag("generator", generator)
-        yield from (mtag(k, v) for k, v in dict(meta).items())
+            yield ogtag("description", description)
+        if ogimage:
+            yield ogtag("image", urlpath(page, folder / ogimage))
+            yield mtag("twitter:card", "summary_large_image")
+            yield mtag("twitter:image:alt", Path(ogimage).stem)
+        if title:
+            yield ogtag("title", title)
+        yield from ( mtag(k, v) for k, v in dict(meta).items() )
+        yield mtag("generator", QHOME)
 
     def nav(self, page, homelink="home", **kwargs):
         """ Iterator[str]: <nav> element with links to other pages in site. """

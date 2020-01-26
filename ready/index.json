@@ -5,7 +5,6 @@
   "description": "Build websites with Python 3. No installation required.",
   "email": "quarto.sites@gmail.com",
   "favicon": "favicon.ico",
-  "generator": "https://github.com/samkennerly/quarto/",
   "homelink": "Quarto",
   "icons": [
     [
@@ -41,6 +40,7 @@
     "keywords": "CSS, HTML, lean web, markdown, python, static website, tidy"
   },
   "nextlink": "►►",
+  "ogimage": "media/galaxy.jpg",
   "prevlink": "◄◄",
   "qlink": "Built by a Quarto.",
   "styles": [
