@@ -272,8 +272,6 @@ class Quire(Mapping):
             yield ogtag("description", description)
         if ogimage:
             yield ogtag("image", urlpath(page, folder / ogimage))
-            yield mtag("twitter:card", "summary_large_image")
-            yield mtag("twitter:image:alt", Path(ogimage).stem)
         if title:
             yield ogtag("title", title)
         yield from (mtag(k, v) for k, v in dict(meta).items())
