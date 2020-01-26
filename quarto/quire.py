@@ -49,10 +49,6 @@ class Quire(Mapping):
         """ Iterator[str]: Lines of generated page. """
         return self.generate(page, **self.query(page, **self.options))
 
-    def __fspath__(self):
-        """ str: String representation of base folder. """
-        return str(self.folder)
-
     def __getitem__(self, page):
         """ str: Generated page as a single string. """
         return "\n".join(self(page))
@@ -69,10 +65,6 @@ class Quire(Mapping):
         """ str: Printable representation of self. """
         return f"{type(self).__name__}({self.folder})"
 
-    def __truediv__(self, pathlike):
-        """ Path: Absolute path. If input is relative, then append to base """
-        return self.folder / pathlike
-
     # Commands
 
     @classmethod
@@ -86,20 +78,21 @@ class Quire(Mapping):
 
     def build(self, target):
         """ None: Generate each page and write to target folder. """
-        items, validpath, write = self.items, self.validpath, self.write
+        folder, items, write = self.folder, self.items, self.write
 
-        target = validpath(target)
+        target = Path(target).resolve()
         for path, text in items():
-            path = target / path.relative_to(self).with_suffix(".html")
+            path = target / path.relative_to(folder).with_suffix(".html")
             print("Write", path)
             write(text, path)
 
     @classmethod
     def clean(cls, source, target):
         """ None: Save clean page <body> contents to target folder. """
-        tidybody, validpath = cls.tidybody, cls.validpath
+        tidybody = cls.tidybody
 
-        source, target = validpath(source), validpath(target)
+        source = Path(source).resolve()
+        target = Path(target).resolve()
         for dirty in source.rglob("*.html"):
             clean = target / dirty.relative_to(source)
             print("Tidy", clean)
@@ -108,10 +101,10 @@ class Quire(Mapping):
     @classmethod
     def delete(cls, suffix, target):
         """ None: Remove files with selected suffix and any empty folders. """
-        validpath = cls.validpath
 
-        target = validpath(target)
-        for path in target.rglob("*." + suffix.lstrip(".")):
+        suffix = str(suffix).lstrip(".")
+        target = Path(target).resolve()
+        for path in target.rglob("*." + suffix):
             print("Delete", path)
             path.unlink()
 
@@ -186,11 +179,12 @@ class Quire(Mapping):
         And I know, reader, just how you feel.
         You got to scroll past the pop-ups to get to what's real.
         """
-        path, pages, urlpath = self / page, self.pages, self.urlpath
+        folder, pages, urlpath = self.folder, self.pages, self.urlpath
 
-        i, n = pages.index(path), len(pages)
-        urlprev = urlpath(path, pages[(i - 1) % n].with_suffix(".html"))
-        urlnext = urlpath(path, pages[(i + 1) % n].with_suffix(".html"))
+        page = folder / page
+        i, n = pages.index(page), len(pages)
+        urlprev = urlpath(page, pages[(i - 1) % n].with_suffix(".html"))
+        urlnext = urlpath(page, pages[(i + 1) % n].with_suffix(".html"))
 
         yield '<section id="jump">'
         if prevlink:
@@ -392,11 +386,6 @@ class Quire(Mapping):
             raise ValueError(f"ambiguous page: {page}")
         else:
             return quote(relpath(src, start=page.parent.as_posix()))
-
-    @classmethod
-    def validpath(cls, path):
-        """ Path: Absolute path. Raise error if path does not exist. """
-        return Path(path).resolve(strict=True)
 
     @classmethod
     def write(cls, text, path):
