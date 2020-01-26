@@ -135,6 +135,7 @@ class Quire(Mapping):
         yield from self.klf(page, **kwargs)
         yield "</body>"
         yield "</html>"
+        yield ""
 
     # Home page
 
