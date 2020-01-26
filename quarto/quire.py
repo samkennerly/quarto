@@ -37,10 +37,6 @@ class Quire(Mapping):
     Call help(Quire) for more information.
     """
 
-    OPTIONS = "index.json"
-    PAGES = "pages.txt"
-    QHOME = "https://quarto.neocities.org/"
-
     def __init__(self, folder="."):
         self.folder = Path(folder).resolve()
         self._home = None
@@ -214,7 +210,7 @@ class Quire(Mapping):
         Iterator[str]: #klf section for copyright, license, and fine print.
         They're justified, and they're ancient. I hope you understand.
         """
-        QHOME, urlpath = self.QHOME, self.urlpath
+        urlpath = self.urlpath
 
         yield '<section id="klf">'
         if copyright:
@@ -223,7 +219,7 @@ class Quire(Mapping):
             href, text = license
             yield f'<a href="{urlpath(page, href)}" rel="license">{text}</a>'
         if qlink:
-            yield f'<a href="{QHOME}">{qlink}</a>'
+            yield f'<a href="https://quarto.neocities.org/">{qlink}</a>'
         if klftext:
             yield f'<span id="klftext">{klftext}</span>'
         if email:
@@ -256,7 +252,7 @@ class Quire(Mapping):
         **kwargs,
     ):
         """ Iterator[str]: <meta> tags in page <head>. """
-        QHOME, folder, home, urlpath = self.QHOME, self.folder, self.home, self.urlpath
+        folder, home, urlpath = self.folder, self.home, self.urlpath
 
         mtag = '<meta name="{}" content="{}">'.format
         ogtag = '<meta property="og:{}" content="{}">'.format
@@ -275,7 +271,7 @@ class Quire(Mapping):
         if title:
             yield ogtag("title", title)
         yield from (mtag(k, v) for k, v in dict(meta).items())
-        yield mtag("generator", QHOME)
+        yield mtag("generator", "https://quarto.neocities.org/")
 
     def nav(self, page, homelink="home", **kwargs):
         """ Iterator[str]: <nav> element with links to other pages in site. """
@@ -315,7 +311,7 @@ class Quire(Mapping):
         options = self._options
 
         if options is None:
-            options = self.query(self.folder / self.OPTIONS)
+            options = self.query(self.folder / "index.json")
             self._options = options
 
         return options
@@ -327,7 +323,7 @@ class Quire(Mapping):
 
         if pages is None:
             folder = self.folder
-            pages = folder / self.PAGES
+            pages = folder / "pages.txt"
             if pages.is_file():
                 pages = map(str.strip, self.readlines(pages))
                 pages = tuple(folder / x for x in pages if x)
