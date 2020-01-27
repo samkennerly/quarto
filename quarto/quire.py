@@ -233,17 +233,7 @@ class Quire(Mapping):
         for sheet in styles:
             yield link("stylesheet", urlpath(page, sheet))
 
-    def meta(
-        self,
-        page,
-        author="",
-        base="",
-        description="",
-        meta=(),
-        ogimage="",
-        title="",
-        **kwargs,
-    ):
+    def meta(self, page, author="", description="", meta=(), ogimage="", **kwargs):
         """ Iterator[str]: <meta> tags in page <head>. """
         home, urlpath = self.home, self.urlpath
 
@@ -254,16 +244,12 @@ class Quire(Mapping):
         yield '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
         if author:
             yield mtag("author", author)
-        if base:
-            yield ogtag("url", posixjoin(base, urlpath(home, page)))
         if description:
             yield mtag("description", description)
-            yield ogtag("description", description)
         if ogimage:
             yield ogtag("image", urlpath(page, ogimage))
-        if title:
-            yield ogtag("title", title)
-        yield from (mtag(k, v) for k, v in dict(meta).items())
+        for k, v in dict(meta).items():
+            yield mtag(k, v)
         yield mtag("generator", "https://quarto.neocities.org/")
 
     def nav(self, page, homelink="home", **kwargs):
