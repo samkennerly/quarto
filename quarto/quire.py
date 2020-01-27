@@ -165,11 +165,11 @@ class Quire(Mapping):
         Links can be JPEGs, PNGs, ICOs or even GIFs.
         Consider SVG so there's no scaling glitch. (I love it.)
         """
-        folder, urlpath = self.folder, self.urlpath
+        urlpath = self.urlpath
 
         yield '<section id="icons">'
         for alt, src, href in icons:
-            src = urlpath(page, folder / src)
+            src = urlpath(page, src)
             alt = f'<img alt="{alt}" src="{src}" height="32" title="{alt}">'
             yield f'<a href="{href}">{alt}</a>'
         yield "</section>"
@@ -180,9 +180,8 @@ class Quire(Mapping):
         And I know, reader, just how you feel.
         You got to scroll past the pop-ups to get to what's real.
         """
-        folder, pages, urlpath = self.folder, self.pages, self.urlpath
+        pages, urlpath = self.pages, self.urlpath
 
-        page = folder / page
         i, n = pages.index(page), len(pages)
         urlprev = urlpath(page, pages[(i - 1) % n].with_suffix(".html"))
         urlnext = urlpath(page, pages[(i + 1) % n].with_suffix(".html"))
@@ -223,17 +222,16 @@ class Quire(Mapping):
 
     def links(self, page, base="", favicon="", styles=(), **kwargs):
         """ Iterator[str]: <link> tags in page <head>. """
-        folder, home, urlpath = self.folder, self.home, self.urlpath
+        home, urlpath = self.home, self.urlpath
 
+        page = page.with_suffix(".html")
         link = '<link rel="{}" href="{}">'.format
-        page = (folder / page).with_suffix(".html")
-
         if base:
             yield link("canonical", posixjoin(base, urlpath(home, page)))
         if favicon:
-            yield link("icon", urlpath(page, folder / favicon))
+            yield link("icon", urlpath(page, favicon))
         for sheet in styles:
-            yield link("stylesheet", urlpath(page, folder / sheet))
+            yield link("stylesheet", urlpath(page, sheet))
 
     def meta(
         self,
@@ -247,7 +245,7 @@ class Quire(Mapping):
         **kwargs,
     ):
         """ Iterator[str]: <meta> tags in page <head>. """
-        folder, home, urlpath = self.folder, self.home, self.urlpath
+        home, urlpath = self.home, self.urlpath
 
         mtag = '<meta name="{}" content="{}">'.format
         ogtag = '<meta property="og:{}" content="{}">'.format
@@ -262,7 +260,7 @@ class Quire(Mapping):
             yield mtag("description", description)
             yield ogtag("description", description)
         if ogimage:
-            yield ogtag("image", urlpath(page, folder / ogimage))
+            yield ogtag("image", urlpath(page, ogimage))
         if title:
             yield ogtag("title", title)
         yield from (mtag(k, v) for k, v in dict(meta).items())
@@ -371,22 +369,20 @@ class Quire(Mapping):
         if status and (status != 1):
             raise ChildProcessError("Tidy error status {}".format(status))
 
-    @classmethod
-    def urlpath(cls, page, src):
+    def urlpath(self, page, target):
         """
-        str: URL from page to (local file or remote URL).
-        Inputs must be absolute path-like objects.
+        str: URL from page to target.
+        Target can be an absolute URL, absolute path, or path from base folder.
         """
-        page, src = Path(page), posixjoin(src)
+        folder = self.folder
 
-        if urlsplit(src).scheme:
-            return src
-        elif not src.startswith("/"):
-            raise ValueError(f"ambiguous src: {src}")
-        elif not page.is_absolute():
-            raise ValueError(f"ambiguous page: {page}")
-        else:
-            return quote(relpath(src, start=page.parent.as_posix()))
+        page = folder / page
+        target = str(target)
+        if not urlsplit(target).scheme:
+            target = folder / target
+            target = quote(relpath(target, start=page.parent.as_posix()))
+
+        return target
 
     @classmethod
     def write(cls, text, path):
