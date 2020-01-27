@@ -100,7 +100,7 @@ class Quire(Mapping):
 
     @classmethod
     def delete(cls, suffix, target):
-        """ None: Remove files with selected suffix and any empty folders. """
+        """ None: Remove files with selected suffix. """
 
         suffix = str(suffix).lstrip(".")
         target = Path(target).resolve()
