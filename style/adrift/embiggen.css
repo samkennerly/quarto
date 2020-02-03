@@ -3,15 +3,9 @@ Margin, padding, and size in relative units: em, rem, vh, etc.
 https://www.w3schools.com/css/css_units.asp
 */
 :root {
-  --marge: .75em auto;
+  --marge: 1.5em auto;
   --padme: .25em .5em;
-  --puffy: .75rem 1.5rem;
-}
-body dd,
-body ol,
-body ul {
-  margin-left: 4vw;
-  padding-left: 0;
+  --puffy: .75rem 1.25rem;
 }
 /* embiggen main */
 main {
@@ -20,16 +14,26 @@ main {
 main blockquote,
 main details,
 main pre {
-  margin: var(--marge);
+  margin: 0;
   overflow-x: auto;
   padding: var(--puffy);
 }
-main dt,
+main dd {
+  margin: 0;
+}
+main dt {
+  margin-top: 1.5em;
+}
 main figure,
 main .gallery,
 main hr,
 main iframe {
   margin: var(--marge);
+}
+main ol,
+main ul {
+  margin-left: 4vw;
+  padding-left: 0;
 }
 main table {
   box-sizing: border-box;
@@ -47,6 +51,9 @@ nav,
 nav a,
 nav summary {
   padding: var(--padme);
+}
+nav dd {
+  margin: 0;
 }
 /* embiggen others */
 #icons {
